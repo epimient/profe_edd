@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entorno de Desarrollo: Arduino IDE</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark (Por ejemplo, 'Tomorrow Night') -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        /* Estilo adicional para el contenedor del código con botón de copiar */
+        pre.code-container {
+            position: relative;
+            border-radius: 0.375rem; /* .rounded */
+        }
+        /* Estilo para el botón de copiar dentro del bloque de código */
+        pre.code-container .btn-copy-code {
+            position: absolute;
+            top: 0.25rem; /* Reducido de 0.5rem */
+            right: 0.25rem; /* Reducido de 0.5rem */
+            padding: 0.1rem 0.25rem; /* Reducido significativamente */
+            font-size: 0.65rem; /* Reducido de 0.75rem */
+            line-height: 1; /* Para mejor alineación vertical */
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        /* Mostrar el botón al pasar el mouse sobre el bloque de código */
+        pre.code-container:hover .btn-copy-code {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Entorno de Desarrollo: Arduino IDE</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">Bloque 3.2: Entorno de Desarrollo: Arduino IDE</h1>
+            <p class="fs-4">Aprende los fundamentos de programación en Arduino y cómo estructurar tus primeros sketches.</p>
+        </header>
+
+        <main class="card shadow-sm">
+            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-easel2-fill fs-3 me-3"></i>
+                <div class="flex-grow-1">
+                    <h4 class="alert-heading">Diapositivas del Tema</h4>
+                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los conceptos.</p>
+                </div>
+                <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación &rarr;</a>
+            </div>
+            <div class="alert alert-info d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-code-slash fs-3 me-3"></i>
+                <div>
+                    <h4 class="alert-heading">¿Qué es un Sketch?</h4>
+                    <p class="mb-0">Un sketch es el nombre que Arduino le da a un programa. Es un archivo de texto con extensión <code>.ino</code> que contiene instrucciones en un lenguaje basado en C/C++ que le dice al microcontrolador qué hacer.</p>
+                </div>
+            </div>
+            <div class="card-body p-4 pt-0">
+                
+                <h2 class="card-title">1. Estructura Básica de un Sketch de Arduino</h2>
+                <p>Todo sketch de Arduino tiene una estructura fundamental que debes conocer. Esta estructura define el flujo de ejecución del programa.</p>
+                <pre class="bg-dark text-white p-3 rounded"><code>// Sección de Directivas de Preprocesador (Opcional)
+// #include &lt;Libreria.h&gt;
+// #define CONSTANTE valor
+
+// Sección de Declaración Global de Variables (Opcional)
+// int miVariable = 0;
+
+void setup() {
+  // Código que se ejecuta UNA SOLA VEZ al inicio
+  // Configuración de pines, inicialización de comunicación serial, etc.
+}
+
+void loop() {
+  // Código que se ejecuta REPETIDAMENTE después de setup()
+  // Lógica principal del programa
+}</code></pre>
+                <ul>
+                    <li><strong><code>void setup()</code>:</strong> Esta función se ejecuta una única vez cuando el Arduino se enciende o se presiona el botón de reset. Es el lugar ideal para inicializar variables, configurar modos de pines (entrada/salida), iniciar comunicación serial, etc.</li>
+                    <li><strong><code>void loop()</code>:</strong> Esta función se ejecuta continuamente en un bucle infinito, una vez que termina <code>setup()</code>. Aquí va la lógica principal de tu programa, lo que quieres que el Arduino haga repetidamente (leer sensores, controlar actuadores, tomar decisiones).</li>
+                </ul>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">2. Declaración de Variables</h2>
+                <p>Las variables se utilizan para almacenar información que puede cambiar durante la ejecución del programa, como el valor de un sensor, el estado de un botón o un contador.</p>
+                <h4 class="mt-4">Tipos de Datos Comunes</h4>
+                <table class="table table-striped table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Rango de Valores</th>
+                            <th>Ejemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>int</code></td>
+                            <td>Número entero</td>
+                            <td>-32,768 a 32,767</td>
+                            <td><code>int contador = 0;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>long</code></td>
+                            <td>Número entero largo</td>
+                            <td>-2,147,483,648 a 2,147,483,647</td>
+                            <td><code>long tiempoInicio = 0;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>float</code></td>
+                            <td>Número decimal (punto flotante)</td>
+                            <td>±3.4028235E+38 (6-7 dígitos decimales)</td>
+                            <td><code>float temperatura = 25.6;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>bool</code> o <code>boolean</code></td>
+                            <td>Valor lógico</td>
+                            <td><code>true</code> o <code>false</code></td>
+                            <td><code>bool estadoLED = false;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>char</code></td>
+                            <td>Un solo carácter</td>
+                            <td>-128 a 127</td>
+                            <td><code>char letra = 'A';</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-secondary mt-3">
+                    <strong>Nota sobre Memoria:</strong> Elegir el tipo de dato correcto es importante, especialmente en microcontroladores con recursos limitados. Por ejemplo, si sabes que una variable nunca será negativa y su valor máximo es 255, usar <code>byte</code> (0-255) es más eficiente que <code>int</code> (-32,768 a 32,767).
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">3. Configuración de Pines: <code>pinMode()</code></h2>
+                <p>Antes de usar un pin, debes configurar si va a actuar como entrada o como salida. Esto se hace con la función <code>pinMode()</code>.</p>
+                <p><strong>Sintaxis:</strong> <code>pinMode(numero_de_pin, MODO);</code></p>
+                <ul>
+                    <li><code>numero_de_pin</code>: El número del pin físico del Arduino (por ejemplo, 13, A0).</li>
+                    <li><code>MODO</code>: Puede ser:
+                        <ul>
+                            <li><code>INPUT</code>: El pin actúa como entrada, para leer un sensor o un botón.</li>
+                            <li><code>OUTPUT</code>: El pin actúa como salida, para controlar un LED o un motor.</li>
+                            <li><code>INPUT_PULLUP</code>: Configura el pin como entrada con una resistencia pull-up interna activada. Útil para botones sin resistencias externas.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Ejemplos:</strong></p>
+                <pre class="bg-dark text-white p-3 rounded"><code>// Configura el pin 13 como salida (por ejemplo, para un LED)
+pinMode(13, OUTPUT);
+
+// Configura el pin 2 como entrada (por ejemplo, para un botón)
+pinMode(2, INPUT);
+
+// Configura el pin A0 como entrada con pull-up
+pinMode(A0, INPUT_PULLUP);</code></pre>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">4. Control Digital: <code>digitalWrite()</code> y <code>digitalRead()</code></h2>
+                <p>Estas funciones son fundamentales para interactuar con el mundo físico a través de los pines digitales.</p>
+
+                <h4 class="mt-4">4.1. Escribiendo en un Pin: <code>digitalWrite()</code></h4>
+                <p>Envía una señal digital (HIGH o LOW) a un pin configurado como salida.</p>
+                <p><strong>Sintaxis:</strong> <code>digitalWrite(numero_de_pin, VALOR);</code></p>
+                <ul>
+                    <li><code>numero_de_pin</code>: El número del pin de salida.</li>
+                    <li><code>VALOR</code>: Puede ser:
+                        <ul>
+                            <li><code>HIGH</code>: Establece el pin a 5V (o 3.3V en placas de 3.3V).</li>
+                            <li><code>LOW</code>: Establece el pin a 0V (GND).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Ejemplo:</strong></p>
+                <pre class="bg-dark text-white p-3 rounded"><code>// Enciende el LED conectado al pin 13
+digitalWrite(13, HIGH);
+
+// Apaga el LED conectado al pin 13
+digitalWrite(13, LOW);</code></pre>
+
+                <h4 class="mt-4">4.2. Leyendo de un Pin: <code>digitalRead()</code></h4>
+                <p>Lee el valor digital (HIGH o LOW) de un pin configurado como entrada. Devuelve <code>HIGH</code> o <code>LOW</code>.</p>
+                <p><strong>Sintaxis:</strong> <code>int valor = digitalRead(numero_de_pin);</code></p>
+                <ul>
+                    <li><code>numero_de_pin</code>: El número del pin de entrada.</li>
+                    <li>El valor devuelto se almacena típicamente en una variable de tipo <code>int</code>.</li>
+                </ul>
+                <p><strong>Ejemplo:</strong></p>
+                <pre class="bg-dark text-white p-3 rounded"><code>// Lee el estado del botón conectado al pin 2
+int estadoBoton = digitalRead(2);
+
+// Ahora puedes usar 'estadoBoton' en condiciones
+if (estadoBoton == HIGH) {
+  // El botón está presionado
+  digitalWrite(13, HIGH); // Enciende el LED
+} else {
+  // El botón no está presionado
+  digitalWrite(13, LOW);  // Apaga el LED
+}</code></pre>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">5. Ejemplo Práctico: Control de LED con un Botón</h2>
+                <p>Vamos a aplicar lo aprendido en un ejemplo práctico. Este sketch leerá el estado de un botón conectado a un pin de entrada y usará ese estado para encender o apagar un LED conectado a un pin de salida.</p>
+                
+                <h4 class="mt-4">5.1. Materiales Necesarios</h4>
+                <ul>
+                    <li>1 Arduino UNO (o compatible)</li>
+                    <li>1 Protoboard</li>
+                    <li>1 Botón pulsador</li>
+                    <li>1 LED</li>
+                    <li>1 Resistencia de 220Ω (para el LED)</li>
+                    <li>1 Resistencia de 10kΩ (para el botón, aunque se puede usar la pull-up interna)</li>
+                    <li>Cables de conexión (jumper wires)</li>
+                </ul>
+                <div class="alert alert-info">
+                    <strong>Consejo:</strong> Para simplificar el circuito, usaremos la resistencia pull-up interna del Arduino para el botón, por lo que no necesitarás la resistencia de 10kΩ externa.
+                </div>
+
+                <h4 class="mt-4">5.2. Esquema de Conexión (Circuito)</h4>
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/700x400?text=Esquema+LED+Botón+Arduino" class="img-fluid rounded shadow-sm" alt="Esquema de conexión del LED y botón al Arduino">
+                    <figcaption class="figure-caption mt-2">Conexión del LED al pin 13 y el botón al pin 2 del Arduino UNO. La resistencia de 220Ω está en serie con el LED. El botón conecta el pin 2 a GND cuando se presiona.</figcaption>
+                </figure>
+                <p><strong>Conexiones:</strong></p>
+                <ul>
+                    <li><strong>LED:</strong> El ánodo (pata larga) al pin 13 del Arduino. El cátodo (pata corta) a una resistencia de 220Ω, y el otro extremo de la resistencia a GND.</li>
+                    <li><strong>Botón:</strong> Una pata del botón al pin 2 del Arduino. La pata opuesta del botón a GND. El pin 2 se configura con <code>INPUT_PULLUP</code>, por lo que no se necesita una resistencia externa.</li>
+                </ul>
+
+                <h4 class="mt-4">5.3. Código del Sketch</h4>
+                <p>A continuación se presenta el código del sketch. Cada parte está comentada para explicar su función.</p>
+                <!-- Bloque de Código Copiable con Resaltado de Sintaxis Prism.js -->
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código">
+                        <i class="bi bi-clipboard"></i> Copiar
+                    </button><code class="language-cpp" id="led-button-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
+
+<span class="token comment">/*
+  Control de LED con Botón
+
+  Este sketch lee el estado de un botón conectado al pin 2.
+  Cuando el botón está presionado (conectado a GND), enciende un LED conectado al pin 13.
+  Cuando el botón no está presionado, el LED está apagado.
+
+  Autor: Prof. Eduardo Pimienta
+  Fecha: Mayo 2024
+*/</span>
+
+<span class="token comment">// --- Sección de Declaración de Variables ---</span>
+<span class="token comment">// Definimos constantes para los números de pin.</span>
+<span class="token comment">// Usar constantes hace el código más legible y fácil de modificar.</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> ledPin <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>      <span class="token comment">// El número del pin donde está conectado el LED</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> buttonPin <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>     <span class="token comment">// El número del pin donde está conectado el botón</span>
+
+<span class="token comment">// Variable para almacenar el estado del botón</span>
+<span class="token keyword">int</span> buttonState <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>         <span class="token comment">// Variable que guardará el valor leído del botón (HIGH o LOW)</span>
+
+<span class="token comment">// --- Fin de la Sección de Declaración de Variables ---</span>
+
+<span class="token comment">// --- Función setup() ---</span>
+<span class="token comment">// Se ejecuta una sola vez al inicio</span>
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Inicializamos el pin del LED como una salida.</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>ledPin<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Inicializamos el pin del botón como una entrada con resistencia pull-up interna.</span>
+  <span class="token comment">// Esto significa que el pin leerá HIGH cuando el botón NO esté presionado,</span>
+  <span class="token comment">// y LOW cuando el botón ESTÉ presionado (conectado a GND).</span>
+  <span class="token function">pinMode</span><span class="token punctuation">(</span>buttonPin<span class="token punctuation">,</span> INPUT_PULLUP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// --- Fin de la Función setup() ---</span>
+
+<span class="token comment">// --- Función loop() ---</span>
+<span class="token comment">// Se ejecuta repetidamente después de setup()</span>
+<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Leemos el estado actual del botón (HIGH o LOW).</span>
+  buttonState <span class="token operator">=</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span>buttonPin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Comprobamos si el botón está presionado.</span>
+  <span class="token comment">// Debido a INPUT_PULLUP, el botón está presionado cuando buttonState es LOW.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>buttonState <span class="token operator">==</span> LOW<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Si el botón está presionado, encendemos (HIGH) el LED.</span>
+    <span class="token function">digitalWrite</span><span class="token punctuation">(</span>ledPin<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Si el botón NO está presionado, apagamos (LOW) el LED.</span>
+    <span class="token function">digitalWrite</span><span class="token punctuation">(</span>ledPin<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// Un pequeño retardo para estabilizar la lectura (opcional pero recomendado)</span>
+  <span class="token comment">// delay(10); </span>
+<span class="token punctuation">}</span>
+<span class="token comment">// --- Fin de la Función loop() ---</span></code></pre>
+
+                <h4 class="mt-4">5.4. Explicación del Código</h4>
+                <ol>
+                    <li><strong>Declaración de Variables:</strong>
+                        <ul>
+                            <li><code>const int ledPin = 13;</code> y <code>const int buttonPin = 2;</code>: Se definen constantes para los números de pin. Esto mejora la legibilidad del código y facilita futuras modificaciones. Usar <code>const</code> indica que estos valores no cambiarán durante la ejecución.</li>
+                            <li><code>int buttonState = 0;</code>: Se declara una variable entera para almacenar temporalmente el valor leído del pin del botón.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Función <code>setup()</code>:</strong>
+                        <ul>
+                            <li><code>pinMode(ledPin, OUTPUT);</code>: Configura el pin 13 (donde está el LED) como una salida.</li>
+                            <li><code>pinMode(buttonPin, INPUT_PULLUP);</code>: Configura el pin 2 (donde está el botón) como entrada con la resistencia pull-up interna activada. Esto hace que el pin lea <code>HIGH</code> cuando el botón no está presionado y <code>LOW</code> cuando sí lo está.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Función <code>loop()</code>:</strong>
+                        <ul>
+                            <li><code>buttonState = digitalRead(buttonPin);</code>: Lee el estado actual del pin 2 y almacena el valor (<code>HIGH</code> o <code>LOW</code>) en la variable <code>buttonState</code>.</li>
+                            <li><code>if (buttonState == LOW) { ... } else { ... }</code>: Una estructura condicional verifica el valor de <code>buttonState</code>.
+                                <ul>
+                                    <li>Si es <code>LOW</code> (botón presionado), se ejecuta <code>digitalWrite(ledPin, HIGH);</code> para encender el LED.</li>
+                                    <li>Si no es <code>LOW</code> (botón no presionado, es <code>HIGH</code>), se ejecuta <code>digitalWrite(ledPin, LOW);</code> para apagar el LED.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Este ejemplo combina todos los conceptos aprendidos: declaración de variables, configuración de pines con <code>pinMode()</code>, lectura digital con <code>digitalRead()</code> y escritura digital con <code>digitalWrite()</code>.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">6. Galería de Videos Recomendados</h2>
+                <p>Profundiza en el uso del Arduino IDE y ejemplos prácticos.</p>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/2VcN73cs8wI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Introducción al Arduino IDE</h5>
+                                <p class="card-text">Una guía paso a paso sobre cómo instalar, configurar y usar el entorno de desarrollo de Arduino.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/CqrQmQ9Ev5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Arduino UNO Tutorial</h5>
+                                <p class="card-text">Un tutorial completo que cubre desde lo básico hasta proyectos más avanzados con Arduino UNO.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">7. Referencias y Lecturas Recomendadas</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="https://www.arduino.cc/reference/en/" target="_blank">Referencia del Lenguaje Arduino</a> - Documentación oficial de todas las funciones y estructuras del lenguaje Arduino.</li>
+                    <li class="list-group-item">Banzi, M. (2008). <em>Getting Started with Arduino</em>. O'Reilly Media.</li>
+                    <li class="list-group-item">Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media.</li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- Sequential Navigation -->
+        <nav class="d-flex justify-content-between mt-4">
+            <a href="arquitecturas-arduino-esp.html" class="btn btn-primary">&larr; Tema Anterior</a>
+            <a href="programacion-entradas-salidas.html" class="btn btn-primary">Siguiente Tema &rarr;</a>
+        </nav>
+
+        <footer class="mt-5 text-center">
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <!-- Script para copiar código -->
+    <script>
+        function copyCodePrism(button) {
+            // Encuentra el elemento <code> hermano (o dentro del mismo padre <pre>)
+            const codeElement = button.nextElementSibling || button.parentElement.querySelector('code');
+            if (codeElement) {
+                // Obtiene el texto del código. Prism.js a veces agrega elementos span, 
+                // pero textContent debería obtener el texto plano correctamente.
+                const codeText = codeElement.textContent;
+                navigator.clipboard.writeText(codeText).then(() => {
+                    // Feedback visual
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = '<i class="bi bi-check"></i> ¡Copiado!';
+                    button.classList.remove('btn-outline-light');
+                    button.classList.add('btn-success');
+                    setTimeout(() => {
+                         button.innerHTML = originalHTML;
+                         button.classList.remove('btn-success');
+                         button.classList.add('btn-outline-light');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Error al copiar el texto: ', err);
+                    alert('Error al copiar el código. Por favor, inténtalo manualmente.');
+                });
+            } else {
+                console.error('No se pudo encontrar el elemento de código para copiar.');
+            }
+        }
+    </script>
+</body>
+</html>

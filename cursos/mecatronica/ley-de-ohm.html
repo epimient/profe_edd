@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley de Ohm y Circuitos Eléctricos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ley de Ohm y Circuitos Eléctricos</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">Tema 1: Ley de Ohm y Circuitos Eléctricos</h1>
+            <p class="fs-4">Conceptos fundamentales sobre la relación entre voltaje, corriente y resistencia.</p>
+        </header>
+
+        <main class="card shadow-sm">
+            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-easel2-fill fs-3 me-3"></i>
+                <div class="flex-grow-1">
+                    <h4 class="alert-heading">Diapositivas del Tema</h4>
+                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los conceptos.</p>
+                </div>
+                <a href="https://ley-de-ohm-95i33gh.gamma.site/" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación &rarr;</a>
+            </div>
+            <div class="card-body p-4 pt-0">
+                
+                <h2 class="card-title">1. ¿Qué es la Energía Eléctrica?</h2>
+                <p>Imagina la energía eléctrica como un río invisible de partículas diminutas llamadas <strong>electrones</strong>. Cuando estos electrones se mueven en orden a través de un material (como un cable), crean un flujo que llamamos electricidad. Es la energía que alimenta tu teléfono, enciende las luces y hace funcionar casi toda la tecnología que nos rodea. [1]</p>
+                <div class="alert alert-info mt-3">
+                    <strong>Nota Clave: La Ley de la Conservación de la Energía</strong>
+                    <p class="mb-0">Una regla fundamental del universo es que la energía no se crea ni se destruye, solo se transforma. La electricidad es un ejemplo perfecto: la energía de una represa (potencial) se convierte en movimiento (cinética), luego en energía eléctrica, que al llegar a tu casa se transforma en luz, calor o sonido.</p>
+                </div>
+                <h3 class="mt-4">Corriente Continua (DC) vs. Corriente Alterna (AC)</h3>
+                <p>El "río" de electrones puede fluir de dos maneras:</p>
+                <ul>
+                    <li><strong>Corriente Continua (DC - Direct Current):</strong> Los electrones fluyen en <strong>una sola dirección</strong>, como el agua en un río. Es la energía que usan las baterías, los cargadores de teléfono y la mayoría de los aparatos electrónicos internamente.</li>
+                    <li><strong>Corriente Alterna (AC - Alternating Current):</strong> Los electrones cambian de dirección constantemente, vibrando hacia adelante y hacia atrás muy rápidamente (en la mayoría de los países, 50 o 60 veces por segundo). Es la energía que llega a los enchufes de tu casa.</li>
+                </ul>
+                <!-- IMAGEN AC/DC -->
+                <figure class="text-center my-4">
+                    <img src="../../assets/ac-dc.jpg" class="img-fluid rounded shadow-sm" alt="Diagrama comparando Corriente Alterna y Corriente Continua">
+                    <figcaption class="figure-caption mt-2">Comparación visual: la onda senoidal de AC frente a la línea recta de DC.</figcaption>
+                </figure>
+                <div class="alert alert-warning">
+                    <strong>Curiosidad:</strong> ¿Por qué usamos AC en casa? Porque es mucho más fácil y eficiente cambiar su voltaje con transformadores. La energía se transporta a voltajes altísimos desde las centrales eléctricas y luego se "reduce" a un nivel seguro para usar en nuestros hogares.
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">2. Prefijos de Unidades: El Lenguaje de las Magnitudes</h2>
+                <p>En electrónica y en muchas otras ciencias, a menudo trabajamos con números extremadamente grandes o extremadamente pequeños. Para hacerlos más manejables y fáciles de leer, utilizamos los <strong>prefijos de unidades</strong> del Sistema Internacional (SI).</p>
+                <div class="alert alert-info mt-3">
+                    <strong>Nota Curiosa:</strong><br>
+                    Si el prefijo es "kilo, mega, giga, tera"  Es <strong>GRANDE</strong> (miles, millones, miles de millones, billones).<br>
+                    Si el prefijo es "mili, micro, nano, pico"  Es <strong>PEQUEÑO</strong> (milésimas, millonésimas, milmillonésimas, billonésimas).
+                </div>
+                <p>Estos prefijos nos permiten expresar magnitudes de forma concisa. Por ejemplo, en lugar de decir "1.000.000 ohmios", decimos "1 Megaohmio".</p>
+                <table class="table table-striped table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr><th>Prefijo</th><th>Símbolo</th><th>Valor</th><th>Ejemplo Cotidiano</th><th>Ejemplo Electrónico</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tera</td><td>T</td><td>10<sup>12</sup> (1,000,000,000,000)</td><td>1 TB (Terabyte) de disco duro</td><td>1 THz (Terahercio) de frecuencia</td></tr>
+                        <tr><td>Giga</td><td>G</td><td>10<sup>9</sup> (1,000,000,000)</td><td>8 GB (Gigabytes) de RAM</td><td>1 GHz (Gigahercio) de procesador</td></tr>
+                        <tr><td>Mega</td><td>M</td><td>10<sup>6</sup> (1,000,000)</td><td>100 Mbps (Megabits por segundo) de internet</td><td>1 MΩ (Megaohmio) de resistencia</td></tr>
+                        <tr><td>Kilo</td><td>k</td><td>10<sup>3</sup> (1,000)</td><td>1 kg (kilogramo)</td><td>1 kΩ (Kiloohmio) de resistencia</td></tr>
+                        <tr><td>Mili</td><td>m</td><td>10<sup>-3</sup> (0.001)</td><td>1 mm (milímetro)</td><td>1 mA (miliamperio) de corriente</td></tr>
+                        <tr><td>Micro</td><td>µ</td><td>10<sup>-6</sup> (0.000001)</td><td>1 µm (micrómetro)</td><td>1 µF (microfaradio) de capacitancia</td></tr>
+                        <tr><td>Nano</td><td>n</td><td>10<sup>-9</sup> (0.000000001)</td><td>1 nm (nanómetro)</td><td>1 nF (nanofaradio) de capacitancia</td></tr>
+                        <tr><td>Pico</td><td>p</td><td>10<sup>-12</sup> (0.000000000001)</td><td>-</td><td>1 pF (picofaradio) de capacitancia</td></tr>
+                    </tbody>
+                </table>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">3. Los Tres Pilares: Voltaje, Corriente y Resistencia</h2>
+                <h4>Voltaje (V): La "Presión" Eléctrica</h4>
+                <p>Es la fuerza o "empuje" que reciben los electrones para que se muevan. Sin voltaje, los electrones estarían quietos y no habría electricidad. Se mide en <strong>Voltios (V)</strong>. [1]</p>
+                <h4>Corriente (I): El "Flujo" de Electrones</h4>
+                <p>Es la cantidad de electrones que pasan por un punto del circuito en un segundo. Es el flujo real. Se mide en <strong>Amperios (A)</strong>. [1]</p>
+                <h4>Resistencia (R): El "Freno" a los Electrones</h4>
+                <p>Es la oposición o dificultad que presenta un material al paso de la corriente. Un buen conductor tiene baja resistencia, y un aislante tiene una resistencia altísima. Se mide en <strong>Ohmios (Ω)</strong>. [1]</p>
+
+                <hr class="my-4">
+
+                <div class="alert alert-danger border-start border-5 border-danger">
+                    <h4><i class="bi bi-exclamation-triangle-fill"></i> 4. La Electricidad y el Cuerpo Humano: Una Nota de Seguridad</h4>
+                    <p>El cuerpo humano funciona con sus propias señales eléctricas. Una corriente externa puede interferir con ellas y ser muy peligrosa. <strong>No es el voltaje lo que es peligroso, es la corriente.</strong></p>
+                    <ul>
+                        <li><strong>1-5 mA:</strong> Apenas un cosquilleo.</li>
+                        <li><strong>10-20 mA:</strong> Umbral de "no soltar". Los músculos se contraen y no puedes soltar el cable.</li>
+                        <li><strong>50-100 mA:</strong> Shock muy doloroso que puede afectar al corazón y ser <strong>mortal</strong>.</li>
+                    </ul>
+                    <p class="fw-bold mt-3">Cuidados Básicos: <strong class="text-danger">NUNCA</strong> trabajes en un circuito conectado. Usa herramientas con aislamiento. Si no estás seguro, no lo toques.</p>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="alert alert-secondary border-start border-5 border-dark">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4>Ejemplo Práctico: El Foco</h4>
+                            <p>Imagina un circuito con: una batería de <strong>12V</strong>, un foco de <strong>6Ω</strong> y cables. Queremos saber: ¿Cuánta corriente pasa? y ¿Cuánta energía consume en 10s?</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!-- IMAGEN DIAGRAMA CIRCUITO -->
+                            <img src="https://placehold.co/300x200?text=Diagrama+del+Circuito" class="img-fluid rounded shadow-sm" alt="Diagrama del circuito del ejemplo">
+                            <figcaption class="figure-caption mt-2">Esquema del circuito a resolver.</figcaption>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">5. La Ley de Ohm: La Regla de Oro</h2>
+                <p>Georg Ohm descubrió que estos tres pilares se relacionan con una elegancia matemática asombrosa. [1]</p>
+                <p class="text-center fs-3 fw-bold"><code>V = I × R</code></p>
+                <!-- IMAGEN TRIANGULO OHM -->
+                <figure class="text-center my-4">
+                    <img src="../../assets/triangulo-ohm.jpg" class="img-fluid rounded shadow-sm" alt="Triángulo de la Ley de Ohm">
+                    <figcaption class="figure-caption mt-2">Una ayuda visual para recordar las fórmulas de la Ley de Ohm.</figcaption>
+                </figure>
+                <div class="alert alert-info mt-3">
+                    <strong>Analogía Clave: La Manguera de Agua</strong>
+                    <p>Imagina una manguera: el <strong>Voltaje (V)</strong> es la <strong>presión</strong> del agua; la <strong>Corriente (I)</strong> es la <strong>cantidad de agua</strong> que fluye; y la <strong>Resistencia (R)</strong> es si <strong>aprietas la punta</strong>.</p>
+                </div>
+                <!-- IMAGEN ANALOGIA MANGUERA -->
+                <figure class="text-center my-4">
+                    <img src="../../assets/analogia.jpg" class="img-fluid rounded shadow-sm" alt="Analogía de la manguera para la Ley de Ohm">
+                    <figcaption class="figure-caption mt-2">El voltaje es la presión, la corriente es el caudal y la resistencia es el estrechamiento.</figcaption>
+                </figure>
+                <h4>Resolviendo el Misterio (Parte 1): ¿Cuánta corriente pasa?</h4>
+                <p>Usamos la Ley de Ohm. Si <code>V = I × R</code>, despejamos la corriente: <code>I = V / R</code>.</p>
+                <p>Sustituimos: <code>I = 12V / 6Ω = 2A</code>. <strong>Respuesta:</strong> Pasan <strong>2 Amperios</strong>.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">6. Potencia Eléctrica (P): El Trabajo Realizado</h2>
+                <p>La potencia es la velocidad a la que se consume la energía. Se mide en <strong>Vatios (W)</strong> y se calcula con: <code>P = V × I</code>. [1]</p>
+                <h4>Resolviendo el Misterio (Parte 2): ¿Cuánta energía consume?</h4>
+                <p>Calculamos la potencia: <code>P = 12V × 2A = 24W</code>.</p>
+                <p>La energía es la potencia por el tiempo (en <strong>Julios (J)</strong>): <code>Energía = Potencia × Tiempo</code>.</p>
+                <p><code>Energía = 24W × 10s = 240J</code>. <strong>Respuesta:</strong> Consume <strong>240 Julios</strong>.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">7. Laboratorio Virtual: Simulación Interactiva</h2>
+                <p>Usa la siguiente simulación de PhET para experimentar directamente con los conceptos de la Ley de Ohm. ¡Varía el voltaje y la resistencia para ver cómo cambia la corriente!</p>
+                <div class="text-center">
+                    <iframe 
+                        src="https://phet.colorado.edu/sims/html/ohms-law/latest/ohms-law_all.html?locale=es" 
+                        title="Simulación de la Ley de Ohm de PhET" 
+                        style="width: 100%; height: 600px; border: 1px solid #dee2e6; border-radius: .375rem;" 
+                        class="shadow-sm" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">8. El Mapa del Flujo: ¿Qué es un Circuito Eléctrico?</h2>
+                <p>Un circuito es la forma en que <strong>manipulamos la electricidad para un propósito</strong>. Académicamente, es una <strong>trayectoria cerrada</strong> que permite el flujo de corriente. Si el camino se rompe (un interruptor abierto), el circuito está "abierto" y la corriente no fluye. [2]</p>
+                <h5>Componentes Básicos de un Circuito:</h5>
+                <ul>
+                    <li><strong>Fuente:</strong> Proporciona el voltaje (la <strong>batería</strong>).</li>
+                    <li><strong>Carga:</strong> Consume la energía para hacer un trabajo (el <strong>foco</strong>).</li>
+                    <li><strong>Trayectoria:</strong> El camino conductor (los <strong>cables</strong>).</li>
+                </ul>
+
+                <h3 class="mt-4">8.1. Circuitos en Serie: Un Camino Único</h3>
+                <p>Imagina una fila de personas tomadas de la mano. Si una suelta, toda la fila se rompe. Así funcionan los circuitos en serie: los componentes están conectados uno detrás de otro, formando un <strong>único camino</strong> para la corriente. [1]</p>
+                <figure class="text-center my-4">
+                    <img src="../../assets/circuito-serie.jpg" class="img-fluid rounded shadow-sm" alt="Diagrama de un circuito en serie">
+                    <figcaption class="figure-caption mt-2">Los componentes se conectan uno tras otro.</figcaption>
+                </figure>
+                <h5>Características Clave:</h5>
+                <ul>
+                    <li><strong>Corriente (I):</strong> Es la misma en todos los puntos del circuito. Si 2 Amperios salen de la batería, 2 Amperios pasan por cada componente.</li>
+                    <li><strong>Voltaje (V):</strong> Se divide entre los componentes. La suma de los voltajes en cada componente es igual al voltaje total de la fuente.</li>
+                    <li><strong>Resistencia Total (R<sub>T</sub>):</strong> Es la suma de todas las resistencias individuales: <code>R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub> + ... + R<sub>n</sub></code>.</li>
+                </ul>
+                <div class="alert alert-secondary border-start border-5 border-dark mt-3">
+                    <h4>Ejemplo Resuelto: Luces de Navidad Antiguas</h4>
+                    <p>Tienes una batería de <strong>9V</strong> y conectas 3 bombillas en serie con resistencias de <strong>2Ω, 3Ω y 4Ω</strong>.</p>
+                    <p><strong>1. Resistencia Total:</strong> <code>R<sub>T</sub> = 2Ω + 3Ω + 4Ω = 9Ω</code></p>
+                    <p><strong>2. Corriente Total:</strong> Usando Ley de Ohm (<code>I = V / R<sub>T</sub></code>): <code>I = 9V / 9Ω = 1A</code>. Esta corriente pasa por cada bombilla.</p>
+                    <p><strong>3. Voltaje en cada bombilla:</strong></p>
+                    <ul>
+                        <li>Bombilla 1 (2Ω): <code>V<sub>1</sub> = I × R<sub>1</sub> = 1A × 2Ω = 2V</code></li>
+                        <li>Bombilla 2 (3Ω): <code>V<sub>2</sub> = I × R<sub>2</sub> = 1A × 3Ω = 3V</code></li>
+                        <li>Bombilla 3 (4Ω): <code>V<sub>3</sub> = I × R<sub>3</sub> = 1A × 4Ω = 4V</code></li>
+                    </ul>
+                    <p>La suma de los voltajes (2V + 3V + 4V = 9V) es igual al voltaje de la batería. ¡Funciona!</p>
+                </div>
+
+                <h3 class="mt-4">8.2. Circuitos en Paralelo: Múltiples Caminos</h3>
+                <p>Imagina varias cajas de cobro en un supermercado. Cada una es un camino independiente. Si una se cierra, las demás siguen funcionando. Así son los circuitos en paralelo: los componentes están conectados en <strong>caminos separados</strong>, compartiendo los mismos dos puntos de conexión. [1]</p>
+                <figure class="text-center my-4">
+                    <img src="../../assets/circuito-paralelo.jpg" class="img-fluid rounded shadow-sm" alt="Diagrama de un circuito en paralelo">
+                    <figcaption class="figure-caption mt-2">Los componentes tienen caminos independientes.</figcaption>
+                </figure>
+                <h5>Características Clave:</h5>
+                <ul>
+                    <li><strong>Voltaje (V):</strong> Es el mismo en todos los componentes. Cada componente recibe el voltaje total de la fuente.</li>
+                    <li><strong>Corriente (I):</strong> Se divide entre los componentes. La suma de las corrientes en cada rama es igual a la corriente total que sale de la fuente.</li>
+                    <li><strong>Resistencia Total (R<sub>T</sub>):</strong> Es más compleja de calcular, pero siempre será menor que la resistencia más pequeña del circuito. Se usa la fórmula: <code>1/R<sub>T</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ... + 1/R<sub>n</sub></code>.</li>
+                </ul>
+                <div class="alert alert-secondary border-start border-5 border-dark mt-3">
+                    <h4>Ejemplo Resuelto: Enchufes de Casa</h4>
+                    <p>Tienes una batería de <strong>12V</strong> y conectas 2 bombillas en paralelo con resistencias de <strong>6Ω y 4Ω</strong>.</p>
+                    <p><strong>1. Resistencia Total:</strong> <code>1/R<sub>T</sub> = 1/6Ω + 1/4Ω = 2/12 + 3/12 = 5/12</code>. Entonces, <code>R<sub>T</sub> = 12/5 = 2.4Ω</code>.</p>
+                    <p><strong>2. Corriente en cada bombilla:</strong></p>
+                    <ul>
+                        <li>Bombilla 1 (6Ω): <code>I<sub>1</sub> = V / R<sub>1</sub> = 12V / 6Ω = 2A</code></li>
+                        <li>Bombilla 2 (4Ω): <code>I<sub>2</sub> = V / R<sub>2</sub> = 12V / 4Ω = 3A</code></li>
+                    </ul>
+                    <p><strong>3. Corriente Total:</strong> <code>I<sub>T</sub> = I<sub>1</sub> + I<sub>2</sub> = 2A + 3A = 5A</code>.</p>
+                    <p>También puedes calcular la corriente total con <code>I<sub>T</sub> = V / R<sub>T</sub> = 12V / 2.4Ω = 5A</code>. ¡Coincide!</p>
+                </div>
+
+                <h3 class="mt-4">8.3. Circuitos Mixtos: La Combinación Perfecta</h3>
+                <p>Los circuitos mixtos son, como su nombre indica, una combinación de conexiones en serie y en paralelo. Son los más comunes en la vida real y en la electrónica compleja. Para resolverlos, debes ir simplificando el circuito paso a paso, identificando y resolviendo primero las partes en serie o en paralelo, hasta que tengas un circuito simple que puedas resolver con la Ley de Ohm. [2]</p>
+                <figure class="text-center my-4">
+                    <img src="../../assets/circuito-mixto.jpg" class="img-fluid rounded shadow-sm" alt="Diagrama de un circuito mixto">
+                    <figcaption class="figure-caption mt-2">Una combinación de conexiones en serie y en paralelo.</figcaption>
+                </figure>
+                <div class="alert alert-secondary border-start border-5 border-dark mt-3">
+                    <h4>Estrategia para Circuitos Mixtos:</h4>
+                    <p>1. Identifica las secciones puramente en serie o en paralelo.</p>
+                    <p>2. Calcula la resistencia equivalente de esas secciones.</p>
+                    <p>3. Redibuja el circuito con las resistencias equivalentes, simplificándolo.</p>
+                    <p>4. Repite hasta que tengas un circuito simple (solo serie o solo paralelo).</p>
+                    <p>5. Resuelve el circuito simple y luego "deshaz" los pasos para encontrar los valores en cada componente original.</p>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">9. El Componente Físico: Los Resistores</h2>
+                <p>En los circuitos reales, usamos componentes llamados <strong>resistores</strong> para controlar el flujo de corriente. Son pequeños cilindros con bandas de colores que nos dicen su valor de resistencia (Ω).</p>
+                <!-- IMAGEN RESISTORES REALES -->
+                <figure class="text-center my-4">
+                    <img src="../../assets/resistores.jpg" class="img-fluid rounded shadow-sm" alt="Foto de resistores reales">
+                    <figcaption class="figure-caption mt-2">Resistores físicos con sus bandas de colores.</figcaption>
+                </figure>
+                <table class="table table-striped table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr><th>Color</th><th>Valor</th><th>Multiplicador</th><th>Tolerancia</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Negro</td><td>0</td><td>×1</td><td>-</td></tr>
+                        <tr><td>Marrón</td><td>1</td><td>×10</td><td>±1%</td></tr>
+                        <tr><td>Rojo</td><td>2</td><td>×100</td><td>±2%</td></tr>
+                        <tr><td>Naranja</td><td>3</td><td>×1k</td><td>-</td></tr>
+                        <tr><td>Amarillo</td><td>4</td><td>×10k</td><td>-</td></tr>
+                        <tr><td>Verde</td><td>5</td><td>×100k</td><td>±0.5%</td></tr>
+                        <tr><td>Azul</td><td>6</td><td>×1M</td><td>±0.25%</td></tr>
+                        <tr><td>Violeta</td><td>7</td><td>×10M</td><td>±0.1%</td></tr>
+                        <tr><td>Gris</td><td>8</td><td>-</td><td>-</td></tr>
+                        <tr><td>Blanco</td><td>9</td><td>-</td><td>-</td></tr>
+                        <tr><td>Dorado</td><td>-</td><td>×0.1</td><td>±5%</td></tr>
+                        <tr><td>Plateado</td><td>-</td><td>×0.01</td><td>±10%</td></tr>
+                    </tbody>
+                </table>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">10. Galería de Videos Recomendados</h2>
+                <p>A veces, ver los conceptos en acción es la mejor forma de aprender. Aquí tienes una selección de videos que explican estos temas de forma visual y práctica.</p>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Video 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/Az9YgKQ_UH4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Explicación de la Ley de Ohm</h5>
+                                <p class="card-text">Un video que explica de forma clara y con animaciones la relación entre Voltaje, Corriente y Resistencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/qnfztlaUa0s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Circuitos en Serie vs. Paralelo</h5>
+                                <p class="card-text">Visualiza la diferencia fundamental entre conectar componentes en serie y en paralelo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/6jIJwZDhkkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">¿Cómo leer Resistencias?</h5>
+                                <p class="card-text">Un tutorial práctico sobre cómo usar el código de colores para identificar el valor de una resistencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">11. Referencias y Lecturas Recomendadas</h2>
+                <p>Este contenido se basa en principios fundamentales de la electrónica. Para una exploración más profunda, te recomiendo los siguientes textos:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">[1] Alexander, C. K., & Sadiku, M. N. O. (2012). <em>Fundamentals of Electric Circuits</em>. McGraw-Hill Education.</li>
+                    <li class="list-group-item">[2] Horowitz, P., & Hill, W. (2015). <em>The Art of Electronics</em>. Cambridge University Press.</li>
+                    <li class="list-group-item">[3] Scherz, P., & Monk, S. (2016). <em>Practical Electronics for Inventors</em>. McGraw-Hill Education.</li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- Sequential Navigation -->
+        <nav class="d-flex justify-content-between mt-4">
+            <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">&larr; Tema Anterior</a>
+            <a href="codigo-binario.html" class="btn btn-primary">Siguiente Tema &rarr;</a>
+        </nav>
+
+        <footer class="mt-5 text-center">
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

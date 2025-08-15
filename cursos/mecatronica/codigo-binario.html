@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Binario y Lógica Digital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Código Binario y Lógica Digital</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">Tema 2: Código Binario y Lógica Digital</h1>
+            <p class="fs-4">El ADN del universo digital: de los interruptores a los microprocesadores.</p>
+        </header>
+
+        <main class="card shadow-sm">
+            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-easel2-fill fs-3 me-3"></i>
+                <div class="flex-grow-1">
+                    <h4 class="alert-heading">Diapositivas del Tema</h4>
+                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los conceptos.</p>
+                </div>
+                <a href="https://circuitos-electricos-8wp72z9.gamma.site/" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación &rarr;</a>
+            </div>
+            <div class="alert alert-info d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-cpu-fill fs-3 me-3"></i>
+                <div>
+                    <h4 class="alert-heading">El Lenguaje Secreto de las Máquinas</h4>
+                    <p class="mb-0">Absolutamente todo en el mundo digital, desde el "Me Gusta" que das en una foto hasta los videojuegos más complejos, se traduce a un idioma increíblemente simple de solo dos "letras": <strong>0</strong> y <strong>1</strong>. Dominar este lenguaje es entender la esencia de la computación.</p>
+                </div>
+            </div>
+            <div class="card-body p-4 pt-0">
+                
+                <h2 class="card-title">1. El Sistema Binario: Más Allá del Diez</h2>
+                <p>Desde niños aprendemos a contar usando diez dígitos (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Este es el <strong>sistema decimal (base 10)</strong>. Pero una computadora no tiene diez dedos; tiene interruptores. Y un interruptor solo tiene dos estados: <strong>apagado (0)</strong> o <strong>encendido (1)</strong>. Este es el corazón del <strong>sistema binario (base 2)</strong>. Cada dígito binario se llama <strong>bit</strong> (contracción de <em>Binary Digit</em>), y es la unidad de información más pequeña que existe. [1]</p>
+
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/600x250?text=Bits+como+Interruptores" class="img-fluid rounded shadow-sm" alt="Analogía de bits como interruptores de luz">
+                    <figcaption class="figure-caption mt-2">Un bit es como un interruptor: solo puede estar en estado de 0 (apagado) o 1 (encendido).</figcaption>
+                </figure>
+
+                <h3 class="mt-4">Conversión entre Decimal y Binario</h3>
+                <p>Para entender cómo "piensa" una máquina, debemos saber traducir entre nuestro lenguaje numérico y el suyo.</p>
+                <h5>De Decimal a Binario: El Método de las Divisiones</h5>
+                <p>Para convertir un número decimal a binario, lo dividimos sucesivamente por 2 y anotamos los residuos (restos) de abajo hacia arriba.</p>
+                <p><strong>Ejemplo: Convertir el número 25 a binario.</strong></p>
+                <ul>
+                    <li>25 / 2 = 12 (residuo <strong>1</strong>)</li>
+                    <li>12 / 2 = 6 (residuo <strong>0</strong>)</li>
+                    <li>6 / 2 = 3 (residuo <strong>0</strong>)</li>
+                    <li>3 / 2 = 1 (residuo <strong>1</strong>)</li>
+                    <li>1 / 2 = 0 (residuo <strong>1</strong>)</li>
+                </ul>
+                <p>Leemos los residuos de abajo hacia arriba: <strong>11001</strong>. Por lo tanto, 25 en decimal es 11001 en binario.</p>
+
+                <h5>De Binario a Decimal: El Método de las Potencias</h5>
+                <p>Cada posición en un número binario representa una potencia de 2, empezando desde la derecha con 2<sup>0</sup>.</p>
+                <p><strong>Ejemplo: Convertir el número binario 11001 a decimal.</strong></p>
+                <p><code>11001 = (<strong>1</strong> * 2<sup>4</sup>) + (<strong>1</strong> * 2<sup>3</sup>) + (<strong>0</strong> * 2<sup>2</sup>) + (<strong>0</strong> * 2<sup>1</sup>) + (<strong>1</strong> * 2<sup>0</sup>)</code></p>
+                <p><code>= (1 * 16) + (1 * 8) + (0 * 4) + (0 * 2) + (1 * 1)</code></p>
+                <p><code>= 16 + 8 + 0 + 0 + 1 = 25</code></p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">2. Bytes, Recursos y el Famoso 255</h2>
+                <p>Un <strong>Byte</strong> es un conjunto estandarizado de <strong>8 bits</strong>. Es la unidad de medida más común para el almacenamiento de datos. Pero, ¿cuántos valores podemos representar con un byte?</p>
+                <p>La fórmula es 2<sup>n</sup>, donde n es el número de bits. Con 8 bits, tenemos 2<sup>8</sup> = <strong>256 combinaciones posibles</strong>.</p>
+                <div class="alert alert-warning mt-3">
+                    <strong>Curiosidad: ¿Por qué el máximo es 255 y no 256?</strong>
+                    <p class="mb-0">Si tenemos 256 combinaciones, ¿por qué el valor máximo que vemos en muchos sitios (como en los colores RGB) es 255? La respuesta es simple: <strong>porque el conteo empieza en 0</strong>. El primer valor es 0 (binario: 00000000) y el último es 255 (binario: 11111111). Esto nos da un total de 256 valores distintos.</p>
+                </div>
+
+                <h3 class="mt-4">La Importancia en la Programación</h3>
+                <p>En lenguajes de programación de bajo nivel como C o C++, el programador debe ser consciente del tamaño de los datos. Elegir el tipo de dato correcto puede ahorrar mucha memoria. Por ejemplo, si sabes que una variable nunca superará el valor de 200, puedes almacenarla en un tipo de dato de 1 byte (como <code>unsigned char</code>) en lugar de un tipo de 4 bytes (como <code>int</code>). En aplicaciones a gran escala, como en sistemas embebidos o videojuegos, esta gestión de memoria es crucial para el rendimiento.</p>
+
+                <h3 class="mt-4">El Sistema Hexadecimal: El Mejor Amigo del Binario</h3>
+                <p>Mirar una cadena larga de ceros y unos como <code>1101101011110010</code> es agotador y propenso a errores. Aquí es donde entra el <strong>sistema hexadecimal (base 16)</strong>. Usa 16 dígitos: 0-9 y luego A, B, C, D, E, F.</p>
+                <p>La magia del hexadecimal es que cada dígito hexadecimal corresponde exactamente a un grupo de <strong>4 bits (un nibble)</strong>. Esto lo convierte en una forma compacta y legible de representar números binarios.</p>
+                <table class="table table-striped table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr><th>Decimal</th><th>Binario</th><th>Hexadecimal</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>10</td><td>1010</td><td>A</td></tr>
+                        <tr><td>11</td><td>1011</td><td>B</td></tr>
+                        <tr><td>12</td><td>1100</td><td>C</td></tr>
+                        <tr><td>13</td><td>1101</td><td>D</td></tr>
+                        <tr><td>14</td><td>1110</td><td>E</td></tr>
+                        <tr><td>15</td><td>1111</td><td>F</td></tr>
+                    </tbody>
+                </table>
+                <p>Por ejemplo, el color rojo en formato RGB se escribe <code>#FF0000</code>. Esto representa tres bytes: <code>FF</code> (255 para rojo), <code>00</code> (0 para verde) y <code>00</code> (0 para azul). Es mucho más fácil de leer y escribir que su equivalente binario: <code>111111110000000000000000</code>.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">3. Lógica Digital: El Cerebro de la Operación</h2>
+                <p>La <strong>lógica digital</strong> es el conjunto de reglas que permite a los circuitos tomar decisiones. Se basa en el <strong>Álgebra de Boole</strong>, desarrollada por George Boole en el siglo XIX. En este sistema, las variables solo pueden tener dos valores: <strong>verdadero (1)</strong> o <strong>falso (0)</strong>. [2]</p>
+                <p>Los componentes físicos que implementan estas reglas se llaman <strong>puertas lógicas</strong>. Originalmente se construían con relés electromagnéticos o tubos de vacío, pero hoy en día se fabrican con miles de millones de <strong>transistores</strong> en un solo chip de silicio.</p>
+
+                <h3 class="mt-4">Las Puertas Lógicas Fundamentales</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Puerta AND</h5>
+                        <p>La salida es 1 solo si <strong>todas</strong> sus entradas son 1.</p>
+                        <table class="table table-bordered text-center"><thead><tr><th>A</th><th>B</th><th>Salida</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Puerta OR</h5>
+                        <p>La salida es 1 si <strong>al menos una</strong> de sus entradas es 1.</p>
+                        <table class="table table-bordered text-center"><thead><tr><th>A</th><th>B</th><th>Salida</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Puerta NOT</h5>
+                        <p>Invierte la entrada. Es un inversor.</p>
+                        <table class="table table-bordered text-center"><thead><tr><th>A</th><th>Salida</th></tr></thead><tbody><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></tbody></table>
+                    </div>
+                </div>
+
+                <h3 class="mt-4">Puertas Derivadas (Universales)</h3>
+                <p>Las puertas <strong>NAND</strong> (NOT-AND) y <strong>NOR</strong> (NOT-OR) son especiales porque con cualquiera de ellas se puede construir cualquier otra puerta lógica. Por eso se les llama puertas universales.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Puerta NAND</h5>
+                        <p>Es una puerta AND seguida de un NOT.</p>
+                        <table class="table table-bordered text-center"><thead><tr><th>A</th><th>B</th><th>Salida</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Puerta NOR</h5>
+                        <p>Es una puerta OR seguida de un NOT.</p>
+                        <table class="table table-bordered text-center"><thead><tr><th>A</th><th>B</th><th>Salida</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Puerta XOR</h5>
+                        <p>La "O Exclusiva". La salida es 1 solo si las entradas son diferentes.</p>
+                        <table class="table table-bordered text-center"><thead><tr><th>A</th><th>B</th><th>Salida</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table>
+                    </div>
+                </div>
+
+                <div class="alert alert-secondary border-start border-5 border-dark mt-3">
+                    <h4>De la Lógica al Silicio</h4>
+                    <p>Estas puertas lógicas no son solo conceptos abstractos. Son componentes electrónicos reales que se venden encapsulados en <strong>circuitos integrados (chips)</strong>. Por ejemplo, el famoso chip "7408" contiene cuatro puertas AND, y el "7432" contiene cuatro puertas OR. Los aficionados a la electrónica los usan para construir circuitos complejos.</p>
+                    <figure class="text-center my-4">
+                        <img src="https://placehold.co/600x300?text=Chips+de+Puertas+Lógicas" class="img-fluid rounded shadow-sm" alt="Chips de circuitos integrados con puertas lógicas">
+                        <figcaption class="figure-caption mt-2">Chips de la serie 7400, cada uno contiene múltiples puertas lógicas.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">4. Álgebra de Boole y Simplificación de Circuitos</h2>
+                <p>El Álgebra de Boole nos da un conjunto de leyes para manipular expresiones lógicas, de forma muy parecida al álgebra tradicional. El objetivo es <strong>simplificar</strong> una función lógica para poder construir el circuito con el menor número de puertas posible, ahorrando costes, espacio y energía. [3]</p>
+                <p><strong>Ejemplo de Simplificación:</strong></p>
+                <p>Imagina que tenemos la siguiente función lógica: <code>F = A'BC + ABC + AB'C</code></p>
+                <p>Podemos usar las leyes del Álgebra de Boole para simplificarla:</p>
+                <ol>
+                    <li><strong>Factor Común:</strong> Sacamos <code>BC</code> de los dos primeros términos: <code>F = BC(A' + A) + AB'C</code></li>
+                    <li><strong>Ley de Inversión:</strong> Sabemos que <code>A' + A</code> (algo o su contrario) es siempre 1. Así que: <code>F = BC(1) + AB'C = BC + AB'C</code></li>
+                    <li><strong>Factor Común de nuevo:</strong> Sacamos <code>C</code>: <code>F = C(B + AB')</code></li>
+                    <li><strong>Ley de Adyacencia:</strong> Una ley booleana dice que <code>X + X'Y = X + Y</code>. Aquí, <code>B + AB' = B + A</code>.</li>
+                    <li><strong>Resultado Final:</strong> <code>F = C(A + B)</code></li>
+                </ol>
+                <p>Hemos pasado de un circuito que necesitaba tres puertas AND de 3 entradas y una puerta OR de 3 entradas, a uno que solo necesita una puerta OR y una puerta AND. ¡Mucho más eficiente!</p>
+
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/700x350?text=Simplificación+de+Circuito+Lógico" class="img-fluid rounded shadow-sm" alt="Diagrama de simplificación de un circuito lógico">
+                    <figcaption class="figure-caption mt-2">A la izquierda, el circuito complejo. A la derecha, el circuito simplificado que hace lo mismo.</figcaption>
+                </figure>
+
+                <h3 class="mt-4">Más Allá de las Puertas: Circuitos Complejos</h3>
+                <p>Combinando puertas lógicas, se construyen bloques más complejos que son fundamentales en la computación:</p>
+                <ul>
+                    <li><strong>Multiplexores (MUX):</strong> Son como un selector de canales. Tienen varias entradas de datos, varias entradas de control y una sola salida. Las entradas de control deciden cuál de las entradas de datos pasa a la salida.</li>
+                    <li><strong>Decodificadores:</strong> Hacen lo contrario a un codificador. Toman una entrada binaria y activan una de sus múltiples salidas.</li>
+                    <li><strong>Latches y Flip-Flops:</strong> ¡Son los bloques de construcción de la memoria! Son circuitos biestables, lo que significa que pueden "recordar" un bit (0 o 1) y mantener ese estado hasta que se les ordene cambiar. Son la base de la memoria RAM.</li>
+                </ul>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">5. Aplicaciones en el Mundo Real: La Lógica Digital en Acción</h2>
+                <p>Puede parecer un tema muy teórico, pero la lógica digital es una de las tecnologías más prácticas y omnipresentes que existen. Está funcionando ahora mismo para que puedas leer esto. Aquí algunos ejemplos clave:</p>
+
+                <div class="alert alert-secondary mt-3">
+                    <h4><i class="bi bi-broadcast-pin me-2"></i>Comunicaciones y Transmisión de Datos</h4>
+                    <p>Cuando envías un mensaje o una foto, la información se descompone en paquetes de bits. ¿Cómo sabe el receptor que los datos llegaron correctamente y no se corrompieron por el camino (por interferencias, por ejemplo)? Se usan <strong>bits de paridad</strong>. Es una aplicación simple de la lógica XOR. Antes de enviar un byte, el sistema cuenta cuántos "1" hay. Si se acuerda usar "paridad par", se añade un bit extra para que el número total de "1" sea par. El receptor hace la misma cuenta. Si recibe un número impar de "1", sabe que ha habido un error en la transmisión y pide que se reenvíe el paquete. Este es un pilar fundamental de las redes fiables.</p>
+                </div>
+
+                <div class="alert alert-secondary mt-3">
+                    <h4><i class="bi bi-robot me-2"></i>Sistemas de Control Industrial (PLCs)</h4>
+                    <p>En una fábrica, las máquinas toman decisiones constantemente. Imagina una línea de embotellado: un sensor detecta si hay una botella (Entrada A), otro sensor detecta si la botella está llena (Entrada B). La lógica del sistema (un PLC o Controlador Lógico Programable) podría ser: <code>SI (A Y NO B) ENTONCES activar_llenado</code>. Esto es una puerta AND con una de sus entradas invertida (NOT). Toda la automatización industrial, desde semáforos hasta robots ensambladores, se basa en estas decisiones lógicas.</p>
+                    <figure class="text-center my-4">
+                        <img src="https://placehold.co/600x300?text=Lógica+en+una+Fábrica" class="img-fluid rounded shadow-sm" alt="Diagrama de un sistema de control industrial">
+                        <figcaption class="figure-caption mt-2">La lógica digital controla procesos complejos en la automatización industrial.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="alert alert-secondary mt-3">
+                    <h4><i class="bi bi-memory me-2"></i>Memorias y Almacenamiento</h4>
+                    <p>Como mencionamos, los <strong>Flip-Flops</strong> son la base de la memoria. La memoria RAM de tu computadora es una gigantesca matriz de miles de millones de estos circuitos. Cada uno puede almacenar un bit (0 o 1). Cuando guardas un archivo o abres un programa, la CPU envía señales eléctricas que "activan" o "desactivan" estos flip-flops para escribir los datos en la memoria, donde permanecen listos para ser leídos en cualquier momento.</p>
+                </div>
+
+                <div class="alert alert-secondary mt-3">
+                    <h4><i class="bi bi-calculator-fill me-2"></i>Calculadoras y Microprocesadores (ALU)</h4>
+                    <p>El corazón de cualquier procesador (CPU) es la <strong>Unidad Aritmético-Lógica (ALU)</strong>. Esta unidad es, en esencia, un circuito digital enormemente complejo construido a partir de puertas lógicas. Es la responsable de realizar todas las operaciones matemáticas (suma, resta, multiplicación) y lógicas (AND, OR, NOT) que ejecuta un programa. Cuando tu calculadora suma 2+2, en realidad está procesando <code>10 + 10</code> en binario a través de una serie de puertas lógicas llamadas "sumadores completos" (<em>full adders</em>).</p>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">Galería de Videos Recomendados</h2>
+                <p>Estos conceptos pueden ser abstractos. Verlos en acción ayuda a solidificar el conocimiento.</p>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Video 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/f9b0wwhTmeU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">¿Cómo funcionan las computadoras?</h5>
+                                <p class="card-text">Un video introductorio que explica de manera brillante cómo los simples ceros y unos se convierten en todo lo que hacemos con la tecnología.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/O5nskjZ_GoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Puertas Lógicas Explicadas</h5>
+                                <p class="card-text">Una explicación visual y animada de las puertas lógicas AND, OR, NOT y cómo se combinan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/1GSf2bK5w4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Construyendo un Sumador Binario</h5>
+                                <p class="card-text">Un video fascinante que muestra cómo se pueden combinar puertas lógicas para hacer algo práctico: sumar dos números.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">6. Referencias y Lecturas Recomendadas</h2>
+                <p>Este es un campo vasto y fascinante. Si quieres profundizar, te recomiendo encarecidamente estas obras:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">[1] Petzold, C. (2000). <em>Code: The Hidden Language of Computer Hardware and Software</em>. Microsoft Press.</li>
+                    <li class="list-group-item">[2] Mano, M. M., & Ciletti, M. D. (2012). <em>Digital Design: With an Introduction to the Verilog HDL</em>. Pearson.</li>
+                    <li class="list-group-item">[3] Wakerly, J. F. (2005). <em>Digital Design: Principles and Practices</em>. Pearson.</li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- Sequential Navigation -->
+        <nav class="d-flex justify-content-between mt-4">
+            <a href="ley-de-ohm.html" class="btn btn-primary">&larr; Tema Anterior</a>
+            <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Siguiente Tema &rarr;</a>
+        </nav>
+
+        <footer class="mt-5 text-center">
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño y Estructura de Sistemas Mecatrónicos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Diseño y Estructura de Sistemas Mecatrónicos</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">Bloque 2.2: Diseño y Estructura de Sistemas Mecatrónicos</h1>
+            <p class="fs-4">El arte y la ciencia de planificar, modelar y construir un sistema mecatrónico funcional.</p>
+        </header>
+
+        <main class="card shadow-sm">
+            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-pencil-ruler fs-3 me-3"></i>
+                <div>
+                    <h4 class="alert-heading">Más que solo ensamblar piezas</h4>
+                    <p class="mb-0">El diseño mecatrónico es un proceso de pensamiento integrado donde las decisiones mecánicas, electrónicas y de software se influyen mutuamente desde el primer día.</p>
+                </div>
+            </div>
+            <div class="card-body p-4 pt-0">
+                
+                <h2 class="card-title">1. El Proceso de Diseño Mecatrónico</h2>
+                <p>Diseñar un sistema mecatrónico no es un proceso lineal, sino un ciclo iterativo que involucra modelado, simulación y prototipado. El objetivo es encontrar el equilibrio óptimo entre rendimiento, coste y fiabilidad.</p>
+                <ol>
+                    <li><strong>Modelado y Simulación:</strong> Antes de construir nada, se crea un modelo matemático y computacional del sistema. Esto permite probar ideas, predecir el comportamiento y detectar problemas de diseño en un entorno virtual, ahorrando tiempo y dinero.</li>
+                    <li><strong>Prototipado:</strong> Se construye una primera versión física del sistema. Aquí se integran los componentes mecánicos, los sensores, los actuadores y el controlador.</li>
+                    <li><strong>Análisis y Pruebas:</strong> Se prueba el prototipo para ver si cumple los requisitos. Los datos obtenidos se comparan con los de la simulación para refinar el modelo.</li>
+                    <li><strong>Iteración y Despliegue:</strong> El proceso se repite, mejorando el diseño en cada ciclo, hasta que el sistema está listo para su producción y despliegue final.</li>
+                </ol>
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/700x350?text=Ciclo+de+Diseño+Mecatrónico+(Modelo+en+V)" class="img-fluid rounded shadow-sm" alt="Diagrama del ciclo de diseño mecatrónico">
+                    <figcaption class="figure-caption mt-2">El Modelo en V es un flujo de trabajo común en el diseño de sistemas complejos.</figcaption>
+                </figure>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">2. Arquitectura de un Sistema Mecatrónico</h2>
+                <p>Podemos visualizar la estructura de cualquier sistema mecatrónico como una serie de capas interconectadas.</p>
+                <ul>
+                    <li><strong>Capa Física:</strong> Es el sistema mecánico base, el esqueleto y los músculos del dispositivo.</li>
+                    <li><strong>Capa de Sensores y Actuadores:</strong> La interfaz directa con el mundo físico. Los sensores recogen información y los actuadores ejecutan las órdenes.</li>
+                    <li><strong>Capa de Control:</strong> El cerebro del sistema. Incluye el hardware de control (microcontrolador) y el software que implementa los algoritmos de decisión.</li>
+                    <li><strong>Capa de Interfaz de Usuario (HMI):</strong> La forma en que los humanos interactúan con el sistema (botones, pantallas, aplicaciones móviles).</li>
+                </ul>
+
+                <div class="alert alert-info mt-3">
+                    <strong>Estudio de Caso: Un Dron Autónomo</strong>
+                    <ul>
+                        <li><strong>Capa Física:</strong> El cuerpo del dron, las hélices, los motores.</li>
+                        <li><strong>Sensores:</strong> GPS (para la ubicación), acelerómetros y giroscopios (para la estabilidad), sensor de altura.</li>
+                        <li><strong>Actuadores:</strong> Los motores que controlan la velocidad de cada hélice.</li>
+                        <li><strong>Controlador:</strong> El microcontrolador que ejecuta el software de estabilización de vuelo y navegación.</li>
+                        <li><strong>Interfaz:</strong> El control remoto o la aplicación móvil desde donde el usuario da las órdenes.</li>
+                    </ul>
+                </div>
+
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/600x400?text=Arquitectura+de+un+Dron" class="img-fluid rounded shadow-sm" alt="Arquitectura de un sistema mecatrónico como un dron">
+                    <figcaption class="figure-caption mt-2">Las capas de un sistema mecatrónico aplicadas a un dron.</figcaption>
+                </figure>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">3. Galería de Videos Recomendados</h2>
+                <p>Visualizar el proceso de diseño y la estructura de sistemas reales.</p>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/ej8Y-syPlC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">El Proceso de Diseño en Ingeniería</h5>
+                                <p class="card-text">Un vistazo general a los pasos que siguen los ingenieros para llevar una idea a un producto final.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/D48-L62vItE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dentro de un Robot Industrial</h5>
+                                <p class="card-text">Un análisis de la estructura interna de un brazo robótico, mostrando la integración de sus componentes mecánicos y electrónicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">4. Referencias y Lecturas Recomendadas</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">[1] Bishop, R. H. (2007). <em>Mechatronic Systems, Sensors, and Actuators: Fundamentals and Modeling</em>. CRC Press.</li>
+                    <li class="list-group-item">[2] Isermann, R. (2005). <em>Mechatronic Systems: Fundamentals</em>. Springer.</li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- Sequential Navigation -->
+        <nav class="d-flex justify-content-between mt-4">
+            <a href="principios-y-conceptos-clave.html" class="btn btn-primary">&larr; Tema Anterior</a>
+            <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Siguiente Tema &rarr;</a>
+        </nav>
+
+        <footer class="mt-5 text-center">
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
