@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración con APIs y Servicios Web</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        /* Estilo para bloques de código con botón de copiar */
+        pre.code-container {
+            position: relative;
+            border-radius: 0.375rem;
+        }
+        pre.code-container .btn-copy-code {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            padding: 0.1rem 0.25rem;
+            font-size: 0.65rem;
+            line-height: 1;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        pre.code-container:hover .btn-copy-code {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Integración con APIs y Servicios Web</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">Bloque 4.3: Integración con APIs y Servicios Web</h1>
+            <p class="fs-4">Llevando tus proyectos IoT al siguiente nivel conectándolos con el mundo digital.</p>
+        </header>
+
+        <main class="card shadow-sm">
+            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-easel2-fill fs-3 me-3"></i>
+                <div class="flex-grow-1">
+                    <h4 class="alert-heading">Diapositivas del Tema</h4>
+                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los conceptos.</p>
+                </div>
+                <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación &rarr;</a>
+            </div>
+            <div class="alert alert-info d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-globe fs-3 me-3"></i>
+                <div>
+                    <h4 class="alert-heading">Del Dispositivo Local a la Nube</h4>
+                    <p class="mb-0">Hasta ahora, hemos visto cómo los dispositivos pueden comunicarse entre sí (por ejemplo, con MQTT). Ahora veremos cómo pueden interactuar con poderosas aplicaciones y servicios alojados en internet, como bases de datos, servicios de clima, redes sociales o plataformas de análisis, a través de APIs.</p>
+                </div>
+            </div>
+            <div class="card-body p-4 pt-0">
+                
+                <h2 class="card-title">1. ¿Qué es una API?</h2>
+                <p>API son las siglas de <strong>Application Programming Interface</strong> (Interfaz de Programación de Aplicaciones). En términos simples, una API es un conjunto de reglas y definiciones que permite que dos aplicaciones o sistemas se comuniquen entre sí.</p>
+                <p>Imagina una API como un mesero en un restaurante. Tú (el cliente) le dices al mesero (la API) lo que quieres del menú (los datos o una acción). El mesero lleva tu pedido a la cocina (el servidor/backend), la cocina prepara lo que pediste, y el mesero te trae la comida (la respuesta) de vuelta. Tú no necesitas saber cómo se prepara la comida, solo necesitas saber cómo pedirla.</p>
+                
+                <h3 class="mt-4">1.1. Analogía: La API como Cajero Automático (ATM)</h3>
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/700x400?text=Analogía+API+Cajero+Automático" class="img-fluid rounded shadow-sm" alt="Analogía de una API con un cajero automático">
+                    <figcaption class="figure-caption mt-2">Una API como un cajero automático: tú interactúas con una interfaz simple para obtener un servicio complejo (sacar dinero de tu cuenta bancaria).</figcaption>
+                </figure>
+                <p>Para usar un cajero automático:</p>
+                <ol>
+                    <li><strong>Interfaz Común:</strong> Todos los cajeros tienen botones y una pantalla similares. Sabes intuitivamente cómo insertar la tarjeta, ingresar el PIN y seleccionar "Retiro". Esta interfaz estandarizada es como una API.</li>
+                    <li><strong>Reglas Definidas:</strong> Solo puedes retirar dinero si tienes fondos. El cajero no te permite simplemente tomar dinero; sigue reglas estrictas. Una API también tiene reglas sobre qué solicitudes puede aceptar y cómo deben formularse.</li>
+                    <li><strong>Intermediario:</strong> El cajero no almacena tu dinero. Se comunica con el banco (el servidor) para verificar tu saldo y autorizar la transacción.</li>
+                    <li><strong>Respuesta Estructurada:</strong> Si la transacción es exitosa, recibes dinero en efectivo (la respuesta). Si hay un error, el cajero muestra un mensaje de error en la pantalla.</li>
+                </ol>
+                
+                <h3 class="mt-4">1.2. Tipos Comunes de APIs</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>REST APIs</h5>
+                        <p>REST (REpresentational State Transfer) es el estilo arquitectónico más popular para diseñar APIs web. Se basa en el protocolo HTTP.</p>
+                        <ul>
+                            <li><strong>Verbos HTTP:</strong> Usa verbos estándar como <code>GET</code> (obtener), <code>POST</code> (crear), <code>PUT</code> (actualizar), <code>DELETE</code> (eliminar).</li>
+                            <li><strong>Endpoints:</strong> Cada recurso tiene una URL única (endpoint), por ejemplo: <code>https://api.ejemplo.com/usuarios/123</code>.</li>
+                            <li><strong>Formatos de Datos:</strong> Los datos se intercambian comúnmente en formatos como JSON o XML.</li>
+                            <li><strong>Sin estado (Stateless):</strong> Cada solicitud es independiente y contiene toda la información necesaria.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>SOAP APIs</h5>
+                        <p>SOAP (Simple Object Access Protocol) es un protocolo más estricto y basado en XML.</p>
+                        <ul>
+                            <li><strong>Más Complejo:</strong> Tiene una estructura más rígida y requiere más ancho de banda.</li>
+                            <li><strong>Seguridad Integrada:</strong> Ofrece estándares de seguridad más robustos y transacciones ACID.</li>
+                            <li><strong>Menos Popular:</strong> Para aplicaciones web y móviles modernas, REST es generalmente preferido por su simplicidad.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>En el contexto de IoT y microcontroladores, las <strong>REST APIs</strong> son las más utilizadas debido a su simplicidad y eficiencia.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">2. APIs y Servicios Web en el Contexto de un ESP32</h2>
+                <p>Cuando hablamos de un microcontrolador ESP32 "usando una API", normalmente nos referimos a que el ESP32 actúa como un cliente HTTP que hace solicitudes a un servidor web (el backend de una aplicación o servicio) que expone una API REST.</p>
+                
+                <h3 class="mt-4">2.1. El ESP32 como Cliente Web</h3>
+                <p>El ESP32 tiene conectividad WiFi integrada, lo que le permite conectarse a internet. Utilizando librerías como <code>HTTPClient</code> (incluida en el núcleo de ESP32 para Arduino), puede enviar solicitudes HTTP <code>GET</code>, <code>POST</code>, <code>PUT</code>, etc. a un servidor web.</p>
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/800x400?text=Diagrama+ESP32+API+Cliente" class="img-fluid rounded shadow-sm" alt="Diagrama del ESP32 actuando como cliente de una API web">
+                    <figcaption class="figure-caption mt-2">El ESP32 puede conectarse a internet y actuar como un cliente que consume servicios de APIs web.</figcaption>
+                </figure>
+                
+                <h3 class="mt-4">2.2. ¿Por qué Integrar con APIs/Servicios Web?</h3>
+                <p>Conectar tu ESP32 a servicios web abre un mundo de posibilidades:</p>
+                <ul>
+                    <li><strong>Almacenamiento de Datos:</strong> En lugar de almacenar datos localmente (con poca capacidad), puedes enviarlos a una base de datos en la nube (como Firebase, MySQL remoto).</li>
+                    <li><strong>Visualización de Datos:</strong> Usar servicios como ThingSpeak, Ubidots o Grafana para crear dashboards en tiempo real.</li>
+                    <li><strong>Acceso Remoto:</strong> Controlar tu ESP32 desde cualquier lugar del mundo a través de una aplicación web que se comunique con él (a menudo a través de un broker MQTT o un servidor intermedio).</li>
+                    <li><strong>Integración con Otros Servicios:</strong>
+                        <ul>
+                            <li>Enviar un correo electrónico o un mensaje de Slack cuando un sensor detecta una condición específica.</li>
+                            <li>Obtener datos del clima para ajustar el comportamiento de un sistema de riego.</li>
+                            <li>Consultar el precio actual de la electricidad para programar el uso de electrodomésticos.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Machine Learning/IA:</strong> Enviar datos a servicios de análisis en la nube para detectar patrones o anomalías.</li>
+                </ul>
+                
+                <h3 class="mt-4">2.3. Ejemplo Conceptual: Sistema de Alerta de Clima</h3>
+                <p>Imagina un sistema que monitorea la temperatura con un ESP32 y envía una alerta si la temperatura supera un umbral.</p>
+                <ol>
+                    <li>El ESP32 lee el sensor de temperatura.</li>
+                    <li>Si la temperatura es alta, el ESP32 hace una solicitud <code>POST</code> a una API web personalizada (por ejemplo, <code>https://mi-api-alertas.com/enviar_alerta</code>) con los datos de la temperatura.</li>
+                    <li>El servidor de la API recibe la solicitud, procesa los datos y envía un correo electrónico o notificación push a través de otro servicio (como SendGrid o Firebase Cloud Messaging).</li>
+                </ol>
+                <p>En este escenario, la API web actúa como intermediaria y punto de integración entre el dispositivo físico (ESP32) y el servicio de notificación (correo/telefono).</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">3. Realizando Solicitudes HTTP desde un ESP32</h2>
+                <p>Veamos cómo se hace esto en la práctica con el ESP32 y el entorno de Arduino. La librería <code>HTTPClient</code> simplifica enormemente el proceso.</p>
+                
+                <h3 class="mt-4">3.1. Haciendo una Solicitud GET Simple</h3>
+                <p>Una solicitud <code>GET</code> se usa típicamente para <strong>obtener</strong> datos de un servidor. Un ejemplo común es consultar un servicio de clima.</p>
+                
+                <h5 class="mt-3">Materiales Necesarios</h5>
+                <ul>
+                    <li>1 Placa ESP32 (NodeMCU, DevKit, etc.)</li>
+                </ul>
+                
+                <h5 class="mt-3">Código del Sketch (Ejemplo de GET)</h5>
+                <p>Este ejemplo consulta una API pública que devuelve un JSON con un "hecho" aleatorio sobre gatos.</p>
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="http-get-code">/*
+ * Ejemplo de Solicitud HTTP GET con ESP32
+ * Consulta una API pública de hechos de gatos.
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+
+// --- Configuración de WiFi ---
+const char* ssid = "TU_SSID";
+const char* password = "TU_CONTRASEÑA";
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000); // Breve pausa antes de comenzar
+
+  // Conectamos a la red WiFi
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("¡Conectado a la red WiFi!");
+  Serial.print("Dirección IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  // Verificamos que estemos conectados
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+    // 1. Especificamos el servidor y el endpoint
+    http.begin("http://catfact.ninja/fact"); // URL de la API
+
+    // 2. Enviamos la solicitud GET
+    int httpResponseCode = http.GET();
+
+    // 3. Procesamos la respuesta
+    if (httpResponseCode > 0) {
+      Serial.print("Código de respuesta HTTP: ");
+      Serial.println(httpResponseCode);
+
+      if (httpResponseCode == 200) { // 200 = OK
+        // 4. Obtenemos el cuerpo de la respuesta
+        String payload = http.getString();
+        Serial.println("Respuesta JSON:");
+        Serial.println(payload);
+        Serial.println("--------------------");
+      }
+    } else {
+      Serial.print("Error en la solicitud GET. Código: ");
+      Serial.println(httpResponseCode);
+    }
+
+    // 5. Cerramos la conexión
+    http.end();
+  } else {
+    Serial.println("Error: No conectado a WiFi");
+  }
+
+  // Esperamos 10 segundos antes de la próxima solicitud
+  delay(10000);
+}</code></pre>
+                
+                <h5 class="mt-3">Explicación del Código</h5>
+                <ul>
+                    <li><strong>Conexión WiFi:</strong> Igual que en ejemplos anteriores, conectamos el ESP32 a la red.</li>
+                    <li><code>#include &lt;HTTPClient.h&gt;</code>: Incluimos la librería necesaria para hacer solicitudes HTTP.</li>
+                    <li><code>HTTPClient http;</code>: Creamos un objeto <code>HTTPClient</code> para manejar la solicitud.</li>
+                    <li><code>http.begin("URL");</code>: Inicializamos el cliente HTTP con la URL del endpoint de la API.</li>
+                    <li><code>int httpResponseCode = http.GET();</code>: Enviamos la solicitud <code>GET</code> y almacenamos el código de respuesta HTTP (200 para éxito, 404 para no encontrado, etc.).</li>
+                    <li><code>if (httpResponseCode == 200)</code>: Verificamos si la solicitud fue exitosa.</li>
+                    <li><code>String payload = http.getString();</code>: Si fue exitosa, obtenemos el cuerpo de la respuesta como un <code>String</code>.</li>
+                    <li><code>http.end();</code>: Es crucial cerrar la conexión HTTP después de usarla para liberar recursos.</li>
+                </ul>
+                <p>La respuesta de esta API es un string JSON como: <code>{"fact":"Los gatos duermen entre 12 y 16 horas al día.","length":49}</code>.</p>
+                
+                <h3 class="mt-4">3.2. Haciendo una Solicitud POST para Enviar Datos</h3>
+                <p>Una solicitud <code>POST</code> se usa típicamente para <strong>enviar</strong> datos al servidor, como los valores de sensores.</p>
+                
+                <h5 class="mt-3">Código del Sketch (Ejemplo de POST)</h5>
+                <p>Este ejemplo envía una lectura de temperatura simulada a un servicio web. Para este ejemplo, usaremos un servicio de prueba como <a href="https://httpbin.org/" target="_blank">httpbin.org</a> que simplemente devuelve lo que le enviamos.</p>
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="http-post-code">/*
+ * Ejemplo de Solicitud HTTP POST con ESP32
+ * Envía datos simulados de un sensor a un servicio web.
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+
+// --- Configuración de WiFi ---
+const char* ssid = "TU_SSID";
+const char* password = "TU_CONTRASEÑA";
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+
+  // Conectamos a la red WiFi
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("¡Conectado a la red WiFi!");
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+    // 1. Especificamos el endpoint POST
+    http.begin("https://httpbin.org/post");
+
+    // 2. (Opcional) Establecemos encabezados
+    http.addHeader("Content-Type", "application/json");
+
+    // 3. Preparamos los datos a enviar (en formato JSON)
+    // Simulamos una lectura de sensor
+    float temperatura = 22.5 + (random(0, 100) / 10.0); // Valor entre 22.5 y 32.5
+    String jsonPayload = "{\"sensor\":\"DHT22\",\"temperatura\":" + String(temperatura, 2) + ",\"unidad\":\"Celsius\"}";
+
+    Serial.print("Enviando datos: ");
+    Serial.println(jsonPayload);
+
+    // 4. Enviamos la solicitud POST con los datos
+    int httpResponseCode = http.POST(jsonPayload);
+
+    // 5. Procesamos la respuesta
+    if (httpResponseCode > 0) {
+      Serial.print("Código de respuesta HTTP: ");
+      Serial.println(httpResponseCode);
+
+      if (httpResponseCode == 200) {
+        String response = http.getString();
+        Serial.println("Respuesta del servidor:");
+        Serial.println(response);
+        Serial.println("--------------------");
+      }
+    } else {
+      Serial.print("Error en la solicitud POST. Código: ");
+      Serial.println(httpResponseCode);
+    }
+
+    // 6. Cerramos la conexión
+    http.end();
+  } else {
+    Serial.println("Error: No conectado a WiFi");
+  }
+
+  // Esperamos 15 segundos antes de la próxima solicitud
+  delay(15000);
+}</code></pre>
+                
+                <h5 class="mt-3">Explicación del Código</h5>
+                <ul>
+                    <li><code>http.addHeader("Content-Type", "application/json");</code>: Antes de enviar el <code>POST</code>, añadimos un encabezado indicando que el contenido es JSON. Esto es importante para que el servidor sepa cómo interpretar los datos.</li>
+                    <li><code>String jsonPayload = ...</code>: Creamos un string en formato JSON con los datos del sensor. Es crucial formatearlo correctamente.</li>
+                    <li><code>int httpResponseCode = http.POST(jsonPayload);</code>: Enviamos la solicitud <code>POST</code>, pasando el string con los datos como argumento. La librería se encarga de calcular la longitud del contenido y enviarlo en el cuerpo de la solicitud.</li>
+                </ul>
+                <p>Este ejemplo demuestra cómo un dispositivo puede "publicar" sus datos en un servicio web para su posterior procesamiento, almacenamiento o análisis.</p>
+                
+                <h3 class="mt-4">3.3. Manejo de Respuestas JSON</h3>
+                <p>Las APIs suelen devolver datos en formato JSON. Aunque podemos imprimir el string JSON completo, es más útil poder extraer valores específicos. Para esto, se pueden usar librerías como <code>ArduinoJson</code>.</p>
+                
+                <h5 class="mt-3">Instalando ArduinoJson</h5>
+                <p>Ve al <strong>Gestor de Librerías</strong> del Arduino IDE (Herramientas > Administrar Bibliotecas...) y busca e instala <code>ArduinoJson</code> por Benoit Blanchon.</p>
+                
+                <h5 class="mt-3">Código del Sketch (Parseando JSON)</h5>
+                <p>Modificamos el ejemplo de <code>GET</code> para extraer solo el "hecho" del JSON recibido.</p>
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="json-parse-code">/*
+ * Ejemplo de Parseo de JSON con ESP32 y ArduinoJson
+ * Extrae información de una respuesta JSON de la API de hechos de gatos.
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;ArduinoJson.h&gt; // Incluimos la librería ArduinoJson
+
+// --- Configuración de WiFi ---
+const char* ssid = "TU_SSID";
+const char* password = "TU_CONTRASEÑA";
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("¡Conectado a la red WiFi!");
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin("http://catfact.ninja/fact");
+
+    int httpResponseCode = http.GET();
+
+    if (httpResponseCode > 0 && httpResponseCode == 200) {
+      String payload = http.getString();
+      Serial.println("JSON Recibido: " + payload);
+
+      // --- Parseo del JSON ---
+      // 1. Creamos un documento JSON. El tamaño debe ser suficiente para la respuesta.
+      //    Puedes usar la herramienta de ArduinoJson: https://arduinojson.org/v6/assistant/
+      DynamicJsonDocument doc(1024); 
+
+      // 2. Deserializamos el string JSON en el documento
+      DeserializationError error = deserializeJson(doc, payload);
+
+      if (error) {
+        Serial.print("Error de deserialización: ");
+        Serial.println(error.f_str());
+        return;
+      }
+
+      // 3. Extraemos los valores
+      const char* fact = doc["fact"]; // Obtiene el valor de la clave "fact"
+      int length = doc["length"];     // Obtiene el valor de la clave "length"
+
+      // 4. Imprimimos los valores extraídos
+      Serial.println("--- Datos Extraídos ---");
+      Serial.print("Hecho: ");
+      Serial.println(fact);
+      Serial.print("Longitud: ");
+      Serial.println(length);
+      Serial.println("----------------------");
+
+    } else {
+      Serial.print("Error en la solicitud GET. Código: ");
+      Serial.println(httpResponseCode);
+    }
+
+    http.end();
+  } else {
+    Serial.println("Error: No conectado a WiFi");
+  }
+
+  delay(15000);
+}</code></pre>
+                
+                <h5 class="mt-3">Explicación del Código</h5>
+                <ul>
+                    <li><code>#include &lt;ArduinoJson.h&gt;</code>: Incluimos la librería ArduinoJson.</li>
+                    <li><code>DynamicJsonDocument doc(1024);</code>: Creamos un documento JSON con un tamaño estimado (1024 bytes). Para aplicaciones más complejas, puedes usar la <a href="https://arduinojson.org/v6/assistant/" target="_blank">herramienta de asistente</a> de ArduinoJson para calcular el tamaño necesario.</li>
+                    <li><code>DeserializationError error = deserializeJson(doc, payload);</code>: Convertimos el string JSON (<code>payload</code>) en una estructura de datos manejable dentro del <code>doc</code>. Si hay un error en el formato JSON, se captura aquí.</li>
+                    <li><code>const char* fact = doc["fact"];</code>: Accedemos directamente al valor asociado con la clave <code>"fact"</code> en el JSON. ArduinoJson hace que esto sea muy intuitivo.</li>
+                </ul>
+                <p>Este proceso de parseo es fundamental para trabajar con datos estructurados provenientes de APIs.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">4. Proyecto Integrador: Sistema de Clima Local con Node-RED</h2>
+                <p>Vamos a crear un proyecto más completo que combine todo lo aprendido. Este sistema leerá temperatura y humedad de un sensor DHT22 conectado a un ESP32, expondrá una API simple para consultar el último valor leído desde un navegador web, y enviará los datos a Node-RED, una plataforma de programación visual para el Internet de las Cosas (IoT) y más.</p>
+                
+                <h3 class="mt-4">4.1. Arquitectura del Proyecto</h3>
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/900x500?text=Arquitectura+Proyecto+Integrador+ESP32+NodeRED" class="img-fluid rounded shadow-sm" alt="Arquitectura del proyecto integrador con ESP32, sensores, Node-RED y cliente web">
+                    <figcaption class="figure-caption mt-2">Arquitectura del proyecto integrador mostrando el flujo de datos desde el sensor hasta Node-RED y la visualización web.</figcaption>
+                </figure>
+                <ol>
+                    <li><strong>ESP32 (Servidor):</strong> Lee el sensor DHT22 y actúa como servidor HTTP para servir datos a navegadores (API de lectura) en formato HTML o JSON.</li>
+                    <li><strong>Navegador Web:</strong> Hace una solicitud <code>GET</code> al ESP32 para obtener el último valor de temperatura/humedad directamente.</li>
+                    <li><strong>ESP32 (Cliente):</strong> Actúa como cliente HTTP para enviar datos en formato JSON a un endpoint en Node-RED.</li>
+                    <li><strong>Node-RED:</strong> Recibe los datos del ESP32, los procesa (en este caso, simplemente los muestra en el panel de debug, pero se pueden añadir nodos para almacenarlos, graficarlos, etc.).</li>
+                </ol>
+                
+                <h3 class="mt-4">4.2. Parte 1: Configurar Node-RED para recibir datos</h3>
+                <p><strong>Instalación de Node-RED:</strong></p>
+                <p>Node-RED es una herramienta de programación visual que se puede ejecutar en tu computadora, una Raspberry Pi o en la nube. Aquí te muestro cómo instalarlo localmente usando npm (Node Package Manager).</p>
+                <ol>
+                    <li><strong>Instalar Node.js:</strong> Ve a <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a> y descarga e instala la versión LTS para tu sistema operativo.</li>
+                    <li><strong>Instalar Node-RED:</strong> Abre una terminal o consola de comandos y ejecuta:
+                        <pre class="bg-dark text-white p-2 rounded"><code class="language-bash">npm install -g node-red</code></pre>
+                    </li>
+                    <li><strong>Iniciar Node-RED:</strong> En la terminal, ejecuta:
+                        <pre class="bg-dark text-white p-2 rounded"><code class="language-bash">node-red</code></pre>
+                        Node-RED se iniciará y podrás acceder a su editor en tu navegador en <a href="http://localhost:1800" target="_blank">http://localhost:1800</a>.
+                    </li>
+                </ol>
+                
+                <h5 class="mt-3">Configurando un Flujo Simple en Node-RED</h5>
+                <ol>
+                    <li><strong>Accede al Editor:</strong> Abre tu navegador y ve a <a href="http://localhost:1800" target="_blank">http://localhost:1800</a>.</li>
+                    <li><strong>Añade un Nodo "http in":</strong>
+                        <ul>
+                            <li>En el panel izquierdo, busca el nodo <code>http</code>.</li>
+                            <li>Arrastra el nodo <code>http in</code> al flujo principal.</li>
+                            <li>Haz doble clic en el nodo para configurarlo:
+                                <ul>
+                                    <li><strong>Method:</strong> Selecciona <code>post</code>.</li>
+                                    <li><strong>URL:</strong> Escribe <code>/sensor-data</code>.</li>
+                                    <li>Haz clic en <strong>Done</strong>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Añade un Nodo "Debug":</strong>
+                        <ul>
+                            <li>Busca el nodo <code>debug</code> en el panel izquierdo.</li>
+                            <li>Arrástralo al flujo.</li>
+                            <li>Conecta la salida del nodo <code>http in</code> a la entrada del nodo <code>debug</code> (arrastra desde un puerto a otro).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Despliega el Flujo:</strong>
+                        <ul>
+                            <li>Haz clic en el botón <strong>Deploy</strong> en la esquina superior derecha.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Ahora Node-RED tiene un endpoint simple (<code>http://TU_IP_LOCAL:1800/sensor-data</code>) que escucha solicitudes POST y muestra los datos recibidos en el panel de Debug.</p>
+                
+                <h5 class="mt-3">Materiales</h5>
+                <ul>
+                    <li>1 Placa ESP32</li>
+                    <li>1 Sensor DHT22</li>
+                    <li>Protoboard y cables</li>
+                    <li>Computadora con Node.js y Node-RED instalados</li>
+                </ul>
+                
+                <h5 class="mt-3">Código del Sketch (Cliente HTTP para enviar datos a Node-RED)</h5>
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="nodered-client-code">/*
+ * Cliente HTTP para ESP32 con DHT22
+ * Lee datos del sensor y los envía a un endpoint de Node-RED.
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+#include &lt;ArduinoJson.h&gt; // Necesitamos JSON para enviar datos estructurados
+#include &lt;DHT.h&gt;
+
+// --- Configuración de WiFi ---
+const char* ssid = "TU_SSID";
+const char* password = "TU_CONTRASEÑA";
+
+// --- Configuración de Node-RED ---
+// Reemplaza con la IP de la computadora donde corre Node-RED
+const char* nodered_server = "http://192.168.1.100";
+const int nodered_port = 1800;
+String endpoint = "/sensor-data";
+
+// --- Configuración del Sensor DHT ---
+#define DHTPIN 4
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+  
+  // Conectamos a la red WiFi
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("¡Conectado a la red WiFi!");
+  Serial.print("Dirección IP del ESP32: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    // Leemos datos del sensor
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+
+    // Verificamos si las lecturas son válidas
+    if (isnan(h) || isnan(t)) {
+      Serial.println("¡Error leyendo el sensor DHT!");
+      delay(10000);
+      return;
+    }
+
+    Serial.print("Temperatura: ");
+    Serial.print(t);
+    Serial.print(" °C, Humedad: ");
+    Serial.print(h);
+    Serial.println(" %");
+
+    // --- Preparamos los datos en formato JSON ---
+    DynamicJsonDocument doc(256);
+    doc["sensor"] = "DHT22";
+    doc["temperatura"] = t;
+    doc["humedad"] = h;
+    doc["unidad_temp"] = "Celsius";
+    doc["unidad_hum"] = "%";
+    doc["timestamp"] = millis();
+
+    String jsonData;
+    serializeJson(doc, jsonData);
+
+    // --- Enviamos datos a Node-RED ---
+    HTTPClient http;
+    String url = String(nodered_server) + ":" + nodered_port + endpoint;
+    http.begin(url);
+    http.addHeader("Content-Type", "application/json");
+
+    int httpResponseCode = http.POST(jsonData);
+
+    if (httpResponseCode > 0) {
+      Serial.print("Código de respuesta HTTP: ");
+      Serial.println(httpResponseCode);
+      if (httpResponseCode == 200) {
+        Serial.println("Datos enviados a Node-RED exitosamente.");
+      }
+    } else {
+      Serial.print("Error al enviar datos. Código: ");
+      Serial.println(httpResponseCode);
+    }
+    http.end();
+
+  } else {
+    Serial.println("Error: No conectado a WiFi");
+  }
+
+  delay(15000); // Enviamos datos cada 15 segundos
+}</code></pre>
+                
+                <h3 class="mt-4">4.3. Parte 2: Exponer una API Simple desde el ESP32 (Servidor Web)</h3>
+                <p>Ahora haremos que el ESP32 también actúe como un servidor web básico para servir sus propios datos.</p>
+                
+                <h5 class="mt-3">Código del Sketch (Servidor Web)</h5>
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="esp32-webserver-code">/*
+ * ESP32 como Servidor Web
+ * Lee datos del sensor y los sirve en una página web y en formato JSON.
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt; // Librería para el servidor web
+#include &lt;DHT.h&gt;
+
+// --- Configuración de WiFi ---
+const char* ssid = "TU_SSID";
+const char* password = "TU_CONTRASEÑA";
+
+// --- Configuración del Sensor DHT ---
+#define DHTPIN 4
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+// --- Configuración del Servidor Web ---
+WebServer serverWeb(80); // El servidor escuchará en el puerto 80
+
+// --- Variables para almacenar las últimas lecturas ---
+float ultimaTemperatura = 0.0;
+float ultimaHumedad = 0.0;
+
+// --- Handler para la ruta raíz "/" ---
+void handleRoot() {
+  String html = "<!DOCTYPE html><html>";
+  html += "<head><meta charset='UTF-8'><title>Datos del Sensor</title>";
+  html += "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+  html += "<style>body{font-family: Arial, sans-serif; text-align: center; padding: 20px;}";
+  html += "h1{color: #333;} .data{font-size: 24px; margin: 20px 0;}";
+  html += ".temp{color: #ff6b6b;} .hum{color: #4ecdc4;}</style></head>";
+  html += "<body>";
+  html += "<h1>Datos del Sensor DHT22</h1>";
+  html += "<div class='data'><span class='temp'>Temperatura: " + String(ultimaTemperatura, 2) + " &deg;C</span></div>";
+  html += "<div class='data'><span class='hum'>Humedad: " + String(ultimaHumedad, 2) + " %</span></div>";
+  html += "<p><a href='/datos'>Ver datos en JSON</a> | Última actualización: " + String(millis() / 1000) + "s</p>";
+  html += "</body></html>";
+
+  serverWeb.send(200, "text/html", html);
+}
+
+// --- Handler para la ruta "/datos" (API JSON) ---
+void handleDatos() {
+  String json = "{";
+  json += "\"temperatura\":" + String(ultimaTemperatura, 2) + ",";
+  json += "\"humedad\":" + String(ultimaHumedad, 2) + ",";
+  json += "\"unidad_temp\":\"Celsius\",";
+  json += "\"unidad_hum\":\"%\",";
+  json += "\"timestamp\":" + String(millis());
+  json += "}";
+  
+  // Establecemos el encabezado Content-Type para JSON
+  serverWeb.sendHeader("Content-Type", "application/json");
+  serverWeb.send(200, "application/json", json);
+}
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+
+  // Conectamos a la red WiFi
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("¡Conectado a la red WiFi!");
+  Serial.print("Dirección IP: ");
+  Serial.println(WiFi.localIP());
+
+  // --- Configuramos las rutas del servidor web ---
+  serverWeb.on("/", handleRoot);    // Página principal HTML
+  serverWeb.on("/datos", handleDatos); // API JSON
+  serverWeb.onNotFound([]() {       // Página 404 para rutas no definidas
+    serverWeb.send(404, "text/plain", "Página no encontrada");
+  });
+
+  // --- Iniciamos el servidor ---
+  serverWeb.begin();
+  Serial.println("Servidor HTTP iniciado");
+}
+
+void loop() {
+  // --- Manejamos las solicitudes entrantes al servidor ---
+  serverWeb.handleClient();
+
+  // --- Lógica de lectura de datos (cada 5 segundos) ---
+  static unsigned long lastRead = 0;
+  if (millis() - lastRead > 5000) {
+    lastRead = millis();
+
+    // Leemos datos del sensor
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+
+    if (!isnan(h) && !isnan(t)) {
+      ultimaTemperatura = t;
+      ultimaHumedad = h;
+      
+      Serial.print("Temperatura: ");
+      Serial.print(t);
+      Serial.print(" °C, Humedad: ");
+      Serial.print(h);
+      Serial.println(" %");
+    } else {
+      Serial.println("¡Error leyendo el sensor DHT!");
+    }
+  }
+}</code></pre>
+                
+                <h5 class="mt-3">Explicación del Código del Servidor</h5>
+                <ul>
+                    <li><code>#include &lt;WebServer.h&gt;</code>: Incluimos la librería para crear un servidor web.</li>
+                    <li><code>WebServer serverWeb(80);</code>: Creamos un objeto servidor que escuchará en el puerto 80 (puerto estándar para HTTP).</li>
+                    <li><code>serverWeb.on("/", handleRoot);</code>: Definimos una "ruta". Cuando alguien accede a <code>http://IP_DEL_ESP32/</code>, se ejecutará la función <code>handleRoot</code>.</li>
+                    <li><code>handleRoot()</code> y <code>handleDatos()</code>: Son funciones "handler" que definen qué contenido se debe servir para cada ruta. <code>handleRoot</code> genera una página HTML simple, mientras que <code>handleDatos</code> genera una respuesta JSON.</li>
+                    <li><code>serverWeb.begin();</code>: Inicia el servidor web.</li>
+                    <li><code>serverWeb.handleClient();</code>: Esta línea en el <code>loop()</code> es crucial. Le dice al servidor que revise si hay nuevas solicitudes de clientes web y las procese.</li>
+                </ul>
+                
+                <h5 class="mt-3">Cómo Probarlo</h5>
+                <ol>
+                    <li>Carga el sketch del servidor en tu ESP32.</li>
+                    <li>Abre el Monitor Serial para ver la dirección IP asignada (por ejemplo, <code>192.168.1.120</code>).</li>
+                    <li>Abre un navegador web en un dispositivo conectado a la misma red WiFi.</li>
+                    <li>Ingresa la dirección IP en la barra de direcciones:
+                        <ul>
+                            <li><code>http://192.168.1.120/</code> te mostrará la página web con los datos.</li>
+                            <li><code>http://192.168.1.120/datos</code> te devolverá los datos en formato JSON.</li>
+                        </ul>
+                    </li>
+                    <li>Ejecuta el flujo de Node-RED y carga el sketch del cliente ESP32. Abre el panel de Debug en Node-RED para ver los datos que llegan desde el ESP32.</li>
+                </ol>
+                <p>Este proyecto demuestra cómo un microcontrolador puede servir sus propios datos a través de una API web simple y cómo otro dispositivo (Node-RED en este caso) puede consumir esos datos.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">5. Otras Plataformas y Servicios Populares</h2>
+                <p>Además de las herramientas vistas, existen muchas otras plataformas que facilitan la integración con APIs y el desarrollo de aplicaciones IoT.</p>
+                
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Blynk</h5>
+                                <p>Una plataforma que permite crear interfaces de usuario móviles (apps) para controlar y monitorear dispositivos mediante "widgets" arrastrables. Se comunica con el dispositivo a través de su propio servidor y app.</p>
+                                <a href="https://blynk.io/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Ubidots</h5>
+                                <p>Plataforma empresarial para IoT que ofrece herramientas de visualización, análisis y creación de aplicaciones. Proporciona librerías específicas para ESP32/Arduino.</p>
+                                <a href="https://ubidots.com/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Firebase</h5>
+                                <p>Plataforma de Google para desarrollo de apps que incluye una base de datos en tiempo real (Realtime Database) y autenticación. Excelente para crear aplicaciones web y móviles que se sincronicen instantáneamente con tu dispositivo.</p>
+                                <a href="https://firebase.google.com/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">ThingSpeak</h5>
+                                <p>Plataforma de análisis de datos IoT que permite almacenar, visualizar y analizar datos de dispositivos conectados. Proporciona APIs sencillas para la integración.</p>
+                                <a href="https://thingspeak.com/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">6. Galería de Videos Recomendados</h2>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/ZXmPbrf8K2c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">¿Qué es una API? (Explicación Sencilla)</h5>
+                                <p class="card-text">Una introducción clara y sencilla a qué es una API y por qué son importantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/31rX8MvG14o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">ESP32 HTTP GET y POST con Arduino IDE</h5>
+                                <p class="card-text">Tutorial práctico sobre cómo realizar solicitudes HTTP GET y POST desde un ESP32.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">7. Referencias y Lecturas Recomendadas</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="https://arduinojson.org/" target="_blank">Documentación de ArduinoJson</a> - La guía oficial y herramientas para trabajar con JSON en Arduino/ESP.</li>
+                    <li class="list-group-item"><a href="https://randomnerdtutorials.com/esp32-http-get-post-arduino/" target="_blank">Random Nerd Tutorials: ESP32 HTTP GET and POST</a> - Tutoriales prácticos y muy bien explicados.</li>
+                    <li class="list-group-item"><a href="https://thingspeak.com/" target="_blank">ThingSpeak</a> - Plataforma de análisis de datos IoT con documentación y ejemplos.</li>
+                    <li class="list-group-item">Fielding, R., &amp; Reschke, J. (2014). <em>RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</em>. IETF. (Especificación oficial de HTTP, base de las REST APIs).</li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- Sequential Navigation -->
+        <nav class="d-flex justify-content-between mt-4">
+            <a href="protocolo-mqtt.html" class="btn btn-primary">&larr; Tema Anterior</a>
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-primary">Finalizar Curso &rarr;</a>
+        </nav>
+
+        <footer class="mt-5 text-center">
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <!-- Script para copiar código -->
+    <script>
+        function copyCodePrism(button) {
+            const codeElement = button.nextElementSibling || button.parentElement.querySelector('code');
+            if (codeElement) {
+                const codeText = codeElement.textContent;
+                navigator.clipboard.writeText(codeText).then(() => {
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = '<i class="bi bi-check"></i> ¡Copiado!';
+                    button.classList.remove('btn-outline-light');
+                    button.classList.add('btn-success');
+                    setTimeout(() => {
+                         button.innerHTML = originalHTML;
+                         button.classList.remove('btn-success');
+                         button.classList.add('btn-outline-light');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Error al copiar el texto: ', err);
+                    alert('Error al copiar el código. Por favor, inténtalo manualmente.');
+                });
+            } else {
+                console.error('No se pudo encontrar el elemento de código para copiar.');
+            }
+        }
+    </script>
+</body>
+</html>

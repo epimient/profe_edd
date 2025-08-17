@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo MQTT para Comunicación M2M</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        /* Estilo para bloques de código con botón de copiar */
+        pre.code-container {
+            position: relative;
+            border-radius: 0.375rem;
+        }
+        pre.code-container .btn-copy-code {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            padding: 0.1rem 0.25rem;
+            font-size: 0.65rem;
+            line-height: 1;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        pre.code-container:hover .btn-copy-code {
+            opacity: 1;
+        }
+        /* Estilo para imágenes en la galería de herramientas */
+        .tool-logo {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Protocolo MQTT para Comunicación M2M</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">Bloque 4.2: Protocolo MQTT para Comunicación M2M</h1>
+            <p class="fs-4">Comunicando dispositivos de forma eficiente en el Internet de las Cosas (IoT).</p>
+        </header>
+
+        <main class="card shadow-sm">
+            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-easel2-fill fs-3 me-3"></i>
+                <div class="flex-grow-1">
+                    <h4 class="alert-heading">Diapositivas del Tema</h4>
+                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los conceptos.</p>
+                </div>
+                <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación &rarr;</a>
+            </div>
+            <div class="alert alert-info d-flex align-items-center m-4" role="alert">
+                <i class="bi bi-cloud-arrow-up-fill fs-3 me-3"></i>
+                <div>
+                    <h4 class="alert-heading">La Necesidad de una Comunicación Ligera</h4>
+                    <p class="mb-0">En el mundo de IoT, donde dispositivos con recursos limitados (como sensores y microcontroladores) necesitan comunicarse constantemente, los protocolos tradicionales como HTTP pueden ser demasiado pesados. MQTT surge como una solución optimizada para este entorno.</p>
+                </div>
+            </div>
+            <div class="card-body p-4 pt-0">
+                
+                <h2 class="card-title">1. Introducción a los Protocolos de Comunicación</h2>
+                <p>Para que dispositivos puedan intercambiar información en una red, necesitan seguir un conjunto de reglas estandarizadas, conocidas como protocolos. Existen muchos protocolos de comunicación, cada uno con sus ventajas y desventajas dependiendo del contexto de uso.</p>
+                
+                <h3 class="mt-4">1.1. Protocolos Comunes en IoT y Redes</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>HTTP (HyperText Transfer Protocol)</h5>
+                        <p>El protocolo fundamental de la web. Es ampliamente conocido y fácil de usar, pero puede ser ineficiente para dispositivos con recursos limitados.</p>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Estándar, bien documentado, fácil de depurar, funciona a través de firewalls.</li>
+                            <li><strong>Desventajas:</strong> Encabezados grandes (overhead), comunicación basada en solicitud/respuesta (no "push"), consume más energía y ancho de banda.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Zigbee</h5>
+                        <p>Un protocolo de comunicación inalámbrica de bajo consumo diseñado para redes de área personal (PAN). Opera en la banda de 2.4 GHz.</p>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Muy bajo consumo de energía, redes malladas (mesh) auto-configurables, seguridad integrada.</li>
+                            <li><strong>Desventajas:</strong> Alcance limitado, requiere hardware especializado, no se conecta directamente a internet sin un gateway.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>CoAP (Constrained Application Protocol)</h5>
+                        <p>Diseñado específicamente para dispositivos con recursos muy limitados. Es similar a HTTP pero más ligero y puede funcionar sobre UDP.</p>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Muy ligero, soporta multicast, diseñado para RESTful services.</li>
+                            <li><strong>Desventajas:</strong> Menos maduro que HTTP/MQTT, menor ecosistema de herramientas.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>MQTT (Message Queuing Telemetry Transport)</h5>
+                        <p>Un protocolo de mensajería basado en "publish-subscribe", optimizado para conexiones de red con alta latencia o ancho de banda limitado.</p>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Muy ligero, eficiente en ancho de banda, soporta comunicación asíncrona, escalable, funciona bien en redes poco confiables.</li>
+                            <li><strong>Desventajas:</strong> Requiere un broker central, no es ideal para comunicación punto a punto simple.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="alert alert-success mt-4">
+                    <h4 class="alert-heading">¿Por qué MQTT para IoT?</h4>
+                    <p>MQTT se ha convertido en uno de los protocolos más populares para aplicaciones IoT por varias razones clave:</p>
+                    <ul>
+                        <li><strong>Minimalismo:</strong> Su diseño es extremadamente ligero, ideal para microcontroladores como ESP32 o Arduino con conectividad.</li>
+                        <li><strong>Patrón Publish/Subscribe:</strong> Permite una arquitectura desacoplada donde los dispositivos no necesitan conocerse entre sí, solo necesitan saber dónde enviar/recibir mensajes (tópicos).</li>
+                        <li><strong>Fiabilidad:</strong> Ofrece diferentes niveles de calidad de servicio (QoS) para garantizar la entrega de mensajes según las necesidades de la aplicación.</li>
+                        <li><strong>Eficiencia en Redes:</strong> Funciona bien incluso en conexiones inestables o de bajo ancho de banda, como redes GSM o WiFi de mala calidad.</li>
+                    </ul>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">2. Fundamentos de MQTT</h2>
+                <p>MQTT (Message Queuing Telemetry Transport) es un protocolo de mensajería ligero basado en el patrón <strong>publicar/suscribir (publish/subscribe)</strong>. Fue creado por IBM en 1999 para monitorear oleoductos, y su simplicidad y eficiencia lo hicieron perfecto para el mundo del IoT.</p>
+                
+                <h3 class="mt-4">2.1. Arquitectura Publish/Subscribe</h3>
+                <p>A diferencia del modelo tradicional cliente-servidor (como HTTP), donde un cliente hace una solicitud directa a un servidor, en MQTT los dispositivos (llamados clientes) se comunican a través de un <strong>Broker</strong> central.</p>
+                
+                <ul>
+                    <li><strong>Cliente (Client):</strong> Cualquier dispositivo que se conecta al broker para publicar mensajes, suscribirse a tópicos o ambos. Puede ser un sensor, un actuador, una aplicación móvil, etc.</li>
+                    <li><strong>Broker:</strong> El servidor central que recibe todos los mensajes, filtra los clientes que están suscritos a cada tópico y envía los mensajes a los clientes suscritos. Es el corazón del sistema MQTT.</li>
+                    <li><strong>Tópico (Topic):</strong> Una cadena de texto que actúa como una dirección o canal. Los clientes publican mensajes en tópicos específicos y se suscriben a tópicos para recibir mensajes. Ejemplos: <code>sensores/temperatura/sala1</code>, <code>actuadores/luz/cocina</code>.</li>
+                    <li><strong>Mensaje (Message/Payload):</strong> Los datos reales que se envían. Pueden ser texto plano, JSON, binarios, etc.</li>
+                </ul>
+                
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/800x400?text=Diagrama+Arquitectura+MQTT" class="img-fluid rounded shadow-sm" alt="Diagrama de la arquitectura MQTT con clientes, broker y tópicos">
+                    <figcaption class="figure-caption mt-2">Arquitectura básica de MQTT mostrando clientes, un broker central y la comunicación basada en tópicos.</figcaption>
+                </figure>
+                
+                <h3 class="mt-4">2.2. Flujo de Comunicación Básico</h3>
+                <ol>
+                    <li>Un <strong>cliente publicador</strong> se conecta al broker y envía un mensaje a un tópico específico, por ejemplo, <code>sensores/temperatura/sala1</code> con el valor <code>22.5</code>.</li>
+                    <li>El <strong>broker</strong> recibe el mensaje y lo almacena temporalmente.</li>
+                    <li>El broker verifica qué <strong>clientes suscriptores</strong> están interesados en ese tópico (en este caso, <code>sensores/temperatura/sala1</code>).</li>
+                    <li>El broker reenvía (publica) el mensaje a todos los clientes que se han suscrito a ese tópico.</li>
+                </ol>
+                <p>Este modelo desacoplado significa que el publicador no necesita saber quién recibirá el mensaje, y el suscriptor no necesita saber quién lo envió. Solo necesitan conocer el tópico.</p>
+                
+                <h3 class="mt-4">2.3. Calidad de Servicio (QoS - Quality of Service)</h3>
+                <p>MQTT define tres niveles de QoS para garantizar la entrega de mensajes según las necesidades de la aplicación:</p>
+                <table class="table table-striped table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nivel QoS</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Uso Típico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>At most once</td>
+                            <td>El mensaje se entrega una vez, como máximo. Puede perderse. Es el más rápido y ligero.</td>
+                            <td>Datos que pueden perderse sin consecuencias, como lecturas de sensores frecuentes.</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>At least once</td>
+                            <td>El mensaje se entrega al menos una vez. Puede llegar duplicado. Es el nivel más común.</td>
+                            <td>Comandos importantes donde se prefiere un duplicado a una pérdida, como encender un relé.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Exactly once</td>
+                            <td>El mensaje se entrega exactamente una vez. Es el más seguro pero también el más lento y con más overhead.</td>
+                            <td>Datos críticos donde ni la pérdida ni el duplicado son aceptables, como transacciones financieras.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="mt-4">2.4. Conexión y Sesión</h3>
+                <p>MQTT es un protocolo basado en conexiones persistentes. Los clientes se conectan al broker una vez y mantienen la conexión abierta. Esto permite:</p>
+                <ul>
+                    <li><strong>Mensajería Asíncrona:</strong> Los mensajes pueden fluir en cualquier dirección en cualquier momento mientras la conexión esté activa.</li>
+                    <li><strong>Retención de Mensajes:</strong> El broker puede almacenar el último mensaje publicado en un tópico. Cuando un nuevo suscriptor se conecta, recibe inmediatamente este mensaje retenido, lo que es útil para valores iniciales o de estado.</li>
+                    <li><strong>Última Voluntad (Last Will and Testament - LWT):</strong> Un cliente puede dejar un mensaje de "última voluntad" al conectarse. Si el broker detecta que el cliente se ha desconectado inesperadamente, publica automáticamente este mensaje, informando a otros clientes sobre la desconexión.</li>
+                </ul>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">3. El Broker: Corazón del Sistema MQTT</h2>
+                <p>El broker es el componente central y más crítico de una red MQTT. Es responsable de recibir todos los mensajes, gestionar las suscripciones y enrutar los mensajes a los clientes correctos. La elección del broker puede afectar significativamente el rendimiento, la seguridad y la escalabilidad de tu sistema IoT.</p>
+                
+                <h3 class="mt-4">3.1. Funciones Principales de un Broker</h3>
+                <ul>
+                    <li><strong>Autenticación y Autorización:</strong> Verificar la identidad de los clientes (nombre de usuario/contraseña) y controlar a qué tópicos pueden publicar o suscribirse.</li>
+                    <li><strong>Enrutamiento de Mensajes:</strong> Recibir mensajes de los publicadores y entregarlos a los suscriptores correctos basándose en los tópicos.</li>
+                    <li><strong>Gestión de Sesiones:</strong> Mantener el estado de las conexiones de los clientes, incluyendo sus suscripciones, especialmente para clientes que se reconectan.</li>
+                    <li><strong>Retención de Mensajes:</strong> Almacenar y entregar el último mensaje conocido para tópicos específicos.</li>
+                    <li><strong>Manejo del LWT:</strong> Procesar y enviar mensajes de última voluntad cuando un cliente se desconecta inesperadamente.</li>
+                </ul>
+                
+                <h3 class="mt-4">3.2. Características de un Broker Robusto</h3>
+                <ul>
+                    <li><strong>Escalabilidad:</strong> Capacidad de manejar miles o millones de conexiones simultáneas.</li>
+                    <li><strong>Seguridad:</strong> Soporte para TLS/SSL para encriptar la comunicación, y mecanismos de autenticación robustos.</li>
+                    <li><strong>Alta Disponibilidad:</strong> Configuración en clúster para evitar puntos únicos de falla.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento de mensajes en disco para garantizar su entrega incluso si el broker se reinicia.</li>
+                </ul>
+                
+                <h3 class="mt-4">3.3. Broker Mosquitto: El Estándar de Código Abierto</h3>
+                <p><strong>Eclipse Mosquitto</strong> es probablemente el broker MQTT más popular y ampliamente utilizado, especialmente para entornos de desarrollo, pruebas y despliegues de pequeña a mediana escala. Es un proyecto de código abierto mantenido por la Fundación Eclipse.</p>
+                
+                <h5 class="mt-3">Características Clave de Mosquitto</h5>
+                <ul>
+                    <li><strong>Ligero y Rápido:</strong> Consume pocos recursos, ideal para Raspberry Pi, servidores pequeños o incluso contenedores Docker.</li>
+                    <li><strong>Multiplataforma:</strong> Disponible para Linux, Windows, macOS y sistemas embebidos.</li>
+                    <strong>Fácil de Configurar:</strong> Un archivo de configuración sencillo permite personalizar su comportamiento.
+                    <li><strong>Soporte para QoS 0-2:</strong> Implementa todos los niveles de calidad de servicio definidos por el estándar MQTT.</li>
+                    <li><strong>Seguridad:</strong> Soporta autenticación por nombre de usuario/contraseña y encriptación TLS/SSL.</li>
+                    <li><strong>Comunidad Activa:</strong> Gran comunidad y abundante documentación.</li>
+                </ul>
+                
+                <h5 class="mt-3">Instalación de Mosquitto (Ejemplo en Ubuntu/Debian)</h5>
+                <pre class="bg-dark text-white p-3 rounded"><code class="language-bash"># Instalar el broker Mosquitto
+sudo apt update
+sudo apt install mosquitto mosquitto-clients
+
+# (Opcional) Iniciar el servicio automáticamente en el arranque
+sudo systemctl enable mosquitto
+
+# Iniciar el servicio
+sudo systemctl start mosquitto
+
+# Verificar el estado
+sudo systemctl status mosquitto</code></pre>
+                
+                <h5 class="mt-3">Configuración Básica de Mosquitto</h5>
+                <p>El archivo de configuración principal suele estar en <code>/etc/mosquitto/mosquitto.conf</code>. Aquí hay algunos ejemplos de configuraciones comunes:</p>
+                <pre class="bg-dark text-white p-3 rounded"><code class="language-conf"># Permitir conexiones anónimas (NO recomendado para producción)
+allow_anonymous true
+
+# Escuchar en un puerto específico (por defecto es 1883)
+listener 1883
+
+# --- Configuración de Seguridad (Recomendado) ---
+# Deshabilitar conexiones anónimas
+allow_anonymous false
+
+# Especificar el archivo de contraseñas
+password_file /etc/mosquitto/passwd
+
+# (Opcional) Configuración para TLS/SSL
+# listener 8883
+# cafile /path/to/ca.crt
+# certfile /path/to/server.crt
+# keyfile /path/to/server.key</code></pre>
+                
+                <h5 class="mt-3">Creando Usuarios en Mosquitto</h5>
+                <p>Para usar autenticación, necesitas crear usuarios y sus contraseñas:</p>
+                <pre class="bg-dark text-white p-3 rounded"><code class="language-bash"># Crear un nuevo archivo de contraseñas y añadir un usuario
+sudo mosquitto_passwd -c /etc/mosquitto/passwd mi_usuario
+
+# Añadir más usuarios al archivo existente
+sudo mosquitto_passwd /etc/mosquitto/passwd otro_usuario
+
+# Reiniciar el servicio para aplicar cambios
+sudo systemctl restart mosquitto</code></pre>
+                
+                <h5 class="mt-3">Probando Mosquitto Localmente</h5>
+                <p>El paquete <code>mosquitto-clients</code> incluye herramientas de línea de comandos muy útiles para pruebas:</p>
+                <pre class="bg-dark text-white p-3 rounded"><code class="language-bash"># Terminal 1: Suscribirse a un tópico
+mosquitto_sub -h localhost -t "prueba/temperatura"
+
+# Terminal 2: Publicar un mensaje en ese tópico
+mosquitto_pub -h localhost -t "prueba/temperatura" -m "22.5"</code></pre>
+                <p>En el primer terminal, deberías ver el mensaje "22.5" aparecer inmediatamente después de ejecutar el comando en el segundo terminal.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">4. Conectando un Microcontrolador ESP32 a un Broker MQTT</h2>
+                <p>Una de las aplicaciones más comunes de MQTT es conectar microcontroladores como el ESP32 a un broker para enviar datos de sensores o recibir comandos. A continuación, se muestra un ejemplo básico usando el ESP32 y la librería PubSubClient.</p>
+                
+                <h3 class="mt-4">4.1. Materiales Necesarios</h3>
+                <ul>
+                    <li>1 Placa ESP32 (NodeMCU, DevKit, etc.)</li>
+                    <li>1 Sensor de temperatura DHT22 (opcional, para el ejemplo)</li>
+                    <li>Protoboard y cables de conexión</li>
+                    <li>Acceso a un broker MQTT (puedes usar un broker público de prueba o uno local como Mosquitto)</li>
+                </ul>
+                
+                <h3 class="mt-4">4.2. Conexión del Sensor DHT22 (Opcional)</h3>
+                <figure class="text-center my-4">
+                    <img src="https://placehold.co/600x400?text=Esquema+DHT22+ESP32+MQTT" class="img-fluid rounded shadow-sm" alt="Esquema de conexión del sensor DHT22 al ESP32">
+                    <figcaption class="figure-caption mt-2">Conexión del sensor DHT22 al ESP32 para el ejemplo de MQTT.</figcaption>
+                </figure>
+                <p><strong>Conexiones:</strong></p>
+                <ul>
+                    <li><strong>VCC</strong> del DHT22 al pin <strong>3V3</strong> del ESP32.</li>
+                    <li><strong>GND</strong> del DHT22 al pin <strong>GND</strong> del ESP32.</li>
+                    <li><strong>DATA</strong> del DHT22 al pin <strong>GPIO 4</strong> del ESP32.</li>
+                </ul>
+                
+                <h3 class="mt-4">4.3. Código del Sketch</h3>
+                <p>Primero, necesitas instalar las librerías requeridas desde el Gestor de Librerías del Arduino IDE: <code>PubSubClient</code> (por Nick O'Leary) y <code>DHT sensor library</code> (por Adafruit).</p>
+                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="esp32-mqtt-code">/*
+ * Cliente MQTT para ESP32
+ * Publica datos de temperatura y humedad de un sensor DHT22 a un broker MQTT.
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;PubSubClient.h&gt;
+#include &lt;DHT.h&gt;
+
+// --- Configuración de WiFi ---
+const char* ssid = "TU_SSID";
+const char* password = "TU_CONTRASEÑA";
+
+// --- Configuración de MQTT ---
+// Puedes usar un broker público de prueba como: broker.hivemq.com (puerto 1883)
+// O tu propio broker Mosquitto en la misma red, por ejemplo: 192.168.1.100
+const char* mqtt_server = "broker.hivemq.com";
+const int mqtt_port = 1883;
+
+// --- Configuración del Sensor DHT ---
+#define DHTPIN 4
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+// --- Cliente WiFi y MQTT ---
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+// --- Variables ---
+long lastMsg = 0;
+char msg[50];
+int value = 0;
+
+void setup_wifi() {
+  delay(10);
+  // Conectamos a la red WiFi
+  Serial.println();
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("¡Conectado a la red WiFi!");
+  Serial.print("Dirección IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Mensaje recibido [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+
+  // Aquí puedes añadir lógica para manejar comandos recibidos
+  // Por ejemplo, si el tópico es "actuadores/led" y el payload es "ON", enciende un LED.
+}
+
+void reconnect() {
+  // Bucle hasta que se restablezca la conexión
+  while (!client.connected()) {
+    Serial.print("Intentando conexión MQTT...");
+    // Creamos un ID de cliente aleatorio
+    String clientId = "ESP32Client-" + String(random(0xffff), HEX);
+    
+    // Intentamos conectar
+    if (client.connect(clientId.c_str())) {
+      Serial.println("¡Conectado!");
+      // Una vez conectado, se pueden suscribir a tópicos
+      client.subscribe("actuadores/led");
+    } else {
+      Serial.print("falló, rc=");
+      Serial.print(client.state());
+      Serial.println(" reintentando en 5 segundos");
+      // Esperamos 5 segundos antes de reintentar
+      delay(5000);
+    }
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+  setup_wifi();
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+}
+
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  long now = millis();
+  if (now - lastMsg > 5000) { // Publicar cada 5 segundos
+    lastMsg = now;
+    
+    // Leemos datos del sensor
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+    
+    // Verificamos si las lecturas son válidas
+    if (isnan(h) || isnan(t)) {
+      Serial.println("¡Error leyendo el sensor DHT!");
+      return;
+    }
+
+    // Preparamos los mensajes
+    String temp_str = String(t, 2); // 2 decimales
+    String hum_str = String(h, 2);
+
+    // Publicamos temperatura
+    String topic_temp = "sensores/" + WiFi.macAddress() + "/temperatura";
+    client.publish(topic_temp.c_str(), temp_str.c_str());
+    Serial.print("Publicado en ");
+    Serial.print(topic_temp);
+    Serial.print(": ");
+    Serial.println(temp_str);
+
+    // Publicamos humedad
+    String topic_hum = "sensores/" + WiFi.macAddress() + "/humedad";
+    client.publish(topic_hum.c_str(), hum_str.c_str());
+    Serial.print("Publicado en ");
+    Serial.print(topic_hum);
+    Serial.print(": ");
+    Serial.println(hum_str);
+  }
+}</code></pre>
+                
+                <h3 class="mt-4">4.4. Explicación del Código</h3>
+                <ul>
+                    <li><strong>Librerías:</strong> Incluimos <code>WiFi.h</code> para conectividad, <code>PubSubClient.h</code> para MQTT y <code>DHT.h</code> para el sensor.</li>
+                    <li><strong>Configuración:</strong> Definimos las credenciales de WiFi y la dirección del broker MQTT. En este ejemplo usamos el broker público de HiveMQ.</li>
+                    <li><strong>setup_wifi():</strong> Una función auxiliar para conectar el ESP32 a la red WiFi.</li>
+                    <li><strong>callback():</strong> Esta función se ejecuta cada vez que se recibe un mensaje en un tópico al que estamos suscritos. Aquí es donde se procesarían comandos entrantes.</li>
+                    <li><strong>reconnect():</strong> Maneja la reconexión automática al broker MQTT si se pierde la conexión.</li>
+                    <li><strong>setup():</strong> Inicializa el puerto serial, el sensor DHT, la conexión WiFi, y configura el cliente MQTT con el servidor y la función callback.</li>
+                    <li><strong>loop():</strong>
+                        <ul>
+                            <li><code>client.connected()</code> y <code>reconnect()</code> aseguran que siempre estemos conectados al broker.</li>
+                            <li><code>client.loop()</code> es crucial; permite que la librería procese mensajes entrantes y mantenga la conexión.</li>
+                            <li>Cada 5 segundos, se leen los valores del sensor.</li>
+                            <li>Se forman tópicos únicos basados en la dirección MAC del ESP32 (ej. <code>sensores/A4:B1:C1:23:45:67/temperatura</code>).</li>
+                            <li>Se publican los valores de temperatura y humedad usando <code>client.publish()</code>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Este ejemplo demuestra cómo un dispositivo puede enviar datos de forma autónoma a un broker, desde donde otras aplicaciones pueden consumirlos.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">5. Galería de Herramientas MQTT</h2>
+                <p>Existen numerosas herramientas que facilitan el desarrollo, prueba y monitoreo de sistemas MQTT. Aquí tienes algunas de las más populares y útiles:</p>
+                
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Mosquitto -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/MQTT-logo.svg/1200px-MQTT-logo.svg.png" class="tool-logo mb-3" alt="Logo de Mosquitto">
+                                <h5 class="card-title">Eclipse Mosquitto</h5>
+                                <p class="card-text">El broker MQTT de código abierto más popular. Ligero, confiable y fácil de instalar. Ideal para desarrollo y pequeñas instalaciones.</p>
+                                <a href="https://mosquitto.org/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- MQTTX -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://raw.githubusercontent.com/emqx/MQTTX/main/assets/mqttx-logo.png" class="tool-logo mb-3" alt="Logo de MQTTX">
+                                <h5 class="card-title">MQTTX</h5>
+                                <p class="card-text">Cliente MQTT de escritorio multiplataforma (Windows, macOS, Linux) con una interfaz gráfica intuitiva. Perfecto para desarrolladores y testers.</p>
+                                <a href="https://mqttx.app/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- HiveMQ -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://www.hivemq.com/img/svg/hivemq-logo.svg" class="tool-logo mb-3" alt="Logo de HiveMQ">
+                                <h5 class="card-title">HiveMQ</h5>
+                                <p class="card-text">Plataforma MQTT empresarial con broker en la nube, herramientas de monitoreo y análisis. Ofrece un broker público gratuito para pruebas.</p>
+                                <a href="https://www.hivemq.com/" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- EMQX -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="https://www.emqx.com/images/emqx-logo.png" class="tool-logo mb-3" alt="Logo de EMQX">
+                                <h5 class="card-title">EMQX</h5>
+                                <p class="card-text">Broker MQTT de código abierto altamente escalable, capaz de manejar millones de conexiones. Muy popular en entornos de producción de gran escala.</p>
+                                <a href="https://www.emqx.com/en" class="btn btn-outline-primary btn-sm" target="_blank">Sitio Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="mt-4">5.1. Usando MQTTX para Probar tu Sistema</h3>
+                <p>MQTTX es una excelente herramienta para probar tu broker y clientes. Aquí te mostramos cómo usarla:</p>
+                <ol>
+                    <li><strong>Descarga e Instala:</strong> Ve al sitio oficial de MQTTX (<a href="https://mqttx.app/" target="_blank">https://mqttx.app/</a>) y descarga la versión para tu sistema operativo.</li>
+                    <li><strong>Crea una Nueva Conexión:</strong> Abre MQTTX y haz clic en el botón "+" para crear una nueva conexión.
+                        <ul>
+                            <li><strong>Name:</strong> Dale un nombre descriptivo, como "Test Broker".</li>
+                            <li><strong>Host:</strong> Ingresa la dirección IP o nombre de host de tu broker (ej. <code>localhost</code>, <code>broker.hivemq.com</code>).</li>
+                            <li><strong>Port:</strong> Ingresa el puerto (ej. <code>1883</code> para no encriptado, <code>8883</code> para TLS).</li>
+                            <li><strong>Username/Password:</strong> Si tu broker requiere autenticación, ingrésalos aquí.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Conéctate:</strong> Haz clic en "Connect". Si todo está bien configurado, verás el estado cambiar a "Connected".</li>
+                    <li><strong>Suscríbete a Tópicos:</strong> En el panel izquierdo, haz clic en "New Subscription". Ingresa el tópico al que quieres suscribirte (ej. <code>sensores/#</code> para todos los sub-tópicos de sensores) y haz clic en "Subscribe".</li>
+                    <li><strong>Publica Mensajes:</strong> En la parte inferior de la ventana principal, ingresa el tópico y el mensaje que quieres publicar, luego haz clic en el botón de enviar (flecha).</li>
+                </ol>
+                <p>MQTTX te permitirá ver en tiempo real los mensajes que publica tu ESP32 y también te permitirá enviar comandos de vuelta.</p>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">6. Seguridad en MQTT</h2>
+                <p>Aunque MQTT es eficiente, su uso en entornos de producción requiere una seria consideración de la seguridad.</p>
+                
+                <h3 class="mt-4">6.1. Amenazas Comunes</h3>
+                <ul>
+                    <li><strong>Interceptación de Datos:</strong> Sin encriptación, los mensajes pueden ser leídos por cualquiera en la red.</li>
+                    <li><strong>Acceso No Autorizado:</strong> Clientes no autenticados pueden conectarse y publicar/suscribirse a tópicos sensibles.</li>
+                    <li><strong>Suplantación de Identidad:</strong> Un cliente puede pretender ser otro si no hay mecanismos de autenticación fuertes.</li>
+                </ul>
+                
+                <h3 class="mt-4">6.2. Mejores Prácticas de Seguridad</h3>
+                <ul>
+                    <li><strong>Usar TLS/SSL:</strong> Encripta toda la comunicación entre clientes y broker. Esto es fundamental, especialmente si el broker es accesible desde internet.</li>
+                    <li><strong>Autenticación Fuerte:</strong> Nunca uses conexiones anónimas en producción. Siempre requiere nombre de usuario y contraseña, o mejor aún, certificados X.509.</li>
+                    <li><strong>Control de Acceso (ACL):</strong> Configura listas de control de acceso en el broker para definir qué usuarios pueden publicar o suscribirse a qué tópicos.</li>
+                    <li><strong>Usar Tópicos con Prefijos de Usuario:</strong> Como se hizo en el ejemplo del ESP32 (<code>sensores/MAC_ADDRESS/...</code>), esto puede ayudar a aislar los datos de diferentes dispositivos.</li>
+                    <li><strong>Mantener el Software Actualizado:</strong> Asegúrate de usar siempre la última versión estable de tu broker y librerías cliente para beneficiarte de las últimas correcciones de seguridad.</li>
+                </ul>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">7. Galería de Videos Recomendados</h2>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/ENgvHQ7FT2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Qué es MQTT y cómo funciona</h5>
+                                <p class="card-text">Una explicación clara y visual del protocolo MQTT, su arquitectura y beneficios.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/ewrBr_YX2wc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">MQTT con ESP32 y Mosquitto</h5>
+                                <p class="card-text">Tutorial práctico sobre cómo conectar un ESP32 a un broker Mosquitto usando la librería PubSubClient.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="card-title">8. Referencias y Lecturas Recomendadas</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="https://mqtt.org/" target="_blank">Sitio Oficial de MQTT</a> - Especificaciones oficiales del protocolo y recursos.</li>
+                    <li class="list-group-item"><a href="https://mosquitto.org/" target="_blank">Eclipse Mosquitto</a> - Documentación oficial del broker Mosquitto.</li>
+                    <li class="list-group-item"><a href="https://pubsubclient.knolleary.net/" target="_blank">Documentación de PubSubClient</a> - Librería Arduino para MQTT.</li>
+                    <li class="list-group-item">HiveMQ. (2021). <em>MQTT Essentials</em>. <a href="https://www.hivemq.com/mqtt-essentials/" target="_blank">https://www.hivemq.com/mqtt-essentials/</a> - Serie de artículos muy completos sobre todos los aspectos de MQTT.</li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- Sequential Navigation -->
+        <nav class="d-flex justify-content-between mt-4">
+            <a href="uso-de-sensores-y-actuadores.html" class="btn btn-primary">&larr; Tema Anterior</a>
+            <a href="integracion-apis-servicios-web.html" class="btn btn-primary">Siguiente Tema &rarr;</a>
+        </nav>
+
+        <footer class="mt-5 text-center">
+            <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <!-- Script para copiar código -->
+    <script>
+        function copyCodePrism(button) {
+            const codeElement = button.nextElementSibling || button.parentElement.querySelector('code');
+            if (codeElement) {
+                const codeText = codeElement.textContent;
+                navigator.clipboard.writeText(codeText).then(() => {
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = '<i class="bi bi-check"></i> ¡Copiado!';
+                    button.classList.remove('btn-outline-light');
+                    button.classList.add('btn-success');
+                    setTimeout(() => {
+                         button.innerHTML = originalHTML;
+                         button.classList.remove('btn-success');
+                         button.classList.add('btn-outline-light');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Error al copiar el texto: ', err);
+                    alert('Error al copiar el código. Por favor, inténtalo manualmente.');
+                });
+            } else {
+                console.error('No se pudo encontrar el elemento de código para copiar.');
+            }
+        }
+    </script>
+</body>
+</html>
