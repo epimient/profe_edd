@@ -1,59 +1,323 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundamentos de Sistemas Operativos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Fundamentos de Sistemas Operativos - Profe EDD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        :root {
+            --fso-primary: #00838f;
+            /* Regresamos al Teal de Cultura Linux */
+            --fso-secondary: #006064;
+            --fso-accent: #ffab00;
+        }
+
+        .academic-hero {
+            background: linear-gradient(135deg, var(--fso-primary) 0%, #121212 100%);
+            color: white;
+            border-bottom: 5px solid var(--fso-accent);
+        }
+
+        .metadata-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .section-header {
+            border-left: 5px solid var(--fso-primary);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            color: var(--fso-primary);
+        }
+
+        .competency-card {
+            border: none;
+            border-left: 4px solid var(--fso-accent);
+            transition: transform 0.2s;
+        }
+
+        .competency-card:hover {
+            transform: scale(1.02);
+        }
+
+        .program-block {
+            background-color: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .program-block-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem;
+        }
+
+        .bibliography-item {
+            font-style: italic;
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
+
 <body class="bg-light">
-    <div class="container mt-5">
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <div class="container-fluid py-3">
-                <h1 class="display-5 fw-bold">Fundamentos de Sistemas Operativos</h1>
-                <p class="col-md-10 fs-4">Explora los conceptos clave detrás de los sistemas operativos modernos, desde la gestión de procesos hasta la seguridad.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Profe EDD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pilares/linux.html">Cultura Linux</a></li>
+                </ul>
             </div>
-        </header>
+        </div>
+    </nav>
 
-        <main>
-            <!-- Temario -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Temario del Curso</h2>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Introducción a los Sistemas Operativos</li>
-                        <li class="list-group-item">Gestión de Procesos y Hilos</li>
-                        <li class="list-group-item">Planificación de CPU</li>
-                        <li class="list-group-item">Gestión de Memoria</li>
-                        <li class="list-group-item">Sistemas de Archivos</li>
-                        <li class="list-group-item">Seguridad y Protección</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Academic Hero Section -->
+    <header class="academic-hero py-5">
+        <div class="container text-center text-lg-start">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-warning text-dark mb-3 fw-bold">NUEVA GENERACIÓN 2026</span>
+                    <h1 class="display-4 fw-bold mb-3 text-shadow">Fundamentos de Sistemas Operativos</h1>
+                    <p class="lead mb-4 opacity-75">Descubre cómo funciona el corazón de la tecnología. Tu puerta de
+                        entrada al mundo de la infraestructura y el código abierto.</p>
 
-            <!-- Recursos -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Recursos</h2>
-                </div>
-                <div class="card-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Diapositivas del curso (PDF)</a>
-                        <a href="#" class="list-group-item list-group-item-action">Prácticas de Laboratorio</a>
-                        <a href="#" class="list-group-item list-group-item-action">Ejemplos de Código</a>
+                    <!-- Metadata Grid -->
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 mt-4">
+                        <div class="metadata-badge"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Ingeniería
+                            de Sistemas</div>
+                        <div class="metadata-badge"><i class="bi bi-credit-card-fill me-2 text-warning"></i>3 Créditos
+                        </div>
+                        <div class="metadata-badge"><i class="bi bi-calendar-event me-2 text-warning"></i>16 Semanas
+                        </div>
+                        <div class="metadata-badge"><i class="bi bi-person-badge me-2 text-warning"></i>Ing. Eduardo
+                            Pimienta</div>
                     </div>
                 </div>
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <img src="../assets/Tux.svg.png" alt="Tux"
+                        style="max-height: 200px; filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));">
+                </div>
             </div>
-        </main>
+        </div>
+    </header>
 
-        <footer class="mt-5 text-center">
-            <a href="../index.html" class="btn btn-primary">Volver al Inicio</a>
-        </footer>
-    </div>
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Mi Propuesta Pedagógica -->
+                <section class="mb-5">
+                    <h2 class="section-header">¿Qué aprenderemos aquí?</h2>
+                    <div class="p-4 bg-white rounded shadow-sm border border-info border-opacity-25">
+                        <p class="lead">Este curso es un viaje desde lo más simple hasta entender cómo las máquinas nos
+                            permiten crear mundos digitales.</p>
+                        <p>A diferencia de los cursos tradicionales, aquí volcaremos todo el conocimiento al mundo real
+                            de <strong>Linux</strong>. No solo leeremos conceptos, aprenderemos a dominar la terminal y
+                            a entender por qué los sistemas abiertos son el futuro de tu carrera como Ingeniero.</p>
+                        <hr>
+                        <h6 class="fw-bold mb-2"><i class="bi bi-rocket-takeoff-fill me-2 text-primary"></i>Tu meta para
+                            este semestre:</h6>
+                        <p class="small text-muted mb-0">Serás capaz de instalar, configurar y entender qué pasa "bajo
+                            el capó" de cualquier sistema operativo moderno, aplicando soluciones profesionales desde el
+                            primer día.</p>
+                    </div>
+                </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                <!-- Bloques de Aprendizaje - Nombres más amigables -->
+                <section class="mb-5">
+                    <h2 class="section-header">Ruta de Exploración</h2>
+
+                    <!-- Bloque 1 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-info">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-info text-dark me-2">Semana 1-5</span> El
+                                Origen y el Concepto</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Introducción y
+                                Generalidades</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Exploramos cómo nacieron estas mentes digitales y por qué el
+                                <strong>Soberanía Tecnológica</strong> es clave hoy.
+                            </p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-check-circle text-info me-2"></i>La historia de Linux: Del hobby a
+                                    la industria.</li>
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-check-circle text-info me-2"></i>¿Qué hace realmente un SO por
+                                    nosotros?</li>
+                                <li class="text-secondary small"><i
+                                        class="bi bi-check-circle text-info me-2"></i>Primeros pasos con la Terminal (Tu
+                                    nueva mejor amiga).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-primary">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-primary me-2">Semana 6-10</span> Cómo piensa
+                                la computadora</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Administración
+                                de Procesos y Memoria</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Descubrimos el "cerebro" central: cómo se organizan las tareas y cómo se
+                                guarda la información en tiempo real.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-check-circle text-primary me-2"></i>El Kernel: El director de
+                                    orquesta.</li>
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-check-circle text-primary me-2"></i>Gestión de tareas (Procesos e
+                                    Hilos) en vivo.</li>
+                                <li class="text-secondary small"><i class="bi bi-check-circle text-primary me-2"></i>La
+                                    magia de la memoria virtual y el SWAP.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 3 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-success">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-success me-2">Semana 11-16</span> Donde vive
+                                la información</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Archivos, Discos
+                                y Periféricos</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Aprendemos a organizar el disco, gestionar archivos con seguridad y
+                                conectar al sistema con el mundo exterior.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-check-circle text-success me-2"></i>Entendiendo el Árbol de
+                                    Directorios de Linux.</li>
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-check-circle text-success me-2"></i>Seguridad Industrial: Permisos
+                                    de archivos (Chmod/Chown).</li>
+                                <li class="text-secondary small"><i
+                                        class="bi bi-check-circle text-success me-2"></i>Dispositivos de E/S: Todo es un
+                                    archivo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <!-- Metodología y Evaluación (Syllabus) -->
+                <section class="mb-5">
+                    <h2 class="section-header">Estrategia de Aprendizaje</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i
+                                            class="bi bi-mortarboard-fill me-2 text-primary"></i>Metodología
+                                        Participativa</h6>
+                                    <p class="small text-muted mb-0">Usamos el aprendizaje basado en retos (CDIO),
+                                        talleres prácticos y proyectos reales para que el conocimiento sea asimilado de
+                                        forma activa.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-graph-up-arrow me-2 text-success"></i>Evaluación
+                                        Integral</h6>
+                                    <p class="small text-muted mb-0">Evaluación continua: laboratorios en terminal,
+                                        informes técnicos y proyectos que miden tu capacidad de ejecución real.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar Personalizado -->
+            <div class="col-lg-4">
+                <!-- Perfil del Docente -->
+                <div class="card border-0 shadow-sm p-4 mb-4 text-center">
+                    <img src="../assets/foto-perfil.jpeg" alt="Eduardo Pimienta"
+                        class="rounded-circle mx-auto mb-3 border border-3 border-info"
+                        style="width: 120px; height: 120px; object-fit: cover;">
+                    <h5 class="fw-bold mb-1">Ing. Eduardo Pimienta</h5>
+                    <p class="small text-muted mb-3">Docente de Ingeniería de Sistemas</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="mailto:epimientag@uniguajira.edu.co" class="btn btn-sm btn-outline-dark"><i
+                                class="bi bi-envelope"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Logros del Curso -->
+                <div class="p-4 mb-4 bg-dark text-white rounded shadow-sm border-bottom border-5 border-info">
+                    <h6 class="fw-bold text-info mb-3">Tu Objetivo Profesional</h6>
+                    <p class="small mb-0 opacity-75">"Solucionar problemas reales en configuración de redes y
+                        administración de sistemas utilizando herramientas de grado industrial."</p>
+                </div>
+
+                <!-- Recursos Clave -->
+                <div class="p-4 mb-4 bg-white rounded shadow-sm border border-light">
+                    <h5 class="fw-bold mb-3">Bibliografía Linux</h5>
+                    <ul class="list-unstyled mb-0 list-group list-group-flush small">
+                        <li class="list-group-item bibliography-item p-1 border-0">Kerrisk, M. (2010). The Linux
+                            Programming Interface.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0">Ward, B. (2021). How Linux Works (3rd
+                            Ed).</li>
+                        <li class="list-group-item bibliography-item p-1 border-0">Love, R. (2010). Linux Kernel
+                            Development.</li>
+                    </ul>
+                </div>
+
+                <!-- Podcast del Curso -->
+                <div class="card border-0 shadow-sm overflow-hidden mb-4">
+                    <div class="card-header bg-success text-white py-3 border-0">
+                        <h6 class="mb-0 fw-bold"><i class="bi bi-spotify me-2"></i>Podcast del Curso</h6>
+                    </div>
+                    <div class="card-body bg-light text-center py-4">
+                        <p class="small text-muted">Aprende sobre la marcha con nuestras reflexiones sobre sistemas y
+                            tecnología.</p>
+                        <a href="https://open.spotify.com/show/3rtlgT1B7t5lgF6iS8wdfG" target="_blank"
+                            class="btn btn-dark btn-sm rounded-pill px-4 shadow-sm">
+                            <i class="bi bi-play-circle-fill me-2 text-success"></i>Escuchar en Spotify
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="p-4 bg-primary bg-opacity-10 rounded border border-primary border-2 text-center shadow-sm">
+                    <h6 class="fw-bold text-primary">Laboratorio Vivo</h6>
+                    <p class="small">Accede a las guías de práctica diseñadas especialmente para este semestre.</p>
+                    <a href="https://epimient.github.io/repositorio_FSO/" target="_blank"
+                        class="btn btn-sm btn-primary text-white w-100 fw-bold">Ver Prácticas <i
+                            class="bi bi-box-arrow-up-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Ecosistema Profe EDD - Ingeniería de Sistemas</p>
+            <p class="text-muted extra-small" style="font-size: 0.7rem;">Diseño Rector personalizado por Ing. Eduardo
+                Pimienta.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

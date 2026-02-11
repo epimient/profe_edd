@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultura Linux - Profe EDD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .pilar-header {
+            background-color: #00838f;
+        }
+
+        .distro-card {
+            transition: transform 0.3s;
+            border: none;
+        }
+
+        .distro-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .badge-distro {
+            font-size: 0.8rem;
+        }
+
+        .iso-link {
+            text-decoration: none;
+            color: #00838f;
+            font-weight: bold;
+        }
+
+        .iso-link:hover {
+            text-decoration: underline;
+        }
+
+        .fso-star-card {
+            border: none;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .fso-icon-box {
+            background-color: transparent;
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fso-img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        .iso-category-header {
+            background-color: #e0f2f1;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #00838f;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Profe EDD</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="../index.html#ecosistema">Ecosistema</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Pilar -->
+    <header class="py-5 text-white pilar-header">
+        <div class="container text-center">
+            <i class="bi bi-ubuntu display-1"></i>
+            <h1 class="display-4 fw-bold mt-3">Cultura Linux</h1>
+            <p class="lead">Infraestructura, Transparencia y Soberanía Tecnológica</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <!-- Fundamentación -->
+        <section class="mb-5">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold border-bottom pb-2">Fundamentación</h2>
+                    <p class="lead">La adopción de una filosofía <strong>Linux-first</strong> no es solo técnica, es
+                        estratégica.</p>
+                    <p>En el Ecosistema Profe EDD, entendemos que los entornos abiertos favorecen la transparencia
+                        arquitectónica y la autonomía tecnológica. Aquí centralizamos los recursos necesarios para
+                        dominar la infraestructura que sostiene el mundo digital.</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-shield-check display-1 text-success"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking Distros -->
+        <section class="mb-5">
+            <h2 class="fw-bold border-bottom pb-3 mb-4 text-center">Top Distros 2025-2026 para Ingenieros</h2>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 text-center">
+                <div class="col">
+                    <div class="card h-100 distro-card shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-award-fill text-warning h3"></i>
+                            <h5 class="fw-bold">Ubuntu</h5>
+                            <span class="badge bg-primary badge-distro mb-2">Estándar Industrial</span>
+                            <p class="small text-muted">Ideal para desarrollo web y contenedores.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 distro-card shadow-sm border-top border-4 border-primary">
+                        <div class="card-body">
+                            <i class="bi bi-lightning-fill text-primary h3"></i>
+                            <h5 class="fw-bold">Fedora</h5>
+                            <span class="badge bg-dark badge-distro mb-2">Vanguardia</span>
+                            <p class="small text-muted">Lo último en kernel y GNOME.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 distro-card shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-box-seam-fill text-secondary h3"></i>
+                            <h5 class="fw-bold">Debian</h5>
+                            <span class="badge bg-secondary badge-distro mb-2">Estabilidad Pura</span>
+                            <p class="small text-muted">La roca sobre la que se construye todo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 distro-card shadow-sm border-top border-4 border-dark">
+                        <div class="card-body">
+                            <i class="bi bi-gear-fill text-dark h3"></i>
+                            <h5 class="fw-bold">Arch Linux</h5>
+                            <span class="badge bg-dark badge-distro mb-2">Personalización</span>
+                            <p class="small text-muted">DIY: Do It Yourself.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 distro-card shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-rocket-takeoff-fill text-info h3"></i>
+                            <h5 class="fw-bold">Pop!_OS</h5>
+                            <span class="badge bg-info badge-distro mb-2">Productividad</span>
+                            <p class="small text-muted">STEM Workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <!-- EL CURSO ESTRELLA -->
+                <section class="mb-5">
+                    <div class="card fso-star-card shadow-lg p-4 p-md-5 border-0">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center mb-4 mb-md-0">
+                                <div class="fso-icon-box mx-auto">
+                                    <img src="../assets/Tux.svg.png" alt="Tux Linux" class="fso-img">
+                                </div>
+                            </div>
+                            <div class="col-md-9 px-md-5">
+                                <span class="badge bg-dark text-warning mb-3 fw-bold px-3 py-2">EL CORAZÓN DEL
+                                    ECOSISTEMA</span>
+                                <h1 class="fw-bold mb-3">Fundamentos de Sistemas Operativos</h1>
+                                <p class="lead text-muted mb-4">La pieza central de tu formación en ingeniería. Domina
+                                    desde la arquitectura del kernel hasta la gestión avanzada de recursos.</p>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <a href="../cursos/fundamentos-de-sistemas-operativos.html"
+                                        class="btn btn-dark btn-lg px-4 shadow-sm">Acceder al Curso</a>
+                                    <a href="https://epimient.github.io/repositorio_FSO/" target="_blank"
+                                        class="btn btn-outline-dark btn-lg px-4">Prácticas de Laboratorio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Centro de Descargas ISO Expandido -->
+                <section class="mb-5">
+                    <h2 class="fw-bold border-bottom pb-2 mb-4">Centro de Descargas ISO (Librería Completa)</h2>
+
+                    <!-- Categoría: Engineering & Servers -->
+                    <div class="iso-category-header">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-cpu-fill me-2"></i>Engineering Core & Servers</h5>
+                    </div>
+                    <div class="table-responsive bg-white rounded shadow-sm p-3 mb-4">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Distro</th>
+                                    <th>Versión</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ubuntu Server</strong></td>
+                                    <td>24.04 LTS</td>
+                                    <td><a href="https://ubuntu.com/download/server" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Debian GNU/Linux</strong></td>
+                                    <td>12.8 (Full)</td>
+                                    <td><a href="https://www.debian.org/distrib/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>openSUSE Leap</strong></td>
+                                    <td>15.6 / 16.0</td>
+                                    <td><a href="https://get.opensuse.org/leap/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Slackware</strong></td>
+                                    <td>15.0 (The Classic)</td>
+                                    <td><a href="http://www.slackware.com/getslack/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Arch Linux</strong></td>
+                                    <td>Rolling</td>
+                                    <td><a href="https://archlinux.org/download/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Categoría: Gaming & High Performance -->
+                    <div class="iso-category-header">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-controller me-2"></i>Gaming & High Performance</h5>
+                    </div>
+                    <div class="table-responsive bg-white rounded shadow-sm p-3 mb-4">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Distro</th>
+                                    <th>Base</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nobara Linux</strong></td>
+                                    <td>Fedora</td>
+                                    <td><a href="https://nobaraproject.org/download-nobara/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bazzite</strong></td>
+                                    <td>Fedora Atomic</td>
+                                    <td><a href="https://bazzite.gg/" target="_blank" class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CachyOS</strong></td>
+                                    <td>Arch</td>
+                                    <td><a href="https://cachyos.org/download/" target="_blank" class="iso-link">ISO</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Garuda Linux</strong></td>
+                                    <td>Arch</td>
+                                    <td><a href="https://garudalinux.org/downloads.html" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Categoría: Security & Modern Desktop -->
+                    <div class="iso-category-header">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-shield-lock-fill me-2"></i>Security & Modern Desktop
+                        </h5>
+                    </div>
+                    <div class="table-responsive bg-white rounded shadow-sm p-3">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Distro</th>
+                                    <th>Specialty</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Kali Linux</strong></td>
+                                    <td>Pentesting</td>
+                                    <td><a href="https://www.kali.org/get-kali/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Zorin OS</strong></td>
+                                    <td>User Friendly</td>
+                                    <td><a href="https://zorin.com/os/download/" target="_blank"
+                                            class="iso-link">ISO</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pop!_OS</strong></td>
+                                    <td>NVIDIA/STEM</td>
+                                    <td><a href="https://pop.system76.com/" target="_blank" class="iso-link">ISO</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- RECURSOS COMPLEMENTARIOS A UN LADO -->
+                <div class="card border-0 shadow-sm p-4 mb-4" style="background-color: #f0f7f8;">
+                    <h4 class="fw-bold border-bottom pb-2 mb-4">Rutas Complementarias</h4>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-1 text-primary"><i class="bi bi-mortarboard-fill me-2"></i>NetAcad Cisco
+                        </h6>
+                        <p class="small text-muted mb-2">Curso "Linux Essentials" de Cisco para certificar tu base
+                            profesional.</p>
+                        <a href="https://www.netacad.com/courses/os-it/ndg-linux-essentials" target="_blank"
+                            class="btn btn-sm btn-link p-0 text-decoration-none fw-bold">Ver Detalles &raquo;</a>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-1 text-success"><i class="bi bi-map-fill me-2"></i>Linux Journey</h6>
+                        <p class="small text-muted mb-2">Aprende la terminal de forma interactiva y progresiva.</p>
+                        <a href="https://linuxjourney.com/" target="_blank"
+                            class="btn btn-sm btn-link p-0 text-decoration-none fw-bold">Empezar Ruta &raquo;</a>
+                    </div>
+
+                    <div class="mb-0">
+                        <h6 class="fw-bold mb-1 text-info"><i class="bi bi-cloud-check-fill me-2"></i>Intro to Linux
+                            (EdX)</h6>
+                        <p class="small text-muted mb-2">Curso oficial de la Linux Foundation para una visión global.
+                        </p>
+                        <a href="https://www.edx.org/learn/linux/the-linux-foundation-introduction-to-linux"
+                            target="_blank" class="btn btn-sm btn-link p-0 text-decoration-none fw-bold">Ir a EdX
+                            &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="p-4 mb-4 bg-white rounded shadow-sm border-start border-4 border-info">
+                    <h4 class="fw-bold">Enlaces Comunidad</h4>
+                    <ul class="list-unstyled mb-0 small">
+                        <li class="mb-2"><a href="https://wiki.archlinux.org/" target="_blank"
+                                class="text-decoration-none"><i class="bi bi-journal-text me-2"></i>Arch Wiki (La
+                                Biblia)</a></li>
+                        <li class="mb-2"><a href="https://kernel.org/" target="_blank" class="text-decoration-none"><i
+                                    class="bi bi-code-square me-2"></i>Kernel Archives</a></li>
+                        <li class="mb-2"><a href="https://www.linuxfoundation.org/" target="_blank"
+                                class="text-decoration-none"><i class="bi bi-globe me-2"></i>Linux Foundation</a></li>
+                        <li><a href="https://itsfoss.com/" target="_blank" class="text-decoration-none"><i
+                                    class="bi bi-info-circle me-2"></i>It's FOSS (Noticias)</a></li>
+                    </ul>
+                </div>
+
+                <div class="p-4 bg-dark text-white rounded shadow-sm mb-4">
+                    <h4 class="fw-bold text-success text-shadow">Manifiesto 2031</h4>
+                    <p class="small mb-0 italic">"Los entornos abiertos favorecen la transparencia arquitectónica, la
+                        autonomía tecnológica y la comprensión estructural."</p>
+                </div>
+
+                <!-- NOTICIAS DINÁMICAS (Side-bar) -->
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-rss-fill me-2"></i>Actualidad Linux</h5>
+                    </div>
+                    <div id="linux-news-feed" class="card-body p-0">
+                        <div class="text-center p-4">
+                            <div class="spinner-border text-primary spinner-border-sm" role="status"></div>
+                            <span class="small ms-2">Sincronizando feed...</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light text-center py-2">
+                        <small class="text-muted">Fuente: <strong>MuyLinux</strong></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Ecosistema Profe EDD - Marco Estratégico 2026-2031</p>
+        </div>
+    </footer>
+
+    <!-- Script para Noticias (Static-Compatible) -->
+    <script>
+        async function fetchLinuxNews() {
+            const newsContainer = document.getElementById('linux-news-feed');
+            const RSS_URL = 'https://www.muylinux.com/feed/';
+            const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    newsContainer.innerHTML = '';
+                    // Mostrar solo las 4 noticias más recientes
+                    data.items.slice(0, 4).forEach(item => {
+                        const newsItem = document.createElement('div');
+                        newsItem.className = 'p-3 border-bottom news-item-hover';
+                        newsItem.innerHTML = `
+                            <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">
+                                <a href="${item.link}" target="_blank" class="text-decoration-none text-dark">${item.title}</a>
+                            </h6>
+                            <small class="text-muted" style="font-size: 0.75rem;">${new Date(item.pubDate).toLocaleDateString('es-ES')}</small>
+                        `;
+                        newsContainer.appendChild(newsItem);
+                    });
+                } else {
+                    throw new Error('Feed error');
+                }
+            } catch (error) {
+                newsContainer.innerHTML = '<div class="p-3 small text-danger text-center">No se pudo cargar el feed de noticias.</div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchLinuxNews);
+    </script>
+
+    <style>
+        .news-item-hover {
+            transition: background 0.2s;
+        }
+
+        .news-item-hover:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</body>
+
+</html>
