@@ -24,61 +24,267 @@
                 <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
                         Operativos</a></li>
-                <li class="breadcrumb-item active" aria-current="page">La historia de Linux</li>
+                <li class="breadcrumb-item active" aria-current="page">La historia de Linux y UNIX</li>
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">La historia de Linux: Del hobby a la industria</h1>
-            <p class="fs-4">Descubre cómo un proyecto estudiantil se convirtió en el sistema operativo que mueve el
-                mundo.</p>
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 class="display-5 fw-bold">Historia de UNIX y Linux</h1>
+            <p class="fs-4 text-muted">De los laboratorios Bell a la infraestructura global.</p>
         </header>
 
         <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">Un mensaje en Usenet</h2>
-                    <p>Todo comenzó en 1991, cuando un estudiante finlandés llamado <strong>Linus Torvalds</strong>
-                        publicó un mensaje en el grupo de noticias <code>comp.os.minix</code>:</p>
-                    <blockquote class="blockquote p-3 bg-body-tertiary border-start border-4 border-primary rounded">
-                        <p class="mb-0">"Estoy haciendo un sistema operativo (gratuito, solo un hobby, no será gran cosa
-                            ni profesional como GNU)..."</p>
-                        <footer class="blockquote-footer mt-2">Linus Torvalds, 25 de agosto de 1991</footer>
-                    </blockquote>
-                    <p>Lo que empezó como una curiosidad personal para aprender sobre el procesador Intel 386, se
-                        transformó gracias a la comunidad y a la licencia GPL en el núcleo más importante de la historia
-                        de la computación.</p>
-
-                    <h3 class="mt-5">Hitos Importantes</h3>
-                    <ul>
-                        <li><strong>1991:</strong> Primera versión del kernel (0.01).</li>
-                        <li><strong>1992:</strong> Se adopta la licencia GPL, permitiendo su libre distribución y
-                            modificación.</li>
-                        <li><strong>1993:</strong> Nacen las primeras distribuciones importantes como Debian y
-                            Slackware.</li>
-                        <li><strong>1996:</strong> Se adopta a <em>Tux</em> el pingüino como mascota oficial.</li>
-                        <li><strong>1999:</strong> Grandes empresas como IBM anuncian soporte para Linux.</li>
-                        <li><strong>Hoy:</strong> Linux está en supercomputadoras, servidores, teléfonos (Android) y
-                            hasta en Marte.</li>
-                    </ul>
-                </article>
-            </div>
-
-            <div class="col-md-4">
-                <div class="position-sticky" style="top: 2rem;">
-                    <div class="p-4 mb-3 bg-body-tertiary rounded">
-                        <h4 class="fst-italic">Recursos Adicionales</h4>
-                        <p class="mb-0">Explora más sobre la historia y filosofía del código abierto.</p>
-                        <ul class="list-unstyled mt-3">
-                            <li><a href="https://www.kernel.org/" target="_blank"
-                                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top">Sitioweb
-                                    Oficial del Kernel</a></li>
-                            <li><a href="https://www.gnu.org/gnu/gnu-linux-faq.es.html" target="_blank"
-                                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top">FAQ
-                                    de GNU/Linux</a></li>
-                        </ul>
+            <div class="col-lg-8 mx-auto">
+                <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
+                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3"></i>
+                    <div class="flex-grow-1">
+                        <h4 class="alert-heading h5">Diapositivas de la Historia</h4>
+                        <p class="mb-0 small">Descarga la presentación original para repasar offline.</p>
                     </div>
+                    <a href="https://docs.google.com/presentation/d/10n_qnXJCWDLH3romu1dzeGldi-9SCMSo/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
+                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank">
+                        <i class="bi bi-easel2-fill me-2"></i>Ver Diapositivas
+                    </a>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article class="blog-post">
+
+                    <!-- CAPÍTULO I -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo I: Conceptos Fundamentales</h2>
+                        <div class="alert alert-info shadow-sm">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            <strong>Antes de la historia:</strong> Entendamos las piezas clave.
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Hardware & Software</h5>
+                                        <p class="card-text small">El <strong>Hardware</strong> son los componentes
+                                            físicos (CPU, RAM). El <strong>Software</strong> son las instrucciones
+                                            lógicas. El SO es el puente entre ambos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Kernel & Shell</h5>
+                                        <p class="card-text small">El <strong>Kernel</strong> es el núcleo que controla
+                                            el acceso al hardware. La <strong>Shell</strong> es la interfaz (texto) que
+                                            nos permite hablar con el Kernel.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CAPÍTULO II -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo II: La Era UNIX (1969)</h2>
+
+                        <div class="card mb-4 shadow-sm">
+                            <img src="../../assets/historia_linux/image-4-1.jpg" class="card-img-top"
+                                alt="Ken Thompson y Dennis Ritchie"
+                                style="max-height: 400px; object-fit: cover; object-position: top;">
+                            <div class="card-body">
+                                <p class="card-text text-muted fst-italic text-center">Ken Thompson (sentado) y Dennis
+                                    Ritchie (de pie), los padres de UNIX.</p>
+                            </div>
+                        </div>
+
+                        <p>En <strong>1969</strong>, en los <strong>Bell Labs</strong> de AT&T, Ken Thompson y Dennis
+                            Ritchie crearon UNIX. Buscaban un sistema simple, elegante y potente.</p>
+
+                        <div class="row align-items-center mb-4">
+                            <div class="col-md-6">
+                                <h4 class="h5">Filosofía UNIX</h4>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Haz una cosa y
+                                        hazla bien.</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Todo es un
+                                        archivo.</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Pequeños
+                                        programas conectados.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="../../assets/historia_linux/image-3-1.jpeg" alt="Computadora PDP-7"
+                                    class="img-fluid rounded shadow-sm">
+                                <p class="text-center small text-muted mt-1">La PDP-7 donde nació UNIX.</p>
+                            </div>
+                        </div>
+
+                        <p>Para hacerlo portable, Dennis Ritchie creó el <strong>lenguaje C</strong>. Esto permitió que
+                            UNIX pudiera instalarse en diferentes tipos de computadoras, algo revolucionario para la
+                            época.</p>
+                    </section>
+
+                    <!-- CAPÍTULO III -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo III: El Movimiento GNU (1984)</h2>
+
+                        <div class="d-flex align-items-center bg-body-tertiary p-4 rounded mb-4">
+                            <img src="../../assets/historia_linux/image-8-1.png" alt="GNU Logo" class="me-4"
+                                style="width: 100px;">
+                            <div>
+                                <h4 class="fw-bold">Richard Stallman y la Libertad</h4>
+                                <p class="mb-0">En 1984, Stallman fundó el proyecto <strong>GNU</strong> ("GNU's Not
+                                    Unix") con una meta clara: crear un sistema operativo totalmente libre.</p>
+                            </div>
+                        </div>
+
+                        <h5>La Licencia GPL</h5>
+                        <p>Stallman creó la <strong>GPL (General Public License)</strong>, que garantiza 4 libertades:
+                        </p>
+                        <ol>
+                            <li>Usar el programa para cualquier propósito.</li>
+                            <li>Estudiar cómo funciona y cambiarlo.</li>
+                            <li>Distribuir copias.</li>
+                            <li>Mejorar el programa y publicar las mejoras.</li>
+                        </ol>
+
+                        <p class="text-muted">A principios de los 90, GNU tenía casi todo listo (compilador GCC,
+                            herramientas, shell Bash, editor Emacs)... <strong>pero les faltaba el Kernel.</strong></p>
+                    </section>
+
+                    <!-- CAPÍTULO IV -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo IV: La Llegada de Linux (1991)</h2>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4 text-center">
+                                <img src="../../assets/historia_linux/image-12-1.jpeg" alt="Linus Torvalds"
+                                    class="img-fluid rounded-circle shadow mb-3"
+                                    style="width: 200px; height: 200px; object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="mb-3">Linus Torvalds</h4>
+                                <p>Un estudiante finlandés compró una PC con procesador Intel 386. Quería usar UNIX,
+                                    pero era muy caro. Minix (educativo) era limitado. Así que decidió escribir su
+                                    propio kernel como hobby.</p>
+                            </div>
+                        </div>
+
+                        <blockquote
+                            class="blockquote p-4 bg-primary bg-opacity-10 border-start border-4 border-primary rounded">
+                            <p class="mb-2 fst-italic">"Estoy haciendo un sistema operativo (gratuito) (solo un hobby,
+                                no será grande ni profesional como GNU)..."</p>
+                            <footer class="blockquote-footer mt-2 text-dark">Linus Torvalds, 25 de Agosto de 1991
+                            </footer>
+                        </blockquote>
+
+                        <h4 class="mt-4 text-success text-center py-3">GNU + Linux = Sistema Completo</h4>
+                        <p>El kernel de Linus se unió a las herramientas de GNU. Juntos formaron el sistema operativo
+                            completo que hoy conocemos (técnicamente, <strong>GNU/Linux</strong>).</p>
+                    </section>
+
+                    <!-- IMPACTO HOY -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">2025: Dominio Global</h2>
+                        <div class="row text-center g-4">
+                            <div class="col-4">
+                                <div class="p-3 bg-dark text-white rounded">
+                                    <h2 class="display-6 fw-bold text-success">100%</h2>
+                                    <p class="small text-white-50">TOP 500 Supercomputadoras</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-3 bg-dark text-white rounded">
+                                    <h2 class="display-6 fw-bold text-success">~90%</h2>
+                                    <p class="small text-white-50">La Nube (AWS, Google, Azure)</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-3 bg-dark text-white rounded">
+                                    <h2 class="display-6 fw-bold text-success">~70%</h2>
+                                    <p class="small text-white-50">Moviles (Android)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-center">Desde un proyecto estudiantil hasta gobernar Marte (el helicóptero
+                            Ingenuity corre Linux), el código abierto ha demostrado que la colaboración es más poderosa
+                            que el secreto.</p>
+                    </section>
+
+                    <!-- VIDEOS -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Documentales</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/KuGCq7L6WaM?start=619"
+                                            title="Historia de Linux" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Historia de Linux (Resumen)</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/OdiKXo7EQ20?start=51"
+                                            title="Código Linux" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Documental: Código Linux</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/Pz-K_UU3VvU" title="Qué es Linux"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">¿Qué es Linux? (Explicación)</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- REFERENCIAS -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Raymond, E. S. (2001).</strong> <em>The Cathedral and the Bazaar.</em> O'Reilly
+                                Media.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-journal-text me-2 text-muted"></i>
+                                <strong>Torvalds, L. (1991).</strong> <em>Original Email Announcement to
+                                    comp.os.minix.</em>
+                                <a href="https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/SwRavCzVE7gJ"
+                                    target="_blank" class="ms-1 text-decoration-none small"><i
+                                        class="bi bi-box-arrow-up-right"></i> Ver archivo</a>
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-laptop me-2 text-muted"></i>
+                                <strong>Tanenbaum, A. S. (1987).</strong> <em>Operating Systems: Design and
+                                    Implementation.</em> Prentice-Hall.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-globe me-2 text-muted"></i>
+                                <strong>Linux Foundation. (2025).</strong> <em>Linux Kernel History.</em>
+                                <a href="https://www.linuxfoundation.org/" target="_blank"
+                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                    Sitio Oficial</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                </article>
             </div>
         </div>
     </div>
@@ -91,9 +297,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>
