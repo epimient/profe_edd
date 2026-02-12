@@ -8,65 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        :root {
-            --fso-primary: #00838f;
-            /* Regresamos al Teal de Cultura Linux */
-            --fso-secondary: #006064;
-            --fso-accent: #ffab00;
-        }
-
-        .academic-hero {
-            background: linear-gradient(135deg, var(--fso-primary) 0%, #121212 100%);
-            color: white;
-            border-bottom: 5px solid var(--fso-accent);
-        }
-
-        .metadata-badge {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 0.5rem;
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .section-header {
-            border-left: 5px solid var(--fso-primary);
-            padding-left: 1rem;
-            margin-bottom: 2rem;
-            font-weight: bold;
-            color: var(--fso-primary);
-        }
-
-        .competency-card {
-            border: none;
-            border-left: 4px solid var(--fso-accent);
-            transition: transform 0.2s;
-        }
-
-        .competency-card:hover {
-            transform: scale(1.02);
-        }
-
-        .program-block {
-            background-color: #fff;
-            border-radius: 1rem;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-        }
-
-        .program-block-header {
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 1.5rem;
-        }
-
-        .bibliography-item {
-            font-style: italic;
-            color: #555;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/fso.css">
 </head>
 
 <body class="bg-light">
@@ -145,24 +87,29 @@
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-info">
                         <div class="program-block-header">
                             <h5 class="fw-bold mb-1"><span class="badge bg-info text-dark me-2">Semana 1-5</span> El
-                                Origen y el Concepto</h5>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Introducción y
-                                Generalidades</small>
+                                Despertar de la Tecnología</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Cimentando la
+                                Soberanía Tecnológica</small>
                         </div>
                         <div class="card-body p-4">
-                            <p class="small">Exploramos cómo nacieron estas mentes digitales y por qué el
-                                <strong>Soberanía Tecnológica</strong> es clave hoy.
-                            </p>
+                            <p class="small">Iniciamos la misión descifrando el ADN de las máquinas y el impacto de la
+                                libertad en el software.</p>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-info me-2"></i>La historia de Linux: Del hobby a
-                                    la industria.</li>
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-info me-2"></i>¿Qué hace realmente un SO por
-                                    nosotros?</li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/adn-kernel.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-cpu text-info me-2"></i><strong>ADN del SO:</strong> Funciones
+                                        vitales desde el Kernel.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/historia-linux.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-shield-lock text-info me-2"></i><strong>Rebelión
+                                            GNU/Linux:</strong> Historia y Soberanía.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/distribuciones-repositorios.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-map text-info me-2"></i><strong>El
+                                            Mapa de Mundos:</strong> Distribuciones y Repositorios.</a></li>
                                 <li class="text-secondary small"><i
-                                        class="bi bi-check-circle text-info me-2"></i>Primeros pasos con la Terminal (Tu
-                                    nueva mejor amiga).</li>
+                                        class="bi bi-rocket-takeoff text-info me-2"></i><strong>Prueba de
+                                        Vuelo:</strong> Retos iniciales de nivelación.</li>
                             </ul>
                         </div>
                     </div>
@@ -170,23 +117,27 @@
                     <!-- Bloque 2 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-primary">
                         <div class="program-block-header">
-                            <h5 class="fw-bold mb-1"><span class="badge bg-primary me-2">Semana 6-10</span> Cómo piensa
-                                la computadora</h5>
+                            <h5 class="fw-bold mb-1"><span class="badge bg-primary me-2">Semana 6-11</span> Dominando el
+                                Núcleo</h5>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Administración
-                                de Procesos y Memoria</small>
+                                de Procesos y Hardware</small>
                         </div>
                         <div class="card-body p-4">
-                            <p class="small">Descubrimos el "cerebro" central: cómo se organizan las tareas y cómo se
-                                guarda la información en tiempo real.</p>
+                            <p class="small">Entramos en el corazón del sistema: el poder del administrador, la
+                                hechicería de Bash y la danza de los procesos.</p>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-primary me-2"></i>El Kernel: El director de
-                                    orquesta.</li>
+                                        class="bi bi-magic text-primary me-2"></i><strong>Hechicería Bash:</strong>
+                                    Automatización y Scripting.</li>
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-primary me-2"></i>Gestión de tareas (Procesos e
-                                    Hilos) en vivo.</li>
-                                <li class="text-secondary small"><i class="bi bi-check-circle text-primary me-2"></i>La
-                                    magia de la memoria virtual y el SWAP.</li>
+                                        class="bi bi-activity text-primary me-2"></i><strong>Danza de Procesos:</strong>
+                                    Gestión de hilos y CPU.</li>
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-plug text-primary me-2"></i><strong>Hardware Directo:</strong>
+                                    Descifrando <code>/dev</code>.</li>
+                                <li class="text-secondary small"><i
+                                        class="bi bi-shield-check text-primary me-2"></i><strong>Punto de
+                                        Control:</strong> Diagnóstico Intermedio.</li>
                             </ul>
                         </div>
                     </div>
@@ -194,24 +145,27 @@
                     <!-- Bloque 3 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-success">
                         <div class="program-block-header">
-                            <h5 class="fw-bold mb-1"><span class="badge bg-success me-2">Semana 11-16</span> Donde vive
-                                la información</h5>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Archivos, Discos
-                                y Periféricos</small>
+                            <h5 class="fw-bold mb-1"><span class="badge bg-success me-2">Semana 12-16</span> Más Allá de
+                                los Bytes</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Memoria,
+                                Optimización y Cierre</small>
                         </div>
                         <div class="card-body p-4">
-                            <p class="small">Aprendemos a organizar el disco, gestionar archivos con seguridad y
-                                conectar al sistema con el mundo exterior.</p>
+                            <p class="small">Llevamos el sistema al límite: gestionando el almacén infinito de la RAM y
+                                dominando las herramientas profesionales.</p>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-success me-2"></i>Entendiendo el Árbol de
-                                    Directorios de Linux.</li>
+                                        class="bi bi-memory text-success me-2"></i><strong>Almacén Infinito:</strong>
+                                    RAM, Paginación y Swap.</li>
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-success me-2"></i>Seguridad Industrial: Permisos
-                                    de archivos (Chmod/Chown).</li>
+                                        class="bi bi-layers text-success me-2"></i><strong>Multitarea Real:</strong>
+                                    Jerarquías de Memoria.</li>
+                                <li class="mb-2 text-secondary small"><i
+                                        class="bi bi-terminal text-success me-2"></i><strong>CLI vs GUI:</strong>
+                                    Herramientas de grado industrial.</li>
                                 <li class="text-secondary small"><i
-                                        class="bi bi-check-circle text-success me-2"></i>Dispositivos de E/S: Todo es un
-                                    archivo.</li>
+                                        class="bi bi-trophy text-success me-2"></i><strong>La Cima:</strong>
+                                    Certificación Final del Laboratorio.</li>
                             </ul>
                         </div>
                     </div>

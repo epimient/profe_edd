@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mapa de Mundos: Distribuciones y Repositorios - Profe EDD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                        Operativos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Distribuciones y Repositorios</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 class="display-5 fw-bold">El Mapa de Mundos</h1>
+            <p class="fs-4 text-muted">Ecosistemas, Distribuciones y la Magia de los Repositorios.</p>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Banner Diapositivas -->
+                <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
+                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3"></i>
+                    <div class="flex-grow-1">
+                        <h4 class="alert-heading h5">Material de Clase</h4>
+                        <p class="mb-0 small">Explora la presentación sobre Ecosistemas de SO.</p>
+                    </div>
+                    <a href="https://docs.google.com/presentation/d/16Kn-57HSYCqQ5jOgFttJ6u_00frxWZHo/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
+                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank">
+                        <i class="bi bi-easel2-fill me-2"></i>Ver Diapositivas
+                    </a>
+                </div>
+
+                <article class="blog-post">
+                    <!-- Analogía -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">¿Qué es un Ecosistema de SO?</h2>
+                        <p>Un sistema operativo no es solo un programa; es un <strong>ecosistema completo</strong> que
+                            abarca infraestructura, comunidad y modelos de negocio. Usemos esta analogía:</p>
+
+                        <div class="row g-4 text-center mt-2">
+                            <div class="col-md-4">
+                                <div class="p-4 bg-white rounded shadow-sm h-100 border-top border-4 border-info">
+                                    <i class="bi bi-building fs-1 text-info"></i>
+                                    <h5 class="fw-bold mt-2">Windows</h5>
+                                    <p class="small text-muted"><strong>Un Edificio:</strong> Centralizado, controlado
+                                        por una empresa, con reglas fijas y estructura vertical.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 bg-white rounded shadow-sm h-100 border-top border-4 border-dark">
+                                    <i class="bi bi-door-closed fs-1 text-dark"></i>
+                                    <h5 class="fw-bold mt-2">macOS</h5>
+                                    <p class="small text-muted"><strong>Una Torre Privada:</strong> Integración vertical
+                                        total. Tú no eliges los muebles (hardware), Apple los diseña para ti.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 bg-white rounded shadow-sm h-100 border-top border-4 border-success">
+                                    <i class="bi bi-globe fs-1 text-success"></i>
+                                    <h5 class="fw-bold mt-2">Linux</h5>
+                                    <p class="small text-muted"><strong>Una Ciudad Completa:</strong> Diversidad,
+                                        libertad e innovación constante. Donde cada barrio (distribución) es único.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Las Familias -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Las Tres Grandes Familias de Linux</h2>
+                        <p>Linux es un universo modular. No es una sola cosa, es una familia de "distribuciones"
+                            (distros) que comparten el mismo Kernel pero con diferentes filosofías.</p>
+
+                        <div class="list-group shadow-sm mb-4">
+                            <div class="list-group-item p-4 border-0 border-start border-4 border-primary mb-2">
+                                <h5 class="fw-bold"><i class="bi bi-shield-check me-2"></i>Debian (La Base Estable)</h5>
+                                <p class="small mb-0">Prioriza la estabilidad y el software libre. Es la madre de
+                                    <strong>Ubuntu, Mint y Kali Linux</strong>.
+                                </p>
+                                <span class="badge bg-primary mt-2">Gestor: apt (.deb)</span>
+                            </div>
+                            <div class="list-group-item p-4 border-0 border-start border-4 border-danger mb-2">
+                                <h5 class="fw-bold"><i class="bi bi-briefcase me-2"></i>Fedora / RHEL (Innovación
+                                    Empresarial)</h5>
+                                <p class="small mb-0">El laboratorio de Red Hat. Enfocado en tecnologías modernas y
+                                    entornos corporativos.</p>
+                                <span class="badge bg-danger mt-2">Gestor: dnf (.rpm)</span>
+                            </div>
+                            <div class="list-group-item p-4 border-0 border-start border-4 border-info mb-2">
+                                <h5 class="fw-bold"><i class="bi bi-gear-fill me-2"></i>Arch Linux (Control Total)</h5>
+                                <p class="small mb-0">Mínimo y rolling release. Tú construyes todo desde cero. Solo para
+                                    valientes.</p>
+                                <span class="badge bg-info mt-2">Gestor: pacman (.pkg)</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Línea de Tiempo -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">El Árbol Genealógico: Timeline de Distros</h2>
+                        <p>A pesar de la fragmentación, Linux tiene una genealogía clara. Observa cómo han evolucionado
+                            las ramas a lo largo de décadas:</p>
+                        <div class="bg-white p-3 rounded shadow-sm text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg"
+                                alt="Línea de Tiempo de Distribuciones Linux" class="img-fluid rounded">
+                            <p class="small text-muted mt-2"><i class="bi bi-info-circle me-1"></i>Fuente: Wikimedia
+                                Commons. El árbol de la vida de Linux.</p>
+                        </div>
+                    </section>
+
+                    <!-- Gestores de Paquetes -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">La Magia: Gestores de Paquetes</h2>
+                        <p>En Windows, descargas un <code>.exe</code> y rezas para que no tenga virus. En Linux, usas
+                            <strong>Repositorios</strong>: almacenes de software verificado y seguro.
+                        </p>
+
+                        <div class="alert alert-secondary border-0 shadow-sm p-4">
+                            <h5 class="fw-bold"><i class="bi bi-lightning-fill text-warning me-2"></i>¿Por qué es
+                                superior?</h5>
+                            <ul class="mb-0 small">
+                                <li><strong>Resolución de Dependencias:</strong> El gestor calcula qué librerías faltan
+                                    y las instala solo.</li>
+                                <li><strong>Actualización Universal:</strong> Un solo comando actualiza el sistema y
+                                    TODAS las apps.</li>
+                                <li><strong>Seguridad:</strong> Software firmado digitalmente por los mantenedores de la
+                                    distro.</li>
+                            </ul>
+                        </div>
+
+                        <h5 class="mt-4">Comandos de Poder:</h5>
+                        <pre><code class="language-bash"># En Debian/Ubuntu
+sudo apt update && sudo apt upgrade
+
+# En Fedora
+sudo dnf install vlc
+
+# En Arch Linux
+sudo pacman -Syu</code></pre>
+                    </section>
+
+                    <!-- Formatos Universales -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">El Mañana: Formatos Universales</h2>
+                        <p>Para evitar que un paquete <code>.deb</code> no funcione en Fedora, nacieron los formatos que
+                            corren en cualquier lugar (Sandboxed):</p>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="p-3 bg-light rounded text-center border">
+                                    <h6 class="fw-bold">Flatpak</h6>
+                                    <p class="extra-small mb-0">El estándar abierto (Flathub).</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 bg-light rounded text-center border">
+                                    <h6 class="fw-bold">AppImage</h6>
+                                    <p class="extra-small mb-0">Como un .exe portable.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 bg-light rounded text-center border">
+                                    <h6 class="fw-bold">Snap</h6>
+                                    <p class="extra-small mb-0">La apuesta de Canonical (Ubuntu).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>

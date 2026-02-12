@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADN del SO: Funciones vitales desde el Kernel - Profe EDD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/adn-kernel.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                        Operativos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ADN del SO</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 class="display-5 fw-bold">ADN del SO</h1>
+            <p class="fs-4 text-muted">Funciones vitales desde el Kernel de Linux.</p>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Banner Diapositivas -->
+                <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
+                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3"></i>
+                    <div class="flex-grow-1">
+                        <h4 class="alert-heading h5">Material de Apoyo</h4>
+                        <p class="mb-0 small">Accede a las presentaciones originales de la clase.</p>
+                    </div>
+                    <a href="https://docs.google.com/presentation/d/1qLJp7qPUllW0EZv-hupYFEkJrNMCn1C5/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
+                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank">
+                        <i class="bi bi-easel2-fill me-2"></i>Ver Diapositivas
+                    </a>
+                </div>
+
+                <article class="blog-post">
+                    <!-- Introducción -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo I: El Cuerpo Digital</h2>
+                        <div class="alert alert-info shadow-sm">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            <strong>Contexto:</strong> En 2026, una computadora es una infraestructura distribuida.
+                        </div>
+                        <p>Desde un sensor IoT hasta un Tesla, si hay hardware complejo, hay un "ADN" gestionándolo. El
+                            sistema operativo no es solo software, es el gestor de la vida digital del dispositivo.</p>
+
+                        <div class="row text-center g-4 mt-2">
+                            <div class="col-4 col-md-2"><i class="bi bi-phone fs-2 text-primary"></i>
+                                <p class="small">Phone</p>
+                            </div>
+                            <div class="col-4 col-md-2"><i class="bi bi-watch fs-2 text-primary"></i>
+                                <p class="small">Watch</p>
+                            </div>
+                            <div class="col-4 col-md-2"><i class="bi bi-car-front fs-2 text-primary"></i>
+                                <p class="small">Tesla</p>
+                            </div>
+                            <div class="col-4 col-md-2"><i class="bi bi-broadcast fs-2 text-primary"></i>
+                                <p class="small">Router</p>
+                            </div>
+                            <div class="col-4 col-md-2"><i class="bi bi-cloud fs-2 text-primary"></i>
+                                <p class="small">Cloud</p>
+                            </div>
+                            <div class="col-4 col-md-2"><i class="bi bi-cpu fs-2 text-primary"></i>
+                                <p class="small">IoT</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- El Kernel -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo II: El Kernel</h2>
+                        <p>El <strong>Kernel</strong> es el nÃºcleo que controla todo. Es el intermediario legal entre
+                            tus apps y el hardware.</p>
+
+                        <div class="card mb-4 shadow-sm border-0 bg-dark text-white p-4">
+                            <div class="d-flex justify-content-around text-center">
+                                <div><i class="bi bi-display fs-1 text-info"></i>
+                                    <p class="mt-2">Apps</p>
+                                </div>
+                                <div><i class="bi bi-arrow-left-right fs-2"></i>
+                                    <p class="mt-2">Syscalls</p>
+                                </div>
+                                <div class="bg-info bg-opacity-25 p-3 rounded border border-info border-2">
+                                    <i class="bi bi-gear-wide-connected fs-1 text-info"></i>
+                                    <h5 class="fw-bold m-0 p-0 text-info">KERNEL</h5>
+                                </div>
+                                <div><i class="bi bi-arrow-left-right fs-2"></i>
+                                    <p class="mt-2">Drivers</p>
+                                </div>
+                                <div><i class="bi bi-cpu fs-1 text-warning"></i>
+                                    <p class="mt-2">Hardware</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Abstracción: Ocultando la complejidad</h4>
+                        <p>Para el Kernel y el programador, el hardware se simplifica:</p>
+                        <ul class="list-group list-group-flush mb-4 rounded shadow-sm">
+                            <li class="list-group-item"><i class="bi bi-disk me-2 text-muted"></i>Un disco es un archivo
+                                (<code>/dev/sda</code>)</li>
+                            <li class="list-group-item"><i class="bi bi-ethernet me-2 text-muted"></i>Una red es un
+                                socket</li>
+                            <li class="list-group-item"><i class="bi bi-keyboard me-2 text-muted"></i>Un teclado es un
+                                flujo (<code>stdin</code>)</li>
+                        </ul>
+                    </section>
+
+                    <!-- Funciones Vitales -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo III: Funciones Vitales</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm biology-card">
+                                    <div class="card-body pl-border-danger">
+                                        <h5 class="card-title fw-bold text-danger"><i
+                                                class="bi bi-activity me-2"></i>Gestión de Procesos</h5>
+                                        <p class="card-text small">El <strong>Scheduler</strong> decide quÃ© proceso usa
+                                            la CPU mediante <em>Context Switching</em>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm biology-card">
+                                    <div class="card-body pl-border-primary">
+                                        <h5 class="card-title fw-bold text-primary"><i
+                                                class="bi bi-memory me-2"></i>Gestión de Memoria</h5>
+                                        <p class="card-text small">Maneja <strong>Memoria Virtual</strong> y Swap para
+                                            extender la RAM física.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm biology-card">
+                                    <div class="card-body pl-border-warning">
+                                        <h5 class="card-title fw-bold text-warning"><i
+                                                class="bi bi-folder2-open me-2"></i>Sistema de Archivos</h5>
+                                        <p class="card-text small">Organiza la jerarquÃ­a desde la raÃ­z
+                                            (<code>/</code>) basándose en estándares.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm biology-card">
+                                    <div class="card-body pl-border-success">
+                                        <h5 class="card-title fw-bold text-success"><i
+                                                class="bi bi-input-cursor-text me-2"></i>E/S y Syscalls</h5>
+                                        <p class="card-text small">Puntos de entrada al Kernel para tareas de hardware
+                                            (<code>read</code>, <code>write</code>).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Arquitectura de Supervivencia -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo IV: Arquitectura de Supervivencia</h2>
+                        <div class="row text-center g-4">
+                            <div class="col-6">
+                                <div class="p-3 bg-dark text-white rounded">
+                                    <h4 class="text-info fw-bold">User Mode</h4>
+                                    <p class="small text-white-50">Apps Restringidas</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-dark text-white rounded">
+                                    <h4 class="text-danger fw-bold">Kernel Mode</h4>
+                                    <p class="small text-white-50">Privilegio Total</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-4">Si algo falla en Modo Kernel, ocurre un <strong>Kernel Panic</strong> (Linux) o
+                            un BSOD (Windows). Linux es modular: carga "poderes" sin reiniciar.</p>
+                    </section>
+
+                    <!-- Paralelismo -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Puentes: Windows vs Linux</h2>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Consola Central <span>PowerShell <i class="bi bi-arrow-right mx-2"></i> Bash</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Superusuario <span>UAC <i class="bi bi-arrow-right mx-2"></i> Sudo</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Almacén Virtual <span>pagefile.sys <i class="bi bi-arrow-right mx-2"></i> Swap</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Gestión <span>Registry <i class="bi bi-arrow-right mx-2"></i> <code>/etc</code></span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Reto Práctico -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                        <p>Abre tu terminal e interroga al Kernel con estos comandos:</p>
+                        <pre><code class="language-bash"># Ver versión del Kernel
+uname -a
+
+# Ver uso de Memoria RAM y Swap
+free -m
+
+# Ver módulos cargados en el Kernel
+lsmod</code></pre>
+                    </section>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>
