@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitecturas: Arduino, ESP8266 y ESP32</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Prism.js CSS Tema Dark (Por ejemplo, 'Tomorrow Night') -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/styles.css">
-    <style>
-        /* Estilo adicional para el contenedor del código con botón de copiar */
-        pre.code-container {
-            position: relative;
-            border-radius: 0.375rem; /* .rounded */
-        }
-        /* Estilo para el botón de copiar dentro del bloque de código */
-        pre.code-container .btn-copy-code {
-            position: absolute;
-            top: 0.25rem;
-            right: 0.25rem;
-            padding: 0.1rem 0.25rem;
-            font-size: 0.65rem;
-            line-height: 1;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        /* Mostrar el botón al pasar el mouse sobre el bloque de código */
-        pre.code-container:hover .btn-copy-code {
-            opacity: 1;
-        }
-    </style>
+
 </head>
+
 <body class="bg-light">
     <div class="container mt-5">
         <!-- Breadcrumb Navigation -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-mecatronica.html">Fundamentos de Mecatrónica</a>
+                </li>
                 <li class="breadcrumb-item active" aria-current="page">Arquitecturas: Arduino, ESP8266 y ESP32</li>
             </ol>
         </nav>
@@ -56,84 +39,127 @@
                 <i class="bi bi-easel2-fill fs-3 me-3"></i>
                 <div class="flex-grow-1">
                     <h4 class="alert-heading">Diapositivas del Tema</h4>
-                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los conceptos.</p>
+                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los
+                        conceptos.</p>
                 </div>
-                <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación &rarr;</a>
+                <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación
+                    &rarr;</a>
             </div>
             <div class="alert alert-info d-flex align-items-center m-4" role="alert">
                 <i class="bi bi-motherboard fs-3 me-3"></i>
                 <div>
                     <h4 class="alert-heading">¿Qué es una Plataforma de Desarrollo?</h4>
-                    <p class="mb-0">Es una solución completa que combina hardware (el microcontrolador y sus componentes) y software (entorno de programación) para facilitar el desarrollo de proyectos electrónicos y mecatrónicos, especialmente para principiantes y prototipado rápido.</p>
+                    <p class="mb-0">Es una solución completa que combina hardware (el microcontrolador y sus
+                        componentes) y software (entorno de programación) para facilitar el desarrollo de proyectos
+                        electrónicos y mecatrónicos, especialmente para principiantes y prototipado rápido.</p>
                 </div>
             </div>
             <div class="card-body p-4 pt-0">
-                
+
                 <h2 class="card-title">1. Introducción: Arduino</h2>
-                <p>Arduino es una plataforma de desarrollo de código abierto basada en hardware y software fácil de usar. Su objetivo principal es democratizar la electrónica para artistas, diseñadores, aficionados y cualquier persona interesada en crear objetos o entornos interactivos. Fue lanzado en 2005 y se ha convertido en un estándar de facto para el prototipado rápido y la educación. [1]</p>
+                <p>Arduino es una plataforma de desarrollo de código abierto basada en hardware y software fácil de
+                    usar. Su objetivo principal es democratizar la electrónica para artistas, diseñadores, aficionados y
+                    cualquier persona interesada en crear objetos o entornos interactivos. Fue lanzado en 2005 y se ha
+                    convertido en un estándar de facto para el prototipado rápido y la educación. [1]</p>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=Arduino+UNO+R3" class="img-fluid rounded shadow-sm" alt="Imagen de una placa Arduino UNO">
-                    <figcaption class="figure-caption mt-2">Arduino UNO R3, uno de los modelos más populares.</figcaption>
+                    <img src="https://placehold.co/600x300?text=Arduino+UNO+R3" class="img-fluid rounded shadow-sm"
+                        alt="Imagen de una placa Arduino UNO">
+                    <figcaption class="figure-caption mt-2">Arduino UNO R3, uno de los modelos más populares.
+                    </figcaption>
                 </figure>
                 <h3 class="mt-4">Características Clave de Arduino:</h3>
                 <ul>
-                    <li><strong>Microcontrolador:</strong> Basado principalmente en microcontroladores AVR de Atmel (por ejemplo, ATmega328P en el UNO).</li>
-                    <li><strong>Entorno de Desarrollo (IDE):</strong> Software gratuito y multiplataforma (Windows, Mac, Linux) con una sintaxis simplificada basada en C/C++.</li>
-                    <li><strong>Comunidad:</strong> Una de las comunidades más grandes y activas de hardware y software libre. Miles de tutoriales, librerías y proyectos disponibles.</li>
-                    <li><strong>Shield System:</strong> Tarjetas de expansión que se conectan directamente al Arduino para añadir funcionalidades específicas (Ethernet, WiFi, Motores, etc.).</li>
+                    <li><strong>Microcontrolador:</strong> Basado principalmente en microcontroladores AVR de Atmel (por
+                        ejemplo, ATmega328P en el UNO).</li>
+                    <li><strong>Entorno de Desarrollo (IDE):</strong> Software gratuito y multiplataforma (Windows, Mac,
+                        Linux) con una sintaxis simplificada basada en C/C++.</li>
+                    <li><strong>Comunidad:</strong> Una de las comunidades más grandes y activas de hardware y software
+                        libre. Miles de tutoriales, librerías y proyectos disponibles.</li>
+                    <li><strong>Shield System:</strong> Tarjetas de expansión que se conectan directamente al Arduino
+                        para añadir funcionalidades específicas (Ethernet, WiFi, Motores, etc.).</li>
                 </ul>
                 <div class="alert alert-warning mt-3">
                     <strong>Ventajas y Limitaciones:</strong>
                     <ul class="mb-0">
-                        <li><strong>Ventajas:</strong> Fácil de aprender, gran comunidad, abundantes recursos educativos, amplia gama de modelos (UNO, Nano, Mega).</li>
-                        <li><strong>Limitaciones:</strong> No tiene conectividad WiFi o Bluetooth integrada (requiere shields adicionales), recursos limitados de procesamiento y memoria comparados con otras plataformas modernas.</li>
+                        <li><strong>Ventajas:</strong> Fácil de aprender, gran comunidad, abundantes recursos
+                            educativos, amplia gama de modelos (UNO, Nano, Mega).</li>
+                        <li><strong>Limitaciones:</strong> No tiene conectividad WiFi o Bluetooth integrada (requiere
+                            shields adicionales), recursos limitados de procesamiento y memoria comparados con otras
+                            plataformas modernas.</li>
                     </ul>
                 </div>
 
                 <hr class="my-4">
 
                 <h2 class="card-title">2. Avance Tecnológico: ESP8266</h2>
-                <p>El ESP8266, desarrollado por Espressif Systems, no es una plataforma completa como Arduino, sino un <strong>chip WiFi SoC (System on Chip)</strong> de bajo coste. Contiene un microcontrolador de 32 bits, memoria flash, y una pila TCP/IP completa. Su popularidad creció enormemente cuando se empezaron a comercializar módulos como el ESP-01 y, sobre todo, placas de desarrollo como el NodeMCU, que incorporaban el ESP8266 en un formato compatible con Arduino. [2]</p>
+                <p>El ESP8266, desarrollado por Espressif Systems, no es una plataforma completa como Arduino, sino un
+                    <strong>chip WiFi SoC (System on Chip)</strong> de bajo coste. Contiene un microcontrolador de 32
+                    bits, memoria flash, y una pila TCP/IP completa. Su popularidad creció enormemente cuando se
+                    empezaron a comercializar módulos como el ESP-01 y, sobre todo, placas de desarrollo como el
+                    NodeMCU, que incorporaban el ESP8266 en un formato compatible con Arduino. [2]</p>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=NodeMCU+ESP8266" class="img-fluid rounded shadow-sm" alt="Imagen de una placa NodeMCU con ESP8266">
-                    <figcaption class="figure-caption mt-2">NodeMCU, una popular placa de desarrollo que utiliza el chip ESP8266.</figcaption>
+                    <img src="https://placehold.co/600x300?text=NodeMCU+ESP8266" class="img-fluid rounded shadow-sm"
+                        alt="Imagen de una placa NodeMCU con ESP8266">
+                    <figcaption class="figure-caption mt-2">NodeMCU, una popular placa de desarrollo que utiliza el chip
+                        ESP8266.</figcaption>
                 </figure>
                 <h3 class="mt-4">Características Clave del ESP8266:</h3>
                 <ul>
-                    <li><strong>Conectividad:</strong> WiFi integrado (802.11 b/g/n). Esto es su principal ventaja sobre Arduino.</li>
-                    <li><strong>Microcontrolador:</strong> CPU de 32 bits Tensilica L106, más potente que los AVR de Arduino.</li>
-                    <li><strong>Software (ESP8266 Core for Arduino):</strong> Se puede programar directamente desde el IDE de Arduino, lo que lo hace muy accesible. También se puede programar con otros entornos como MicroPython o directamente con el SDK de Espressif.</li>
+                    <li><strong>Conectividad:</strong> WiFi integrado (802.11 b/g/n). Esto es su principal ventaja sobre
+                        Arduino.</li>
+                    <li><strong>Microcontrolador:</strong> CPU de 32 bits Tensilica L106, más potente que los AVR de
+                        Arduino.</li>
+                    <li><strong>Software (ESP8266 Core for Arduino):</strong> Se puede programar directamente desde el
+                        IDE de Arduino, lo que lo hace muy accesible. También se puede programar con otros entornos como
+                        MicroPython o directamente con el SDK de Espressif.</li>
                     <li><strong>Coste:</strong> Muy bajo, lo que lo hace ideal para proyectos IoT económicos.</li>
                 </ul>
                 <div class="alert alert-warning mt-3">
                     <strong>Ventajas y Limitaciones:</strong>
                     <ul class="mb-0">
-                        <li><strong>Ventajas:</strong> WiFi integrada, bajo coste, microcontrolador de 32 bits más potente, programable con Arduino IDE.</li>
-                        <li><strong>Limitaciones:</strong> Solo WiFi (no Bluetooth), recursos limitados de memoria flash y RAM comparados con el ESP32, dificultades iniciales para programarlo antes de la integración con Arduino.</li>
+                        <li><strong>Ventajas:</strong> WiFi integrada, bajo coste, microcontrolador de 32 bits más
+                            potente, programable con Arduino IDE.</li>
+                        <li><strong>Limitaciones:</strong> Solo WiFi (no Bluetooth), recursos limitados de memoria flash
+                            y RAM comparados con el ESP32, dificultades iniciales para programarlo antes de la
+                            integración con Arduino.</li>
                     </ul>
                 </div>
 
                 <hr class="my-4">
 
                 <h2 class="card-title">3. El Sucesor Natural: ESP32</h2>
-                <p>El ESP32 es el sucesor del ESP8266, también diseñado por Espressif. Es un <strong>SoC (System on Chip)</strong> aún más potente y versátil, que ofrece conectividad dual (WiFi y Bluetooth/Bluetooth Low Energy) y una gran cantidad de periféricos integrados. Se ha convertido rápidamente en una opción preferida para proyectos IoT y mecatrónicos más avanzados. [3]</p>
+                <p>El ESP32 es el sucesor del ESP8266, también diseñado por Espressif. Es un <strong>SoC (System on
+                        Chip)</strong> aún más potente y versátil, que ofrece conectividad dual (WiFi y
+                    Bluetooth/Bluetooth Low Energy) y una gran cantidad de periféricos integrados. Se ha convertido
+                    rápidamente en una opción preferida para proyectos IoT y mecatrónicos más avanzados. [3]</p>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=ESP32+Dev+Kit" class="img-fluid rounded shadow-sm" alt="Imagen de una placa de desarrollo ESP32">
-                    <figcaption class="figure-caption mt-2">ESP32 Dev Kit, una versión común de la placa de desarrollo ESP32.</figcaption>
+                    <img src="https://placehold.co/600x300?text=ESP32+Dev+Kit" class="img-fluid rounded shadow-sm"
+                        alt="Imagen de una placa de desarrollo ESP32">
+                    <figcaption class="figure-caption mt-2">ESP32 Dev Kit, una versión común de la placa de desarrollo
+                        ESP32.</figcaption>
                 </figure>
                 <h3 class="mt-4">Características Clave del ESP32:</h3>
                 <ul>
-                    <li><strong>Conectividad:</strong> WiFi 802.11 b/g/n y Bluetooth 4.2 LE integrados. Esto lo hace ideal para una amplia gama de aplicaciones IoT.</li>
-                    <li><strong>Microcontrolador:</strong> CPU dual-core de 32 bits Tensilica LX6 (puede funcionar en modo single-core a velocidades más altas). Mucho más potente que el ESP8266 y Arduino UNO.</li>
-                    <li><strong>Recursos:</strong> Más memoria RAM y Flash que sus predecesores. Soporta tarjetas microSD.</li>
-                    <li><strong>Periféricos:</strong> Incluye una gran cantidad de periféricos: ADCs (Conversores Analógico-Digital), DACs, touch pads, PWM, UART, SPI, I2C, etc. Incluso incluye hardware dedicado para acelerar operaciones criptográficas.</li>
-                    <li><strong>Software:</strong> Totalmente compatible con el IDE de Arduino. También se puede programar con MicroPython, Rust, JavaScript (ESP-IDF), entre otros.</li>
+                    <li><strong>Conectividad:</strong> WiFi 802.11 b/g/n y Bluetooth 4.2 LE integrados. Esto lo hace
+                        ideal para una amplia gama de aplicaciones IoT.</li>
+                    <li><strong>Microcontrolador:</strong> CPU dual-core de 32 bits Tensilica LX6 (puede funcionar en
+                        modo single-core a velocidades más altas). Mucho más potente que el ESP8266 y Arduino UNO.</li>
+                    <li><strong>Recursos:</strong> Más memoria RAM y Flash que sus predecesores. Soporta tarjetas
+                        microSD.</li>
+                    <li><strong>Periféricos:</strong> Incluye una gran cantidad de periféricos: ADCs (Conversores
+                        Analógico-Digital), DACs, touch pads, PWM, UART, SPI, I2C, etc. Incluso incluye hardware
+                        dedicado para acelerar operaciones criptográficas.</li>
+                    <li><strong>Software:</strong> Totalmente compatible con el IDE de Arduino. También se puede
+                        programar con MicroPython, Rust, JavaScript (ESP-IDF), entre otros.</li>
                 </ul>
                 <div class="alert alert-warning mt-3">
                     <strong>Ventajas y Limitaciones:</strong>
                     <ul class="mb-0">
-                        <li><strong>Ventajas:</strong> WiFi y Bluetooth integrados, microcontrolador muy potente, gran cantidad de periféricos, bajo consumo en modo BLE, amplia compatibilidad con entornos de desarrollo.</li>
-                        <li><strong>Limitaciones:</strong> Puede ser más complejo para principiantes absolutos, consumo ligeramente mayor que el ESP8266 en ciertos escenarios, mayor coste que el ESP8266.</li>
+                        <li><strong>Ventajas:</strong> WiFi y Bluetooth integrados, microcontrolador muy potente, gran
+                            cantidad de periféricos, bajo consumo en modo BLE, amplia compatibilidad con entornos de
+                            desarrollo.</li>
+                        <li><strong>Limitaciones:</strong> Puede ser más complejo para principiantes absolutos, consumo
+                            ligeramente mayor que el ESP8266 en ciertos escenarios, mayor coste que el ESP8266.</li>
                     </ul>
                 </div>
 
@@ -234,111 +260,165 @@
                 <div class="alert alert-success mt-3">
                     <h4>Guía de Selección:</h4>
                     <ul>
-                        <li><strong>Usa Arduino UNO</strong> si estás empezando, tu proyecto no requiere conectividad inalámbrica, o necesitas una solución muy simple y estable.</li>
-                        <li><strong>Usa ESP8266</strong> si tu proyecto necesita conectividad WiFi, pero es simple y buscas una solución económica. También es una buena introducción a microcontroladores de 32 bits.</li>
-                        <li><strong>Usa ESP32</strong> si tu proyecto requiere conectividad WiFi y/o Bluetooth, necesita más potencia de procesamiento, tiene requisitos de memoria más altos, o quieres explorar características avanzadas como sensores táctiles.</li>
+                        <li><strong>Usa Arduino UNO</strong> si estás empezando, tu proyecto no requiere conectividad
+                            inalámbrica, o necesitas una solución muy simple y estable.</li>
+                        <li><strong>Usa ESP8266</strong> si tu proyecto necesita conectividad WiFi, pero es simple y
+                            buscas una solución económica. También es una buena introducción a microcontroladores de 32
+                            bits.</li>
+                        <li><strong>Usa ESP32</strong> si tu proyecto requiere conectividad WiFi y/o Bluetooth, necesita
+                            más potencia de procesamiento, tiene requisitos de memoria más altos, o quieres explorar
+                            características avanzadas como sensores táctiles.</li>
                     </ul>
                 </div>
 
                 <hr class="my-4">
 
                 <h2 class="card-title">4.1. Distribución de Pines</h2>
-                <p>Conocer la distribución de pines (pinout) de tu placa es crucial para conectar correctamente sensores, actuadores y otros componentes.</p>
-                
+                <p>Conocer la distribución de pines (pinout) de tu placa es crucial para conectar correctamente
+                    sensores, actuadores y otros componentes.</p>
+
                 <h4 class="mt-4">Arduino UNO R3</h4>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/800x400?text=Diagrama+de+Pines+Arduino+UNO+R3" class="img-fluid rounded shadow-sm" alt="Diagrama de pines de Arduino UNO R3">
+                    <img src="https://placehold.co/800x400?text=Diagrama+de+Pines+Arduino+UNO+R3"
+                        class="img-fluid rounded shadow-sm" alt="Diagrama de pines de Arduino UNO R3">
                     <figcaption class="figure-caption mt-2">Diagrama de pines del Arduino UNO R3.</figcaption>
                 </figure>
-                <p><strong>Pines Digitales (0-13):</strong> Pueden funcionar como entradas o salidas digitales (HIGH/LOW). Algunos tienen funciones especiales:</p>
+                <p><strong>Pines Digitales (0-13):</strong> Pueden funcionar como entradas o salidas digitales
+                    (HIGH/LOW). Algunos tienen funciones especiales:</p>
                 <ul>
-                    <li><strong>Pines 0 (RX) y 1 (TX):</strong> Usados para la comunicación serial (por ejemplo, para comunicarse con el ordenador o módulos Bluetooth).</li>
-                    <li><strong>Pines 3, 5, 6, 9, 10, 11:</strong> Pueden generar salidas PWM (modulación por ancho de pulso), útiles para controlar la intensidad de LEDs o la velocidad de motores.</li>
-                    <li><strong>Pines 10, 11, 12, 13:</strong> Usados para la comunicación SPI (por ejemplo, con tarjetas SD).</li>
+                    <li><strong>Pines 0 (RX) y 1 (TX):</strong> Usados para la comunicación serial (por ejemplo, para
+                        comunicarse con el ordenador o módulos Bluetooth).</li>
+                    <li><strong>Pines 3, 5, 6, 9, 10, 11:</strong> Pueden generar salidas PWM (modulación por ancho de
+                        pulso), útiles para controlar la intensidad de LEDs o la velocidad de motores.</li>
+                    <li><strong>Pines 10, 11, 12, 13:</strong> Usados para la comunicación SPI (por ejemplo, con
+                        tarjetas SD).</li>
                 </ul>
-                <p><strong>Pines Analógicos (A0-A5):</strong> Se pueden usar como entradas analógicas para leer valores de sensores como potenciómetros o sensores de temperatura. En placas más nuevas, algunos de estos pines también pueden funcionar como salidas PWM.</p>
+                <p><strong>Pines Analógicos (A0-A5):</strong> Se pueden usar como entradas analógicas para leer valores
+                    de sensores como potenciómetros o sensores de temperatura. En placas más nuevas, algunos de estos
+                    pines también pueden funcionar como salidas PWM.</p>
                 <p><strong>Pines de Alimentación:</strong> 5V, 3.3V, GND (Tierra).</p>
 
                 <h4 class="mt-4">NodeMCU ESP8266</h4>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/800x400?text=Diagrama+de+Pines+NodeMCU+ESP8266" class="img-fluid rounded shadow-sm" alt="Diagrama de pines de NodeMCU ESP8266">
+                    <img src="https://placehold.co/800x400?text=Diagrama+de+Pines+NodeMCU+ESP8266"
+                        class="img-fluid rounded shadow-sm" alt="Diagrama de pines de NodeMCU ESP8266">
                     <figcaption class="figure-caption mt-2">Diagrama de pines del NodeMCU ESP8266.</figcaption>
                 </figure>
-                <p>El ESP8266 tiene sus propios pines GPIO (General Purpose Input/Output), pero en la placa NodeMCU estos se mapean a etiquetas más amigables (D0, D1, D2, etc.).</p>
-                <p><strong>Pines GPIO Mapeados (D0-D8):</strong> Son los pines principales para entradas y salidas. Algunos tienen funciones especiales:</p>
+                <p>El ESP8266 tiene sus propios pines GPIO (General Purpose Input/Output), pero en la placa NodeMCU
+                    estos se mapean a etiquetas más amigables (D0, D1, D2, etc.).</p>
+                <p><strong>Pines GPIO Mapeados (D0-D8):</strong> Son los pines principales para entradas y salidas.
+                    Algunos tienen funciones especiales:</p>
                 <ul>
-                    <li><strong>D0 (GPIO16):</strong> Conectado internamente al circuito de despertar (Wake-up). No tiene interrupciones ni PWM.</li>
+                    <li><strong>D0 (GPIO16):</strong> Conectado internamente al circuito de despertar (Wake-up). No
+                        tiene interrupciones ni PWM.</li>
                     <li><strong>D1 (GPIO5) y D2 (GPIO4):</strong> Comunes para comunicación I2C (SCL y SDA).</li>
-                    <li><strong>D3 (GPIO0):</strong> Tiene una función especial en el arranque del microcontrolador. Si se conecta a GND durante el encendido, entra en modo de grabación (flashing mode).</li>
-                    <li><strong>D4 (GPIO2):</strong> También tiene una función especial en el arranque. Debe estar en HIGH durante el arranque para que el chip arranque correctamente.</li>
-                    <li><strong>D5 (GPIO14), D6 (GPIO12), D7 (GPIO13), D8 (GPIO15):</strong> Usados para comunicación SPI. D8 (GPIO15) debe estar en LOW durante el arranque.</li>
+                    <li><strong>D3 (GPIO0):</strong> Tiene una función especial en el arranque del microcontrolador. Si
+                        se conecta a GND durante el encendido, entra en modo de grabación (flashing mode).</li>
+                    <li><strong>D4 (GPIO2):</strong> También tiene una función especial en el arranque. Debe estar en
+                        HIGH durante el arranque para que el chip arranque correctamente.</li>
+                    <li><strong>D5 (GPIO14), D6 (GPIO12), D7 (GPIO13), D8 (GPIO15):</strong> Usados para comunicación
+                        SPI. D8 (GPIO15) debe estar en LOW durante el arranque.</li>
                     <li><strong>RX (GPIO3) y TX (GPIO1):</strong> Pines de comunicación serial principal.</li>
                 </ul>
                 <p><strong>Pines de Alimentación:</strong> 3V3, G (GND), Vin (Voltaje de entrada).</p>
-                <p><strong>Nota:</strong> El ESP8266 funciona internamente a 3.3V. Tener cuidado al conectar sensores o módulos que operan a 5V, ya que pueden dañar el microcontrolador.</p>
+                <p><strong>Nota:</strong> El ESP8266 funciona internamente a 3.3V. Tener cuidado al conectar sensores o
+                    módulos que operan a 5V, ya que pueden dañar el microcontrolador.</p>
 
                 <h4 class="mt-4">ESP32 Dev Kit</h4>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/800x400?text=Diagrama+de+Pines+ESP32+Dev+Kit" class="img-fluid rounded shadow-sm" alt="Diagrama de pines de ESP32 Dev Kit">
-                    <figcaption class="figure-caption mt-2">Diagrama de pines de una placa ESP32 Dev Kit (puede variar ligeramente entre modelos).</figcaption>
+                    <img src="https://placehold.co/800x400?text=Diagrama+de+Pines+ESP32+Dev+Kit"
+                        class="img-fluid rounded shadow-sm" alt="Diagrama de pines de ESP32 Dev Kit">
+                    <figcaption class="figure-caption mt-2">Diagrama de pines de una placa ESP32 Dev Kit (puede variar
+                        ligeramente entre modelos).</figcaption>
                 </figure>
                 <p>El ESP32 tiene muchos más pines GPIO que sus predecesores, ofreciendo gran flexibilidad.</p>
-                <p><strong>Pines GPIO (0-39):</strong> Una gran cantidad de pines configurables. Algunos tienen funciones especiales o restricciones:</p>
+                <p><strong>Pines GPIO (0-39):</strong> Una gran cantidad de pines configurables. Algunos tienen
+                    funciones especiales o restricciones:</p>
                 <ul>
-                    <li><strong>GPIO 0, 2, 4, 5, 12-15, 18-19:</strong> Tienen funciones especiales durante el arranque (boot) y se deben usar con cuidado. Por ejemplo, GPIO 0 debe estar en HIGH para un arranque normal.</li>
-                    <li><strong>GPIO 34-39:</strong> Son solo entradas. No pueden generar salidas ni se pueden usar con pull-up/pull-down internos.</li>
-                    <li><strong>GPIO 6-11:</strong> Están conectados internamente a la memoria flash y no se deben usar para E/S.</li>
-                    <li><strong>Múltiples UARTs:</strong> El ESP32 tiene 3 UARTs (puertos seriales), lo que permite múltiples conexiones seriales simultáneas.</li>
-                    <li><strong>Touch Pads:</strong> GPIOs específicos se pueden usar como sensores táctiles (T0-T9).</li>
+                    <li><strong>GPIO 0, 2, 4, 5, 12-15, 18-19:</strong> Tienen funciones especiales durante el arranque
+                        (boot) y se deben usar con cuidado. Por ejemplo, GPIO 0 debe estar en HIGH para un arranque
+                        normal.</li>
+                    <li><strong>GPIO 34-39:</strong> Son solo entradas. No pueden generar salidas ni se pueden usar con
+                        pull-up/pull-down internos.</li>
+                    <li><strong>GPIO 6-11:</strong> Están conectados internamente a la memoria flash y no se deben usar
+                        para E/S.</li>
+                    <li><strong>Múltiples UARTs:</strong> El ESP32 tiene 3 UARTs (puertos seriales), lo que permite
+                        múltiples conexiones seriales simultáneas.</li>
+                    <li><strong>Touch Pads:</strong> GPIOs específicos se pueden usar como sensores táctiles (T0-T9).
+                    </li>
                     <li><strong>PWM:</strong> La mayoría de los GPIOs pueden generar salidas PWM.</li>
                 </ul>
                 <p><strong>Pines de Alimentación:</strong> 3V3, GND, Vin (5V en algunas placas).</p>
-                <p><strong>Nota:</strong> Al igual que el ESP8266, el ESP32 opera a 3.3V. Tener cuidado con componentes de 5V.</p>
+                <p><strong>Nota:</strong> Al igual que el ESP8266, el ESP32 opera a 3.3V. Tener cuidado con componentes
+                    de 5V.</p>
 
                 <hr class="my-4">
 
                 <h2 class="card-title">4.2. Otras Placas de la Familia Arduino</h2>
-                <p>Además del clásico Arduino UNO, existen otras placas de la familia Arduino diseñadas para necesidades específicas.</p>
+                <p>Además del clásico Arduino UNO, existen otras placas de la familia Arduino diseñadas para necesidades
+                    específicas.</p>
 
                 <h4 class="mt-4">Arduino Nano</h4>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/400x200?text=Arduino+Nano" class="img-fluid rounded shadow-sm" alt="Imagen de una placa Arduino Nano">
+                    <img src="https://placehold.co/400x200?text=Arduino+Nano" class="img-fluid rounded shadow-sm"
+                        alt="Imagen de una placa Arduino Nano">
                     <figcaption class="figure-caption mt-2">Arduino Nano, versión compacta del UNO.</figcaption>
                 </figure>
-                <p>El Arduino Nano es una versión más pequeña y compacta del Arduino UNO. Mantiene una gran compatibilidad con el UNO en cuanto a pines y funciones, pero su formato reducido lo hace ideal para proyectos donde el espacio es limitado. Utiliza el mismo microcontrolador ATmega328P que el UNO. Es muy popular en proyectos de electrónica, robótica pequeña y wearables.</p>
+                <p>El Arduino Nano es una versión más pequeña y compacta del Arduino UNO. Mantiene una gran
+                    compatibilidad con el UNO en cuanto a pines y funciones, pero su formato reducido lo hace ideal para
+                    proyectos donde el espacio es limitado. Utiliza el mismo microcontrolador ATmega328P que el UNO. Es
+                    muy popular en proyectos de electrónica, robótica pequeña y wearables.</p>
 
                 <h4 class="mt-4">Arduino Mega 2560</h4>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=Arduino+Mega+2560" class="img-fluid rounded shadow-sm" alt="Imagen de una placa Arduino Mega 2560">
+                    <img src="https://placehold.co/600x300?text=Arduino+Mega+2560" class="img-fluid rounded shadow-sm"
+                        alt="Imagen de una placa Arduino Mega 2560">
                     <figcaption class="figure-caption mt-2">Arduino Mega 2560, con gran cantidad de pines.</figcaption>
                 </figure>
-                <p>El Arduino Mega 2560 es una versión más potente del UNO, basada en el microcontrolador ATmega2560. Ofrece una gran cantidad de pines de E/S digitales (54) y analógicos (16), además de más memoria (256 KB Flash, 8 KB SRAM). Esto lo hace ideal para proyectos más complejos que requieren controlar muchos sensores, actuadores o dispositivos simultáneamente, como brazos robóticos, impresoras 3D o CNC. También tiene 4 UARTs (puertos seriales) hardware.</p>
+                <p>El Arduino Mega 2560 es una versión más potente del UNO, basada en el microcontrolador ATmega2560.
+                    Ofrece una gran cantidad de pines de E/S digitales (54) y analógicos (16), además de más memoria
+                    (256 KB Flash, 8 KB SRAM). Esto lo hace ideal para proyectos más complejos que requieren controlar
+                    muchos sensores, actuadores o dispositivos simultáneamente, como brazos robóticos, impresoras 3D o
+                    CNC. También tiene 4 UARTs (puertos seriales) hardware.</p>
 
                 <h4 class="mt-4">Arduino Uno R4</h4>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=Arduino+Uno+R4" class="img-fluid rounded shadow-sm" alt="Imagen de una placa Arduino Uno R4">
+                    <img src="https://placehold.co/600x300?text=Arduino+Uno+R4" class="img-fluid rounded shadow-sm"
+                        alt="Imagen de una placa Arduino Uno R4">
                     <figcaption class="figure-caption mt-2">Arduino Uno R4, la evolución del UNO clásico.</figcaption>
                 </figure>
-                <p>El Arduino Uno R4 es la más reciente iteración del icónico Arduino UNO. En lugar del tradicional microcontrolador ATmega328P, utiliza un microcontrolador ARM Cortex-M0+ de 32 bits (RA4M1 de Renesas). Esto representa un gran salto en potencia de procesamiento, memoria y conectividad:</p>
+                <p>El Arduino Uno R4 es la más reciente iteración del icónico Arduino UNO. En lugar del tradicional
+                    microcontrolador ATmega328P, utiliza un microcontrolador ARM Cortex-M0+ de 32 bits (RA4M1 de
+                    Renesas). Esto representa un gran salto en potencia de procesamiento, memoria y conectividad:</p>
                 <ul>
                     <li><strong>Microcontrolador:</strong> ARM Cortex-M0+ de 32 bits a 48 MHz.</li>
-                    <li><strong>Memoria:</strong> 256 KB de Flash (8x más que el UNO) y 32 KB de RAM (16x más que el UNO).</li>
-                    <li><strong>Conectividad:</strong> Incorpora un conector USB-C y un conector Qwiic (I2C) para una conexión más fácil con sensores y actuadores modernos.</li>
-                    <li><strong>Compatibilidad:</strong> Mantiene el mismo factor de forma y distribución de pines que el UNO, asegurando la compatibilidad con la gran mayoría de shields existentes.</li>
-                    <li><strong>Objetivo:</strong> Ofrece la potencia de una plataforma de 32 bits manteniendo la simplicidad y familiaridad del UNO.</li>
+                    <li><strong>Memoria:</strong> 256 KB de Flash (8x más que el UNO) y 32 KB de RAM (16x más que el
+                        UNO).</li>
+                    <li><strong>Conectividad:</strong> Incorpora un conector USB-C y un conector Qwiic (I2C) para una
+                        conexión más fácil con sensores y actuadores modernos.</li>
+                    <li><strong>Compatibilidad:</strong> Mantiene el mismo factor de forma y distribución de pines que
+                        el UNO, asegurando la compatibilidad con la gran mayoría de shields existentes.</li>
+                    <li><strong>Objetivo:</strong> Ofrece la potencia de una plataforma de 32 bits manteniendo la
+                        simplicidad y familiaridad del UNO.</li>
                 </ul>
-                <p>El Arduino Uno R4 representa una evolución importante, combinando la facilidad de uso del UNO con la potencia de una arquitectura moderna de 32 bits, preparándolo para proyectos más exigentes y futuras tecnologías.</p>
+                <p>El Arduino Uno R4 representa una evolución importante, combinando la facilidad de uso del UNO con la
+                    potencia de una arquitectura moderna de 32 bits, preparándolo para proyectos más exigentes y futuras
+                    tecnologías.</p>
 
                 <hr class="my-4">
 
                 <h2 class="card-title">4.3. Entorno de Desarrollo: Arduino IDE</h2>
-                <p>Para programar cualquiera de estas placas, necesitas un entorno de desarrollo. El <strong>Arduino IDE</strong> (Entorno de Desarrollo Integrado) es el más común y oficial.</p>
+                <p>Para programar cualquiera de estas placas, necesitas un entorno de desarrollo. El <strong>Arduino
+                        IDE</strong> (Entorno de Desarrollo Integrado) es el más común y oficial.</p>
                 <figure class="text-center my-4">
-                    <img src="https://placehold.co/800x500?text=Captura+de+Pantalla+Arduino+IDE" class="img-fluid rounded shadow-sm" alt="Captura de pantalla del Arduino IDE">
+                    <img src="https://placehold.co/800x500?text=Captura+de+Pantalla+Arduino+IDE"
+                        class="img-fluid rounded shadow-sm" alt="Captura de pantalla del Arduino IDE">
                     <figcaption class="figure-caption mt-2">Interfaz del Arduino IDE.</figcaption>
                 </figure>
                 <h4 class="mt-4">Instalación</h4>
-                <p>Descarga el Arduino IDE desde el sitio web oficial (<a href="https://www.arduino.cc/en/software" target="_blank">https://www.arduino.cc/en/software</a>) e instálalo siguiendo las instrucciones para tu sistema operativo (Windows, macOS, Linux).</p>
+                <p>Descarga el Arduino IDE desde el sitio web oficial (<a href="https://www.arduino.cc/en/software"
+                        target="_blank">https://www.arduino.cc/en/software</a>) e instálalo siguiendo las instrucciones
+                    para tu sistema operativo (Windows, macOS, Linux).</p>
 
                 <h4 class="mt-4">Configuración para ESP8266 y ESP32</h4>
                 <p>El IDE viene preconfigurado para Arduino, pero necesitas añadir soporte para ESP8266 y ESP32:</p>
@@ -346,25 +426,34 @@
                     <li>Ve a <strong>Archivo &gt; Preferencias</strong>.</li>
                     <li>En el campo "Gestor de URLs Adicionales de Tarjetas", pega las siguientes URLs:
                         <ul>
-                            <li>Para ESP32: <code class="bg-light p-1">https://dl.espressif.com/dl/package_esp32_index.json</code></li>
-                            <li>Para ESP8266: <code class="bg-light p-1">https://arduino.esp8266.com/stable/package_esp8266com_index.json</code></li>
+                            <li>Para ESP32: <code
+                                    class="bg-light p-1">https://dl.espressif.com/dl/package_esp32_index.json</code>
+                            </li>
+                            <li>Para ESP8266: <code
+                                    class="bg-light p-1">https://arduino.esp8266.com/stable/package_esp8266com_index.json</code>
+                            </li>
                         </ul>
                         (Separa las URLs con una coma si pegas ambas).
                     </li>
                     <li>Ve a <strong>Herramientas &gt; Placa &gt; Gestor de Tarjetas</strong>.</li>
                     <li>Busca "esp32" y/o "esp8266" e instala los paquetes correspondientes.</li>
-                    <li>Selecciona tu placa específica en <strong>Herramientas &gt; Placa</strong> (por ejemplo, "ESP32 Dev Module" o "NodeMCU 1.0").</li>
+                    <li>Selecciona tu placa específica en <strong>Herramientas &gt; Placa</strong> (por ejemplo, "ESP32
+                        Dev Module" o "NodeMCU 1.0").</li>
                 </ol>
 
                 <h4 class="mt-4">Estructura Básica de un Programa (Sketch)</h4>
-                <p>Un programa en Arduino se llama "Sketch". Tiene una estructura básica con dos funciones principales:</p>
+                <p>Un programa en Arduino se llama "Sketch". Tiene una estructura básica con dos funciones principales:
+                </p>
                 <ul>
-                    <li><code>void setup()</code>: Se ejecuta una sola vez al inicio. Aquí se inicializan pines, sensores, comunicación serial, etc.</li>
-                    <li><code>void loop()</code>: Se ejecuta repetidamente después de <code>setup()</code>. Aquí va la lógica principal del programa.</li>
+                    <li><code>void setup()</code>: Se ejecuta una sola vez al inicio. Aquí se inicializan pines,
+                        sensores, comunicación serial, etc.</li>
+                    <li><code>void loop()</code>: Se ejecuta repetidamente después de <code>setup()</code>. Aquí va la
+                        lógica principal del programa.</li>
                 </ul>
 
                 <h4 class="mt-4">Ejemplo Práctico: Hola Mundo con Arduino - Blink</h4>
-                <p>El ejemplo clásico "Blink" hace parpadear el LED integrado en la mayoría de placas Arduino (conectado internamente al pin digital 13).</p>
+                <p>El ejemplo clásico "Blink" hace parpadear el LED integrado en la mayoría de placas Arduino (conectado
+                    internamente al pin digital 13).</p>
                 <p><strong>Código:</strong></p>
                 <!-- Bloque de Código Copiable con Resaltado de Sintaxis Prism.js -->
                 <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código">
@@ -399,14 +488,19 @@
                 <p><strong>Instrucciones:</strong></p>
                 <ol>
                     <li>Conecta tu placa Arduino al ordenador con un cable USB.</li>
-                    <li>En el IDE, ve a <strong>Herramientas &gt; Placa</strong> y selecciona tu modelo de Arduino (por ejemplo, "Arduino Uno").</li>
-                    <li>Ve a <strong>Herramientas &gt; Puerto</strong> y selecciona el puerto COM asociado a tu placa.</li>
+                    <li>En el IDE, ve a <strong>Herramientas &gt; Placa</strong> y selecciona tu modelo de Arduino (por
+                        ejemplo, "Arduino Uno").</li>
+                    <li>Ve a <strong>Herramientas &gt; Puerto</strong> y selecciona el puerto COM asociado a tu placa.
+                    </li>
                     <li>Pega el código en el editor del IDE.</li>
                     <li>Haz clic en el botón <strong>Verificar</strong> (check) para compilar el código.</li>
-                    <li>Si no hay errores, haz clic en el botón <strong>Cargar</strong> (flecha) para subir el código a la placa.</li>
+                    <li>Si no hay errores, haz clic en el botón <strong>Cargar</strong> (flecha) para subir el código a
+                        la placa.</li>
                     <li>¡Deberías ver el LED integrado parpadear!</li>
                 </ol>
-                <p>Este ejemplo simple introduce conceptos clave: configurar un pin como salida (<code>pinMode</code>), escribir un valor digital a un pin (<code>digitalWrite</code>) y crear un retardo (<code>delay</code>).</p>
+                <p>Este ejemplo simple introduce conceptos clave: configurar un pin como salida (<code>pinMode</code>),
+                    escribir un valor digital a un pin (<code>digitalWrite</code>) y crear un retardo
+                    (<code>delay</code>).</p>
 
                 <hr class="my-4">
 
@@ -416,33 +510,45 @@
                     <div class="col">
                         <div class="card h-100 shadow-sm">
                             <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/CqrQmQ9Ev5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/CqrQmQ9Ev5c" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">Arduino UNO Tutorial</h5>
-                                <p class="card-text">Una introducción completa al Arduino UNO, sus características y primeros pasos.</p>
+                                <p class="card-text">Una introducción completa al Arduino UNO, sus características y
+                                    primeros pasos.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card h-100 shadow-sm">
                             <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/3HJtmr8Q1Rc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/3HJtmr8Q1Rc" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">ESP8266 vs ESP32</h5>
-                                <p class="card-text">Una comparación detallada de las características y usos de ambas plataformas de Espressif.</p>
+                                <p class="card-text">Una comparación detallada de las características y usos de ambas
+                                    plataformas de Espressif.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card h-100 shadow-sm">
                             <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/xPlN_Tk3VL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/xPlN_Tk3VL4" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">Primeros pasos con ESP32</h5>
-                                <p class="card-text">Un tutorial para configurar y programar tu primera placa ESP32 con el IDE de Arduino.</p>
+                                <p class="card-text">Un tutorial para configurar y programar tu primera placa ESP32 con
+                                    el IDE de Arduino.</p>
                             </div>
                         </div>
                     </div>
@@ -452,9 +558,13 @@
 
                 <h2 class="card-title">6. Referencias y Lecturas Recomendadas</h2>
                 <ul class="list-group">
-                    <li class="list-group-item">[1] Banzi, M. (2008). <em>Getting Started with Arduino</em>. O'Reilly Media.</li>
-                    <li class="list-group-item">[2] Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media. (Capítulos sobre ESP8266)</li>
-                    <li class="list-group-item">[3] Espressif Systems. (2021). <em>ESP-IDF Programming Guide</em>. <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank">https://docs.espressif.com/projects/esp-idf/en/latest/esp32/</a></li>
+                    <li class="list-group-item">[1] Banzi, M. (2008). <em>Getting Started with Arduino</em>. O'Reilly
+                        Media.</li>
+                    <li class="list-group-item">[2] Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media.
+                        (Capítulos sobre ESP8266)</li>
+                    <li class="list-group-item">[3] Espressif Systems. (2021). <em>ESP-IDF Programming Guide</em>. <a
+                            href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/"
+                            target="_blank">https://docs.espressif.com/projects/esp-idf/en/latest/esp32/</a></li>
                 </ul>
 
             </div>
@@ -471,11 +581,14 @@
         </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <!-- Prism.js JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
     <!-- Script para copiar código -->
     <script>
         function copyCodePrism(button) {
@@ -491,9 +604,9 @@
                     button.classList.remove('btn-outline-light');
                     button.classList.add('btn-success');
                     setTimeout(() => {
-                         button.innerHTML = originalHTML;
-                         button.classList.remove('btn-success');
-                         button.classList.add('btn-outline-light');
+                        button.innerHTML = originalHTML;
+                        button.classList.remove('btn-success');
+                        button.classList.add('btn-outline-light');
                     }, 2000);
                 }).catch(err => {
                     console.error('Error al copiar el texto: ', err);
@@ -505,4 +618,5 @@
         }
     </script>
 </body>
+
 </html>

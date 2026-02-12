@@ -1,1 +1,173 @@
 /* Estilos personalizados */
+
+/* =========================================
+   Global & Index
+   ========================================= */
+.profile-pic {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   Pilares: Linux (Cultura Linux)
+   ========================================= */
+.pilar-header {
+    background-color: #00838f;
+}
+
+.distro-card {
+    transition: transform 0.3s;
+    border: none;
+}
+
+.distro-card:hover {
+    transform: translateY(-10px);
+}
+
+.badge-distro {
+    font-size: 0.8rem;
+}
+
+.iso-link {
+    text-decoration: none;
+    color: #00838f;
+    font-weight: bold;
+}
+
+.iso-link:hover {
+    text-decoration: underline;
+}
+
+.fso-star-card {
+    border: none;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.fso-icon-box {
+    background-color: transparent;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fso-img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.iso-category-header {
+    background-color: #e0f2f1;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #00838f;
+}
+
+.news-item-hover {
+    transition: background 0.2s;
+}
+
+.news-item-hover:hover {
+    background-color: #f8f9fa;
+}
+
+/* =========================================
+   Cursos: Fundamentos de Sistemas Operativos
+   ========================================= */
+:root {
+    --fso-primary: #00838f;
+    /* Regresamos al Teal de Cultura Linux */
+    --fso-secondary: #006064;
+    --fso-accent: #ffab00;
+}
+
+.academic-hero {
+    background: linear-gradient(135deg, var(--fso-primary) 0%, #121212 100%);
+    color: white;
+    border-bottom: 5px solid var(--fso-accent);
+}
+
+.metadata-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.section-header {
+    border-left: 5px solid var(--fso-primary);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: var(--fso-primary);
+}
+
+.competency-card {
+    border: none;
+    border-left: 4px solid var(--fso-accent);
+    transition: transform 0.2s;
+}
+
+.competency-card:hover {
+    transform: scale(1.02);
+}
+
+.program-block {
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.program-block-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1.5rem;
+}
+
+
+/* =========================================
+   Componentes: Bloques de Código (Mecatrónica)
+   ========================================= */
+/* Estilo adicional para el contenedor del código con botón de copiar */
+pre.code-container {
+    position: relative;
+    border-radius: 0.375rem;
+    /* .rounded */
+}
+
+/* Estilo para el botón de copiar dentro del bloque de código */
+pre.code-container .btn-copy-code {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    padding: 0.1rem 0.25rem;
+    font-size: 0.65rem;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Mostrar el botón al pasar el mouse sobre el bloque de código */
+pre.code-container:hover .btn-copy-code {
+    opacity: 1;
+}
+
+/* =========================================
+   Mecatrónica: Protocolo MQTT
+   ========================================= */
+/* Estilo para imágenes en la galería de herramientas */
+.tool-logo {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+}
