@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La magia de la memoria virtual y el SWAP</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                        Operativos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Memoria Virtual</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 class="display-5 fw-bold">La magia de la memoria virtual y el SWAP</h1>
+            <p class="fs-4">¿Cómo puedes ejecutar un juego de 50GB en una PC con 16GB de RAM? Bienvenido a la gran
+                mentira del sistema operativo.</p>
+        </header>
+
+        <div class="row">
+            <div class="col-md-8">
+                <article class="blog-post">
+                    <h2 class="blog-post-title mb-4">¿Qué es la Memoria Virtual?</h2>
+                    <p>La Memoria Virtual es una técnica que engaña a las aplicaciones haciéndoles creer que tienen
+                        bloques contiguos de memoria infinita, cuando en realidad la memoria física (RAM) está
+                        fragmentada y es limitada.</p>
+
+                    <h3 class="mt-4">Cómo funciona (Paginación)</h3>
+                    <p>El SO divide la memoria en pequeños bloques llamados <strong>Páginas</strong>. Mantiene una tabla
+                        ("Page Table") que mapea las direcciones virtuales que ve el programa a direcciones físicas
+                        reales en la RAM.</p>
+
+                    <h3 class="mt-5 text-danger">El SWAP (Espacio de Intercambio)</h3>
+                    <p>¿Qué pasa cuando se acaba la RAM física? El SO recurre al SWAP.</p>
+                    <div class="card bg-body-tertiary border-0 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Definición</h5>
+                            <p class="card-text">Es un espacio reservado en el <strong>Disco Duro</strong> (o SSD) que
+                                se usa como si fuera memoria RAM adicional.</p>
+                        </div>
+                    </div>
+
+                    <p>Cuando la RAM se llena, el SO toma los datos de los programas que no estás usando activamente
+                        (ej. esa pestaña de Chrome minimizada hace 2 horas) y los mueve al disco (<strong>Swap
+                            Out</strong>). Cuando vuelves a esa pestaña, la trae de vuelta a la RAM (<strong>Swap
+                            In</strong>).</p>
+
+                    <div class="alert alert-warning">
+                        <strong>¡Cuidado!</strong> El disco es miles de veces más lento que la RAM. Si tu computadora
+                        depende mucho del SWAP, se pondrá extremadamente lenta. Esto se conoce como <em>Thrashing</em>.
+                    </div>
+
+                    <h3 class="mt-4">Verificando Memoria en Linux</h3>
+                    <p>Usa el comando <code>free -h</code> para ver tu memoria en formato legible (Human-readable).</p>
+                    <pre><code class="language-bash">free -h</code></pre>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>

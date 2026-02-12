@@ -8,65 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        :root {
-            --fso-primary: #00838f;
-            /* Regresamos al Teal de Cultura Linux */
-            --fso-secondary: #006064;
-            --fso-accent: #ffab00;
-        }
 
-        .academic-hero {
-            background: linear-gradient(135deg, var(--fso-primary) 0%, #121212 100%);
-            color: white;
-            border-bottom: 5px solid var(--fso-accent);
-        }
-
-        .metadata-badge {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 0.5rem;
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .section-header {
-            border-left: 5px solid var(--fso-primary);
-            padding-left: 1rem;
-            margin-bottom: 2rem;
-            font-weight: bold;
-            color: var(--fso-primary);
-        }
-
-        .competency-card {
-            border: none;
-            border-left: 4px solid var(--fso-accent);
-            transition: transform 0.2s;
-        }
-
-        .competency-card:hover {
-            transform: scale(1.02);
-        }
-
-        .program-block {
-            background-color: #fff;
-            border-radius: 1rem;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-        }
-
-        .program-block-header {
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 1.5rem;
-        }
-
-        .bibliography-item {
-            font-style: italic;
-            color: #555;
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 
 <body class="bg-light">
@@ -155,14 +97,19 @@
                             </p>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-info me-2"></i>La historia de Linux: Del hobby a
-                                    la industria.</li>
+                                        class="bi bi-check-circle text-info me-2"></i><a
+                                        href="fundamentos_SO/historia-linux.html"
+                                        class="text-decoration-none text-secondary">La historia de Linux: Del hobby a
+                                        la industria.</a></li>
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-info me-2"></i>¿Qué hace realmente un SO por
-                                    nosotros?</li>
-                                <li class="text-secondary small"><i
-                                        class="bi bi-check-circle text-info me-2"></i>Primeros pasos con la Terminal (Tu
-                                    nueva mejor amiga).</li>
+                                        class="bi bi-check-circle text-info me-2"></i><a
+                                        href="fundamentos_SO/que-es-un-so.html"
+                                        class="text-decoration-none text-secondary">¿Qué hace realmente un SO por
+                                        nosotros?</a></li>
+                                <li class="text-secondary small"><i class="bi bi-check-circle text-info me-2"></i><a
+                                        href="fundamentos_SO/terminal-basica.html"
+                                        class="text-decoration-none text-secondary">Primeros pasos con la Terminal (Tu
+                                        nueva mejor amiga).</a></li>
                             </ul>
                         </div>
                     </div>
@@ -180,13 +127,19 @@
                                 guarda la información en tiempo real.</p>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-primary me-2"></i>El Kernel: El director de
-                                    orquesta.</li>
+                                        class="bi bi-check-circle text-primary me-2"></i><a
+                                        href="fundamentos_SO/kernel-director.html"
+                                        class="text-decoration-none text-secondary">El Kernel: El director de
+                                        orquesta.</a></li>
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-primary me-2"></i>Gestión de tareas (Procesos e
-                                    Hilos) en vivo.</li>
-                                <li class="text-secondary small"><i class="bi bi-check-circle text-primary me-2"></i>La
-                                    magia de la memoria virtual y el SWAP.</li>
+                                        class="bi bi-check-circle text-primary me-2"></i><a
+                                        href="fundamentos_SO/gestion-procesos.html"
+                                        class="text-decoration-none text-secondary">Gestión de tareas (Procesos e
+                                        Hilos) en vivo.</a></li>
+                                <li class="text-secondary small"><i class="bi bi-check-circle text-primary me-2"></i><a
+                                        href="fundamentos_SO/memoria-virtual.html"
+                                        class="text-decoration-none text-secondary">La
+                                        magia de la memoria virtual y el SWAP.</a></li>
                             </ul>
                         </div>
                     </div>
@@ -204,14 +157,19 @@
                                 conectar al sistema con el mundo exterior.</p>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-success me-2"></i>Entendiendo el Árbol de
-                                    Directorios de Linux.</li>
+                                        class="bi bi-check-circle text-success me-2"></i><a
+                                        href="fundamentos_SO/arbol-directorios.html"
+                                        class="text-decoration-none text-secondary">Entendiendo el Árbol de
+                                        Directorios de Linux.</a></li>
                                 <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-check-circle text-success me-2"></i>Seguridad Industrial: Permisos
-                                    de archivos (Chmod/Chown).</li>
-                                <li class="text-secondary small"><i
-                                        class="bi bi-check-circle text-success me-2"></i>Dispositivos de E/S: Todo es un
-                                    archivo.</li>
+                                        class="bi bi-check-circle text-success me-2"></i><a
+                                        href="fundamentos_SO/permisos-archivos.html"
+                                        class="text-decoration-none text-secondary">Seguridad Industrial: Permisos
+                                        de archivos (Chmod/Chown).</a></li>
+                                <li class="text-secondary small"><i class="bi bi-check-circle text-success me-2"></i><a
+                                        href="fundamentos_SO/dispositivos-es.html"
+                                        class="text-decoration-none text-secondary">Dispositivos de E/S: Todo es un
+                                        archivo.</a></li>
                             </ul>
                         </div>
                     </div>
