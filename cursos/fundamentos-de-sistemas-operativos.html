@@ -33,10 +33,11 @@
         <div class="container text-center text-lg-start">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <span class="badge bg-warning text-dark mb-3 fw-bold">NUEVA GENERACIÓN 2026</span>
+                    <span class="badge bg-warning text-dark mb-3 fw-bold"><i class="bi bi-penguin me-1"></i>LINUX FIRST
+                        · 2026</span>
                     <h1 class="display-4 fw-bold mb-3 text-shadow">Fundamentos de Sistemas Operativos</h1>
-                    <p class="lead mb-4 opacity-75">Descubre cómo funciona el corazón de la tecnología. Tu puerta de
-                        entrada al mundo de la infraestructura y el código abierto.</p>
+                    <p class="lead mb-4 opacity-75">Aprende cómo funciona un SO desde adentro, con las manos en la
+                        terminal de Linux. Tu primer paso en la infraestructura real del mundo profesional.</p>
 
                     <!-- Metadata Grid -->
                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 mt-4">
@@ -65,17 +66,28 @@
                 <section class="mb-5">
                     <h2 class="section-header">¿Qué aprenderemos aquí?</h2>
                     <div class="p-4 bg-white rounded shadow-sm border border-info border-opacity-25">
-                        <p class="lead">Este curso es un viaje desde lo más simple hasta entender cómo las máquinas nos
-                            permiten crear mundos digitales.</p>
-                        <p>A diferencia de los cursos tradicionales, aquí volcaremos todo el conocimiento al mundo real
-                            de <strong>Linux</strong>. No solo leeremos conceptos, aprenderemos a dominar la terminal y
-                            a entender por qué los sistemas abiertos son el futuro de tu carrera como Ingeniero.</p>
+                        <p class="lead">Este no es un curso de teoría: es una inmersión directa en
+                            <strong>Linux</strong>, el sistema operativo que domina la industria.
+                        </p>
+                        <p>Cada concepto que estudies — procesos, memoria, archivos, scheduling — lo verás funcionando
+                            en tiempo real desde la <strong>terminal de Linux</strong>. Aquí no hay simuladores:
+                            trabajas con el mismo sistema que usan los ingenieros en AWS, Google y los 500
+                            supercomputadores más potentes del planeta.</p>
                         <hr>
-                        <h6 class="fw-bold mb-2"><i class="bi bi-rocket-takeoff-fill me-2 text-primary"></i>Tu meta para
-                            este semestre:</h6>
-                        <p class="small text-muted mb-0">Serás capaz de instalar, configurar y entender qué pasa "bajo
-                            el capó" de cualquier sistema operativo moderno, aplicando soluciones profesionales desde el
-                            primer día.</p>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i class="bi bi-terminal-fill me-2 text-primary"></i>Linux
+                                    First</h6>
+                                <p class="small text-muted mb-0">Todo concepto se demuestra primero en la terminal de
+                                    Linux con comandos reales.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i
+                                        class="bi bi-rocket-takeoff-fill me-2 text-success"></i>Nivel 1</h6>
+                                <p class="small text-muted mb-0">Diseñado para primer semestre: sin prerrequisitos, con
+                                    analogías claras y laboratorios guiados.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -86,7 +98,7 @@
                     <!-- Bloque 1 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-info">
                         <div class="program-block-header">
-                            <h5 class="fw-bold mb-1"><span class="badge bg-info text-dark me-2">Semana 1-5</span> El
+                            <h5 class="fw-bold mb-1"><span class="badge bg-info text-dark me-2">Bloque 1</span> El
                                 Despertar de la Tecnología</h5>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Cimentando la
                                 Soberanía Tecnológica</small>
@@ -97,19 +109,20 @@
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2 small"><a href="./fundamentos_SO/adn-kernel.html"
                                         class="text-decoration-none text-secondary"><i
-                                            class="bi bi-cpu text-info me-2"></i><strong>ADN del SO:</strong> Funciones
-                                        vitales desde el Kernel.</a></li>
+                                            class="bi bi-cpu text-info me-2"></i><strong>ADN del SO:</strong> Definición
+                                        y funciones vitales.</a></li>
                                 <li class="mb-2 small"><a href="./fundamentos_SO/historia-linux.html"
                                         class="text-decoration-none text-secondary"><i
                                             class="bi bi-shield-lock text-info me-2"></i><strong>Rebelión
                                             GNU/Linux:</strong> Historia y Soberanía.</a></li>
                                 <li class="mb-2 small"><a href="./fundamentos_SO/distribuciones-repositorios.html"
                                         class="text-decoration-none text-secondary"><i
-                                            class="bi bi-map text-info me-2"></i><strong>El
-                                            Mapa de Mundos:</strong> Distribuciones y Repositorios.</a></li>
-                                <li class="text-secondary small"><i
-                                        class="bi bi-rocket-takeoff text-info me-2"></i><strong>Prueba de
-                                        Vuelo:</strong> Retos iniciales de nivelación.</li>
+                                            class="bi bi-map text-info me-2"></i><strong>El Mapa de Mundos:</strong>
+                                        Clasificación, Distribuciones y Repositorios.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/kernel-director.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-diagram-3 text-info me-2"></i><strong>El Director de
+                                            Orquesta:</strong> Conceptos clave y estructura del SO.</a></li>
                             </ul>
                         </div>
                     </div>
@@ -117,27 +130,35 @@
                     <!-- Bloque 2 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-primary">
                         <div class="program-block-header">
-                            <h5 class="fw-bold mb-1"><span class="badge bg-primary me-2">Semana 6-11</span> Dominando el
+                            <h5 class="fw-bold mb-1"><span class="badge bg-primary me-2">Bloque 2</span> Dominando el
                                 Núcleo</h5>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Administración
-                                de Procesos y Hardware</small>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Administración,
+                                Procesos y Hardware</small>
                         </div>
                         <div class="card-body p-4">
                             <p class="small">Entramos en el corazón del sistema: el poder del administrador, la
                                 hechicería de Bash y la danza de los procesos.</p>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-magic text-primary me-2"></i><strong>Hechicería Bash:</strong>
-                                    Automatización y Scripting.</li>
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-activity text-primary me-2"></i><strong>Danza de Procesos:</strong>
-                                    Gestión de hilos y CPU.</li>
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-plug text-primary me-2"></i><strong>Hardware Directo:</strong>
-                                    Descifrando <code>/dev</code>.</li>
-                                <li class="text-secondary small"><i
-                                        class="bi bi-shield-check text-primary me-2"></i><strong>Punto de
-                                        Control:</strong> Diagnóstico Intermedio.</li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/administracion-so.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-person-badge text-primary me-2"></i><strong>Tu primer día como
+                                            Admin:</strong> Usuarios, grupos y sudo.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/arbol-directorios.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-folder-symlink text-primary me-2"></i><strong>El Árbol y la
+                                            Magia:</strong> Estructura de archivos y scripting.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/dispositivos-es.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-plug text-primary me-2"></i><strong>Todo es un
+                                            Archivo:</strong> Gestión de dispositivos E/S.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/gestion-procesos.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-activity text-primary me-2"></i><strong>La Danza de
+                                            Procesos:</strong> Modelo de procesos e hilos.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/gestion-cpu.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-speedometer2 text-primary me-2"></i><strong>¿Quién va
+                                            primero?:</strong> Gestión de CPU y scheduling.</a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,27 +166,31 @@
                     <!-- Bloque 3 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-success">
                         <div class="program-block-header">
-                            <h5 class="fw-bold mb-1"><span class="badge bg-success me-2">Semana 12-16</span> Más Allá de
+                            <h5 class="fw-bold mb-1"><span class="badge bg-success me-2">Bloque 3</span> Más Allá de
                                 los Bytes</h5>
                             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Memoria,
-                                Optimización y Cierre</small>
+                                Multitarea y Herramientas</small>
                         </div>
                         <div class="card-body p-4">
                             <p class="small">Llevamos el sistema al límite: gestionando el almacén infinito de la RAM y
                                 dominando las herramientas profesionales.</p>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-memory text-success me-2"></i><strong>Almacén Infinito:</strong>
-                                    RAM, Paginación y Swap.</li>
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-layers text-success me-2"></i><strong>Multitarea Real:</strong>
-                                    Jerarquías de Memoria.</li>
-                                <li class="mb-2 text-secondary small"><i
-                                        class="bi bi-terminal text-success me-2"></i><strong>CLI vs GUI:</strong>
-                                    Herramientas de grado industrial.</li>
-                                <li class="text-secondary small"><i
-                                        class="bi bi-trophy text-success me-2"></i><strong>La Cima:</strong>
-                                    Certificación Final del Laboratorio.</li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/memoria-virtual.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-memory text-success me-2"></i><strong>El Almacén
+                                            Infinito:</strong> Gestión de memoria principal.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/esquemas-memoria.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-grid-3x3 text-success me-2"></i><strong>El Mapa de la
+                                            RAM:</strong> Esquemas de administración de memoria.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/multiprogramacion.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-layers text-success me-2"></i><strong>Mil cosas a la
+                                            vez:</strong> Multiprogramación y jerarquía de memoria.</a></li>
+                                <li class="mb-2 small"><a href="./fundamentos_SO/herramientas-cli-gui.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-terminal text-success me-2"></i><strong>Terminal vs
+                                            Escritorio:</strong> Herramientas CLI y GUI.</a></li>
                             </ul>
                         </div>
                     </div>
@@ -177,12 +202,30 @@
                         <div class="col-md-6">
                             <div class="card border-0 bg-white shadow-sm h-100 pb-3">
                                 <div class="card-body">
-                                    <h6 class="fw-bold"><i
-                                            class="bi bi-mortarboard-fill me-2 text-primary"></i>Metodología
-                                        Participativa</h6>
-                                    <p class="small text-muted mb-0">Usamos el aprendizaje basado en retos (CDIO),
-                                        talleres prácticos y proyectos reales para que el conocimiento sea asimilado de
-                                        forma activa.</p>
+                                    <h6 class="fw-bold"><i class="bi bi-terminal-fill me-2 text-primary"></i>Laboratorio
+                                        Vivo</h6>
+                                    <p class="small text-muted mb-0">Cada tema incluye un <strong>Laboratorio
+                                            Vivo</strong>: comandos reales que ejecutas en tu propia terminal Linux para
+                                        ver los conceptos en acción.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-braces me-2 text-info"></i>Código Abierto</h6>
+                                    <p class="small text-muted mb-0">Todo el material, ejercicios y proyectos se
+                                        comparten abiertamente. Aprendes la filosofía open source viviéndola.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>CDIO +
+                                        Retos</h6>
+                                    <p class="small text-muted mb-0">Aprendizaje basado en Concebir, Diseñar,
+                                        Implementar y Operar. Cada bloque cierra con un reto práctico integrador.</p>
                                 </div>
                             </div>
                         </div>
@@ -190,9 +233,9 @@
                             <div class="card border-0 bg-white shadow-sm h-100 pb-3">
                                 <div class="card-body">
                                     <h6 class="fw-bold"><i class="bi bi-graph-up-arrow me-2 text-success"></i>Evaluación
-                                        Integral</h6>
-                                    <p class="small text-muted mb-0">Evaluación continua: laboratorios en terminal,
-                                        informes técnicos y proyectos que miden tu capacidad de ejecución real.</p>
+                                        Continua</h6>
+                                    <p class="small text-muted mb-0">Laboratorios en terminal, informes técnicos y
+                                        proyectos que miden tu capacidad de ejecución real. Nada de memorizar.</p>
                                 </div>
                             </div>
                         </div>
@@ -216,23 +259,35 @@
                     </div>
                 </div>
 
-                <!-- Logros del Curso -->
+                <!-- Filosofía del Curso -->
                 <div class="p-4 mb-4 bg-dark text-white rounded shadow-sm border-bottom border-5 border-info">
-                    <h6 class="fw-bold text-info mb-3">Tu Objetivo Profesional</h6>
-                    <p class="small mb-0 opacity-75">"Solucionar problemas reales en configuración de redes y
-                        administración de sistemas utilizando herramientas de grado industrial."</p>
+                    <h6 class="fw-bold text-info mb-3"><i class="bi bi-flag me-1"></i>Filosofía Linux First</h6>
+                    <ul class="list-unstyled small mb-0 opacity-75">
+                        <li class="mb-2"><i class="bi bi-check-circle text-info me-2"></i>Todo concepto se demuestra
+                            primero en Linux.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-info me-2"></i>La terminal es tu herramienta
+                            principal.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-info me-2"></i>Aprendes haciendo, no
+                            memorizando.</li>
+                        <li class="mb-0"><i class="bi bi-check-circle text-info me-2"></i>Código abierto como cultura
+                            profesional.</li>
+                    </ul>
                 </div>
 
                 <!-- Recursos Clave -->
                 <div class="p-4 mb-4 bg-white rounded shadow-sm border border-light">
-                    <h5 class="fw-bold mb-3">Bibliografía Linux</h5>
+                    <h5 class="fw-bold mb-3"><i class="bi bi-book me-2 text-muted"></i>Bibliografía</h5>
                     <ul class="list-unstyled mb-0 list-group list-group-flush small">
-                        <li class="list-group-item bibliography-item p-1 border-0">Kerrisk, M. (2010). The Linux
-                            Programming Interface.</li>
-                        <li class="list-group-item bibliography-item p-1 border-0">Ward, B. (2021). How Linux Works (3rd
-                            Ed).</li>
-                        <li class="list-group-item bibliography-item p-1 border-0">Love, R. (2010). Linux Kernel
-                            Development.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Silberschatz, A.</strong>
+                            (2018). Operating System Concepts, 10th Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Ward, B.</strong> (2021). How
+                            Linux Works, 3rd Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Shotts, W.</strong> (2019).
+                            The Linux Command Line, 2nd Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Love, R.</strong> (2010).
+                            Linux Kernel Development.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Kerrisk, M.</strong> (2010).
+                            The Linux Programming Interface.</li>
                     </ul>
                 </div>
 

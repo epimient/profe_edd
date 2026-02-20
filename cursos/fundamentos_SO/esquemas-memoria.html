@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mapa de la RAM — Esquemas de Memoria - Profe EDD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                        Operativos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Esquemas de Memoria</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 class="display-5 fw-bold">El Mapa de la RAM</h1>
+            <p class="fs-4 text-muted">Cómo Linux reparte la memoria entre todos los programas.</p>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article class="blog-post">
+
+                    <!-- Analogía -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">¿Cómo se reparte la memoria?</h2>
+                        <div class="alert alert-info shadow-sm">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            <strong>Analogía:</strong> La RAM es como un estacionamiento gigante. Cada programa
+                            necesita un espacio. El sistema operativo es el empleado que asigna los espacios y se
+                            asegura de que nadie invada el lugar de otro.
+                        </div>
+                        <p>Cuando abres un programa, Linux le asigna un bloque de memoria. Pero no le da memoria
+                            física directamente: usa un truco llamado <strong>memoria virtual</strong> para que cada
+                            programa crea que tiene toda la RAM para sí solo.</p>
+                    </section>
+
+                    <!-- Paginación -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Paginación: Dividir para conquistar</h2>
+                        <p>Linux divide la memoria en bloques pequeños llamados <strong>páginas</strong> (normalmente
+                            de 4 KB). Cuando un programa necesita memoria, recibe varias páginas.</p>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <div class="card bg-dark text-white p-3 text-center">
+                                    <i class="bi bi-grid-3x3 display-4 text-info"></i>
+                                    <h6 class="fw-bold mt-2">Memoria dividida en páginas</h6>
+                                    <p class="small text-white-50 mb-0">Cada página = 4 KB de espacio</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-dark text-white p-3 text-center">
+                                    <i class="bi bi-table display-4 text-warning"></i>
+                                    <h6 class="fw-bold mt-2">Tabla de páginas</h6>
+                                    <p class="small text-white-50 mb-0">Un mapa que traduce dirección virtual → física
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <pre><code class="language-bash"># Ver el tamaño de página de tu sistema
+getconf PAGE_SIZE
+
+# Resultado típico: 4096 (bytes) = 4 KB</code></pre>
+                    </section>
+
+                    <!-- Segmentación -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Segmentación: Organizar por tipo</h2>
+                        <p>Mientras la paginación divide la memoria en bloques iguales, la <strong>segmentación</strong>
+                            la organiza por tipo de contenido:</p>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="card border-primary h-100">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-code-slash display-6 text-primary"></i>
+                                        <h6 class="fw-bold mt-2">Segmento de Código</h6>
+                                        <p class="small text-muted mb-0">Las instrucciones del programa</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success h-100">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-database display-6 text-success"></i>
+                                        <h6 class="fw-bold mt-2">Segmento de Datos</h6>
+                                        <p class="small text-muted mb-0">Variables y constantes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-warning h-100">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-stack display-6 text-warning"></i>
+                                        <h6 class="fw-bold mt-2">Segmento de Pila</h6>
+                                        <p class="small text-muted mb-0">Llamadas a funciones</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- /proc/meminfo -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Espiando la memoria en Linux</h2>
+                        <p>Linux expone toda la información de la memoria a través de archivos virtuales:</p>
+                        <pre><code class="language-bash"># Ver el estado completo de la memoria
+cat /proc/meminfo
+
+# Ver resumen en formato legible
+free -h
+
+# Ver estadísticas de memoria virtual
+vmstat
+
+# Ver la memoria de un proceso específico (ej. PID 1)
+cat /proc/1/maps | head -20</code></pre>
+                        <div class="alert alert-success shadow-sm mt-3">
+                            <i class="bi bi-lightbulb me-2"></i>
+                            <strong>Dato Linux:</strong> El archivo <code>/proc/meminfo</code> no existe en el disco.
+                            Es un archivo virtual que el kernel genera en tiempo real cada vez que lo lees.
+                        </div>
+                    </section>
+
+                    <!-- Laboratorio -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                        <pre><code class="language-bash"># 1. ¿Cuánta RAM tiene tu sistema?
+free -h
+
+# 2. ¿Cuánto ocupa el kernel?
+cat /proc/meminfo | grep -i "kernel"
+
+# 3. Tamaño de la página de memoria
+getconf PAGE_SIZE
+
+# 4. Ver el mapa de memoria de un proceso
+cat /proc/self/maps
+
+# 5. Estadísticas de uso
+vmstat 1 5</code></pre>
+                    </section>
+
+                    <!-- Galería de Videos -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/qlH4-oHnBb8"
+                                            title="Paging and Segmentation" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Paginación y Segmentación</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/2quKyPnUShQ" title="Linux Memory"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Memoria en Linux</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Referencias Bibliográficas -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th Ed.</em>
+                                Wiley.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No
+                                Starch Press.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-globe me-2 text-muted"></i>
+                                <strong>Kernel.org.</strong> <em>Memory Management Documentation.</em>
+                                <a href="https://www.kernel.org/doc/html/latest/mm/" target="_blank"
+                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
+                                    docs</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>

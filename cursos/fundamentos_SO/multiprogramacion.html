@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mil cosas a la vez — Multiprogramación - Profe EDD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                        Operativos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Multiprogramación y Jerarquía</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 class="display-5 fw-bold">Mil cosas a la vez</h1>
+            <p class="fs-4 text-muted">Por qué tu PC no colapsa con 20 pestañas abiertas.</p>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article class="blog-post">
+
+                    <!-- Conceptos -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Multiprogramación vs. Multitarea</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold text-primary"><i
+                                                class="bi bi-collection me-2"></i>Multiprogramación</h5>
+                                        <p class="card-text small">Varios programas cargados en memoria al mismo
+                                            tiempo. Mientras uno espera (ej. leer disco), otro usa la CPU. Así no se
+                                            desperdicia tiempo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold text-success"><i
+                                                class="bi bi-arrow-left-right me-2"></i>Multitarea</h5>
+                                        <p class="card-text small">La CPU cambia entre programas tan rápido
+                                            (milisegundos) que parece que todos se ejecutan al mismo tiempo. Es lo que
+                                            usas todos los días.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-info shadow-sm mt-4">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            <strong>Analogía:</strong> La multiprogramación es como tener varios libros abiertos en tu
+                            escritorio. La multitarea es leer un párrafo de cada libro, rotando tan rápido que parece
+                            que los lees todos a la vez.
+                        </div>
+                    </section>
+
+                    <!-- Jerarquía de Memoria -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Jerarquía de Memoria: La pirámide de
+                            velocidad</h2>
+                        <p>No toda la memoria es igual. Existe una pirámide donde lo más rápido es lo más pequeño y
+                            costoso:</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered align-middle text-center">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Nivel</th>
+                                        <th>Tipo</th>
+                                        <th>Velocidad</th>
+                                        <th>Tamaño</th>
+                                        <th>Ejemplo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-danger">
+                                        <td><span class="badge bg-danger">1</span></td>
+                                        <td><strong>Registros CPU</strong></td>
+                                        <td>⚡ Instantáneo</td>
+                                        <td>Bytes</td>
+                                        <td>Datos que la CPU procesa ahora</td>
+                                    </tr>
+                                    <tr class="table-warning">
+                                        <td><span class="badge bg-warning text-dark">2</span></td>
+                                        <td><strong>Caché (L1, L2, L3)</strong></td>
+                                        <td>⚡⚡ Muy rápida</td>
+                                        <td>KB-MB</td>
+                                        <td>Copia de datos frecuentes</td>
+                                    </tr>
+                                    <tr class="table-success">
+                                        <td><span class="badge bg-success">3</span></td>
+                                        <td><strong>RAM</strong></td>
+                                        <td>⚡ Rápida</td>
+                                        <td>GB</td>
+                                        <td>Programas abiertos</td>
+                                    </tr>
+                                    <tr class="table-primary">
+                                        <td><span class="badge bg-primary">4</span></td>
+                                        <td><strong>SSD / Disco</strong></td>
+                                        <td>🐢 Lenta</td>
+                                        <td>TB</td>
+                                        <td>Archivos guardados</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Viendo en Linux -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Explorando la jerarquía en Linux</h2>
+                        <pre><code class="language-bash"># Ver la información de la caché del CPU
+lscpu | grep -i cache
+
+# Ver el uso de RAM en tiempo real
+free -h
+
+# Ver qué porcentaje de la caché de disco se usa
+cat /proc/meminfo | grep -i "cached"
+
+# Ver la velocidad de lectura del disco
+sudo hdparm -t /dev/sda
+
+# Monitorear todo junto con htop
+htop</code></pre>
+                    </section>
+
+                    <!-- Demo Real -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Demo: Multitarea en acción</h2>
+                        <p>Veamos cómo Linux gestiona múltiples tareas en tiempo real:</p>
+                        <pre><code class="language-bash"># 1. Abre htop en una terminal
+htop
+
+# 2. En otra terminal, abre varias tareas en paralelo
+firefox &
+gedit &
+sleep 100 &
+
+# 3. Observa en htop cómo se reparten CPU y RAM
+
+# 4. Ver cuántos procesos tienes activos
+ps aux | wc -l
+
+# 5. Ver estadísticas de E/S (velocidad de disco)
+iostat 1 3</code></pre>
+                        <div class="alert alert-success shadow-sm mt-3">
+                            <i class="bi bi-lightbulb me-2"></i>
+                            <strong>¿Sabías que?</strong> Un sistema Linux típico ejecuta entre 200 y 400 procesos
+                            simultáneamente, incluso cuando parece que no estás haciendo nada.
+                        </div>
+                    </section>
+
+                    <!-- Laboratorio -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                        <pre><code class="language-bash"># 1. ¿Cuántos niveles de caché tiene tu CPU?
+lscpu | grep -i cache
+
+# 2. ¿Cuánta RAM tienes y cuánta usas?
+free -h
+
+# 3. Crea carga: abre 5 procesos en paralelo
+for i in {1..5}; do yes > /dev/null & done
+
+# 4. Observa el impacto en htop
+htop
+
+# 5. Limpia los procesos de carga
+killall yes</code></pre>
+                    </section>
+
+                    <!-- Galería de Videos -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/qlH4-oHnBb8" title="Memory Hierarchy"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Jerarquía de Memoria</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/26QPDBe-NB8" title="Multitasking OS"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Multitarea en Sistemas Operativos</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Referencias Bibliográficas -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th Ed.</em>
+                                Wiley.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                Press.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
+                                Addison-Wesley.
+                            </li>
+                        </ul>
+                    </section>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>

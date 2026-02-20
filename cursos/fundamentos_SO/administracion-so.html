@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu primer día como Admin - Profe EDD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Prism.js CSS Tema Dark -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                        Operativos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Administración del SO</li>
+            </ol>
+        </nav>
+
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 class="display-5 fw-bold">Tu primer día como Admin</h1>
+            <p class="fs-4 text-muted">Usuarios, grupos y el poder de <code>sudo</code> en Linux.</p>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article class="blog-post">
+
+                    <!-- Introducción -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">¿Qué significa administrar un SO?</h2>
+                        <div class="alert alert-info shadow-sm">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            <strong>Analogía:</strong> Administrar un SO es como ser el gerente de un edificio: decides
+                            quién entra, qué llaves tiene cada persona y qué puertas puede abrir.
+                        </div>
+                        <p>En Linux, <strong>todo gira alrededor de los usuarios</strong>. Cada persona que usa el
+                            sistema tiene una identidad digital con permisos específicos. El administrador (root) es
+                            como el dueño del edificio: tiene acceso total.</p>
+                    </section>
+
+                    <!-- Usuarios y Root -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Usuarios: Tu identidad en Linux</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold text-primary"><i
+                                                class="bi bi-person me-2"></i>Usuario Normal</h5>
+                                        <p class="card-text small">Puede trabajar en su carpeta personal
+                                            (<code>/home/usuario</code>), ejecutar programas y crear archivos. No puede
+                                            tocar el sistema.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-white shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold text-danger"><i
+                                                class="bi bi-shield-lock me-2"></i>Root (Superusuario)</h5>
+                                        <p class="card-text small">Tiene acceso total al sistema. Puede instalar
+                                            programas, borrar archivos del sistema y cambiar cualquier configuración.
+                                            <strong>¡Usa con precaución!</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sudo -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">El poder de <code>sudo</code></h2>
+                        <p>En lugar de entrar como root (peligroso), Linux nos da <code>sudo</code>: un "pase temporal"
+                            para ejecutar UN comando con privilegios de superusuario.</p>
+                        <pre><code class="language-bash"># Instalar un programa (necesita permiso de admin)
+sudo apt install htop
+
+# Ver quién soy
+whoami
+
+# Convertirme temporalmente en root
+sudo su</code></pre>
+                        <div class="alert alert-warning shadow-sm mt-3">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <strong>Regla de oro:</strong> Nunca trabajes como root permanentemente. Usa
+                            <code>sudo</code> solo cuando sea necesario.
+                        </div>
+                    </section>
+
+                    <!-- Gestión de Usuarios -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Creando y gestionando usuarios</h2>
+                        <p>Como administrador, puedes crear cuentas para otras personas:</p>
+                        <pre><code class="language-bash"># Crear un nuevo usuario
+sudo adduser estudiante1
+
+# Ver a qué grupos pertenece
+groups estudiante1
+
+# Agregar al usuario a un grupo
+sudo usermod -aG sudo estudiante1
+
+# Ver todos los usuarios del sistema
+cat /etc/passwd</code></pre>
+                    </section>
+
+                    <!-- Grupos -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Grupos: Organizando permisos</h2>
+                        <p>Los <strong>grupos</strong> son como equipos de trabajo. En lugar de dar permisos uno por
+                            uno, agrupas usuarios y les das acceso colectivo.</p>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white text-center p-3">
+                                    <i class="bi bi-people-fill display-4 text-info"></i>
+                                    <h6 class="fw-bold mt-2">sudo</h6>
+                                    <p class="small text-white-50 mb-0">Grupo de administradores</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white text-center p-3">
+                                    <i class="bi bi-disc-fill display-4 text-warning"></i>
+                                    <h6 class="fw-bold mt-2">cdrom</h6>
+                                    <p class="small text-white-50 mb-0">Acceso a discos</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white text-center p-3">
+                                    <i class="bi bi-ethernet display-4 text-success"></i>
+                                    <h6 class="fw-bold mt-2">netdev</h6>
+                                    <p class="small text-white-50 mb-0">Gestión de red</p>
+                                </div>
+                            </div>
+                        </div>
+                        <pre class="mt-4"><code class="language-bash"># Crear un grupo nuevo
+sudo groupadd ingenieros
+
+# Ver todos los grupos
+cat /etc/group</code></pre>
+                    </section>
+
+                    <!-- Laboratorio Vivo -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                        <p>Abre tu terminal y practica ser administrador:</p>
+                        <pre><code class="language-bash"># 1. ¿Quién soy?
+whoami
+
+# 2. ¿A qué grupos pertenezco?
+groups
+
+# 3. Ver la lista de usuarios del sistema
+cat /etc/passwd | head -10
+
+# 4. Crear un usuario de prueba
+sudo adduser prueba_lab
+
+# 5. Verificar que se creó
+id prueba_lab</code></pre>
+                    </section>
+
+                    <!-- Galería de Videos -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/jwnvKOjmtEA"
+                                            title="Linux Users and Groups" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">Usuarios y Grupos en Linux</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/HMBBi-rPJaM" title="Sudo Explained"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold">El comando sudo explicado</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Referencias Bibliográficas -->
+                    <section class="mb-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
+                                Starch Press.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-book me-2 text-muted"></i>
+                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                Press.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-globe me-2 text-muted"></i>
+                                <strong>Arch Wiki.</strong> <em>Users and Groups.</em>
+                                <a href="https://wiki.archlinux.org/title/Users_and_groups" target="_blank"
+                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
+                                    artículo</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>
