@@ -4,225 +4,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundamentos de Mecatrónica</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Fundamentos de Mecatrónica - Profe EDD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mecat.css">
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <div class="container-fluid py-3">
-                <h1 class="display-5 fw-bold">Fundamentos de Mecatrónica</h1>
-                <p class="col-md-10 fs-4">Una introducción a los sistemas que integran mecánica, electrónica e
-                    informática para el diseño de productos y procesos inteligentes.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Profe EDD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pilares/linux.html">Cultura Linux</a></li>
+                </ul>
             </div>
-        </header>
+        </div>
+    </nav>
 
-        <main>
-            <!-- Competencias -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">¿Qué Serás Capaz de Hacer al Finalizar?</h2>
+    <!-- Academic Hero Section -->
+    <header class="academic-hero py-5">
+        <div class="container text-center text-lg-start">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-warning text-dark mb-3 fw-bold"><i class="bi bi-cpu-fill me-1"></i>IoT &
+                        ARDUINO · 2026</span>
+                    <h1 class="display-4 fw-bold mb-3 text-shadow">Fundamentos de Mecatrónica</h1>
+                    <p class="lead mb-4 opacity-75">Una inmersión práctica en los sistemas que integran mecánica,
+                        electrónica e informática. Programa microcontroladores, conecta sensores y construye proyectos
+                        IoT reales desde el primer semestre.</p>
+
+                    <!-- Metadata Grid -->
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 mt-4">
+                        <div class="metadata-badge"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Ingeniería
+                            de Sistemas</div>
+                        <div class="metadata-badge"><i class="bi bi-calendar-event me-2 text-warning"></i>16 Semanas
+                        </div>
+                        <div class="metadata-badge"><i class="bi bi-person-badge me-2 text-warning"></i>Ing. Eduardo
+                            Pimienta</div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Analizar y aplicar</b> los principios de la Ley de Ohm y la
-                            lógica digital para resolver problemas en circuitos electrónicos básicos.</li>
-                        <li class="list-group-item"><b>Programar microcontroladores</b> como <b>Arduino, ESP8266 y
-                                ESP32</b> para interactuar con el mundo físico mediante sensores y actuadores.</li>
-                        <li class="list-group-item"><b>Diseñar e implementar sistemas de comunicación IoT</b> utilizando
-                            el protocolo <b>MQTT</b>, conectando tus proyectos a brokers y visualizando datos.</li>
-                    </ul>
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <i class="bi bi-cpu-fill" style="font-size: 9rem; color: rgba(255,213,79,0.25);"></i>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <!-- Temario -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Temario Detallado</h2>
-                </div>
-                <div class="card-body">
-                    <div class="accordion" id="accordionTemario">
-                        <!-- Bloque 1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne">
-                                    <strong>Bloque 1:</strong> Fundamentos Eléctricos y Digitales
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionTemario">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li><a href="mecatronica/ley-de-ohm.html">Ley de Ohm y Circuitos Eléctricos</a>
-                                        </li>
-                                        <li><a href="mecatronica/codigo-binario.html">Código Binario y Lógica
-                                                Digital</a></li>
-                                    </ul>
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- ¿Qué aprenderemos? -->
+                <section class="mb-5">
+                    <h2 class="section-header">¿Qué aprenderemos aquí?</h2>
+                    <div class="p-4 bg-white rounded shadow-sm border border-warning border-opacity-25">
+                        <p class="lead">Este no es un espacio de teoría: es una inmersión directa en
+                            <strong>Arduino, ESP32 y IoT</strong>, las plataformas que dominan la industria maker y la
+                            ingeniería embebida.
+                        </p>
+                        <p>Cada concepto — circuitos, lógica digital, sensores, actuadores, comunicación M2M — lo verás
+                            funcionando con código real en un microcontrolador físico o simulado en
+                            <strong>Wokwi</strong>.
+                            Aquí construyes, no memorizas.</p>
+                        <hr>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i class="bi bi-cpu-fill me-2 text-danger"></i>Hardware
+                                    First</h6>
+                                <p class="small text-muted mb-0">Todo concepto se demuestra con circuitos y código real
+                                    en Arduino o ESP32.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i
+                                        class="bi bi-rocket-takeoff-fill me-2 text-success"></i>Nivel 1</h6>
+                                <p class="small text-muted mb-0">Diseñado para primer semestre: sin prerrequisitos,
+                                    con proyectos guiados desde el día uno.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ruta de Exploración -->
+                <section class="mb-5">
+                    <h2 class="section-header">Ruta de Exploración</h2>
+
+                    <!-- Bloque 1 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-warning">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-warning text-dark me-2">Bloque 1</span>
+                                Fundamentos Eléctricos y Digitales</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Los
+                                cimientos del mundo físico-digital</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Descifra el lenguaje de la electricidad y la lógica binaria que alimenta
+                                cada sistema inteligente.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="mecatronica/ley-de-ohm.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-lightning-charge text-warning me-2"></i><strong>Ley de
+                                            Ohm:</strong> Voltaje, corriente, resistencia y circuitos básicos.</a></li>
+                                <li class="mb-2 small"><a href="mecatronica/codigo-binario.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-binary text-warning me-2"></i><strong>Código Binario:</strong>
+                                        Lógica digital y sistemas de numeración.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-danger">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-danger me-2">Bloque 2</span> Introducción
+                                a la Mecatrónica</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Donde la
+                                mecánica se fusiona con la electrónica</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Explora los sistemas que nacen de la unión entre mecánica, electrónica e
+                                informática y aprende a diseñarlos.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="mecatronica/principios-y-conceptos-clave.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-gear-fill text-danger me-2"></i><strong>Principios
+                                            Clave:</strong> Definición, componentes y aplicaciones reales.</a></li>
+                                <li class="mb-2 small"><a
+                                        href="mecatronica/diseno-y-estructura-de-sistemas-mecatronicos.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-diagram-3 text-danger me-2"></i><strong>Diseño de
+                                            Sistemas:</strong> Estructura y metodología de diseño mecatrónico.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 3 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-primary">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-primary me-2">Bloque 3</span>
+                                Microcontroladores y Programación</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Dándole vida
+                                al hardware con código</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Aprende a programar las plataformas más usadas en la industria IoT y la
+                                robótica educativa.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="mecatronica/arquitecturas-arduino-esp.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-motherboard text-primary me-2"></i><strong>Arduino, ESP8266 y
+                                            ESP32:</strong> Comparación de arquitecturas y características.</a></li>
+                                <li class="mb-2 small"><a href="mecatronica/entorno-de-desarrollo-arduino-ide.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-code-slash text-primary me-2"></i><strong>Arduino IDE:</strong>
+                                        Estructura de un sketch, variables y control de pines.</a></li>
+                                <li class="mb-2 small"><a href="mecatronica/programacion-entradas-salidas.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-activity text-primary me-2"></i><strong>Entradas y
+                                            Salidas:</strong> PWM, señales analógicas y operaciones a nivel de bits.</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 4 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-success">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-success me-2">Bloque 4</span> Integración
+                                y Comunicación IoT</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Conectando el
+                                mundo físico a Internet</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Conecta tus proyectos al mundo real: sensores, actuadores, brokers MQTT
+                                y APIs web en un ecosistema IoT completo.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="mecatronica/uso-de-sensores-y-actuadores.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-thermometer-half text-success me-2"></i><strong>Sensores y
+                                            Actuadores:</strong> Temperatura, humedad, motores y más.</a></li>
+                                <li class="mb-2 small"><a href="mecatronica/protocolo-mqtt.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-broadcast text-success me-2"></i><strong>Protocolo
+                                            MQTT:</strong> Comunicación M2M con brokers como HiveMQ y Mosquitto.</a>
+                                </li>
+                                <li class="mb-2 small"><a href="mecatronica/integracion-apis-servicios-web.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-cloud-arrow-up text-success me-2"></i><strong>APIs y Servicios
+                                            Web:</strong> Integración con plataformas cloud e IoT.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Estrategia de Aprendizaje -->
+                <section class="mb-5">
+                    <h2 class="section-header">Estrategia de Aprendizaje</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-motherboard me-2 text-danger"></i>Laboratorio
+                                        Físico/Virtual</h6>
+                                    <p class="small text-muted mb-0">Cada tema incluye un <strong>proyecto
+                                            práctico</strong>: lo construyes en Wokwi (simulador) o con hardware real
+                                        para ver los conceptos en acción.</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Bloque 2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo">
-                                    <strong>Bloque 2:</strong> Introducción a la Mecatrónica
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionTemario">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li><a href="mecatronica/principios-y-conceptos-clave.html">Principios y
-                                                conceptos clave</a></li>
-                                        <li><a href="mecatronica/diseno-y-estructura-de-sistemas-mecatronicos.html">Diseño
-                                                y estructura de sistemas mecatrónicos</a></li>
-                                    </ul>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-braces me-2 text-primary"></i>Código
+                                        Abierto</h6>
+                                    <p class="small text-muted mb-0">Todo el material, sketches y proyectos se
+                                        comparten en GitHub. Aprendes la cultura open source viviéndola desde adentro.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Bloque 3 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree">
-                                    <strong>Bloque 3:</strong> Microcontroladores y Programación
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionTemario">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li><a href="mecatronica/arquitecturas-arduino-esp.html">Arquitecturas:
-                                                <b>Arduino, ESP8266 y ESP32</b></a></li>
-                                        <li><a href="mecatronica/entorno-de-desarrollo-arduino-ide.html">Entorno de
-                                                Desarrollo: <b>Arduino IDE</b></a></li>
-                                        <li><a href="mecatronica/programacion-entradas-salidas.html">Programación de
-                                                entradas y salidas</a></li>
-                                    </ul>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>CDIO +
+                                        Retos</h6>
+                                    <p class="small text-muted mb-0">Aprendizaje basado en Concebir, Diseñar,
+                                        Implementar y Operar. Cada bloque cierra con un reto práctico integrador que
+                                        debes entregar funcionando.</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Bloque 4 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour">
-                                    <strong>Bloque 4:</strong> Integración y Comunicación IoT
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionTemario">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li><a href="mecatronica/uso-de-sensores-y-actuadores.html">Uso de Sensores y
-                                                Actuadores</a></li>
-                                        <li><a href="mecatronica/protocolo-mqtt.html">Protocolo <b>MQTT</b> para
-                                                comunicación M2M</a></li>
-                                        <li><a href="mecatronica/integracion-apis-servicios-web.html">Integración con
-                                                APIs y servicios web</a></li>
-                                    </ul>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-graph-up-arrow me-2 text-success"></i>Evaluación
+                                        Continua</h6>
+                                    <p class="small text-muted mb-0">Proyectos funcionales, informes técnicos y
+                                        demostraciones en vivo. Nada de memorizar definiciones: lo que cuenta es que
+                                        funcione.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
 
-            <!-- Prácticas y Simulaciones -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Prácticas y Simulaciones</h2>
-                </div>
-                <div class="card-body">
-                    <p>La teoría se afianza con la práctica. A lo largo de la formación, desarrollarás proyectos como:
-                    </p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Control de un brazo robótico simple.</li>
-                        <li class="list-group-item">Diseño de un robot seguidor de línea.</li>
-                        <li class="list-group-item">Sistema de riego automatizado con sensor de humedad y envío de datos
-                            por MQTT.</li>
-                        <li class="list-group-item">Pequeña estación meteorológica con sensores de temperatura y
-                            humedad.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Proyectos de Estudiantes -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Proyectos de Estudiantes</h2>
-                </div>
-                <div class="card-body">
-                    <p>Aquí puedes ver algunos de los mejores proyectos desarrollados por estudiantes en ediciones
-                        anteriores de esta clase. ¡Inspírate y mira lo que serás capaz de crear!</p>
-                    <div class="d-grid gap-2">
-                        <a href="#" class="btn btn-outline-primary">Ver Galería de Proyectos en GitHub</a>
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Perfil del Docente -->
+                <div class="card border-0 shadow-sm p-4 mb-4 text-center">
+                    <img src="../assets/foto-perfil.jpeg" alt="Eduardo Pimienta"
+                        class="rounded-circle mx-auto mb-3 border border-3 border-warning"
+                        style="width: 120px; height: 120px; object-fit: cover;">
+                    <h5 class="fw-bold mb-1">Ing. Eduardo Pimienta</h5>
+                    <p class="small text-muted mb-3">Docente de Ingeniería de Sistemas</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="mailto:epimientag@uniguajira.edu.co" class="btn btn-sm btn-outline-dark"><i
+                                class="bi bi-envelope"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Herramientas -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Herramientas y Tecnologías</h2>
-                </div>
-                <div class="card-body">
-                    <p>Trabajaremos con una combinación de software y hardware estándar en la industria:</p>
-                    <ul>
-                        <li><b>Software:</b> Wokwi, Tinkercad, Arduino IDE, Node-RED, Mosquitto, HiveMQ, MQTTX, Canva.
-                        </li>
-                        <li><b>Hardware:</b> Arduino (UNO, Nano), ESP8266 (NodeMCU), ESP32.</li>
+                <div class="p-4 mb-4 bg-dark text-white rounded shadow-sm border-bottom border-5 border-warning">
+                    <h6 class="fw-bold text-warning mb-3"><i class="bi bi-flag me-1"></i>Filosofía de Formación</h6>
+                    <ul class="list-unstyled small mb-0 opacity-75">
+                        <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i>Todo concepto se aplica
+                            en hardware o simulador real.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i>El código es tu
+                            herramienta principal de diseño.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i>Aprendes construyendo, no
+                            memorizando.</li>
+                        <li class="mb-0"><i class="bi bi-check-circle text-warning me-2"></i>Open source como cultura
+                            profesional.</li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- Próximos Pasos -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Próximos Pasos y Temas Avanzados</h2>
-                </div>
-                <div class="card-body">
-                    <p>Este espacio te dará las bases para explorar campos más avanzados como:</p>
-                    <ul>
-                        <li><b>MicroPython:</b> Programa microcontroladores como el ESP32 usando el poder y la
-                            simplicidad de Python.</li>
-                        <li><b>Raspberry Pi:</b> Utiliza computadoras de placa única para proyectos más complejos.</li>
-                        <li><b>Visión por Computadora con OpenCV:</b> Desarrolla sistemas que puedan "ver" y procesar
-                            imágenes.</li>
+                <!-- Bibliografía -->
+                <div class="p-4 mb-4 bg-white rounded shadow-sm border border-light">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-book me-2 text-muted"></i>Bibliografía</h5>
+                    <ul class="list-unstyled mb-0 list-group list-group-flush small">
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Monk, S.</strong> (2021).
+                            Programming Arduino, 2nd Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Schwartz, M.</strong>
+                            (2016). Internet of Things with ESP8266.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Banzi, M.</strong> (2022).
+                            Getting Started with Arduino, 4th Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Norris, D.</strong> (2015).
+                            The Internet of Things: Do-It-Yourself at Home.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Hughes, J.</strong> (2016).
+                            Arduino: A Technical Reference.</li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- Recursos -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Recursos</h2>
-                </div>
-                <div class="card-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Diapositivas de la clase (PDF)</a>
-                        <a href="#" class="list-group-item list-group-item-action">Guías de Prácticas y Laboratorios</a>
-                        <a href="#" class="list-group-item list-group-item-action">Repositorio en GitHub con
-                            ejemplos</a>
-                        <a href="#" class="list-group-item list-group-item-action">Videos de Apoyo</a>
+                <!-- Herramientas -->
+                <div class="p-4 mb-4 bg-white rounded shadow-sm border border-light">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-tools me-2 text-muted"></i>Herramientas del Curso</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-light text-dark border"><i class="bi bi-code-slash me-1"></i>Arduino
+                            IDE</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-boxes me-1"></i>Wokwi</span>
+                        <span class="badge bg-light text-dark border"><i
+                                class="bi bi-diagram-2 me-1"></i>Node-RED</span>
+                        <span class="badge bg-light text-dark border"><i
+                                class="bi bi-broadcast me-1"></i>Mosquitto</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-cloud me-1"></i>HiveMQ</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-chat-dots me-1"></i>MQTTX</span>
+                        <span class="badge bg-light text-dark border"><i class="bi bi-github me-1"></i>GitHub</span>
                     </div>
                 </div>
+
+                <!-- Call to Action -->
+                <div class="p-4 bg-danger bg-opacity-10 rounded border border-danger border-2 text-center shadow-sm">
+                    <h6 class="fw-bold text-danger">Proyectos de Estudiantes</h6>
+                    <p class="small">Inspírate con los mejores proyectos de ediciones anteriores y mira lo que
+                        podrás crear.</p>
+                    <a href="#" class="btn btn-sm btn-danger text-white w-100 fw-bold">Ver Galería en GitHub <i
+                            class="bi bi-box-arrow-up-right ms-1"></i></a>
+                </div>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <footer class="mt-5 text-center">
-            <a href="../index.html" class="btn btn-primary">Volver al Inicio</a>
-        </footer>
-    </div>
+    <footer class="py-4 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Ecosistema Profe EDD - Ingeniería de Sistemas</p>
+            <p class="text-muted extra-small" style="font-size: 0.7rem;">Diseño Rector personalizado por Ing. Eduardo
+                Pimienta.</p>
+        </div>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

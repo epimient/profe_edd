@@ -1,0 +1,58 @@
+:root {
+    --mecat-primary: #bf360c;
+    /* Deep Orange */
+    --mecat-secondary: #e65100;
+    --mecat-accent: #ffd54f;
+    /* Amber */
+}
+
+.academic-hero {
+    background: linear-gradient(135deg, #bf360c 0%, #121212 100%);
+    color: white;
+    border-bottom: 5px solid var(--mecat-accent);
+}
+
+.metadata-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.section-header {
+    border-left: 5px solid var(--mecat-primary);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: var(--mecat-primary);
+}
+
+.competency-card {
+    border: none;
+    border-left: 4px solid var(--mecat-accent);
+    transition: transform 0.2s;
+}
+
+.competency-card:hover {
+    transform: scale(1.02);
+}
+
+.program-block {
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.program-block-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1.5rem;
+}
+
+.bibliography-item {
+    font-style: italic;
+    color: #555;
+    font-size: 0.9rem;
+}

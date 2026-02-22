@@ -29,135 +29,183 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
             <h1 class="display-5 fw-bold">Bloque 3.3: Programación de Entradas y Salidas</h1>
             <p class="fs-4">Explora las capacidades avanzadas de interacción con el mundo físico mediante señales
                 analógicas y operaciones de bajo nivel.</p>
         </header>
 
-        <main class="card shadow-sm">
-            <div class="alert alert-primary d-flex align-items-center m-4" role="alert">
-                <i class="bi bi-easel2-fill fs-3 me-3"></i>
-                <div class="flex-grow-1">
-                    <h4 class="alert-heading">Diapositivas del Tema</h4>
-                    <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los
-                        conceptos.</p>
+        <!-- Slides banner -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="alert alert-primary d-flex align-items-center mb-3 shadow-sm" role="alert">
+                    <i class="bi bi-easel2-fill fs-3 me-3"></i>
+                    <div class="flex-grow-1">
+                        <h4 class="alert-heading">Diapositivas del Tema</h4>
+                        <p class="mb-0">Consulta la presentación visual de este tema para una mejor comprensión de los
+                            conceptos.</p>
+                    </div>
+                    <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación
+                        &rarr;</a>
                 </div>
-                <a href="#" class="btn btn-primary ms-3" target="_blank" rel="noopener noreferrer">Ver Presentación
-                    &rarr;</a>
-            </div>
-            <div class="alert alert-info d-flex align-items-center m-4" role="alert">
-                <i class="bi bi-arrow-left-right fs-3 me-3"></i>
-                <div>
-                    <h4 class="alert-heading">Del Digital a lo Analógico (y viceversa)</h4>
-                    <p class="mb-0">Mientras que <code>digitalRead/Write</code> manejan estados simples (ON/OFF), las
-                        señales analógicas permiten trabajar con una gama continua de valores. Esto es crucial para leer
-                        sensores de temperatura, luz o posición y controlar dispositivos con precisión variable como
-                        motores o LEDs.</p>
+                <div class="alert alert-info d-flex align-items-center mb-5 shadow-sm" role="alert">
+                    <i class="bi bi-arrow-left-right fs-3 me-3"></i>
+                    <div>
+                        <h4 class="alert-heading">Del Digital a lo Analógico (y viceversa)</h4>
+                        <p class="mb-0">Mientras que <code>digitalRead/Write</code> manejan estados simples (ON/OFF),
+                            las
+                            señales analógicas permiten trabajar con una gama continua de valores. Esto es crucial para
+                            leer
+                            sensores de temperatura, luz o posición y controlar dispositivos con precisión variable como
+                            motores o LEDs.</p>
+                    </div>
                 </div>
             </div>
-            <div class="card-body p-4 pt-0">
+        </div>
 
-                <h2 class="card-title">0. El Monitor Serial: Tu Ventana de Depuración</h2>
-                <p>Cuando un Arduino está ejecutando un sketch, no tenemos una pantalla ni un teclado directamente
-                    conectados como en una computadora. Entonces, ¿cómo sabemos qué está haciendo o cómo vemos los
-                    valores que lee un sensor? La respuesta es el <strong>Monitor Serial</strong>.</p>
-                <figure class="text-center my-4">
-                    <img src="https://placehold.co/800x500?text=Captura+Monitor+Serial+Arduino+IDE"
-                        class="img-fluid rounded shadow-sm"
-                        alt="Captura de pantalla del Monitor Serial en el Arduino IDE">
-                    <figcaption class="figure-caption mt-2">Captura del Monitor Serial en el Arduino IDE, mostrando
-                        mensajes enviados por <code>Serial.print()</code>.</figcaption>
-                </figure>
-                <h4 class="mt-4">¿Qué es el Monitor Serial?</h4>
-                <p>El Monitor Serial es una herramienta del Arduino IDE que permite la comunicación bidireccional entre
-                    tu Arduino y la computadora a través del cable USB. Es como un chat simple: el Arduino puede
-                    "escribir" mensajes (valores de sensores, estados, etc.) y la computadora (a través del IDE) puede
-                    "leer" esos mensajes. También puedes enviar comandos desde la computadora al Arduino.</p>
+        <!-- Content -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article class="blog-post">
+                    <section class="mb-5">
 
-                <h4 class="mt-4">¿Cómo se Usa?</h4>
-                <ol>
-                    <li><strong>Inicializar la comunicación:</strong> En la función <code>setup()</code> de tu sketch,
-                        debes incluir la línea <code>Serial.begin(velocidad_en_baudios);</code>. El valor más común es
-                        <code>9600</code>.
-                        <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">void setup() {
+                        <h2 class="text-primary border-bottom pb-2 mb-4">0. El Monitor Serial: Tu Ventana de Depuración
+                        </h2>
+                        <p>Cuando un Arduino está ejecutando un sketch, no tenemos una pantalla ni un teclado
+                            directamente
+                            conectados como en una computadora. Entonces, ¿cómo sabemos qué está haciendo o cómo vemos
+                            los
+                            valores que lee un sensor? La respuesta es el <strong>Monitor Serial</strong>.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/800x500?text=Captura+Monitor+Serial+Arduino+IDE"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Captura de pantalla del Monitor Serial en el Arduino IDE">
+                            <figcaption class="figure-caption mt-2">Captura del Monitor Serial en el Arduino IDE,
+                                mostrando
+                                mensajes enviados por <code>Serial.print()</code>.</figcaption>
+                        </figure>
+                        <h4 class="mt-4">¿Qué es el Monitor Serial?</h4>
+                        <p>El Monitor Serial es una herramienta del Arduino IDE que permite la comunicación
+                            bidireccional entre
+                            tu Arduino y la computadora a través del cable USB. Es como un chat simple: el Arduino puede
+                            "escribir" mensajes (valores de sensores, estados, etc.) y la computadora (a través del IDE)
+                            puede
+                            "leer" esos mensajes. También puedes enviar comandos desde la computadora al Arduino.</p>
+
+                        <h4 class="mt-4">¿Cómo se Usa?</h4>
+                        <ol>
+                            <li><strong>Inicializar la comunicación:</strong> En la función <code>setup()</code> de tu
+                                sketch,
+                                debes incluir la línea <code>Serial.begin(velocidad_en_baudios);</code>. El valor más
+                                común es
+                                <code>9600</code>.
+                                <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">void setup() {
   Serial.begin(9600); // Inicia la comunicación serial a 9600 baudios
   // ... resto de tu código de setup
 }</code></pre>
-                    </li>
-                    <li><strong>Enviar datos desde Arduino:</strong> Usa las funciones <code>Serial.print()</code> y
-                        <code>Serial.println()</code> en tu código <code>loop()</code> o en cualquier otra parte.
-                        <ul>
-                            <li><code>Serial.print(valor);</code> Imprime el valor seguido por el siguiente carácter que
-                                se imprima.</li>
-                            <li><code>Serial.println(valor);</code> Imprime el valor y luego añade un "salto de línea"
-                                (como presionar Enter), posicionando el cursor al inicio de la siguiente línea.</li>
-                        </ul>
-                        <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">int valorSensor = analogRead(A0);
+                            </li>
+                            <li><strong>Enviar datos desde Arduino:</strong> Usa las funciones
+                                <code>Serial.print()</code> y
+                                <code>Serial.println()</code> en tu código <code>loop()</code> o en cualquier otra
+                                parte.
+                                <ul>
+                                    <li><code>Serial.print(valor);</code> Imprime el valor seguido por el siguiente
+                                        carácter que
+                                        se imprima.</li>
+                                    <li><code>Serial.println(valor);</code> Imprime el valor y luego añade un "salto de
+                                        línea"
+                                        (como presionar Enter), posicionando el cursor al inicio de la siguiente línea.
+                                    </li>
+                                </ul>
+                                <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">int valorSensor = analogRead(A0);
 Serial.print("Valor del sensor: ");
 Serial.println(valorSensor);</code></pre>
-                    </li>
-                    <li><strong>Abrir el Monitor Serial:</strong> En el Arduino IDE, ve al menú <strong>Herramientas
-                            &gt; Monitor Serial</strong> (o usa el icono de lupa en la esquina superior derecha de la
-                        barra de herramientas).</li>
-                    <li><strong>Configurar la Velocidad (Baudios):</strong> En el Monitor Serial, asegúrate de que el
-                        menú desplegable de la esquina inferior derecha esté configurado con la misma velocidad (por
-                        ejemplo, "9600 baud") que usaste en <code>Serial.begin()</code>. Si no coinciden, verás
-                        caracteres extraños o ilegibles.</li>
-                </ol>
+                            </li>
+                            <li><strong>Abrir el Monitor Serial:</strong> En el Arduino IDE, ve al menú
+                                <strong>Herramientas
+                                    &gt; Monitor Serial</strong> (o usa el icono de lupa en la esquina superior derecha
+                                de la
+                                barra de herramientas).</li>
+                            <li><strong>Configurar la Velocidad (Baudios):</strong> En el Monitor Serial, asegúrate de
+                                que el
+                                menú desplegable de la esquina inferior derecha esté configurado con la misma velocidad
+                                (por
+                                ejemplo, "9600 baud") que usaste en <code>Serial.begin()</code>. Si no coinciden, verás
+                                caracteres extraños o ilegibles.</li>
+                        </ol>
 
-                <h4 class="mt-4">¿Qué son los Baudios?</h4>
-                <p>Los baudios (baud rate) son una medida de la velocidad de transmisión de datos en una línea de
-                    comunicación. Un "baudio" representa el número de cambios de señal (bits) por segundo. En el caso
-                    del Monitor Serial, indica cuántos bits de datos se envían cada segundo.</p>
-                <ul>
-                    <li><strong>9600 baudios:</strong> Significa que se transmiten 9600 bits por segundo.</li>
-                    <li><strong>¿Por qué 9600?</strong> Es una velocidad estándar y bastante confiable para la
-                        comunicación serial entre Arduino y una computadora moderna. Es lo suficientemente rápida para
-                        enviar mensajes de texto legibles por humanos, pero lo suficientemente lenta como para que los
-                        microcontroladores antiguos y modernos puedan seguirla sin errores significativos.</li>
-                    <li><strong>Otras velocidades comunes:</strong> 4800, 19200, 38400, 57600, 115200. Puedes usar
-                        cualquiera, siempre que <code>Serial.begin(velocidad)</code> en tu Arduino y la configuración
-                        del Monitor Serial sean <strong>exactamente las mismas</strong>.</li>
-                    <li><strong>Importancia de la coincidencia:</strong> Si el Arduino envía datos a 9600 baudios pero
-                        el Monitor Serial los espera a 115200 baudios, los datos se interpretarán incorrectamente,
-                        resultando en texto ilegible. Es crucial que ambos lados de la comunicación estén "sintonizados"
-                        a la misma frecuencia.</li>
-                </ul>
-                <div class="alert alert-warning mt-3">
-                    <strong>Consejo:</strong> Si ves caracteres extraños en el Monitor Serial, lo primero que debes
-                    verificar es que la velocidad (baudios) en el Monitor Serial coincida con la usada en
-                    <code>Serial.begin()</code>.
-                </div>
+                        <h4 class="mt-4">¿Qué son los Baudios?</h4>
+                        <p>Los baudios (baud rate) son una medida de la velocidad de transmisión de datos en una línea
+                            de
+                            comunicación. Un "baudio" representa el número de cambios de señal (bits) por segundo. En el
+                            caso
+                            del Monitor Serial, indica cuántos bits de datos se envían cada segundo.</p>
+                        <ul>
+                            <li><strong>9600 baudios:</strong> Significa que se transmiten 9600 bits por segundo.</li>
+                            <li><strong>¿Por qué 9600?</strong> Es una velocidad estándar y bastante confiable para la
+                                comunicación serial entre Arduino y una computadora moderna. Es lo suficientemente
+                                rápida para
+                                enviar mensajes de texto legibles por humanos, pero lo suficientemente lenta como para
+                                que los
+                                microcontroladores antiguos y modernos puedan seguirla sin errores significativos.</li>
+                            <li><strong>Otras velocidades comunes:</strong> 4800, 19200, 38400, 57600, 115200. Puedes
+                                usar
+                                cualquiera, siempre que <code>Serial.begin(velocidad)</code> en tu Arduino y la
+                                configuración
+                                del Monitor Serial sean <strong>exactamente las mismas</strong>.</li>
+                            <li><strong>Importancia de la coincidencia:</strong> Si el Arduino envía datos a 9600
+                                baudios pero
+                                el Monitor Serial los espera a 115200 baudios, los datos se interpretarán
+                                incorrectamente,
+                                resultando en texto ilegible. Es crucial que ambos lados de la comunicación estén
+                                "sintonizados"
+                                a la misma frecuencia.</li>
+                        </ul>
+                        <div class="alert alert-warning mt-3">
+                            <strong>Consejo:</strong> Si ves caracteres extraños en el Monitor Serial, lo primero que
+                            debes
+                            verificar es que la velocidad (baudios) en el Monitor Serial coincida con la usada en
+                            <code>Serial.begin()</code>.
+                        </div>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h2 class="card-title">0.1. Recibiendo Datos desde el Monitor Serial</h2>
-                <p>Ya vimos cómo enviar mensajes del Arduino a la computadora con <code>Serial.print()</code>. Pero la
-                    comunicación serial es bidireccional. ¿Cómo hace el Arduino para "escuchar" y responder a comandos
-                    enviados desde el teclado del Monitor Serial? Las funciones <code>Serial.available()</code> y
-                    <code>Serial.read()</code> son las encargadas de esto.</p>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">0.1. Recibiendo Datos desde el Monitor Serial
+                        </h2>
+                        <p>Ya vimos cómo enviar mensajes del Arduino a la computadora con <code>Serial.print()</code>.
+                            Pero la
+                            comunicación serial es bidireccional. ¿Cómo hace el Arduino para "escuchar" y responder a
+                            comandos
+                            enviados desde el teclado del Monitor Serial? Las funciones <code>Serial.available()</code>
+                            y
+                            <code>Serial.read()</code> son las encargadas de esto.
+                        </p>
 
-                <h4 class="mt-4">Funciones Clave</h4>
-                <ul>
-                    <li><code>Serial.available()</code>: Devuelve el número de bytes (caracteres) disponibles en el
-                        buffer de recepción serial. Si devuelve 0, no hay datos nuevos para leer. Si devuelve un número
-                        mayor que 0, hay datos esperando.</li>
-                    <li><code>Serial.read()</code>: Lee el siguiente byte (carácter) disponible en el buffer de
-                        recepción. Devuelve el valor del byte (0-255) o -1 si no hay datos disponibles.</li>
-                </ul>
+                        <h4 class="mt-4">Funciones Clave</h4>
+                        <ul>
+                            <li><code>Serial.available()</code>: Devuelve el número de bytes (caracteres) disponibles en
+                                el
+                                buffer de recepción serial. Si devuelve 0, no hay datos nuevos para leer. Si devuelve un
+                                número
+                                mayor que 0, hay datos esperando.</li>
+                            <li><code>Serial.read()</code>: Lee el siguiente byte (carácter) disponible en el buffer de
+                                recepción. Devuelve el valor del byte (0-255) o -1 si no hay datos disponibles.</li>
+                        </ul>
 
-                <h4 class="mt-4">Ejemplo 0.1.1: Encendiendo un LED desde el Teclado</h4>
-                <p>Este ejemplo permite encender o apagar el LED integrado (pin 13) escribiendo 'H' (de High) o 'L' (de
-                    Low) en el Monitor Serial.</p>
-                <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=Diagrama+LED+Pin13" class="img-fluid rounded shadow-sm"
-                        alt="Diagrama del LED integrado en el pin 13 de Arduino">
-                    <figcaption class="figure-caption mt-2">El LED integrado en la mayoría de placas Arduino está
-                        conectado al pin 13.</figcaption>
-                </figure>
-                <p><strong>Código:</strong></p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="serial-read-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
+                        <h4 class="mt-4">Ejemplo 0.1.1: Encendiendo un LED desde el Teclado</h4>
+                        <p>Este ejemplo permite encender o apagar el LED integrado (pin 13) escribiendo 'H' (de High) o
+                            'L' (de
+                            Low) en el Monitor Serial.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/600x300?text=Diagrama+LED+Pin13"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Diagrama del LED integrado en el pin 13 de Arduino">
+                            <figcaption class="figure-caption mt-2">El LED integrado en la mayoría de placas Arduino
+                                está
+                                conectado al pin 13.</figcaption>
+                        </figure>
+                        <p><strong>Código:</strong></p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="serial-read-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> ledPin <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span> <span class="token comment">// Pin del LED integrado</span>
 <span class="token keyword">int</span> estadoLed <span class="token operator">=</span> LOW<span class="token punctuation">;</span>       <span class="token comment">// Variable para almacenar el estado del LED</span>
@@ -192,66 +240,81 @@ Serial.println(valorSensor);</code></pre>
     <span class="token function">digitalWrite</span><span class="token punctuation">(</span>ledPin<span class="token punctuation">,</span> estadoLed<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-                <p><strong>Instrucciones:</strong></p>
-                <ol>
-                    <li>Carga este sketch en tu Arduino.</li>
-                    <li>Abre el Monitor Serial (Herramientas > Monitor Serial).</li>
-                    <li>Asegúrate de que la velocidad esté en "9600 baud".</li>
-                    <li>Escribe una 'H' (mayúscula o minúscula) y presiona Enter. El LED debe encenderse.</li>
-                    <li>Escribe una 'L' (mayúscula o minúscula) y presiona Enter. El LED debe apagarse.</li>
-                </ol>
-                <p>Este ejemplo sencillo introduce el concepto de control interactivo del Arduino desde la computadora,
-                    una base para proyectos más complejos de comunicación.</p>
+                        <p><strong>Instrucciones:</strong></p>
+                        <ol>
+                            <li>Carga este sketch en tu Arduino.</li>
+                            <li>Abre el Monitor Serial (Herramientas > Monitor Serial).</li>
+                            <li>Asegúrate de que la velocidad esté en "9600 baud".</li>
+                            <li>Escribe una 'H' (mayúscula o minúscula) y presiona Enter. El LED debe encenderse.</li>
+                            <li>Escribe una 'L' (mayúscula o minúscula) y presiona Enter. El LED debe apagarse.</li>
+                        </ol>
+                        <p>Este ejemplo sencillo introduce el concepto de control interactivo del Arduino desde la
+                            computadora,
+                            una base para proyectos más complejos de comunicación.</p>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h2 class="card-title">1. Entradas Analógicas: <code>analogRead()</code></h2>
-                <p>Las entradas digitales solo pueden detectar dos estados: HIGH (5V o 3.3V) o LOW (0V). Sin embargo,
-                    muchos sensores del mundo real producen una señal que varía continuamente dentro de un rango, como
-                    la luz que cambia suavemente del día a la noche o la temperatura que sube y baja gradualmente. Esta
-                    es una <strong>señal analógica</strong>.</p>
-                <figure class="text-center my-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sine_wave_amplitude.svg/1200px-Sine_wave_amplitude.svg.png"
-                        class="img-fluid rounded shadow-sm" style="max-height: 200px;" alt="Ejemplo de señal analógica">
-                    <figcaption class="figure-caption mt-2">Ejemplo de una señal analógica variando suavemente con el
-                        tiempo.</figcaption>
-                </figure>
-                <p>La función <code>analogRead(pin)</code> permite a un Arduino leer estos valores variables. En placas
-                    como el Arduino UNO, esto se hace mediante un <strong>Convertidor Analógico-Digital (ADC)</strong>
-                    integrado en el microcontrolador.</p>
-                <h4 class="mt-4">¿Cómo funciona <code>analogRead()</code>?</h4>
-                <ul>
-                    <li>El ADC muestrea la tensión en el pin especificado.</li>
-                    <li>Compara esta tensión con una tensión de referencia (por defecto, la tensión de alimentación del
-                        Arduino, 5V en UNO).</li>
-                    <li>Convierte esta comparación en un número digital. El Arduino UNO tiene un ADC de 10 bits, lo que
-                        significa que puede representar 2^10 = 1024 valores distintos.</li>
-                    <li>Devuelve un valor entero entre 0 y 1023.
+                        <h2 class="text-primary border-bottom pb-2 mb-4">1. Entradas Analógicas:
+                            <code>analogRead()</code></h2>
+                        <p>Las entradas digitales solo pueden detectar dos estados: HIGH (5V o 3.3V) o LOW (0V). Sin
+                            embargo,
+                            muchos sensores del mundo real producen una señal que varía continuamente dentro de un
+                            rango, como
+                            la luz que cambia suavemente del día a la noche o la temperatura que sube y baja
+                            gradualmente. Esta
+                            es una <strong>señal analógica</strong>.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sine_wave_amplitude.svg/1200px-Sine_wave_amplitude.svg.png"
+                                class="img-fluid rounded shadow-sm" style="max-height: 200px;"
+                                alt="Ejemplo de señal analógica">
+                            <figcaption class="figure-caption mt-2">Ejemplo de una señal analógica variando suavemente
+                                con el
+                                tiempo.</figcaption>
+                        </figure>
+                        <p>La función <code>analogRead(pin)</code> permite a un Arduino leer estos valores variables. En
+                            placas
+                            como el Arduino UNO, esto se hace mediante un <strong>Convertidor Analógico-Digital
+                                (ADC)</strong>
+                            integrado en el microcontrolador.</p>
+                        <h4 class="mt-4">¿Cómo funciona <code>analogRead()</code>?</h4>
                         <ul>
-                            <li>0 corresponde a 0 Voltios en el pin.</li>
-                            <li>1023 corresponde a la tensión de referencia (5V en UNO).</li>
-                            <li>Un valor intermedio representa una tensión proporcional. Por ejemplo, 512 es
-                                aproximadamente la mitad de la tensión de referencia (2.5V en UNO).</li>
+                            <li>El ADC muestrea la tensión en el pin especificado.</li>
+                            <li>Compara esta tensión con una tensión de referencia (por defecto, la tensión de
+                                alimentación del
+                                Arduino, 5V en UNO).</li>
+                            <li>Convierte esta comparación en un número digital. El Arduino UNO tiene un ADC de 10 bits,
+                                lo que
+                                significa que puede representar 2^10 = 1024 valores distintos.</li>
+                            <li>Devuelve un valor entero entre 0 y 1023.
+                                <ul>
+                                    <li>0 corresponde a 0 Voltios en el pin.</li>
+                                    <li>1023 corresponde a la tensión de referencia (5V en UNO).</li>
+                                    <li>Un valor intermedio representa una tensión proporcional. Por ejemplo, 512 es
+                                        aproximadamente la mitad de la tensión de referencia (2.5V en UNO).</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-                <p><strong>Sintaxis:</strong> <code>int valor = analogRead(numero_de_pin);</code></p>
-                <p><strong>Pines Analógicos:</strong> En el Arduino UNO, los pines dedicados para lectura analógica
-                    están etiquetados como A0, A1, A2, ..., A5. Aunque técnicamente puedes usar números (0-5), es más
-                    claro usar las etiquetas A0, A1, etc.</p>
+                        <p><strong>Sintaxis:</strong> <code>int valor = analogRead(numero_de_pin);</code></p>
+                        <p><strong>Pines Analógicos:</strong> En el Arduino UNO, los pines dedicados para lectura
+                            analógica
+                            están etiquetados como A0, A1, A2, ..., A5. Aunque técnicamente puedes usar números (0-5),
+                            es más
+                            claro usar las etiquetas A0, A1, etc.</p>
 
-                <h4 class="mt-4">Ejemplo 1.1: Leyendo un Potenciómetro</h4>
-                <p>Un potenciómetro es una resistencia variable que actúa como un divisor de tensión. Al girar su eje,
-                    cambia la tensión en su pin central, que podemos leer con <code>analogRead()</code>.</p>
-                <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=Esquema+Potenciometro+Arduino"
-                        class="img-fluid rounded shadow-sm"
-                        alt="Esquema de conexión de un potenciómetro a un pin analógico de Arduino">
-                    <figcaption class="figure-caption mt-2">Conexión de un potenciómetro al pin A0 de un Arduino UNO.
-                        Los pines laterales van a 5V y GND.</figcaption>
-                </figure>
-                <p><strong>Código:</strong></p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="pot-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
+                        <h4 class="mt-4">Ejemplo 1.1: Leyendo un Potenciómetro</h4>
+                        <p>Un potenciómetro es una resistencia variable que actúa como un divisor de tensión. Al girar
+                            su eje,
+                            cambia la tensión en su pin central, que podemos leer con <code>analogRead()</code>.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/600x300?text=Esquema+Potenciometro+Arduino"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Esquema de conexión de un potenciómetro a un pin analógico de Arduino">
+                            <figcaption class="figure-caption mt-2">Conexión de un potenciómetro al pin A0 de un Arduino
+                                UNO.
+                                Los pines laterales van a 5V y GND.</figcaption>
+                        </figure>
+                        <p><strong>Código:</strong></p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="pot-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
 
 <span class="token comment">// Definimos el pin analógico donde está conectado el potenciómetro</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> potPin <span class="token operator">=</span> A0<span class="token punctuation">;</span>
@@ -276,45 +339,60 @@ Serial.println(valorSensor);</code></pre>
   <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 100ms</span>
 <span class="token punctuation">}</span></code></pre>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h4 class="mt-4">1.1. Limitaciones y Buenas Prácticas con <code>analogRead()</code></h4>
-                <p>Aunque <code>analogRead()</code> es una función poderosa, es importante conocer sus limitaciones para
-                    evitar problemas en tus proyectos.</p>
+                        <h4 class="mt-4">1.1. Limitaciones y Buenas Prácticas con <code>analogRead()</code></h4>
+                        <p>Aunque <code>analogRead()</code> es una función poderosa, es importante conocer sus
+                            limitaciones para
+                            evitar problemas en tus proyectos.</p>
 
-                <h5 class="mt-3">Tiempo de Conversión y Rendimiento</h5>
-                <p>Cada llamada a <code>analogRead()</code> no es instantánea. El ADC interno necesita un tiempo para
-                    muestrear la tensión y realizar la conversión. En un Arduino UNO, este proceso toma aproximadamente
-                    100 microsegundos (0.1 ms) por lectura. Si haces muchas lecturas seguidas en un bucle sin delays,
-                    puedes ralentizar significativamente tu programa.</p>
-                <div class="alert alert-info">
-                    <strong>Ejemplo:</strong> Si tu bucle principal necesita ejecutarse 1000 veces por segundo (1 KHz),
-                    y haces una sola lectura de <code>analogRead()</code>, estás usando el 10% de tu tiempo de bucle
-                    solo en esa lectura (100 lecturas/segundo * 0.1 ms/lectura = 10 ms). Si necesitas leer 6 pines
-                    analógicos, estarías usando el 60% del tiempo del bucle solo en lecturas ADC.
-                </div>
+                        <h5 class="mt-3">Tiempo de Conversión y Rendimiento</h5>
+                        <p>Cada llamada a <code>analogRead()</code> no es instantánea. El ADC interno necesita un tiempo
+                            para
+                            muestrear la tensión y realizar la conversión. En un Arduino UNO, este proceso toma
+                            aproximadamente
+                            100 microsegundos (0.1 ms) por lectura. Si haces muchas lecturas seguidas en un bucle sin
+                            delays,
+                            puedes ralentizar significativamente tu programa.</p>
+                        <div class="alert alert-info">
+                            <strong>Ejemplo:</strong> Si tu bucle principal necesita ejecutarse 1000 veces por segundo
+                            (1 KHz),
+                            y haces una sola lectura de <code>analogRead()</code>, estás usando el 10% de tu tiempo de
+                            bucle
+                            solo en esa lectura (100 lecturas/segundo * 0.1 ms/lectura = 10 ms). Si necesitas leer 6
+                            pines
+                            analógicos, estarías usando el 60% del tiempo del bucle solo en lecturas ADC.
+                        </div>
 
-                <h5 class="mt-3">Ruido y Fluctuaciones en las Lecturas</h5>
-                <p>Las lecturas de <code>analogRead()</code> pueden fluctuar ligeramente incluso si la señal de entrada
-                    es estable. Esto se debe a ruido eléctrico inherente al circuito, interferencias o inestabilidades
-                    en la fuente de alimentación. Estas pequeñas fluctuaciones pueden ser problemáticas si tu código
-                    toma decisiones críticas basadas en un cambio muy pequeño en el valor leído.</p>
-                <figure class="text-center my-4">
-                    <img src="https://placehold.co/600x300?text=Grafica+de+Ruido+en+Lectura+Analogica"
-                        class="img-fluid rounded shadow-sm"
-                        alt="Gráfica mostrando fluctuaciones en lecturas analogicas">
-                    <figcaption class="figure-caption mt-2">Ejemplo de cómo puede verse el ruido en lecturas sucesivas
-                        de un sensor estable.</figcaption>
-                </figure>
+                        <h5 class="mt-3">Ruido y Fluctuaciones en las Lecturas</h5>
+                        <p>Las lecturas de <code>analogRead()</code> pueden fluctuar ligeramente incluso si la señal de
+                            entrada
+                            es estable. Esto se debe a ruido eléctrico inherente al circuito, interferencias o
+                            inestabilidades
+                            en la fuente de alimentación. Estas pequeñas fluctuaciones pueden ser problemáticas si tu
+                            código
+                            toma decisiones críticas basadas en un cambio muy pequeño en el valor leído.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/600x300?text=Grafica+de+Ruido+en+Lectura+Analogica"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Gráfica mostrando fluctuaciones en lecturas analogicas">
+                            <figcaption class="figure-caption mt-2">Ejemplo de cómo puede verse el ruido en lecturas
+                                sucesivas
+                                de un sensor estable.</figcaption>
+                        </figure>
 
-                <h5 class="mt-3">Técnicas de Filtrado: Promedio Móvil Simple</h5>
-                <p>Una forma común de reducir el efecto del ruido es aplicar un filtro digital. El más simple es el
-                    <strong>promedio móvil</strong>: en lugar de usar una sola lectura, tomas varias lecturas en un
-                    corto período y usas su promedio.</p>
+                        <h5 class="mt-3">Técnicas de Filtrado: Promedio Móvil Simple</h5>
+                        <p>Una forma común de reducir el efecto del ruido es aplicar un filtro digital. El más simple es
+                            el
+                            <strong>promedio móvil</strong>: en lugar de usar una sola lectura, tomas varias lecturas en
+                            un
+                            corto período y usas su promedio.
+                        </p>
 
-                <h5 class="mt-3">Ejemplo 1.1.1: Lectura con Promedio Móvil</h5>
-                <p>Este ejemplo lee un sensor varias veces y calcula el promedio para obtener un valor más estable.</p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="analog-filter-code"><span class="token comment">// Definimos el pin analógico</span>
+                        <h5 class="mt-3">Ejemplo 1.1.1: Lectura con Promedio Móvil</h5>
+                        <p>Este ejemplo lee un sensor varias veces y calcula el promedio para obtener un valor más
+                            estable.</p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="analog-filter-code"><span class="token comment">// Definimos el pin analógico</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> sensorPin <span class="token operator">=</span> A0<span class="token punctuation">;</span>
 
 <span class="token comment">// Número de muestras para el promedio</span>
@@ -355,86 +433,111 @@ Serial.println(valorSensor);</code></pre>
   <span class="token comment">// Pequeña pausa</span>
   <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-                <p><strong>Explicación:</strong></p>
-                <ul>
-                    <li>Se define un arreglo <code>muestras[10]</code> para almacenar las últimas 10 lecturas.</li>
-                    <li>Se usa una variable <code>indiceMuestra</code> para seguir la posición actual en el arreglo,
-                        avanzando circularmente (0, 1, 2, ..., 9, 0, 1, ...).</li>
-                    <li>Se mantiene una <code>sumaTotal</code> de las muestras actuales.</li>
-                    <li>En cada iteración del <code>loop()</code>:
+                        <p><strong>Explicación:</strong></p>
                         <ul>
-                            <li>Se lee un nuevo valor.</li>
-                            <li>Se resta del <code>sumaTotal</code> la muestra que se va a "desplazar" (la más antigua).
+                            <li>Se define un arreglo <code>muestras[10]</code> para almacenar las últimas 10 lecturas.
                             </li>
-                            <li>Se guarda la nueva lectura en la posición actual del arreglo.</li>
-                            <li>Se añade la nueva lectura al <code>sumaTotal</code>.</li>
-                            <li>Se calcula el <code>promedio</code> dividiendo la suma por el número de muestras.</li>
-                            <li>Se actualiza el <code>indiceMuestra</code> para la próxima iteración.</li>
+                            <li>Se usa una variable <code>indiceMuestra</code> para seguir la posición actual en el
+                                arreglo,
+                                avanzando circularmente (0, 1, 2, ..., 9, 0, 1, ...).</li>
+                            <li>Se mantiene una <code>sumaTotal</code> de las muestras actuales.</li>
+                            <li>En cada iteración del <code>loop()</code>:
+                                <ul>
+                                    <li>Se lee un nuevo valor.</li>
+                                    <li>Se resta del <code>sumaTotal</code> la muestra que se va a "desplazar" (la más
+                                        antigua).
+                                    </li>
+                                    <li>Se guarda la nueva lectura en la posición actual del arreglo.</li>
+                                    <li>Se añade la nueva lectura al <code>sumaTotal</code>.</li>
+                                    <li>Se calcula el <code>promedio</code> dividiendo la suma por el número de
+                                        muestras.</li>
+                                    <li>Se actualiza el <code>indiceMuestra</code> para la próxima iteración.</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-                <p>Este método es eficiente y proporciona una lectura más estable. Puedes ajustar el número de muestras
-                    (<code>numMuestras</code>) para equilibrar la estabilidad deseada con la velocidad de respuesta del
-                    sistema.</p>
+                        <p>Este método es eficiente y proporciona una lectura más estable. Puedes ajustar el número de
+                            muestras
+                            (<code>numMuestras</code>) para equilibrar la estabilidad deseada con la velocidad de
+                            respuesta del
+                            sistema.</p>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h2 class="card-title">2. Salidas Analógicas (PWM): <code>analogWrite()</code></h2>
-                <p>Los pines digitales solo pueden estar completamente encendidos (HIGH) o apagados (LOW). Pero ¿qué
-                    pasa si queremos controlar el brillo de un LED o la velocidad de un motor con más precisión que
-                    simplemente ON/OFF? La mayoría de microcontroladores Arduino no pueden generar una verdadera señal
-                    analógica de voltaje variable. En su lugar, utilizan una técnica llamada <strong>Modulación por
-                        Ancho de Pulso (PWM)</strong>.</p>
-                <figure class="text-center my-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Pwm_30_percent.svg/1200px-Pwm_30_percent.svg.png"
-                        class="img-fluid rounded shadow-sm" style="max-height: 200px;" alt="Ejemplo de señal PWM">
-                    <figcaption class="figure-caption mt-2">Ejemplo de una señal PWM a diferentes anchos de pulso (Duty
-                        Cycle). Arriba 30%, abajo 80%.</figcaption>
-                </figure>
-                <h4 class="mt-4">¿Qué es PWM?</h4>
-                <p>PWM funciona generando una señal digital (cuadrada) que cambia rápidamente entre HIGH y LOW. El truco
-                    está en variar el <strong>duty cycle</strong> (ciclo de trabajo), que es el porcentaje del tiempo
-                    que la señal está en HIGH durante un período completo.</p>
-                <ul>
-                    <li>Un <strong>duty cycle del 0%</strong> significa que la señal está siempre en LOW. Esto es
-                        equivalente a 0V.</li>
-                    <li>Un <strong>duty cycle del 50%</strong> significa que la señal está la mitad del tiempo en HIGH y
-                        la mitad en LOW.</li>
-                    <li>Un <strong>duty cycle del 100%</strong> significa que la señal está siempre en HIGH. Esto es
-                        equivalente al voltaje máximo (5V o 3.3V).</li>
-                </ul>
-                <p>Para el ojo humano o un motor, un LED con un duty cycle del 50% en una frecuencia alta (por ejemplo,
-                    490 Hz en Arduino UNO) aparecerá a la mitad de su brillo máximo, o un motor girará a la mitad de su
-                    velocidad máxima. Esta es la ilusión que crea la técnica PWM.</p>
-                <p>La función <code>analogWrite(pin, valor)</code> permite controlar este duty cycle en pines
-                    específicos.</p>
-                <h4 class="mt-4">¿Cómo funciona <code>analogWrite()</code>?</h4>
-                <ul>
-                    <li>El <code>valor</code> es un número entero entre 0 y 255 (8 bits).</li>
-                    <li>0 corresponde a un duty cycle del 0% (siempre LOW).</li>
-                    <li>255 corresponde a un duty cycle del 100% (siempre HIGH).</li>
-                    <li>127 corresponde aproximadamente a un duty cycle del 50% (mitad HIGH, mitad LOW).</li>
-                </ul>
-                <p><strong>Sintaxis:</strong> <code>analogWrite(numero_de_pin, valor);</code></p>
-                <p><strong>Pines PWM:</strong> No todos los pines digitales pueden generar PWM. En el Arduino UNO, los
-                    pines compatibles están marcados con el símbolo ~: <strong>~3, ~5, ~6, ~9, ~10, ~11</strong>.</p>
-                <div class="alert alert-warning mt-3">
-                    <strong>Importante:</strong> <code>analogWrite()</code> no requiere un <code>pinMode()</code>
-                    previo. El pin se configura automáticamente como salida cuando se usa esta función.
-                </div>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">2. Salidas Analógicas (PWM):
+                            <code>analogWrite()</code></h2>
+                        <p>Los pines digitales solo pueden estar completamente encendidos (HIGH) o apagados (LOW). Pero
+                            ¿qué
+                            pasa si queremos controlar el brillo de un LED o la velocidad de un motor con más precisión
+                            que
+                            simplemente ON/OFF? La mayoría de microcontroladores Arduino no pueden generar una verdadera
+                            señal
+                            analógica de voltaje variable. En su lugar, utilizan una técnica llamada <strong>Modulación
+                                por
+                                Ancho de Pulso (PWM)</strong>.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Pwm_30_percent.svg/1200px-Pwm_30_percent.svg.png"
+                                class="img-fluid rounded shadow-sm" style="max-height: 200px;"
+                                alt="Ejemplo de señal PWM">
+                            <figcaption class="figure-caption mt-2">Ejemplo de una señal PWM a diferentes anchos de
+                                pulso (Duty
+                                Cycle). Arriba 30%, abajo 80%.</figcaption>
+                        </figure>
+                        <h4 class="mt-4">¿Qué es PWM?</h4>
+                        <p>PWM funciona generando una señal digital (cuadrada) que cambia rápidamente entre HIGH y LOW.
+                            El truco
+                            está en variar el <strong>duty cycle</strong> (ciclo de trabajo), que es el porcentaje del
+                            tiempo
+                            que la señal está en HIGH durante un período completo.</p>
+                        <ul>
+                            <li>Un <strong>duty cycle del 0%</strong> significa que la señal está siempre en LOW. Esto
+                                es
+                                equivalente a 0V.</li>
+                            <li>Un <strong>duty cycle del 50%</strong> significa que la señal está la mitad del tiempo
+                                en HIGH y
+                                la mitad en LOW.</li>
+                            <li>Un <strong>duty cycle del 100%</strong> significa que la señal está siempre en HIGH.
+                                Esto es
+                                equivalente al voltaje máximo (5V o 3.3V).</li>
+                        </ul>
+                        <p>Para el ojo humano o un motor, un LED con un duty cycle del 50% en una frecuencia alta (por
+                            ejemplo,
+                            490 Hz en Arduino UNO) aparecerá a la mitad de su brillo máximo, o un motor girará a la
+                            mitad de su
+                            velocidad máxima. Esta es la ilusión que crea la técnica PWM.</p>
+                        <p>La función <code>analogWrite(pin, valor)</code> permite controlar este duty cycle en pines
+                            específicos.</p>
+                        <h4 class="mt-4">¿Cómo funciona <code>analogWrite()</code>?</h4>
+                        <ul>
+                            <li>El <code>valor</code> es un número entero entre 0 y 255 (8 bits).</li>
+                            <li>0 corresponde a un duty cycle del 0% (siempre LOW).</li>
+                            <li>255 corresponde a un duty cycle del 100% (siempre HIGH).</li>
+                            <li>127 corresponde aproximadamente a un duty cycle del 50% (mitad HIGH, mitad LOW).</li>
+                        </ul>
+                        <p><strong>Sintaxis:</strong> <code>analogWrite(numero_de_pin, valor);</code></p>
+                        <p><strong>Pines PWM:</strong> No todos los pines digitales pueden generar PWM. En el Arduino
+                            UNO, los
+                            pines compatibles están marcados con el símbolo ~: <strong>~3, ~5, ~6, ~9, ~10,
+                                ~11</strong>.</p>
+                        <div class="alert alert-warning mt-3">
+                            <strong>Importante:</strong> <code>analogWrite()</code> no requiere un
+                            <code>pinMode()</code>
+                            previo. El pin se configura automáticamente como salida cuando se usa esta función.
+                        </div>
 
-                <h4 class="mt-4">Ejemplo 2.1: Controlando el Brillo de un LED con un Potenciómetro</h4>
-                <p>Combinamos la lectura analógica del potenciómetro con la salida PWM para crear un control de brillo
-                    variable.</p>
-                <figure class="text-center my-4">
-                    <img src="https://placehold.co/700x400?text=Esquema+LED+PWM+Potenciometro"
-                        class="img-fluid rounded shadow-sm"
-                        alt="Esquema de conexión de un LED con PWM y un potenciómetro al Arduino">
-                    <figcaption class="figure-caption mt-2">LED conectado al pin 9 (PWM) con una resistencia de 220Ω.
-                        Potenciómetro conectado al pin A0.</figcaption>
-                </figure>
-                <p><strong>Código:</strong></p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="led-pwm-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
+                        <h4 class="mt-4">Ejemplo 2.1: Controlando el Brillo de un LED con un Potenciómetro</h4>
+                        <p>Combinamos la lectura analógica del potenciómetro con la salida PWM para crear un control de
+                            brillo
+                            variable.</p>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/700x400?text=Esquema+LED+PWM+Potenciometro"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Esquema de conexión de un LED con PWM y un potenciómetro al Arduino">
+                            <figcaption class="figure-caption mt-2">LED conectado al pin 9 (PWM) con una resistencia de
+                                220Ω.
+                                Potenciómetro conectado al pin A0.</figcaption>
+                        </figure>
+                        <p><strong>Código:</strong></p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="led-pwm-code">#<span class="token macro property"><span class="token directive-hash">#</span><span class="token keyword">include</span> <span class="token string">&lt;Arduino.h&gt;</span></span>
 
 <span class="token comment">// Definimos los pines</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> potPin <span class="token operator">=</span> A0<span class="token punctuation">;</span>  <span class="token comment">// Pin para el potenciómetro</span>
@@ -463,75 +566,84 @@ Serial.println(valorSensor);</code></pre>
   <span class="token comment">// 4. Pequeña pausa para estabilidad</span>
   <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-                <div class="alert alert-info mt-3">
-                    <strong>Función <code>map()</code>:</strong> Esta función es muy útil para convertir valores de un
-                    rango a otro. En el ejemplo, <code>map(valorPot, 0, 1023, 0, 255)</code> toma un valor entre 0 y
-                    1023 y lo convierte proporcionalmente a un valor entre 0 y 255.
-                </div>
+                        <div class="alert alert-info mt-3">
+                            <strong>Función <code>map()</code>:</strong> Esta función es muy útil para convertir valores
+                            de un
+                            rango a otro. En el ejemplo, <code>map(valorPot, 0, 1023, 0, 255)</code> toma un valor entre
+                            0 y
+                            1023 y lo convierte proporcionalmente a un valor entre 0 y 255.
+                        </div>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h2 class="card-title">3. Operaciones Bit a Bit (Bitwise Operations)</h2>
-                <p>En programación de sistemas embebidos, a menudo necesitamos manipular bits individuales dentro de un
-                    byte o una palabra de datos. Las operaciones bit a bit nos permiten hacerlo de forma eficiente y
-                    directa a nivel del hardware. Esto es mucho más rápido y consume menos memoria que otras formas de
-                    manipulación.</p>
-                <h4 class="mt-4">Operadores Bit a Bit</h4>
-                <table class="table table-striped table-bordered text-center">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Operador</th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Ejemplo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>&</code></td>
-                            <td>AND</td>
-                            <td>Devuelve 1 solo si ambos bits son 1.</td>
-                            <td><code>1010 & 1100 = 1000</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>|</code></td>
-                            <td>OR</td>
-                            <td>Devuelve 1 si al menos uno de los bits es 1.</td>
-                            <td><code>1010 | 1100 = 1110</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>^</code></td>
-                            <td>XOR</td>
-                            <td>Devuelve 1 si los bits son diferentes.</td>
-                            <td><code>1010 ^ 1100 = 0110</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>~</code></td>
-                            <td>NOT</td>
-                            <td>Invierte todos los bits.</td>
-                            <td><code>~1010 = 0101</code> (depende del tamaño del dato)</td>
-                        </tr>
-                        <tr>
-                            <td><code>&lt;&lt;</code></td>
-                            <td>Desplazamiento a la Izquierda</td>
-                            <td>Mueve los bits hacia la izquierda un número de posiciones, llenando con ceros a la
-                                derecha.</td>
-                            <td><code>1010 &lt;&lt; 2 = 1000</code> (en un contexto de 4 bits)</td>
-                        </tr>
-                        <tr>
-                            <td><code>&gt;&gt;</code></td>
-                            <td>Desplazamiento a la Derecha</td>
-                            <td>Mueve los bits hacia la derecha un número de posiciones.</td>
-                            <td><code>1010 &gt;&gt; 1 = 0101</code></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">3. Operaciones Bit a Bit (Bitwise Operations)
+                        </h2>
+                        <p>En programación de sistemas embebidos, a menudo necesitamos manipular bits individuales
+                            dentro de un
+                            byte o una palabra de datos. Las operaciones bit a bit nos permiten hacerlo de forma
+                            eficiente y
+                            directa a nivel del hardware. Esto es mucho más rápido y consume menos memoria que otras
+                            formas de
+                            manipulación.</p>
+                        <h4 class="mt-4">Operadores Bit a Bit</h4>
+                        <table class="table table-striped table-bordered text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Operador</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>&</code></td>
+                                    <td>AND</td>
+                                    <td>Devuelve 1 solo si ambos bits son 1.</td>
+                                    <td><code>1010 & 1100 = 1000</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>|</code></td>
+                                    <td>OR</td>
+                                    <td>Devuelve 1 si al menos uno de los bits es 1.</td>
+                                    <td><code>1010 | 1100 = 1110</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>^</code></td>
+                                    <td>XOR</td>
+                                    <td>Devuelve 1 si los bits son diferentes.</td>
+                                    <td><code>1010 ^ 1100 = 0110</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>~</code></td>
+                                    <td>NOT</td>
+                                    <td>Invierte todos los bits.</td>
+                                    <td><code>~1010 = 0101</code> (depende del tamaño del dato)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>&lt;&lt;</code></td>
+                                    <td>Desplazamiento a la Izquierda</td>
+                                    <td>Mueve los bits hacia la izquierda un número de posiciones, llenando con ceros a
+                                        la
+                                        derecha.</td>
+                                    <td><code>1010 &lt;&lt; 2 = 1000</code> (en un contexto de 4 bits)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>&gt;&gt;</code></td>
+                                    <td>Desplazamiento a la Derecha</td>
+                                    <td>Mueve los bits hacia la derecha un número de posiciones.</td>
+                                    <td><code>1010 &gt;&gt; 1 = 0101</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                <h4 class="mt-4">Ejemplo 3.1: Comprobando Bits Específicos (Máscaras)</h4>
-                <p>Supongamos que un sensor o un registro interno devuelve un byte donde cada bit representa el estado
-                    de algo (por ejemplo, 8 botones). Queremos comprobar si el botón 2 (bit 1, contando desde 0) está
-                    presionado.</p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="bit-check-code"><span class="token comment">// Supongamos que leemos un byte de un puerto o sensor</span>
+                        <h4 class="mt-4">Ejemplo 3.1: Comprobando Bits Específicos (Máscaras)</h4>
+                        <p>Supongamos que un sensor o un registro interno devuelve un byte donde cada bit representa el
+                            estado
+                            de algo (por ejemplo, 8 botones). Queremos comprobar si el botón 2 (bit 1, contando desde 0)
+                            está
+                            presionado.</p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="bit-check-code"><span class="token comment">// Supongamos que leemos un byte de un puerto o sensor</span>
 <span class="token keyword">byte</span> estadoPuerto <span class="token operator">=</span> <span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token function">digitalRead</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Simulación</span>
 
 <span class="token comment">// Creamos una máscara para el bit 1 (botón 2)</span>
@@ -543,116 +655,130 @@ Serial.println(valorSensor);</code></pre>
 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
   <span class="token function">Serial</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Boton 2 NO esta presionado."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-                <p><strong>Explicación:</strong></p>
-                <ul>
-                    <li><code>1 &lt;&lt; 1</code> crea la máscara <code>00000010</code>.</li>
-                    <li><code>estadoPuerto & mascaraBoton2</code> realiza una operación AND bit a bit. El resultado solo
-                        será distinto de cero si el bit 1 de <code>estadoPuerto</code> también es 1.</li>
-                </ul>
+                        <p><strong>Explicación:</strong></p>
+                        <ul>
+                            <li><code>1 &lt;&lt; 1</code> crea la máscara <code>00000010</code>.</li>
+                            <li><code>estadoPuerto & mascaraBoton2</code> realiza una operación AND bit a bit. El
+                                resultado solo
+                                será distinto de cero si el bit 1 de <code>estadoPuerto</code> también es 1.</li>
+                        </ul>
 
-                <h4 class="mt-4">Ejemplo 3.2: Encendiendo/Apagando Bits Específicos</h4>
-                <p>Queremos encender el LED conectado al pin 13 (bit 7 del puerto B en UNO) y apagar el del pin 8 (bit 0
-                    del puerto B) sin afectar los demás.</p>
-                <pre
-                    class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="bit-set-clear-code"><span class="token comment">// Encender el LED del pin 13 (bit 7 de PORTB)</span>
+                        <h4 class="mt-4">Ejemplo 3.2: Encendiendo/Apagando Bits Específicos</h4>
+                        <p>Queremos encender el LED conectado al pin 13 (bit 7 del puerto B en UNO) y apagar el del pin
+                            8 (bit 0
+                            del puerto B) sin afectar los demás.</p>
+                        <pre
+                            class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="bit-set-clear-code"><span class="token comment">// Encender el LED del pin 13 (bit 7 de PORTB)</span>
 <span class="token comment">// Usamos OR con una máscara que tiene solo el bit 7 encendido</span>
 PORTB <span class="token operator">=</span> PORTB <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
 <span class="token comment">// Apagar el LED del pin 8 (bit 0 de PORTB)</span>
 <span class="token comment">// Usamos AND con el inverso de una máscara que tiene solo el bit 0 encendido</span>
 PORTB <span class="token operator">=</span> PORTB <span class="token operator">&</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-                <p><strong>Explicación:</strong></p>
-                <ul>
-                    <li><code>PORTB | (1 &lt;&lt; 7)</code>: Enciende el bit 7 sin tocar los demás.</li>
-                    <li><code>~(1 &lt;&lt; 0)</code> crea una máscara con todos los bits a 1 excepto el bit 0 (ej.
-                        <code>11111110</code>).</li>
-                    <li><code>PORTB & ~(1 &lt;&lt; 0)</code>: Apaga el bit 0 sin tocar los demás.</li>
-                </ul>
-                <div class="alert alert-secondary mt-3">
-                    <strong>Nota:</strong> Manipular directamente registros como <code>PORTB</code> es programación de
-                    bajo nivel. Es muy eficiente pero requiere conocer la arquitectura del microcontrolador. Para
-                    principiantes, <code>digitalWrite()</code> es más seguro y legible.
-                </div>
+                        <p><strong>Explicación:</strong></p>
+                        <ul>
+                            <li><code>PORTB | (1 &lt;&lt; 7)</code>: Enciende el bit 7 sin tocar los demás.</li>
+                            <li><code>~(1 &lt;&lt; 0)</code> crea una máscara con todos los bits a 1 excepto el bit 0
+                                (ej.
+                                <code>11111110</code>).
+                            </li>
+                            <li><code>PORTB & ~(1 &lt;&lt; 0)</code>: Apaga el bit 0 sin tocar los demás.</li>
+                        </ul>
+                        <div class="alert alert-secondary mt-3">
+                            <strong>Nota:</strong> Manipular directamente registros como <code>PORTB</code> es
+                            programación de
+                            bajo nivel. Es muy eficiente pero requiere conocer la arquitectura del microcontrolador.
+                            Para
+                            principiantes, <code>digitalWrite()</code> es más seguro y legible.
+                        </div>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h2 class="card-title">4. Manejo Eficiente de Variables y Memoria</h2>
-                <p>Los microcontroladores tienen recursos limitados de RAM y Flash. Usar el tipo de dato más apropiado
-                    no solo es buena práctica, sino crucial para que tu programa funcione correctamente y de forma
-                    eficiente.</p>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">4. Manejo Eficiente de Variables y Memoria</h2>
+                        <p>Los microcontroladores tienen recursos limitados de RAM y Flash. Usar el tipo de dato más
+                            apropiado
+                            no solo es buena práctica, sino crucial para que tu programa funcione correctamente y de
+                            forma
+                            eficiente.</p>
 
-                <h4 class="mt-4">4.1. Tipos de Datos Comunes y su Tamaño</h4>
-                <table class="table table-striped table-bordered text-center">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Tipo</th>
-                            <th>Tamaño (bytes)</th>
-                            <th>Rango de Valores</th>
-                            <th>Ejemplo de Uso</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>bool</code> / <code>boolean</code></td>
-                            <td>1</td>
-                            <td>false (0) o true (1)</td>
-                            <td>Estado de un botón (<code>bool botonPresionado = false;</code>)</td>
-                        </tr>
-                        <tr>
-                            <td><code>byte</code> / <code>uint8_t</code></td>
-                            <td>1</td>
-                            <td>0 a 255</td>
-                            <td>Valor de PWM (<code>byte brillo = 150;</code>), lectura de sensor de 8 bits</td>
-                        </tr>
-                        <tr>
-                            <td><code>char</code></td>
-                            <td>1</td>
-                            <td>-128 a 127</td>
-                            <td>Carácter (<code>char letra = 'A';</code>)</td>
-                        </tr>
-                        <tr>
-                            <td><code>int</code> / <code>int16_t</code></td>
-                            <td>2</td>
-                            <td>-32,768 a 32,767</td>
-                            <td>Contador de bucles, cálculos simples</td>
-                        </tr>
-                        <tr>
-                            <td><code>unsigned int</code> / <code>uint16_t</code></td>
-                            <td>2</td>
-                            <td>0 a 65,535</td>
-                            <td>Valores que no son negativos y necesitan más rango que <code>byte</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>long</code> / <code>int32_t</code></td>
-                            <td>4</td>
-                            <td>-2,147,483,648 a 2,147,483,647</td>
-                            <td>Valores de tiempo (<code>long millisInicio = millis();</code>), cálculos grandes</td>
-                        </tr>
-                        <tr>
-                            <td><code>unsigned long</code> / <code>uint32_t</code></td>
-                            <td>4</td>
-                            <td>0 a 4,294,967,295</td>
-                            <td>Valores de tiempo sin signo, IDs únicos grandes</td>
-                        </tr>
-                        <tr>
-                            <td><code>float</code></td>
-                            <td>4</td>
-                            <td>±3.4028235E+38 (6-7 dígitos decimales)</td>
-                            <td>Cálculos con decimales (temperatura, voltaje)</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="alert alert-warning mt-3">
-                    <strong>Consejo de Memoria:</strong> Si sabes que una variable solo necesitará almacenar valores
-                    entre 0 y 100, usar <code>byte</code> (1 byte) es mucho más eficiente que usar <code>int</code> (2
-                    bytes) o <code>long</code> (4 bytes). En un programa complejo, estas pequeñas optimizaciones suman.
-                </div>
+                        <h4 class="mt-4">4.1. Tipos de Datos Comunes y su Tamaño</h4>
+                        <table class="table table-striped table-bordered text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Tamaño (bytes)</th>
+                                    <th>Rango de Valores</th>
+                                    <th>Ejemplo de Uso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>bool</code> / <code>boolean</code></td>
+                                    <td>1</td>
+                                    <td>false (0) o true (1)</td>
+                                    <td>Estado de un botón (<code>bool botonPresionado = false;</code>)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>byte</code> / <code>uint8_t</code></td>
+                                    <td>1</td>
+                                    <td>0 a 255</td>
+                                    <td>Valor de PWM (<code>byte brillo = 150;</code>), lectura de sensor de 8 bits</td>
+                                </tr>
+                                <tr>
+                                    <td><code>char</code></td>
+                                    <td>1</td>
+                                    <td>-128 a 127</td>
+                                    <td>Carácter (<code>char letra = 'A';</code>)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>int</code> / <code>int16_t</code></td>
+                                    <td>2</td>
+                                    <td>-32,768 a 32,767</td>
+                                    <td>Contador de bucles, cálculos simples</td>
+                                </tr>
+                                <tr>
+                                    <td><code>unsigned int</code> / <code>uint16_t</code></td>
+                                    <td>2</td>
+                                    <td>0 a 65,535</td>
+                                    <td>Valores que no son negativos y necesitan más rango que <code>byte</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>long</code> / <code>int32_t</code></td>
+                                    <td>4</td>
+                                    <td>-2,147,483,648 a 2,147,483,647</td>
+                                    <td>Valores de tiempo (<code>long millisInicio = millis();</code>), cálculos grandes
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>unsigned long</code> / <code>uint32_t</code></td>
+                                    <td>4</td>
+                                    <td>0 a 4,294,967,295</td>
+                                    <td>Valores de tiempo sin signo, IDs únicos grandes</td>
+                                </tr>
+                                <tr>
+                                    <td><code>float</code></td>
+                                    <td>4</td>
+                                    <td>±3.4028235E+38 (6-7 dígitos decimales)</td>
+                                    <td>Cálculos con decimales (temperatura, voltaje)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="alert alert-warning mt-3">
+                            <strong>Consejo de Memoria:</strong> Si sabes que una variable solo necesitará almacenar
+                            valores
+                            entre 0 y 100, usar <code>byte</code> (1 byte) es mucho más eficiente que usar
+                            <code>int</code> (2
+                            bytes) o <code>long</code> (4 bytes). En un programa complejo, estas pequeñas optimizaciones
+                            suman.
+                        </div>
 
-                <h4 class="mt-4">Ejemplo 4.1: Comparando Uso de Memoria</h4>
-                <p>Este ejemplo no se ejecuta en la placa, sino que ilustra cómo el tipo de dato afecta el uso de
-                    memoria. Puedes ver el tamaño de los tipos de datos usando la función <code>sizeof()</code> en el
-                    Monitor Serial.</p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="sizeof-code"><span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <h4 class="mt-4">Ejemplo 4.1: Comparando Uso de Memoria</h4>
+                        <p>Este ejemplo no se ejecuta en la placa, sino que ilustra cómo el tipo de dato afecta el uso
+                            de
+                            memoria. Puedes ver el tamaño de los tipos de datos usando la función <code>sizeof()</code>
+                            en el
+                            Monitor Serial.</p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="sizeof-code"><span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">Serial</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   
   <span class="token function">Serial</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Tamaño de bool: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">Serial</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">bool</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -665,22 +791,27 @@ PORTB <span class="token operator">=</span> PORTB <span class="token operator">&
 <span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// Nada que hacer aquí</span>
 <span class="token punctuation">}</span></code></pre>
-                <p>Este código imprimirá los tamaños en bytes de cada tipo de dato en el Monitor Serial.</p>
+                        <p>Este código imprimirá los tamaños en bytes de cada tipo de dato en el Monitor Serial.</p>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                <h2 class="card-title">4.1. Estructuras de Datos para Organizar tu Proyecto</h2>
-                <p>Cuando trabajas con múltiples sensores, actuadores o estados en un proyecto mecatrónico, manejar cada
-                    variable individualmente puede volverse complicado y propenso a errores. Las estructuras de datos
-                    nos permiten agrupar y organizar información de forma lógica, haciendo que nuestro código sea más
-                    limpio, mantenible y escalable.</p>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">4.1. Estructuras de Datos para Organizar tu
+                            Proyecto</h2>
+                        <p>Cuando trabajas con múltiples sensores, actuadores o estados en un proyecto mecatrónico,
+                            manejar cada
+                            variable individualmente puede volverse complicado y propenso a errores. Las estructuras de
+                            datos
+                            nos permiten agrupar y organizar información de forma lógica, haciendo que nuestro código
+                            sea más
+                            limpio, mantenible y escalable.</p>
 
-                <h4 class="mt-4">Arrays (Arreglos)</h4>
-                <p>Un array es una colección ordenada de elementos del mismo tipo, almacenados en posiciones de memoria
-                    contiguas. Se accede a cada elemento mediante un índice numérico (que comienza en 0).</p>
-                <p><strong>Declaración:</strong> <code>tipo nombre[tamaño];</code></p>
-                <p><strong>Ejemplo:</strong></p>
-                <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">// Array de enteros para almacenar lecturas de 5 sensores
+                        <h4 class="mt-4">Arrays (Arreglos)</h4>
+                        <p>Un array es una colección ordenada de elementos del mismo tipo, almacenados en posiciones de
+                            memoria
+                            contiguas. Se accede a cada elemento mediante un índice numérico (que comienza en 0).</p>
+                        <p><strong>Declaración:</strong> <code>tipo nombre[tamaño];</code></p>
+                        <p><strong>Ejemplo:</strong></p>
+                        <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">// Array de enteros para almacenar lecturas de 5 sensores
 int lecturasSensores[5];
 
 // Array de pines para 3 LEDs
@@ -689,8 +820,8 @@ const int pinesLEDs[3] = {9, 10, 11};
 // Acceder a elementos
 lecturasSensores[0] = 512; // Asigna 512 al primer sensor
 int brilloLED2 = pinesLEDs[1]; // brilloLED2 obtiene el valor 10</code></pre>
-                <p><strong>Aplicación: Leyendo múltiples sensores.</strong></p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="arrays-code"><span class="token comment">// Array de pines de sensores</span>
+                        <p><strong>Aplicación: Leyendo múltiples sensores.</strong></p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="arrays-code"><span class="token comment">// Array de pines de sensores</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> numSensores <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> pinesSensores<span class="token punctuation">[</span>numSensores<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>A0<span class="token punctuation">,</span> A1<span class="token punctuation">,</span> A2<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
@@ -715,18 +846,20 @@ int brilloLED2 = pinesLEDs[1]; // brilloLED2 obtiene el valor 10</code></pre>
   <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 
-                <h4 class="mt-4">Structs (Estructuras)</h4>
-                <p>Un <code>struct</code> permite agrupar variables de diferentes tipos bajo un solo nombre. Es ideal
-                    para representar objetos del mundo real con múltiples atributos, como un sensor con su pin, última
-                    lectura, estado, etc.</p>
-                <p><strong>Declaración:</strong></p>
-                <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">struct NombreDeLaEstructura {
+                        <h4 class="mt-4">Structs (Estructuras)</h4>
+                        <p>Un <code>struct</code> permite agrupar variables de diferentes tipos bajo un solo nombre. Es
+                            ideal
+                            para representar objetos del mundo real con múltiples atributos, como un sensor con su pin,
+                            última
+                            lectura, estado, etc.</p>
+                        <p><strong>Declaración:</strong></p>
+                        <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">struct NombreDeLaEstructura {
   tipo1 miembro1;
   tipo2 miembro2;
   // ... más miembros
 };</code></pre>
-                <p><strong>Ejemplo:</strong></p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="struct-code"><span class="token comment">// Definimos una estructura para un sensor</span>
+                        <p><strong>Ejemplo:</strong></p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="struct-code"><span class="token comment">// Definimos una estructura para un sensor</span>
 <span class="token keyword">struct</span> <span class="token class-name">Sensor</span> <span class="token punctuation">{</span>
   <span class="token keyword">int</span> pin<span class="token punctuation">;</span>
   <span class="token keyword">int</span> ultimaLectura<span class="token punctuation">;</span>
@@ -754,8 +887,8 @@ int brilloLED2 = pinesLEDs[1]; // brilloLED2 obtiene el valor 10</code></pre>
   <span class="token punctuation">}</span>
   <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-                <p><strong>Aplicación: Gestión de múltiples sensores con structs.</strong></p>
-                <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="struct-array-code"><span class="token comment">// Definimos una estructura para un sensor</span>
+                        <p><strong>Aplicación: Gestión de múltiples sensores con structs.</strong></p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="struct-array-code"><span class="token comment">// Definimos una estructura para un sensor</span>
 <span class="token keyword">struct</span> <span class="token class-name">Sensor</span> <span class="token punctuation">{</span>
   <span class="token keyword">int</span> pin<span class="token punctuation">;</span>
   <span class="token keyword">int</span> ultimaLectura<span class="token punctuation">;</span>
@@ -789,229 +922,276 @@ int brilloLED2 = pinesLEDs[1]; // brilloLED2 obtiene el valor 10</code></pre>
   <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 
-                <div class="alert alert-info mt-3">
-                    <strong>Nota sobre C strings:</strong> Para manejar texto (strings) dentro de structs en C/C++
-                    básico (como el de Arduino), se usa un array de caracteres (<code>char nombre[20]</code>) y
-                    funciones como <code>strcpy()</code> para copiar strings. La librería <code>String</code> de Arduino
-                    también existe, pero puede consumir más memoria dinámica y causar fragmentación, por lo que usar
-                    <code>char[]</code> es a menudo preferido para estructuras simples.
-                </div>
+                        <div class="alert alert-info mt-3">
+                            <strong>Nota sobre C strings:</strong> Para manejar texto (strings) dentro de structs en
+                            C/C++
+                            básico (como el de Arduino), se usa un array de caracteres (<code>char nombre[20]</code>) y
+                            funciones como <code>strcpy()</code> para copiar strings. La librería <code>String</code> de
+                            Arduino
+                            también existe, pero puede consumir más memoria dinámica y causar fragmentación, por lo que
+                            usar
+                            <code>char[]</code> es a menudo preferido para estructuras simples.
+                        </div>
 
-                <h4 class="mt-4">Breve Mención a Otras Estructuras</h4>
-                <ul>
-                    <li><strong>Matrices (Arrays 2D):</strong> Útiles para representar tableros, pantallas de LEDs, o
-                        mapas de calor. Por ejemplo, <code>int matriz[3][3];</code> crea una matriz 3x3.
-                        <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">int pantallaLED[8][8]; // Una pantalla de LED 8x8
+                        <h4 class="mt-4">Breve Mención a Otras Estructuras</h4>
+                        <ul>
+                            <li><strong>Matrices (Arrays 2D):</strong> Útiles para representar tableros, pantallas de
+                                LEDs, o
+                                mapas de calor. Por ejemplo, <code>int matriz[3][3];</code> crea una matriz 3x3.
+                                <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">int pantallaLED[8][8]; // Una pantalla de LED 8x8
 pantallaLED[3][4] = 1; // Enciende el LED en la fila 3, columna 4</code></pre>
-                    </li>
-                    <li><strong>Enumeraciones (<code>enum</code>):</strong> Permiten definir un conjunto de constantes
-                        con nombre, mejorando la legibilidad del código.
-                        <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">enum EstadoLED {APAGADO, ENCENDIDO, PARPADEANDO};
+                            </li>
+                            <li><strong>Enumeraciones (<code>enum</code>):</strong> Permiten definir un conjunto de
+                                constantes
+                                con nombre, mejorando la legibilidad del código.
+                                <pre class="bg-dark text-white p-2 rounded"><code class="language-cpp">enum EstadoLED {APAGADO, ENCENDIDO, PARPADEANDO};
 EstadoLED estadoMiLED = ENCENDIDO;</code></pre>
-                    </li>
-                    <li><strong>JSON:</strong> Es un formato de intercambio de datos muy popular, especialmente para
-                        comunicaciones con APIs web o servidores. En Arduino, se puede usar con librerías como
-                        <code>ArduinoJson</code>. Es muy útil para proyectos IoT donde el dispositivo necesita
-                        enviar/recibir datos estructurados.
-                        <pre class="bg-dark text-white p-2 rounded"><code class="language-json">// Ejemplo de un string JSON
+                            </li>
+                            <li><strong>JSON:</strong> Es un formato de intercambio de datos muy popular, especialmente
+                                para
+                                comunicaciones con APIs web o servidores. En Arduino, se puede usar con librerías como
+                                <code>ArduinoJson</code>. Es muy útil para proyectos IoT donde el dispositivo necesita
+                                enviar/recibir datos estructurados.
+                                <pre class="bg-dark text-white p-2 rounded"><code class="language-json">// Ejemplo de un string JSON
 {"sensor":"temperatura", "valor":25.6, "unidad":"Celsius"}</code></pre>
-                    </li>
-                </ul>
-                <p>El uso adecuado de estas estructuras de datos es clave para escribir programas Arduino limpios,
-                    eficientes y fáciles de mantener, especialmente a medida que tus proyectos crecen en complejidad.
-                </p>
+                            </li>
+                        </ul>
+                        <p>El uso adecuado de estas estructuras de datos es clave para escribir programas Arduino
+                            limpios,
+                            eficientes y fáciles de mantener, especialmente a medida que tus proyectos crecen en
+                            complejidad.
+                        </p>
 
-                <h4 class="mt-4">¿Dónde se usan comúnmente?</h4>
-                <p>Entender dónde se aplican estas estructuras en proyectos reales ayuda a apreciar su valor. Haz clic
-                    en cada categoría para ver ejemplos específicos.</p>
+                        <h4 class="mt-4">¿Dónde se usan comúnmente?</h4>
+                        <p>Entender dónde se aplican estas estructuras en proyectos reales ayuda a apreciar su valor.
+                            Haz clic
+                            en cada categoría para ver ejemplos específicos.</p>
 
-                <div class="accordion accordion-flush" id="accordionUsosEstructuras">
-                    <!-- Arrays -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingArrays">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseArrays" aria-expanded="false" aria-controls="collapseArrays">
-                                <strong>Arrays</strong>
-                            </button>
-                        </h2>
-                        <div id="collapseArrays" class="accordion-collapse collapse" aria-labelledby="headingArrays"
-                            data-bs-parent="#accordionUsosEstructuras">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Lectura de múltiples sensores del mismo tipo:</strong> Como en el
-                                        ejemplo anterior, leer 5 sensores de temperatura, 8 celdas de carga en una
-                                        balanza, o 10 sensores de humedad distribuidos en una invernadero.</li>
-                                    <li><strong>Control de múltiples actuadores:</strong> Gestionar 16 LEDs de una tira,
-                                        8 relés en un módulo, o 4 servomotores. Un array de pines y un bucle
-                                        <code>for</code> simplifican el código de inicialización.</li>
-                                    <li><strong>Almacenamiento de datos históricos:</strong> Guardar las últimas 50
-                                        lecturas de un sensor para calcular un promedio o detectar tendencias.</li>
-                                </ul>
+                        <div class="accordion accordion-flush" id="accordionUsosEstructuras">
+                            <!-- Arrays -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingArrays">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseArrays" aria-expanded="false"
+                                        aria-controls="collapseArrays">
+                                        <strong>Arrays</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseArrays" class="accordion-collapse collapse"
+                                    aria-labelledby="headingArrays" data-bs-parent="#accordionUsosEstructuras">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li><strong>Lectura de múltiples sensores del mismo tipo:</strong> Como en
+                                                el
+                                                ejemplo anterior, leer 5 sensores de temperatura, 8 celdas de carga en
+                                                una
+                                                balanza, o 10 sensores de humedad distribuidos en una invernadero.</li>
+                                            <li><strong>Control de múltiples actuadores:</strong> Gestionar 16 LEDs de
+                                                una tira,
+                                                8 relés en un módulo, o 4 servomotores. Un array de pines y un bucle
+                                                <code>for</code> simplifican el código de inicialización.
+                                            </li>
+                                            <li><strong>Almacenamiento de datos históricos:</strong> Guardar las últimas
+                                                50
+                                                lecturas de un sensor para calcular un promedio o detectar tendencias.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Structs -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingStructs">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseStructs" aria-expanded="false"
+                                        aria-controls="collapseStructs">
+                                        <strong>Structs</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseStructs" class="accordion-collapse collapse"
+                                    aria-labelledby="headingStructs" data-bs-parent="#accordionUsosEstructuras">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li><strong>Representar dispositivos complejos:</strong> Un sensor DHT22 que
+                                                proporciona temperatura y humedad. Un struct
+                                                <code>SensorDHT {int pin; float temp; float humedad; unsigned long ultimaLectura;}</code>
+                                                agrupa todos sus datos.
+                                            </li>
+                                            <li><strong>Gestionar tareas en sistemas no bloqueantes:</strong> En
+                                                programación
+                                                avanzada, un struct puede representar una tarea con su intervalo, tiempo
+                                                de la
+                                                última ejecución, estado, etc.</li>
+                                            <li><strong>Configuración de dispositivos:</strong> Almacenar la
+                                                configuración de
+                                                una bomba de agua (pin de control, pin del sensor de flujo, umbral
+                                                mínimo,
+                                                estado) en un solo lugar estructurado.</li>
+                                            <li><strong>Modelar entidades del mundo real:</strong> Un motor paso a paso
+                                                con su
+                                                pin de dirección, pin de paso, posición actual, velocidad objetivo, etc.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Matrices -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingMatrices">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseMatrices" aria-expanded="false"
+                                        aria-controls="collapseMatrices">
+                                        <strong>Matrices (Arrays 2D)</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseMatrices" class="accordion-collapse collapse"
+                                    aria-labelledby="headingMatrices" data-bs-parent="#accordionUsosEstructuras">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li><strong>Pantallas de LEDs o LCD:</strong> Una pantalla LED 8x8 se
+                                                controla
+                                                naturalmente con una matriz 8x8 donde cada elemento representa el estado
+                                                (encendido/apagado) de un LED.</li>
+                                            <li><strong>Mapas o niveles de juego:</strong> En proyectos de
+                                                entretenimiento o
+                                                robótica educativa, un nivel de un juego simple puede representarse con
+                                                una
+                                                matriz donde diferentes números representan paredes, caminos, enemigos,
+                                                etc.
+                                            </li>
+                                            <li><strong>Sensores de matriz:</strong> Sensores como una matriz de
+                                                sensores
+                                                táctiles o un teclado matricial se manejan eficientemente con arrays 2D.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Enums -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingEnums">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEnums" aria-expanded="false"
+                                        aria-controls="collapseEnums">
+                                        <strong>Enums</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseEnums" class="accordion-collapse collapse"
+                                    aria-labelledby="headingEnums" data-bs-parent="#accordionUsosEstructuras">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li><strong>Estados de una máquina de estados:</strong> En lugar de números
+                                                mágicos,
+                                                usar
+                                                <code>enum Estado {INICIO, ESPERANDO, PROCESANDO, ERROR, FINALIZADO};</code>
+                                                hace que el código sea mucho más legible y mantenible.
+                                            </li>
+                                            <li><strong>Tipos de sensores o actuadores:</strong> Identificar diferentes
+                                                tipos de
+                                                sensores conectados
+                                                (<code>enum TipoSensor {TEMPERATURA, HUMEDAD, LUX, MOVIMIENTO};</code>).
+                                            </li>
+                                            <li><strong>Modos de operación:</strong> Un sistema puede tener modos como
+                                                <code>enum Modo {MANUAL, AUTOMATICO, CALIBRACION};</code>.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- JSON -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingJSON">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseJSON" aria-expanded="false"
+                                        aria-controls="collapseJSON">
+                                        <strong>JSON</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseJSON" class="accordion-collapse collapse" aria-labelledby="headingJSON"
+                                    data-bs-parent="#accordionUsosEstructuras">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li><strong>Comunicación con APIs web:</strong> Enviar datos de sensores a
+                                                un
+                                                servidor en formato JSON
+                                                (<code>{"device_id":"ARDUINO_01", "data":[{"sensor":"temp", "value":22.5}]}</code>).
+                                            </li>
+                                            <li><strong>Configuración remota:</strong> Recibir comandos o nuevas
+                                                configuraciones
+                                                desde una aplicación web o móvil en formato JSON.</li>
+                                            <li><strong>Almacenamiento en archivos (SD, SPIFFS):</strong> Guardar la
+                                                configuración del dispositivo o logs de datos en tarjetas SD o sistemas
+                                                de
+                                                archivos internos en formato JSON para fácil lectura y parseo.</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Structs -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingStructs">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseStructs" aria-expanded="false" aria-controls="collapseStructs">
-                                <strong>Structs</strong>
-                            </button>
-                        </h2>
-                        <div id="collapseStructs" class="accordion-collapse collapse" aria-labelledby="headingStructs"
-                            data-bs-parent="#accordionUsosEstructuras">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Representar dispositivos complejos:</strong> Un sensor DHT22 que
-                                        proporciona temperatura y humedad. Un struct
-                                        <code>SensorDHT {int pin; float temp; float humedad; unsigned long ultimaLectura;}</code>
-                                        agrupa todos sus datos.</li>
-                                    <li><strong>Gestionar tareas en sistemas no bloqueantes:</strong> En programación
-                                        avanzada, un struct puede representar una tarea con su intervalo, tiempo de la
-                                        última ejecución, estado, etc.</li>
-                                    <li><strong>Configuración de dispositivos:</strong> Almacenar la configuración de
-                                        una bomba de agua (pin de control, pin del sensor de flujo, umbral mínimo,
-                                        estado) en un solo lugar estructurado.</li>
-                                    <li><strong>Modelar entidades del mundo real:</strong> Un motor paso a paso con su
-                                        pin de dirección, pin de paso, posición actual, velocidad objetivo, etc.</li>
-                                </ul>
+
+                        <div class="alert alert-success mt-3">
+                            <strong>Consejo:</strong> Cuando empieces un proyecto nuevo, piensa en los datos que vas a
+                            manejar.
+                            ¿Tienes varios sensores del mismo tipo? Un array puede ser la solución. ¿Tienes un
+                            dispositivo
+                            complejo con múltiples atributos? Un struct será muy útil. Identificar estas necesidades
+                            temprano te
+                            ayudará a escribir un código más robusto desde el principio.
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h2 class="text-primary border-bottom pb-2 mb-4">5. Galería de Videos Recomendados</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/Yz7CmQN904o"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Arduino Tutorial: Analog Input and Output (PWM)</h5>
+                                        <p class="card-text">Un tutorial visual que explica <code>analogRead</code> y
+                                            <code>analogWrite</code> con ejemplos prácticos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/jRTh58Q79HI"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bitwise Operators in C/C++ (for Arduino)</h5>
+                                        <p class="card-text">Una explicación detallada de las operaciones bit a bit y su
+                                            aplicación en microcontroladores.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Matrices -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingMatrices">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseMatrices" aria-expanded="false"
-                                aria-controls="collapseMatrices">
-                                <strong>Matrices (Arrays 2D)</strong>
-                            </button>
-                        </h2>
-                        <div id="collapseMatrices" class="accordion-collapse collapse" aria-labelledby="headingMatrices"
-                            data-bs-parent="#accordionUsosEstructuras">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Pantallas de LEDs o LCD:</strong> Una pantalla LED 8x8 se controla
-                                        naturalmente con una matriz 8x8 donde cada elemento representa el estado
-                                        (encendido/apagado) de un LED.</li>
-                                    <li><strong>Mapas o niveles de juego:</strong> En proyectos de entretenimiento o
-                                        robótica educativa, un nivel de un juego simple puede representarse con una
-                                        matriz donde diferentes números representan paredes, caminos, enemigos, etc.
-                                    </li>
-                                    <li><strong>Sensores de matriz:</strong> Sensores como una matriz de sensores
-                                        táctiles o un teclado matricial se manejan eficientemente con arrays 2D.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Enums -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingEnums">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseEnums" aria-expanded="false" aria-controls="collapseEnums">
-                                <strong>Enums</strong>
-                            </button>
-                        </h2>
-                        <div id="collapseEnums" class="accordion-collapse collapse" aria-labelledby="headingEnums"
-                            data-bs-parent="#accordionUsosEstructuras">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Estados de una máquina de estados:</strong> En lugar de números mágicos,
-                                        usar
-                                        <code>enum Estado {INICIO, ESPERANDO, PROCESANDO, ERROR, FINALIZADO};</code>
-                                        hace que el código sea mucho más legible y mantenible.</li>
-                                    <li><strong>Tipos de sensores o actuadores:</strong> Identificar diferentes tipos de
-                                        sensores conectados
-                                        (<code>enum TipoSensor {TEMPERATURA, HUMEDAD, LUX, MOVIMIENTO};</code>).</li>
-                                    <li><strong>Modos de operación:</strong> Un sistema puede tener modos como
-                                        <code>enum Modo {MANUAL, AUTOMATICO, CALIBRACION};</code>.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- JSON -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingJSON">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseJSON" aria-expanded="false" aria-controls="collapseJSON">
-                                <strong>JSON</strong>
-                            </button>
-                        </h2>
-                        <div id="collapseJSON" class="accordion-collapse collapse" aria-labelledby="headingJSON"
-                            data-bs-parent="#accordionUsosEstructuras">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Comunicación con APIs web:</strong> Enviar datos de sensores a un
-                                        servidor en formato JSON
-                                        (<code>{"device_id":"ARDUINO_01", "data":[{"sensor":"temp", "value":22.5}]}</code>).
-                                    </li>
-                                    <li><strong>Configuración remota:</strong> Recibir comandos o nuevas configuraciones
-                                        desde una aplicación web o móvil en formato JSON.</li>
-                                    <li><strong>Almacenamiento en archivos (SD, SPIFFS):</strong> Guardar la
-                                        configuración del dispositivo o logs de datos en tarjetas SD o sistemas de
-                                        archivos internos en formato JSON para fácil lectura y parseo.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="alert alert-success mt-3">
-                    <strong>Consejo:</strong> Cuando empieces un proyecto nuevo, piensa en los datos que vas a manejar.
-                    ¿Tienes varios sensores del mismo tipo? Un array puede ser la solución. ¿Tienes un dispositivo
-                    complejo con múltiples atributos? Un struct será muy útil. Identificar estas necesidades temprano te
-                    ayudará a escribir un código más robusto desde el principio.
-                </div>
+                        <hr class="my-4">
 
-                <hr class="my-4">
+                        <h2 class="text-primary border-bottom pb-2 mb-4">6. Referencias y Lecturas Recomendadas</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="https://www.arduino.cc/reference/en/"
+                                    target="_blank">Referencia del Lenguaje Arduino</a> - Documentación oficial de
+                                <code>analogRead</code>, <code>analogWrite</code>, operadores, etc.
+                            </li>
+                            <li class="list-group-item">Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media.
+                                (Capítulos sobre entradas/salidas analógicas y manipulación de bits)</li>
+                        </ul>
 
-                <h2 class="card-title">5. Galería de Videos Recomendados</h2>
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/Yz7CmQN904o" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Arduino Tutorial: Analog Input and Output (PWM)</h5>
-                                <p class="card-text">Un tutorial visual que explica <code>analogRead</code> y
-                                    <code>analogWrite</code> con ejemplos prácticos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/jRTh58Q79HI" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Bitwise Operators in C/C++ (for Arduino)</h5>
-                                <p class="card-text">Una explicación detallada de las operaciones bit a bit y su
-                                    aplicación en microcontroladores.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-4">
-
-                <h2 class="card-title">6. Referencias y Lecturas Recomendadas</h2>
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="https://www.arduino.cc/reference/en/"
-                            target="_blank">Referencia del Lenguaje Arduino</a> - Documentación oficial de
-                        <code>analogRead</code>, <code>analogWrite</code>, operadores, etc.</li>
-                    <li class="list-group-item">Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media.
-                        (Capítulos sobre entradas/salidas analógicas y manipulación de bits)</li>
-                </ul>
-
+                    </section>
+                </article>
             </div>
-        </main>
+        </div>
 
         <!-- Sequential Navigation -->
         <nav class="d-flex justify-content-between mt-4">
