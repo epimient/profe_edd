@@ -4,65 +4,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollo de Aplicaciones con Acceso a Datos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Desarrollo de Aplicaciones con Acceso a Datos - Profe EDD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/acceso-datos.css">
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <div class="container-fluid py-3">
-                <h1 class="display-5 fw-bold">Desarrollo de Aplicaciones con Acceso a Datos</h1>
-                <p class="col-md-10 fs-4">Aprende a diseñar y desarrollar aplicaciones que interactúan con bases de
-                    datos, desde la conexión y consultas hasta la implementación de patrones de acceso a datos.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Profe EDD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pilares/linux.html">Cultura Linux</a></li>
+                </ul>
             </div>
-        </header>
+        </div>
+    </nav>
 
-        <main>
-            <!-- Temario -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Temario de Clase</h2>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Introducción al Acceso a Datos</li>
-                        <li class="list-group-item">Conexión a Bases de Datos Relacionales</li>
-                        <li class="list-group-item">Consultas SQL y Operaciones CRUD</li>
-                        <li class="list-group-item">Mapeo Objeto-Relacional (ORM)</li>
-                        <li class="list-group-item">Acceso a Datos con APIs REST</li>
-                        <li class="list-group-item">Bases de Datos NoSQL</li>
-                        <li class="list-group-item">Patrones de Diseño para Acceso a Datos</li>
-                        <li class="list-group-item">Seguridad y Buenas Prácticas</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Academic Hero Section -->
+    <header class="academic-hero py-5">
+        <div class="container text-center text-lg-start">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-warning text-dark mb-3 fw-bold"><i
+                            class="bi bi-database-fill-gear me-1"></i>DATA
+                        ENGINEERING
+                        · 2026</span>
+                    <h1 class="display-4 fw-bold mb-3 text-shadow">Desarrollo de Aplicaciones con Acceso a Datos</h1>
+                    <p class="lead mb-4 opacity-75">Domina el ciclo de vida del dato en el desarrollo de software. Desde
+                        la persistencia en archivos hasta arquitecturas escalables con ORMs, NoSQL y Microservicios.</p>
 
-            <!-- Recursos -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Recursos</h2>
-                </div>
-                <div class="card-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Diapositivas de la clase (PDF)</a>
-                        <a href="#" class="list-group-item list-group-item-action">Prácticas de Laboratorio</a>
-                        <a href="#" class="list-group-item list-group-item-action">Ejemplos de Código</a>
+                    <!-- Metadata Grid -->
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 mt-4">
+                        <div class="metadata-badge"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Ingeniería
+                            de Sistemas</div>
+                        <div class="metadata-badge"><i class="bi bi-calendar-event me-2 text-warning"></i>16 Semanas
+                        </div>
+                        <div class="metadata-badge"><i class="bi bi-person-badge me-2 text-warning"></i>Ing. Eduardo
+                            Pimienta</div>
                     </div>
                 </div>
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <i class="bi bi-database-check display-1 text-white opacity-50" style="font-size: 10rem;"></i>
+                </div>
             </div>
-        </main>
+        </div>
+    </header>
 
-        <footer class="mt-5 text-center">
-            <a href="../index.html" class="btn btn-primary">Volver al Inicio</a>
-        </footer>
-    </div>
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Mi Propuesta Pedagógica -->
+                <section class="mb-5">
+                    <h2 class="section-header">Persistencia y Eficiencia</h2>
+                    <div class="p-4 bg-white rounded shadow-sm border border-success border-opacity-25">
+                        <p class="lead">Un software sin persistencia es un software sin memoria. En este curso,
+                            aprenderás a gestionar la información de manera profesional <strong>utilizando el ecosistema
+                                Python</strong>.</p>
+                        <p>Iniciamos con la manipulación de flujos de datos en archivos planos, escalamos a la robustez
+                            del modelo relacional con PostgreSQL, y finalizamos con la agilidad de los servicios web y
+                            la flexibilidad de NoSQL.</p>
+                        <hr>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i class="bi bi-diagram-3-fill me-2 text-success"></i>Modelado
+                                    Relacional</h6>
+                                <p class="small text-muted mb-0">Entenderemos cómo estructurar el mundo real en tablas
+                                    optimizadas y normalizadas.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i
+                                        class="bi bi-cloud-arrow-up-fill me-2 text-warning"></i>Cloud
+                                    & APIs</h6>
+                                <p class="small text-muted mb-0">Transformaremos datos estáticos en recursos dinámicos
+                                    accesibles mediante microservicios modernos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+                <!-- Bloques de Aprendizaje -->
+                <section class="mb-5">
+                    <h2 class="section-header">Ruta de Exploración</h2>
+
+                    <!-- Bloque 1 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-success">
+                        <div class="program-block-header p-3 bg-light">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-success text-white me-2">Bloque 1</span>
+                                Persistencia Plana y Bases</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Archivos de
+                                Texto
+                                e IDE</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="./acceso_datos/01-taxonomia-datos.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-file-earmark-text text-success me-2"></i><strong>Taxonomía:</strong>
+                                        Clasificación de estructuras de datos y persistencia.</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/02-puesta-en-marcha-ide.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-terminal text-success me-2"></i><strong>Puesta en
+                                            marcha:</strong> Configuración de IDE (VS Code/PyCharm) para gestión de
+                                        datos.</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/03-mantenimiento-archivos.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-pencil-square text-success me-2"></i><strong>Mantenimiento:</strong>
+                                        CRUD profesional sobre archivos de texto planos.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-warning">
+                        <div class="program-block-header p-3 bg-light">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-warning text-dark me-2">Bloque 2</span>
+                                Mundo Relacional (SQL)</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">PostgreSQL y
+                                Patrón MVC</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="./acceso_datos/04-servidores-db.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-server text-warning me-2"></i><strong>Servidores DB:</strong>
+                                        Instalación y puesta en marcha de un motor relacional.</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/05-db-api-python.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-link-45deg text-warning me-2"></i><strong>DB-API:</strong>
+                                        Conexión nativa desde Python hacia bases de datos.</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/06-crud-db-relacional.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-code-slash text-warning me-2"></i><strong>CRUD DB:</strong>
+                                        Desarrollo de aplicaciones conectadas a DB relacionales.</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/07-modelo-mvc.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-layers text-warning me-2"></i><strong>Modelo MVC:</strong>
+                                        Descripción y responsabilidades de las capas en acceso a datos.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 3 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-primary">
+                        <div class="program-block-header p-3 bg-light">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-primary text-white me-2">Bloque 3</span>
+                                Abstracción y Servicios</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">ORM, NoSQL y
+                                APIs</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="./acceso_datos/08-orm-sqlalchemy.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-magic text-primary me-2"></i><strong>ORM (SQLAlchemy):</strong>
+                                        Puesta en marcha y CRUD usando mapeo objeto-relacional.</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/09-nosql-mongodb.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-lightning-charge text-primary me-2"></i><strong>NoSQL:</strong>
+                                        Definición y uso de bases de datos documentales (MongoDB).</a></li>
+                                <li class="mb-2 small"><a href="./acceso_datos/10-web-services-api.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-cloud-arrow-down text-primary me-2"></i><strong>Web
+                                            Services:</strong> Implementación de servicios REST para acceso a datos.</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Perfil del Docente -->
+                <div class="card border-0 shadow-sm p-4 mb-4 text-center">
+                    <img src="../assets/foto-perfil.jpeg" alt="Eduardo Pimienta"
+                        class="rounded-circle mx-auto mb-3 border border-3 border-success"
+                        style="width: 120px; height: 120px; object-fit: cover;">
+                    <h5 class="fw-bold mb-1">Ing. Eduardo Pimienta</h5>
+                    <p class="small text-muted mb-3">Docente de Ingeniería de Sistemas</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="mailto:epimientag@uniguajira.edu.co" class="btn btn-sm btn-outline-dark"><i
+                                class="bi bi-envelope"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="p-4 mb-4 bg-dark text-white rounded shadow-sm border-bottom border-5 border-success">
+                    <h6 class="fw-bold text-warning mb-3"><i class="bi bi-shield-lock me-1"></i>Integridad del Dato</h6>
+                    <ul class="list-unstyled small mb-0 opacity-75">
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Transacciones ACID.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Normalización lógica.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Seguridad contra Inyección
+                            SQL.</li>
+                        <li class="mb-0"><i class="bi bi-check-circle text-success me-2"></i>Eficiencia en
+                            lectura/escritura.</li>
+                    </ul>
+                </div>
+
+                <!-- Recursos Clave -->
+                <div class="p-4 mb-4 bg-white rounded shadow-sm border border-light">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-journal-code me-2 text-muted"></i>Documentación Python</h5>
+                    <ul class="list-unstyled mb-0 list-group list-group-flush small">
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>SQLAlchemy</strong> - The
+                            Database Toolkit.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>PEP 249</strong> - Python
+                            Database API Specification.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>FastAPI</strong> - Starlette
+                            + Pydantic precision.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>MongoDB</strong> -
+                            Document-oriented data.</li>
+                    </ul>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="p-4 bg-success bg-opacity-10 rounded border border-success border-2 text-center shadow-sm">
+                    <h6 class="fw-bold text-dark">¿Problemas con SQL?</h6>
+                    <p class="small">Consulta nuestra guía rápida de normalización y optimización de consultas.</p>
+                    <a href="#" class="btn btn-sm btn-success text-white w-100 fw-bold">Ver Recursos SQL <i
+                            class="bi bi-box-arrow-up-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Ecosistema Profe EDD - Ingeniería de Sistemas</p>
+            <p class="text-muted extra-small" style="font-size: 0.7rem;">Diseño Rector personalizado por Ing. Eduardo
+                Pimienta.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -4,63 +4,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programación Orientada a Objetos en Python</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Programación Orientada a Objetos - Profe EDD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/poo.css">
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <div class="container-fluid py-3">
-                <h1 class="display-5 fw-bold">Programación Orientada a Objetos en Python</h1>
-                <p class="col-md-10 fs-4">Aprende los principios de la Programación Orientada a Objetos (POO) y cómo
-                    aplicarlos en Python para escribir código más limpio y reutilizable.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Profe EDD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pilares/linux.html">Cultura Linux</a></li>
+                </ul>
             </div>
-        </header>
+        </div>
+    </nav>
 
-        <main>
-            <!-- Temario -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Temario de Clase</h2>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Conceptos Fundamentales de la POO</li>
-                        <li class="list-group-item">Clases y Objetos en Python</li>
-                        <li class="list-group-item">Herencia, Polimorfismo y Encapsulamiento</li>
-                        <li class="list-group-item">Clases Abstractas e Interfaces</li>
-                        <li class="list-group-item">Patrones de Diseño en POO</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Academic Hero Section -->
+    <header class="academic-hero py-5">
+        <div class="container text-center text-lg-start">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-warning text-dark mb-3 fw-bold"><i class="bi bi-code-square me-1"></i>PYTHON
+                        FIRST
+                        · 2026</span>
+                    <h1 class="display-4 fw-bold mb-3 text-shadow">Programación Orientada a Objetos</h1>
+                    <p class="lead mb-4 opacity-75">Domina el paradigma que estructura el software moderno. Aprende a
+                        pensar en objetos, diseñar arquitecturas limpias y crear interfaces gráficas profesionales con
+                        Python.</p>
 
-            <!-- Recursos -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-dark text-white">
-                    <h2 class="h4 mb-0">Recursos</h2>
-                </div>
-                <div class="card-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Diapositivas de la clase (PDF)</a>
-                        <a href="#" class="list-group-item list-group-item-action">Ejercicios y Proyectos</a>
-                        <a href="#" class="list-group-item list-group-item-action">Repositorio en GitHub con
-                            ejemplos</a>
+                    <!-- Metadata Grid -->
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 mt-4">
+                        <div class="metadata-badge"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Ingeniería
+                            de Sistemas</div>
+                        <div class="metadata-badge"><i class="bi bi-calendar-event me-2 text-warning"></i>16 Semanas
+                        </div>
+                        <div class="metadata-badge"><i class="bi bi-person-badge me-2 text-warning"></i>Ing. Eduardo
+                            Pimienta</div>
                     </div>
                 </div>
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+                        alt="Python Logo"
+                        style="max-height: 200px; filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));">
+                </div>
             </div>
-        </main>
+        </div>
+    </header>
 
-        <footer class="mt-5 text-center">
-            <a href="../index.html" class="btn btn-primary">Volver al Inicio</a>
-        </footer>
-    </div>
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Mi Propuesta Pedagógica -->
+                <section class="mb-5">
+                    <h2 class="section-header">¿Qué aprenderemos aquí?</h2>
+                    <div class="p-4 bg-white rounded shadow-sm border border-primary border-opacity-25">
+                        <p class="lead">Este curso transforma tu forma de resolver problemas: pasamos de escribir
+                            scripts lineales a diseñar <strong>sistemas modulares y escalables</strong>.
+                        </p>
+                        <p>Exploraremos la elegancia de la POO en Python, un lenguaje donde la flexibilidad es ley.
+                            Aprenderás conceptos avanzados como <strong>Duck Typing</strong> y decoradores, y cerraremos
+                            construyendo aplicaciones con interfaces gráficas usando <strong>Tkinter y Flet</strong>.
+                        </p>
+                        <hr>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i class="bi bi-lightning-fill me-2 text-warning"></i>Pythonic
+                                    Way</h6>
+                                <p class="small text-muted mb-0">No solo aprendemos POO, aprendemos a hacerla de forma
+                                    pitónica: simple, legible y poderosa.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-1"><i class="bi bi-window-stack me-2 text-primary"></i>GUI & Apps
+                                </h6>
+                                <p class="small text-muted mb-0">Llevamos tus algoritmos al usuario final con ventanas,
+                                    eventos y componentes gráficos reales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+                <!-- Bloques de Aprendizaje -->
+                <section class="mb-5">
+                    <h2 class="section-header">Ruta de Exploración</h2>
+
+                    <!-- Bloque 1 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-primary">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-primary text-white me-2">Bloque 1</span>
+                                Cimientos del Paradigma</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Introducción,
+                                Clases y Objetos</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Iniciamos el viaje socializando el syllabus y sumergiéndonos en el ADN de
+                                las clases, objetos y los principios fundamentales de la POO.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="./POO/01-introduccion-poo.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-journal-text text-primary me-2"></i><strong>Introducción a la
+                                            POO:</strong> Presentación, socialización de syllabus y acuerdo
+                                        pedagógico.</a></li>
+                                <li class="mb-2 small"><a href="./POO/02-metodologia-principios.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-diagram-2 text-primary me-2"></i><strong>Metodología y
+                                            Principios:</strong> Encapsulamiento, Abstracción y Lógica de
+                                        Programación.</a></li>
+                                <li class="mb-2 small"><a href="./POO/03-clases-objetos.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-box-seam text-primary me-2"></i><strong>Clases y
+                                            Objetos:</strong> Construcción de clases, creación de objetos y métodos.</a>
+                                </li>
+                                <li class="mb-2 small"><a href="./POO/04-metodos-especiales.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-gear-fill text-primary me-2"></i><strong>Métodos
+                                            Especiales:</strong> Decoradores, @staticmethod y @classmethod (cls).</a>
+                                </li>
+                                <li class="mb-2 small"><a href="./POO/05-herencia-duck-typing.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-signpost-split text-primary me-2"></i><strong>Herencia y Duck
+                                            Typing:</strong> Jerarquías modulares y la filosofía "If it walks like a
+                                        duck...".</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-warning">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-warning text-dark me-2">Bloque 2</span>
+                                Relaciones y Abstracción</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Polimorfismo,
+                                UML e Interfaces</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Elevamos la complejidad seleccionando clases asociadas a problemas reales,
+                                aplicando polimorfismo y diagramación técnica.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="./POO/06-polimorfismo.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-intersect text-warning me-2"></i><strong>Polimorfismo:</strong>
+                                        Selección de clases, complejidad y métodos de datos.</a></li>
+                                <li class="mb-2 small"><a href="./POO/07-diagrama-clases.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-vector-pen text-warning me-2"></i><strong>Diagrama de
+                                            Clases:</strong> Modelado visual de soluciones orientadas a objetos.</a>
+                                </li>
+                                <li class="mb-2 small"><a href="./POO/08-clases-abstractas.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-layers-half text-warning me-2"></i><strong>Clases
+                                            Abstractas:</strong> Definición de estructuras base y contratos de
+                                        implementación.</a></li>
+                                <li class="mb-2 small"><a href="./POO/09-interfaces.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-cpu text-warning me-2"></i><strong>Interfaces:</strong>
+                                        Aplicación de interfaces para la aproximación a soluciones complejas.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 3 -->
+                    <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-info">
+                        <div class="program-block-header">
+                            <h5 class="fw-bold mb-1"><span class="badge bg-info text-dark me-2">Bloque 3</span> Interfaz
+                                Gráfica de Usuario (GUI)</h5>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 0.7rem;">Tkinter, Flet y
+                                Gestión de Eventos</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <p class="small">Llevamos tus habilidades al siguiente nivel desarrollando aplicaciones
+                                gráficas innovadoras y funcionales.</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 small"><a href="./POO/10-arquitectura-gui.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-window-sidebar text-info me-2"></i><strong>Arquitectura de
+                                            GUI:</strong> Elementos gráficos y jerarquía de ventanas.</a></li>
+                                <li class="mb-2 small"><a href="./POO/11-gestion-eventos.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-mouse2 text-info me-2"></i><strong>Gestión de Eventos:</strong>
+                                        Interactividad y respuesta a acciones del usuario.</a></li>
+                                <li class="mb-2 small"><a href="./POO/12-tkinter.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-box-fill text-info me-2"></i><strong>Tkinter Deep
+                                            Dive:</strong> Construcción de GUIs sólidas y tradicionales.</a></li>
+                                <li class="mb-2 small"><a href="./POO/13-flet.html"
+                                        class="text-decoration-none text-secondary"><i
+                                            class="bi bi-rocket-takeoff text-info me-2"></i><strong>Intro a
+                                            Flet:</strong> Aplicaciones modernas inspiradas en Flutter para Python.</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Metodología y Evaluación -->
+                <section class="mb-5">
+                    <h2 class="section-header">Estrategia de Aprendizaje</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-braces-asterisk me-2 text-primary"></i>Pythonic
+                                        Hands-on</h6>
+                                    <p class="small text-muted mb-0">Cada pilar de la POO se refuerza con talleres
+                                        prácticos y análisis de código real en Python.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-people-fill me-2 text-info"></i>Aprendizaje
+                                        Colaborativo</h6>
+                                    <p class="small text-muted mb-0">Trabajo en equipo para resolver problemas
+                                        matemáticos y de programación compleja.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-white shadow-sm h-100 pb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold"><i class="bi bi-terminal-dash me-2 text-warning"></i>Discurso
+                                        Magistral + Foros</h6>
+                                    <p class="small text-muted mb-0">Teoría sólida complementada con debates técnicos y
+                                        foros de participación EVA.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Perfil del Docente -->
+                <div class="card border-0 shadow-sm p-4 mb-4 text-center">
+                    <img src="../assets/foto-perfil.jpeg" alt="Eduardo Pimienta"
+                        class="rounded-circle mx-auto mb-3 border border-3 border-primary"
+                        style="width: 120px; height: 120px; object-fit: cover;">
+                    <h5 class="fw-bold mb-1">Ing. Eduardo Pimienta</h5>
+                    <p class="small text-muted mb-3">Docente de Ingeniería de Sistemas</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="mailto:epimientag@uniguajira.edu.co" class="btn btn-sm btn-outline-dark"><i
+                                class="bi bi-envelope"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="p-4 mb-4 bg-dark text-white rounded shadow-sm border-bottom border-5 border-primary">
+                    <h6 class="fw-bold text-warning mb-3"><i class="bi bi-lightbulb me-1"></i>Filosofía POO</h6>
+                    <ul class="list-unstyled small mb-0 opacity-75">
+                        <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i>"If it walks like a duck
+                            and quacks like a duck, it's a duck."</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i>Decoradores para un código
+                            limpio.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i>@classmethod vs
+                            @staticmethod.</li>
+                        <li class="mb-0"><i class="bi bi-check-circle text-warning me-2"></i>GUIs con Tkinter y Flet.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Recursos Clave -->
+                <div class="p-4 mb-4 bg-white rounded shadow-sm border border-light">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-book me-2 text-muted"></i>Bibliografía Python</h5>
+                    <ul class="list-unstyled mb-0 list-group list-group-flush small">
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Ramalho, L.</strong> (2022).
+                            Fluent Python, 2nd Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Phillips, D.</strong> (2018).
+                            Python 3 Object-Oriented Programming, 3rd Ed.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Beazley, D.</strong> (2013).
+                            Python Cookbook.</li>
+                        <li class="list-group-item bibliography-item p-1 border-0"><strong>Documentación
+                                Oficial.</strong> Python.org / Tkinter.</li>
+                    </ul>
+                </div>
+
+                <div class="card border-0 shadow-sm overflow-hidden mb-4">
+                    <div class="card-header bg-primary text-white py-3 border-0">
+                        <h6 class="mb-0 fw-bold"><i class="bi bi-github me-2"></i>Recursos de Clase</h6>
+                    </div>
+                    <div class="card-body bg-light text-center py-4">
+                        <p class="small text-muted">Accede a los ejemplos de código y laboratorios de POO en GitHub.</p>
+                        <a href="#" target="_blank" class="btn btn-dark btn-sm rounded-pill px-4 shadow-sm">
+                            <i class="bi bi-folder2-open me-2 text-warning"></i>Explorar Código
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="p-4 bg-warning bg-opacity-10 rounded border border-warning border-2 text-center shadow-sm">
+                    <h6 class="fw-bold text-dark">¿Quieres ver Flet en acción?</h6>
+                    <p class="small">Descubre cómo crear apps móviles y web con Python en nuestra sección especial.</p>
+                    <a href="https://flet.dev" target="_blank"
+                        class="btn btn-sm btn-warning text-dark w-100 fw-bold">Ver Documentación Flet <i
+                            class="bi bi-box-arrow-up-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Ecosistema Profe EDD - Ingeniería de Sistemas</p>
+            <p class="text-muted extra-small" style="font-size: 0.7rem;">Diseño Rector personalizado por Ing. Eduardo
+                Pimienta.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

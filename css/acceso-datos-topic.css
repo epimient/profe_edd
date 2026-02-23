@@ -1,0 +1,53 @@
+/* Acceso a Datos - Topic Page Styles */
+:root {
+    --data-primary: #2e7d32;
+    --data-secondary: #1b5e20;
+    --data-accent: #ffc107;
+    --data-light: #e8f5e9;
+    --data-bg: #f4f7f4;
+}
+
+body {
+    background-color: var(--data-bg);
+    color: #333;
+}
+
+.breadcrumb-item a {
+    color: var(--data-primary);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: var(--data-secondary);
+}
+
+header.bg-white {
+    border-bottom: 4px solid var(--data-primary);
+}
+
+.alert-primary {
+    background-color: var(--data-light);
+    border-color: var(--data-primary);
+    color: var(--data-secondary);
+}
+
+.poo-card {
+    /* Reusing name for consistency in templates */
+    border-left: 4px solid var(--data-accent) !important;
+    transition: transform 0.2s ease;
+}
+
+.poo-card:hover {
+    transform: translateY(-5px);
+}
+
+footer.bg-dark {
+    background-color: var(--data-secondary) !important;
+}
+
+/* Prism Overrides for Data Access theme */
+pre[class*="language-"] {
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
