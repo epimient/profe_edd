@@ -23,20 +23,20 @@
     </nav>
 
     <!-- Header Pilar -->
-    <header class="py-5 text-white pilar-header">
+    <header class="academic-hero py-5 linux-pilar">
         <div class="container text-center">
-            <i class="bi bi-ubuntu display-1"></i>
-            <h1 class="display-4 fw-bold mt-3">Cultura Linux</h1>
+            <i class="bi bi-ubuntu display-1" aria-hidden="true"></i>
+            <h1 class="display-4 fw-bold mt-3" id="main-title">Cultura Linux</h1>
             <p class="lead">Infraestructura, Transparencia y Soberanía Tecnológica</p>
         </div>
     </header>
 
     <main class="container py-5">
         <!-- Fundamentación -->
-        <section class="mb-5">
+        <section class="mb-5" aria-labelledby="foundation-title">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold border-bottom pb-2">Fundamentación</h2>
+                    <h2 class="fw-bold border-bottom pb-2" id="foundation-title">Fundamentación</h2>
                     <p class="lead">La adopción de una filosofía <strong>Linux-first</strong> no es solo técnica, es
                         estratégica.</p>
                     <p>En el Ecosistema Profe EDD, entendemos que los entornos abiertos favorecen la transparencia
@@ -50,8 +50,9 @@
         </section>
 
         <!-- Ranking Distros -->
-        <section class="mb-5">
-            <h2 class="fw-bold border-bottom pb-3 mb-4 text-center">Top Distros 2025-2026 para Ingenieros</h2>
+        <section class="mb-5" aria-labelledby="ranking-title">
+            <h2 class="fw-bold border-bottom pb-3 mb-4 text-center" id="ranking-title">Top Distros 2025-2026 para
+                Ingenieros</h2>
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 text-center">
                 <div class="col">
                     <div class="card h-100 distro-card shadow-sm">
@@ -109,16 +110,17 @@
         <div class="row g-5">
             <div class="col-lg-8">
                 <!-- CLASE RECOMENDADA -->
-                <section class="mb-5">
+                <section class="mb-5" aria-labelledby="star-course-title">
                     <div class="card fso-star-card shadow-lg p-4 p-md-5 border-0">
                         <div class="row align-items-center">
-                            <div class="col-md-3 text-center mb-4 mb-md-0">
+                            <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0">
                                 <div class="fso-icon-box mx-auto">
-                                    <img src="../assets/Tux.svg.png" alt="Tux Linux" class="fso-img">
+                                    <img src="../assets/Tux.svg.png" alt="Tux Linux, mascota oficial de Linux"
+                                        class="fso-img">
                                 </div>
                             </div>
-                            <div class="col-md-9 px-md-5">
-                                <h1 class="fw-bold mb-3">Fundamentos de Sistemas Operativos</h1>
+                            <div class="col-lg-9 col-md-8 px-md-5">
+                                <h2 class="fw-bold mb-3" id="star-course-title">Fundamentos de Sistemas Operativos</h2>
                                 <p class="lead text-muted mb-4">La pieza central de tu formación en ingeniería. Domina
                                     desde la arquitectura del kernel hasta la gestión avanzada de recursos.</p>
                                 <div class="d-flex flex-wrap gap-3">
@@ -133,12 +135,14 @@
                 </section>
 
                 <!-- Centro de Descargas ISO Expandido -->
-                <section class="mb-5">
-                    <h2 class="fw-bold border-bottom pb-2 mb-4">Centro de Descargas ISO (Librería Completa)</h2>
+                <section class="mb-5" aria-labelledby="downloads-title">
+                    <h2 class="fw-bold border-bottom pb-2 mb-4" id="downloads-title">Centro de Descargas ISO (Librería
+                        Completa)</h2>
 
                     <!-- Categoría: Engineering & Servers -->
                     <div class="iso-category-header">
-                        <h5 class="mb-0 fw-bold"><i class="bi bi-cpu-fill me-2"></i>Engineering Core & Servers</h5>
+                        <h3 class="h5 mb-0 fw-bold"><i class="bi bi-cpu-fill me-2" aria-hidden="true"></i>Engineering
+                            Core & Servers</h3>
                     </div>
                     <div class="table-responsive bg-white rounded shadow-sm p-3 mb-4">
                         <table class="table table-hover align-middle">
@@ -186,7 +190,8 @@
 
                     <!-- Categoría: Gaming & High Performance -->
                     <div class="iso-category-header">
-                        <h5 class="mb-0 fw-bold"><i class="bi bi-controller me-2"></i>Gaming & High Performance</h5>
+                        <h3 class="h5 mb-0 fw-bold"><i class="bi bi-controller me-2" aria-hidden="true"></i>Gaming &
+                            High Performance</h3>
                     </div>
                     <div class="table-responsive bg-white rounded shadow-sm p-3 mb-4">
                         <table class="table table-hover align-middle">
@@ -227,8 +232,8 @@
 
                     <!-- Categoría: Security & Modern Desktop -->
                     <div class="iso-category-header">
-                        <h5 class="mb-0 fw-bold"><i class="bi bi-shield-lock-fill me-2"></i>Security & Modern Desktop
-                        </h5>
+                        <h3 class="h5 mb-0 fw-bold"><i class="bi bi-shield-lock-fill me-2"
+                                aria-hidden="true"></i>Security & Modern Desktop</h3>
                     </div>
                     <div class="table-responsive bg-white rounded shadow-sm p-3">
                         <table class="table table-hover align-middle">
@@ -320,11 +325,12 @@
                 </div>
 
                 <!-- NOTICIAS DINÁMICAS (Side-bar) -->
-                <div class="card border-0 shadow-sm overflow-hidden">
+                <div class="card border-0 shadow-sm overflow-hidden" aria-labelledby="news-title">
                     <div class="card-header bg-primary text-white py-3">
-                        <h5 class="mb-0 fw-bold"><i class="bi bi-rss-fill me-2"></i>Actualidad Linux</h5>
+                        <h5 class="mb-0 fw-bold" id="news-title"><i class="bi bi-rss-fill me-2"
+                                aria-hidden="true"></i>Actualidad Linux</h5>
                     </div>
-                    <div id="linux-news-feed" class="card-body p-0">
+                    <div id="linux-news-feed" class="card-body p-0" aria-live="polite">
                         <div class="text-center p-4">
                             <div class="spinner-border text-primary spinner-border-sm" role="status"></div>
                             <span class="small ms-2">Sincronizando feed...</span>

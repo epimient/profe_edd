@@ -22,53 +22,56 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Instalación de Servidores DB</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Instalación de Servidores DB</h1>
             <p class="fs-4 text-muted">Puesta en marcha de PostgreSQL y gestión de motores relacionales.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">¿Por qué PostgreSQL?</h2>
-                        <p>PostgreSQL es el estándar de la industria para datos relacionales en entornos Python por su
-                            cumplimiento estricto de SQL y su extensibilidad.</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5 text-center">
-                        <h2 class="mb-4">Pasos de Instalación</h2>
-                        <div class="row g-3 text-start">
-                            <div class="col-md-4">
-                                <div class="p-3 border rounded bg-white shadow-sm h-100">
-                                    <h6 class="fw-bold">1. Descarga</h6>
-                                    <p class="small mb-0">Obtención del binario oficial según el OS.</p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="why-postgres-heading">
+                            <h2 id="why-postgres-heading" class="mb-4">¿Por qué PostgreSQL?</h2>
+                            <p>PostgreSQL es el estándar de la industria para datos relacionales en entornos Python por
+                                su
+                                cumplimiento estricto de SQL y su extensibilidad.</p>
+                        </section>
+
+                        <section class="mb-5 text-center" aria-labelledby="install-steps-heading">
+                            <h2 id="install-steps-heading" class="mb-4">Pasos de Instalación</h2>
+                            <div class="row g-3 text-start">
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded bg-white shadow-sm h-100">
+                                        <h6 class="fw-bold">1. Descarga</h6>
+                                        <p class="small mb-0">Obtención del binario oficial según el OS.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded bg-white shadow-sm h-100">
+                                        <h6 class="fw-bold">2. Configuración</h6>
+                                        <p class="small mb-0">Definición de usuarios, puertos y contraseñas.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded bg-white shadow-sm h-100">
+                                        <h6 class="fw-bold">3. Gestión</h6>
+                                        <p class="small mb-0">Uso de pgAdmin o DBeaver para administrar.</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="p-3 border rounded bg-white shadow-sm h-100">
-                                    <h6 class="fw-bold">2. Configuración</h6>
-                                    <p class="small mb-0">Definición de usuarios, puertos y contraseñas.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="p-3 border rounded bg-white shadow-sm h-100">
-                                    <h6 class="fw-bold">3. Gestión</h6>
-                                    <p class="small mb-0">Uso de pgAdmin o DBeaver para administrar.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

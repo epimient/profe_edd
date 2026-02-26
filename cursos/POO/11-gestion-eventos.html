@@ -22,42 +22,45 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Gestión de Eventos</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Gestión de Eventos</h1>
             <p class="fs-4 text-muted">Interactividad y reactividad.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Loop de Eventos (Mainloop)</h2>
-                        <p>Las aplicaciones de GUI no se ejecutan y terminan; entran en un bucle infinito que "escucha"
-                            acciones del usuario (clicks, teclas, etc.).</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Callbacks e Interrupciones</h2>
-                        <p>Un <strong>callback</strong> es una función que se ejecuta cuando ocurre un evento
-                            específico.</p>
-                        <pre><code class="language-python">def al_hacer_click():
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="mainloop-heading">
+                            <h2 id="mainloop-heading" class="mb-4">Loop de Eventos (Mainloop)</h2>
+                            <p>Las aplicaciones de GUI no se ejecutan y terminan; entran en un bucle infinito que
+                                "escucha"
+                                acciones del usuario (clicks, teclas, etc.).</p>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="callbacks-heading">
+                            <h2 id="callbacks-heading" class="mb-4">Callbacks e Interrupciones</h2>
+                            <p>Un <strong>callback</strong> es una función que se ejecuta cuando ocurre un evento
+                                específico.</p>
+                            <pre><code class="language-python">def al_hacer_click():
     print("¡Botón presionado!")
 
 # En pseudocódigo de GUI:
 boton.config(command=al_hacer_click)</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

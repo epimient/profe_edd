@@ -22,45 +22,52 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Modelo-Vista-Controlador (MVC)</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Modelo-Vista-Controlador (MVC)</h1>
             <p class="fs-4 text-muted">Arquitectura profesional para aplicaciones con persistencia de datos.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post border-bottom mb-5">
-                    <h2 class="mb-4">Responsabilidades de las Capas</h2>
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <div class="p-4 bg-white shadow-sm border-top border-5 border-primary rounded text-center">
-                                <h4 class="fw-bold">MODELO</h4>
-                                <p class="small text-muted">Datos y Lógica. Donde vive el acceso a DB.</p>
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post border-bottom mb-5">
+                        <section aria-labelledby="mvc-responsibilities-heading">
+                            <h2 id="mvc-responsibilities-heading" class="mb-4">Responsabilidades de las Capas</h2>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div
+                                        class="p-4 bg-white shadow-sm border-top border-5 border-primary rounded text-center">
+                                        <h4 class="fw-bold">MODELO</h4>
+                                        <p class="small text-muted">Datos y Lógica. Donde vive el acceso a DB.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="p-4 bg-white shadow-sm border-top border-5 border-warning rounded text-center">
+                                        <h4 class="fw-bold">VISTA</h4>
+                                        <p class="small text-muted">La interfaz de usuario y visualización.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="p-4 bg-white shadow-sm border-top border-5 border-danger rounded text-center">
+                                        <h4 class="fw-bold">CONTROL</h4>
+                                        <p class="small text-muted">El orquestador de interacciones.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-4 bg-white shadow-sm border-top border-5 border-warning rounded text-center">
-                                <h4 class="fw-bold">VISTA</h4>
-                                <p class="small text-muted">La interfaz de usuario y visualización.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-4 bg-white shadow-sm border-top border-5 border-danger rounded text-center">
-                                <h4 class="fw-bold">CONTROL</h4>
-                                <p class="small text-muted">El orquestador de interacciones.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

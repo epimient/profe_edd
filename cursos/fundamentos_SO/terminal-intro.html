@@ -28,122 +28,131 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">Primeros pasos con la Terminal</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 id="lesson-title" class="display-5 fw-bold">Primeros pasos con la Terminal</h1>
             <p class="fs-4">Deja de tenerle miedo a la pantalla negra. Aquí es donde ocurre la verdadera magia.</p>
         </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">¿Por qué usar la terminal?</h2>
-                    <p>La Interfaz de Línea de Comandos (CLI) es más rápida, potente y consume menos recursos que la
-                        Interfaz Gráfica (GUI). Es la herramienta fundamental de cualquier administrador de sistemas.
-                    </p>
+        <main aria-labelledby="lesson-title">
 
-                    <h3 class="mt-4">Comandos Básicos de Supervivencia</h3>
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="why-terminal-heading">
+                            <h2 id="why-terminal-heading" class="blog-post-title mb-4">¿Por qué usar la terminal?</h2>
+                            <p>La Interfaz de Línea de Comandos (CLI) es más rápida, potente y consume menos recursos
+                                que la
+                                Interfaz Gráfica (GUI). Es la herramienta fundamental de cualquier administrador de
+                                sistemas.
+                            </p>
 
-                    <h5 class="mt-3">1. ¿Dónde estoy? (Print Working Directory)</h5>
-                    <p>Muestra la ruta completa del directorio actual.</p>
-                    <pre class="rounded"><code class="language-bash">pwd</code></pre>
+                            <h3 class="mt-4">Comandos Básicos de Supervivencia</h3>
 
-                    <h5 class="mt-3">2. Listar archivos (List)</h5>
-                    <p>Muestra qué hay en el directorio.</p>
-                    <pre class="rounded"><code class="language-bash">ls
+                            <h5 class="mt-3">1. ¿Dónde estoy? (Print Working Directory)</h5>
+                            <p>Muestra la ruta completa del directorio actual.</p>
+                            <pre class="rounded"><code class="language-bash">pwd</code></pre>
+
+                            <h5 class="mt-3">2. Listar archivos (List)</h5>
+                            <p>Muestra qué hay en el directorio.</p>
+                            <pre class="rounded"><code class="language-bash">ls
 ls -l  # Lista detallada (permisos, tamaño, dueño)
 ls -a  # Muestra archivos ocultos</code></pre>
 
-                    <h5 class="mt-3">3. Cambiar de directorio (Change Directory)</h5>
-                    <p>Para navegar por el árbol de directorios.</p>
-                    <pre class="rounded"><code class="language-bash">cd Documentos   # Entra a Documentos
+                            <h5 class="mt-3">3. Cambiar de directorio (Change Directory)</h5>
+                            <p>Para navegar por el árbol de directorios.</p>
+                            <pre class="rounded"><code class="language-bash">cd Documentos   # Entra a Documentos
 cd ..           # Sube un nivel
 cd ~            # Vuelve a tu carpeta personal (Home)</code></pre>
 
-                    <div class="alert alert-info mt-4" role="alert">
-                        <h4 class="alert-heading"><i class="bi bi-lightbulb-fill"></i> Tip Pro</h4>
-                        <p>No tienes que escribir los nombres completos. Escribe las primeras letras y presiona la tecla
-                            <strong>TAB</strong> para autocompletar.
-                        </p>
-                    </div>
+                            <div class="alert alert-info mt-4" role="alert">
+                                <h4 class="alert-heading"><i class="bi bi-lightbulb-fill"></i> Tip Pro</h4>
+                                <p>No tienes que escribir los nombres completos. Escribe las primeras letras y presiona
+                                    la tecla
+                                    <strong>TAB</strong> para autocompletar.
+                                </p>
+                            </div>
 
-                    <h3 class="mt-4">Ejercicio Práctico</h3>
-                    <ol>
-                        <li>Abre tu terminal.</li>
-                        <li>Escribe <code>mkdir curso_linux</code> para crear una carpeta.</li>
-                        <li>Entra en ella con <code>cd curso_linux</code>.</li>
-                        <li>Crea un archivo vacío con <code>touch prueba.txt</code>.</li>
-                        <li>Verifica que está ahí con <code>ls -l</code>.</li>
-                    </ol>
+                            <h3 class="mt-4">Ejercicio Práctico</h3>
+                            <ol>
+                                <li>Abre tu terminal.</li>
+                                <li>Escribe <code>mkdir curso_linux</code> para crear una carpeta.</li>
+                                <li>Entra en ella con <code>cd curso_linux</code>.</li>
+                                <li>Crea un archivo vacío con <code>touch prueba.txt</code>.</li>
+                                <li>Verifica que está ahí con <code>ls -l</code>.</li>
+                            </ol>
+                        </section>
 
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/I4EWvMFj37g"
-                                            title="Linux Terminal (Fireship)" allowfullscreen></iframe>
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/I4EWvMFj37g"
+                                                title="Linux Terminal (Fireship)" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Bash en 100 Segundos (Fireship)</h6>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Bash en 100 Segundos (Fireship)</h6>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/oxuRxtrO2Ag"
+                                                title="Aprende Linux Terminal" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Aprende la Terminal de Linux</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/oxuRxtrO2Ag"
-                                            title="Aprende Linux Terminal" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Aprende la Terminal de Linux</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
-                                Starch Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>Linux Journey.</strong> <em>Command Line.</em>
-                                <a href="https://linuxjourney.com/lesson/the-shell" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
-                                    recurso</a>
-                            </li>
-                        </ul>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
+                                    Starch Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>Linux Journey.</strong> <em>Command Line.</em>
+                                    <a href="https://linuxjourney.com/lesson/the-shell" target="_blank"
+                                        class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                        Ver
+                                        recurso</a>
+                                </li>
+                            </ul>
+                        </section>
 
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

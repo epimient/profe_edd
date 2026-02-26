@@ -22,10 +22,10 @@
     </nav>
 
     <!-- Header Pilar -->
-    <header class="py-5 text-white" style="background-color: #455a64;">
+    <header class="academic-hero py-5" style="--pilar-primary: #455a64; --pilar-accent: #607d8b;">
         <div class="container text-center">
-            <i class="bi bi-gear-wide-connected display-1"></i>
-            <h1 class="display-4 fw-bold mt-3">Proyectos de Ingeniería</h1>
+            <i class="bi bi-gear-wide-connected display-1" aria-hidden="true"></i>
+            <h1 class="display-4 fw-bold mt-3" id="main-title">Proyectos de Ingeniería</h1>
             <p class="lead">Producción Técnica Verificable y Artefactos Públicos</p>
         </div>
     </header>
@@ -34,16 +34,16 @@
         <div class="row g-5">
             <!-- Introducción Estratégica -->
             <div class="col-lg-8">
-                <section class="mb-5">
-                    <h2 class="fw-bold border-bottom pb-2">Fundamentación</h2>
+                <section class="mb-5" aria-labelledby="foundation-title">
+                    <h2 class="fw-bold border-bottom pb-2" id="foundation-title">Fundamentación</h2>
                     <p>En el Ecosistema Profe EDD, el aprendizaje se profundiza cuando el estudiante construye
                         <strong>artefactos públicos y significativos</strong>. El proyecto no es un accesorio, es
                         evidencia tangible de pensamiento estructurado e integración profesional.
                     </p>
                 </section>
 
-                <section class="mb-5">
-                    <h2 class="fw-bold border-bottom pb-2">Plataformas de Ingeniería</h2>
+                <section class="mb-5" aria-labelledby="platforms-title">
+                    <h2 class="fw-bold border-bottom pb-2" id="platforms-title">Plataformas de Ingeniería</h2>
                     <div class="row row-cols-1 row-cols-md-2 g-4">
                         <div class="col">
                             <div class="card h-100 border-0 shadow-sm overflow-hidden">
@@ -53,7 +53,8 @@
                                     <p class="small text-muted">Repositorio de software estudiantil desarrollado bajo
                                         estándares de ingeniería.</p>
                                     <a href="https://epimient.github.io/softHub/" target="_blank"
-                                        class="btn btn-outline-success btn-sm">Explorar Software</a>
+                                        class="btn btn-outline-success btn-sm"
+                                        aria-label="Explorar Repositorio SoftHub">Explorar Software</a>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +65,8 @@
                                     <p class="small text-muted">Directorio curado de herramientas de IA para potenciar
                                         el desarrollo técnico.</p>
                                     <a href="https://epimient.github.io/AIONAV/" target="_blank"
-                                        class="btn btn-outline-info btn-sm">Ver Herramientas</a>
+                                        class="btn btn-outline-info btn-sm" aria-label="Ver Herramientas en AIONAV">Ver
+                                        Herramientas</a>
                                 </div>
                             </div>
                         </div>
@@ -76,15 +78,16 @@
                                     <p class="small text-muted">Colección de prácticas y laboratorios de ingeniería, con
                                         guías paso a paso y retos técnicos.</p>
                                     <a href="https://epimient.github.io/repositorio_FSO/" target="_blank"
-                                        class="btn btn-outline-primary btn-sm">Ver Prácticas</a>
+                                        class="btn btn-outline-primary btn-sm"
+                                        aria-label="Ver Repositorio de Prácticas FSO">Ver Prácticas</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="mb-5">
-                    <h2 class="fw-bold border-bottom pb-2">Estándares de Ingeniería</h2>
+                <section class="mb-5" aria-labelledby="standards-title">
+                    <h2 class="fw-bold border-bottom pb-2" id="standards-title">Estándares de Ingeniería</h2>
                     <div class="list-group shadow-sm">
                         <div class="list-group-item p-4">
                             <h5 class="fw-bold">Versionamiento y Repositorios</h5>

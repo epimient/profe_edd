@@ -28,116 +28,132 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">La magia de la memoria virtual y el SWAP</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 id="lesson-title" class="display-5 fw-bold">La magia de la memoria virtual y el SWAP</h1>
             <p class="fs-4">¿Cómo puedes ejecutar un juego de 50GB en una PC con 16GB de RAM? Bienvenido a la gran
                 mentira del sistema operativo.</p>
         </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">¿Qué es la Memoria Virtual?</h2>
-                    <p>La Memoria Virtual es una técnica que engaña a las aplicaciones haciéndoles creer que tienen
-                        bloques contiguos de memoria infinita, cuando en realidad la memoria física (RAM) está
-                        fragmentada y es limitada.</p>
+        <main aria-labelledby="lesson-title">
 
-                    <h3 class="mt-4">Cómo funciona (Paginación)</h3>
-                    <p>El SO divide la memoria en pequeños bloques llamados <strong>Páginas</strong>. Mantiene una tabla
-                        ("Page Table") que mapea las direcciones virtuales que ve el programa a direcciones físicas
-                        reales en la RAM.</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="what-is-vm-heading">
+                            <h2 id="what-is-vm-heading" class="blog-post-title mb-4">¿Qué es la Memoria Virtual?</h2>
+                            <p>La Memoria Virtual es una técnica que engaña a las aplicaciones haciéndoles creer que
+                                tienen
+                                bloques contiguos de memoria infinita, cuando en realidad la memoria física (RAM) está
+                                fragmentada y es limitada.</p>
 
-                    <h3 class="mt-5 text-danger">El SWAP (Espacio de Intercambio)</h3>
-                    <p>¿Qué pasa cuando se acaba la RAM física? El SO recurre al SWAP.</p>
-                    <div class="card bg-body-tertiary border-0 mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Definición</h5>
-                            <p class="card-text">Es un espacio reservado en el <strong>Disco Duro</strong> (o SSD) que
-                                se usa como si fuera memoria RAM adicional.</p>
-                        </div>
-                    </div>
+                            <h3 class="mt-4">Cómo funciona (Paginación)</h3>
+                            <p>El SO divide la memoria en pequeños bloques llamados <strong>Páginas</strong>. Mantiene
+                                una tabla
+                                ("Page Table") que mapea las direcciones virtuales que ve el programa a direcciones
+                                físicas
+                                reales en la RAM.</p>
 
-                    <p>Cuando la RAM se llena, el SO toma los datos de los programas que no estás usando activamente
-                        (ej. esa pestaña de Chrome minimizada hace 2 horas) y los mueve al disco (<strong>Swap
-                            Out</strong>). Cuando vuelves a esa pestaña, la trae de vuelta a la RAM (<strong>Swap
-                            In</strong>).</p>
+                            <h3 class="mt-5 text-danger">El SWAP (Espacio de Intercambio)</h3>
+                            <p>¿Qué pasa cuando se acaba la RAM física? El SO recurre al SWAP.</p>
+                            <div class="card bg-body-tertiary border-0 mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Definición</h5>
+                                    <p class="card-text">Es un espacio reservado en el <strong>Disco Duro</strong> (o
+                                        SSD) que
+                                        se usa como si fuera memoria RAM adicional.</p>
+                                </div>
+                            </div>
 
-                    <div class="alert alert-warning">
-                        <strong>¡Cuidado!</strong> El disco es miles de veces más lento que la RAM. Si tu computadora
-                        depende mucho del SWAP, se pondrá extremadamente lenta. Esto se conoce como <em>Thrashing</em>.
-                    </div>
+                            <p>Cuando la RAM se llena, el SO toma los datos de los programas que no estás usando
+                                activamente
+                                (ej. esa pestaña de Chrome minimizada hace 2 horas) y los mueve al disco (<strong>Swap
+                                    Out</strong>). Cuando vuelves a esa pestaña, la trae de vuelta a la RAM
+                                (<strong>Swap
+                                    In</strong>).</p>
 
-                    <h3 class="mt-4">Verificando Memoria en Linux</h3>
-                    <p>Usa el comando <code>free -h</code> para ver tu memoria en formato legible (Human-readable).</p>
-                    <pre><code class="language-bash">free -h</code></pre>
+                            <div class="alert alert-warning">
+                                <strong>¡Cuidado!</strong> El disco es miles de veces más lento que la RAM. Si tu
+                                computadora
+                                depende mucho del SWAP, se pondrá extremadamente lenta. Esto se conoce como
+                                <em>Thrashing</em>.
+                            </div>
 
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/qlH4-oHnBb8"
-                                            title="Virtual Memory (Computerphile)" allowfullscreen></iframe>
+                            <h3 class="mt-4">Verificando Memoria en Linux</h3>
+                            <p>Usa el comando <code>free -h</code> para ver tu memoria en formato legible
+                                (Human-readable).</p>
+                            <pre><code class="language-bash">free -h</code></pre>
+                        </section>
+
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/qlH4-oHnBb8"
+                                                title="Virtual Memory (Computerphile)" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Memoria Virtual (Computerphile)</h6>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Memoria Virtual (Computerphile)</h6>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/2quKyPnUShQ"
+                                                title="Swap en Linux" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Swap y Paginación en Linux</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/2quKyPnUShQ" title="Swap en Linux"
-                                            allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Swap y Paginación en Linux</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th Ed.</em>
-                                Wiley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
-                                Press.
-                            </li>
-                        </ul>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th
+                                        Ed.</em>
+                                    Wiley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No
+                                    Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                    Press.
+                                </li>
+                            </ul>
+                        </section>
 
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

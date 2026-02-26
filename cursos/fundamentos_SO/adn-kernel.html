@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
+    <main class="container mt-5">
         <!-- Breadcrumb Navigation -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -28,8 +28,8 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">ADN del SO</h1>
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center" aria-labelledby="page-title">
+            <h1 class="display-5 fw-bold" id="page-title">ADN del SO</h1>
             <p class="fs-4 text-muted">Funciones vitales desde el Kernel de Linux.</p>
         </header>
 
@@ -37,21 +37,23 @@
             <div class="col-lg-8 mx-auto">
                 <!-- Banner Diapositivas -->
                 <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
-                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3"></i>
+                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3" aria-hidden="true"></i>
                     <div class="flex-grow-1">
                         <h4 class="alert-heading h5">Material de Apoyo</h4>
                         <p class="mb-0 small">Accede a las presentaciones originales de la clase.</p>
                     </div>
                     <a href="https://docs.google.com/presentation/d/1qLJp7qPUllW0EZv-hupYFEkJrNMCn1C5/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
-                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank">
-                        <i class="bi bi-easel2-fill me-2"></i>Ver Diapositivas
+                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank"
+                        aria-label="Ver Diapositivas sobre ADN del SO en Google Slides">
+                        <i class="bi bi-easel2-fill me-2" aria-hidden="true"></i>Ver Diapositivas
                     </a>
                 </div>
 
                 <article class="blog-post">
                     <!-- Introducción -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo I: El Cuerpo Digital</h2>
+                    <section class="mb-5" aria-labelledby="cap1-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap1-title">Capítulo I: El Cuerpo Digital
+                        </h2>
                         <div class="alert alert-info shadow-sm">
                             <i class="bi bi-info-circle-fill me-2"></i>
                             <strong>Contexto:</strong> En 2026, una computadora es una infraestructura distribuida.
@@ -82,8 +84,8 @@
                     </section>
 
                     <!-- El Kernel -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo II: El Kernel</h2>
+                    <section class="mb-5" aria-labelledby="cap2-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap2-title">Capítulo II: El Kernel</h2>
                         <p>El <strong>Kernel</strong> es el nÃºcleo que controla todo. Es el intermediario legal entre
                             tus apps y el hardware.</p>
 
@@ -121,8 +123,9 @@
                     </section>
 
                     <!-- Funciones Vitales -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo III: Funciones Vitales</h2>
+                    <section class="mb-5" aria-labelledby="cap3-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap3-title">Capítulo III: Funciones Vitales
+                        </h2>
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="card h-100 border-0 bg-white shadow-sm biology-card">
@@ -168,8 +171,9 @@
                     </section>
 
                     <!-- Arquitectura de Supervivencia -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo IV: Arquitectura de Supervivencia</h2>
+                    <section class="mb-5" aria-labelledby="cap4-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap4-title">Capítulo IV: Arquitectura de
+                            Supervivencia</h2>
                         <div class="row text-center g-4">
                             <div class="col-6">
                                 <div class="p-3 bg-dark text-white rounded">
@@ -189,8 +193,9 @@
                     </section>
 
                     <!-- Paralelismo -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Puentes: Windows vs Linux</h2>
+                    <section class="mb-5" aria-labelledby="bridges-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="bridges-title">Puentes: Windows vs Linux
+                        </h2>
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Consola Central <span>PowerShell <i class="bi bi-arrow-right mx-2"></i> Bash</span>
@@ -208,8 +213,8 @@
                     </section>
 
                     <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                    <section class="mb-5" aria-labelledby="videos-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="videos-title">Galería de Videos</h2>
                         <div class="row row-cols-1 row-cols-md-2 g-4">
                             <div class="col">
                                 <div class="card h-100 shadow-sm border-0">
@@ -237,8 +242,8 @@
                     </section>
 
                     <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                    <section class="mb-5" aria-labelledby="refs-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="refs-title">Referencias Bibliográficas</h2>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-transparent">
                                 <i class="bi bi-book me-2 text-muted"></i>
@@ -259,8 +264,8 @@
                     </section>
 
                     <!-- Reto Práctico -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                    <section class="mb-5" aria-labelledby="lab-title">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="lab-title">Laboratorio Vivo</h2>
                         <p>Abre tu terminal e interroga al Kernel con estos comandos:</p>
                         <pre><code class="language-bash"># Ver versión del Kernel
 uname -a
@@ -275,7 +280,7 @@ lsmod</code></pre>
                 </article>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
         <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>

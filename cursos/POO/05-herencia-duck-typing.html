@@ -22,18 +22,20 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Herencia y Duck Typing</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Herencia y Duck Typing</h1>
             <p class="fs-4 text-muted">Reutilización y flexibilidad pitónica.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Herencia Simple</h2>
-                        <p>Permite que una clase hija herede atributos y métodos de una clase padre.</p>
-                        <pre><code class="language-python">class Animal:
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="inheritance-heading">
+                            <h2 id="inheritance-heading" class="mb-4">Herencia Simple</h2>
+                            <p>Permite que una clase hija herede atributos y métodos de una clase padre.</p>
+                            <pre><code class="language-python">class Animal:
     def hablar(self):
         pass
 
@@ -44,35 +46,35 @@ class Perro(Animal):
 class Gato(Animal):
     def hablar(self):
         return "Miau!"</code></pre>
-                    </section>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Duck Typing</h2>
-                        <div class="alert alert-warning shadow-sm">
-                            <i class="bi bi-patch-question-fill me-2"></i>
-                            "If it walks like a duck and quacks like a duck, it's a duck."
-                        </div>
-                        <p>En Python, no importa el tipo del objeto, sino lo que puede hacer. Si un objeto tiene el
-                            método necesario, Python lo usará sin importar su jerarquía de herencia.</p>
-                        <pre><code class="language-python">def hacer_hablar(objetos):
+                        <section class="mb-5" aria-labelledby="duck-typing-heading">
+                            <h2 id="duck-typing-heading" class="mb-4">Duck Typing</h2>
+                            <div class="alert alert-warning shadow-sm" role="note">
+                                <i class="bi bi-patch-question-fill me-2" aria-hidden="true"></i>
+                                "If it walks like a duck and quacks like a duck, it's a duck."
+                            </div>
+                            <p>En Python, no importa el tipo del objeto, sino lo que puede hacer. Si un objeto tiene el
+                                método necesario, Python lo usará sin importar su jerarquía de herencia.</p>
+                            <pre><code class="language-python">def hacer_hablar(objetos):
     for obj in objetos:
         print(obj.hablar())
 
 # No necesitan heredar de 'Animal' para funcionar aquí
 hacer_hablar([Perro(), Gato()])</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

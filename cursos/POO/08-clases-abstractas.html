@@ -22,20 +22,23 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Clases Abstractas</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Clases Abstractas</h1>
             <p class="fs-4 text-muted">Definiendo moldes incompletos.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">El módulo ABC</h2>
-                        <p>En Python, usamos el módulo <code>abc</code> para definir Clases Abstractas. Una clase
-                            abstracta no puede ser instanciada y obliga a sus subclases a implementar ciertos métodos.
-                        </p>
-                        <pre><code class="language-python">from abc import ABC, abstractmethod
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="abc-module-heading">
+                            <h2 id="abc-module-heading" class="mb-4">El módulo ABC</h2>
+                            <p>En Python, usamos el módulo <code>abc</code> para definir Clases Abstractas. Una clase
+                                abstracta no puede ser instanciada y obliga a sus subclases a implementar ciertos
+                                métodos.
+                            </p>
+                            <pre><code class="language-python">from abc import ABC, abstractmethod
 
 class Empleado(ABC):
     @abstractmethod
@@ -45,25 +48,25 @@ class Empleado(ABC):
 class Programador(Empleado):
     def calcular_salario(self):
         return 5000</code></pre>
-                    </section>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">¿Cuándo usarlas?</h2>
-                        <p>Cuando quieres definir un "contrato" o estructura común para un grupo de clases, pero no
-                            tiene sentido crear un objeto de la clase base por sí misma.</p>
-                    </section>
-                </article>
+                        <section class="mb-5" aria-labelledby="when-use-heading">
+                            <h2 id="when-use-heading" class="mb-4">¿Cuándo usarlas?</h2>
+                            <p>Cuando quieres definir un "contrato" o estructura común para un grupo de clases, pero no
+                                tiene sentido crear un objeto de la clase base por sí misma.</p>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

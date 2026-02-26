@@ -1,18 +1,24 @@
 :root {
-    --data-primary: #2e7d32;
-    --data-secondary: #1b5e20;
-    --data-accent: #ffc107;
-    --data-light: #e8f5e9;
+    --pilar-primary: #2e7d32;
+    --pilar-secondary: #1b5e20;
+    --pilar-accent: #ffc107;
+    --pilar-light: #e8f5e9;
+
+    /* Legacy compatibility */
+    --data-primary: var(--pilar-primary);
+    --data-secondary: var(--pilar-secondary);
+    --data-accent: var(--pilar-accent);
+    --data-light: var(--pilar-light);
 }
 
-.academic-hero {
-    background: linear-gradient(135deg, var(--data-secondary) 0%, var(--data-primary) 100%);
+.acceso-datos-hero {
+    background: linear-gradient(135deg, var(--pilar-secondary) 0%, var(--pilar-primary) 100%);
     color: white;
     position: relative;
     overflow: hidden;
 }
 
-.academic-hero::before {
+.acceso-datos-hero::before {
     content: "";
     position: absolute;
     top: 0;
@@ -21,46 +27,6 @@
     bottom: 0;
     background: url('https://www.transparenttextures.com/patterns/cubes.png');
     opacity: 0.1;
-}
-
-.section-header {
-    color: var(--data-primary);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
-    border-left: 5px solid var(--data-accent);
-    padding-left: 15px;
-}
-
-.program-block {
-    background: white;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.program-block:hover {
-    transform: translateX(10px);
-}
-
-.metadata-badge {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.bibliography-item {
-    transition: all 0.2s ease;
-}
-
-.bibliography-item:hover {
-    background-color: var(--data-light);
-    color: var(--data-secondary);
-    padding-left: 10px !important;
 }
 
 .text-shadow {

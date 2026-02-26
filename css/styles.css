@@ -1,22 +1,118 @@
 /* Estilos personalizados */
-
 /* =========================================
    Global & Index
    ========================================= */
+:root {
+    /* Design Tokens using Bootstrap Palette */
+    --profile-border-color: var(--bs-white);
+    --profile-shadow: var(--bs-box-shadow-sm);
+}
+
 .profile-pic {
     width: 350px;
     height: 350px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--bs-border-radius-pill);
+    border: 5px solid var(--profile-border-color);
+    box-shadow: var(--profile-shadow);
+}
+
+/* Pillar Cards Index */
+.pillar-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem !important;
+    hyphens: auto;
+    word-break: break-word;
+}
+
+.text-shadow-1 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-cover-premium {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 480px;
+}
+
+.card-cover-premium:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* =========================================
-   Pilares: Linux (Cultura Linux)
+   Shared Academic Patterns
    ========================================= */
-.pilar-header {
-    background-color: #00838f;
+.academic-hero {
+    background: linear-gradient(135deg, var(--pilar-primary, var(--bs-primary)) 0%, var(--bs-dark) 100%);
+    color: var(--bs-white);
+    border-bottom: 5px solid var(--pilar-accent, var(--bs-warning));
+}
+
+.metadata-badge {
+    background-color: rgba(var(--bs-white-rgb), 0.1);
+    border: 1px solid rgba(var(--bs-white-rgb), 0.2);
+    border-radius: var(--bs-border-radius);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.section-header {
+    border-left: 5px solid var(--pilar-primary, var(--bs-primary));
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-weight: var(--bs-body-font-weight-bold, 700);
+    color: var(--pilar-primary, var(--bs-primary));
+}
+
+.competency-card {
+    border: none;
+    border-left: 4px solid var(--pilar-accent, var(--bs-warning));
+    transition: transform 0.2s ease-in-out;
+}
+
+.competency-card:hover {
+    transform: scale(1.02);
+}
+
+.program-block {
+    background-color: var(--bs-body-bg);
+    border-radius: var(--bs-border-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--bs-border-color);
+    transition: transform 0.3s ease;
+}
+
+.program-block:hover {
+    transform: translateX(10px);
+}
+
+.program-block-header {
+    background-color: var(--bs-tertiary-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+    padding: 1.5rem;
+}
+
+.bibliography-item {
+    font-style: italic;
+    color: var(--bs-secondary-color);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.bibliography-item:hover {
+    background-color: var(--bs-tertiary-bg);
+    padding-left: 10px !important;
+}
+
+/* =========================================
+   Pilar: Linux (Cultura Linux)
+   ========================================= */
+.linux-pilar {
+    --pilar-primary: #00838f;
+    --pilar-accent: #ffab00;
 }
 
 .distro-card {
@@ -28,51 +124,59 @@
     transform: translateY(-10px);
 }
 
-.badge-distro {
-    font-size: 0.8rem;
-}
-
-.iso-link {
-    text-decoration: none;
-    color: #00838f;
-    font-weight: bold;
-}
-
-.iso-link:hover {
-    text-decoration: underline;
-}
-
+/* Featured Card: Fundamentos de SO */
 .fso-star-card {
-    border: none;
-    border-radius: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+    border-left: 8px solid #333 !important;
+    position: relative;
+    overflow: hidden;
 }
 
 .fso-icon-box {
-    background-color: transparent;
-    border-radius: 1rem;
-    padding: 1rem;
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .fso-img {
-    max-width: 100%;
+    width: 65%;
     height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    object-fit: contain;
 }
 
+/* ISO Download Section */
 .iso-category-header {
-    background-color: #e0f2f1;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
-    border-left: 5px solid #00838f;
+    background-color: #333;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px 8px 0 0;
+    margin-top: 1.5rem;
 }
 
+.iso-link {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.iso-link:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* News Section Tweaks */
 .news-item-hover {
-    transition: background 0.2s;
+    transition: background-color 0.2s;
 }
 
 .news-item-hover:hover {
@@ -80,72 +184,13 @@
 }
 
 /* =========================================
-   Cursos: Fundamentos de Sistemas Operativos
+   Componentes: Bloques de Código
    ========================================= */
-:root {
-    --fso-primary: #00838f;
-    /* Regresamos al Teal de Cultura Linux */
-    --fso-secondary: #006064;
-    --fso-accent: #ffab00;
-}
-
-.academic-hero {
-    background: linear-gradient(135deg, var(--fso-primary) 0%, #121212 100%);
-    color: white;
-    border-bottom: 5px solid var(--fso-accent);
-}
-
-.metadata-badge {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-.section-header {
-    border-left: 5px solid var(--fso-primary);
-    padding-left: 1rem;
-    margin-bottom: 2rem;
-    font-weight: bold;
-    color: var(--fso-primary);
-}
-
-.competency-card {
-    border: none;
-    border-left: 4px solid var(--fso-accent);
-    transition: transform 0.2s;
-}
-
-.competency-card:hover {
-    transform: scale(1.02);
-}
-
-.program-block {
-    background-color: #fff;
-    border-radius: 1rem;
-    overflow: hidden;
-    border: 1px solid #e0e0e0;
-}
-
-.program-block-header {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 1.5rem;
-}
-
-
-/* =========================================
-   Componentes: Bloques de Código (Mecatrónica)
-   ========================================= */
-/* Estilo adicional para el contenedor del código con botón de copiar */
 pre.code-container {
     position: relative;
-    border-radius: 0.375rem;
-    /* .rounded */
+    border-radius: var(--bs-border-radius);
 }
 
-/* Estilo para el botón de copiar dentro del bloque de código */
 pre.code-container .btn-copy-code {
     position: absolute;
     top: 0.25rem;
@@ -157,15 +202,13 @@ pre.code-container .btn-copy-code {
     transition: opacity 0.2s;
 }
 
-/* Mostrar el botón al pasar el mouse sobre el bloque de código */
 pre.code-container:hover .btn-copy-code {
     opacity: 1;
 }
 
 /* =========================================
-   Mecatrónica: Protocolo MQTT
+   Mecatrónica Assets
    ========================================= */
-/* Estilo para imágenes en la galería de herramientas */
 .tool-logo {
     max-height: 60px;
     width: auto;

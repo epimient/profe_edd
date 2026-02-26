@@ -23,23 +23,25 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Python Database API (PEP 249)</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Python Database API (PEP 249)</h1>
             <p class="fs-4 text-muted">El estándar de conectividad universal en el ecosistema Python.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">¿Qué es PEP 249?</h2>
-                        <p>Es una especificación que define cómo deben comportarse los drivers de bases de datos en
-                            Python para que el código sea portable entre SQLite, MySQL o PostgreSQL.</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Código: El patrón de conexión</h2>
-                        <pre><code class="language-python">import sqlite3
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="whatis-pep249-heading">
+                            <h2 id="whatis-pep249-heading" class="mb-4">¿Qué es PEP 249?</h2>
+                            <p>Es una especificación que define cómo deben comportarse los drivers de bases de datos en
+                                Python para que el código sea portable entre SQLite, MySQL o PostgreSQL.</p>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="connection-pattern-heading">
+                            <h2 id="connection-pattern-heading" class="mb-4">Código: El patrón de conexión</h2>
+                            <pre><code class="language-python">import sqlite3
 
 # 1. Crear conexión
 conn = sqlite3.connect('mi_base.db')
@@ -56,19 +58,19 @@ for usuario in cursor.fetchall():
 
 # 5. Cerrar recursos
 conn.close()</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

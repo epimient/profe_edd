@@ -28,144 +28,156 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">Seguridad Industrial: Permisos de archivos</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 id="lesson-title" class="display-5 fw-bold">Seguridad Industrial: Permisos de archivos</h1>
             <p class="fs-4">En Linux, tú decides quién puede ver, tocar o ejecutar tus archivos. El poder es tuyo.</p>
         </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">Lectura, Escritura y Ejecución</h2>
-                    <p>Cada archivo tiene 3 tipos de permisos asignados a 3 entidades diferentes.</p>
+        <main aria-labelledby="lesson-title">
 
-                    <h3 class="mt-4">Las Entidades</h3>
-                    <ul class="list-group list-group-horizontal-md text-center mb-4">
-                        <li class="list-group-item flex-fill border-primary"><strong>User (u)</strong><br>El dueño del
-                            archivo.</li>
-                        <li class="list-group-item flex-fill border-success"><strong>Group (g)</strong><br>El grupo de
-                            usuarios del dueño.</li>
-                        <li class="list-group-item flex-fill border-warning"><strong>Others (o)</strong><br>El resto del
-                            mundo.</li>
-                    </ul>
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="permissions-intro-heading">
+                            <h2 id="permissions-intro-heading" class="blog-post-title mb-4">Lectura, Escritura y
+                                Ejecución</h2>
+                            <p>Cada archivo tiene 3 tipos de permisos asignados a 3 entidades diferentes.</p>
 
-                    <h3 class="mt-4">Los Permisos</h3>
-                    <div class="row text-center">
-                        <div class="col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h1 class="text-primary fw-bold">r</h1>
-                                    <h5 class="card-title">Read (Lectura)</h5>
-                                    <p class="card-text">Valor octal: <strong>4</strong></p>
-                                    <p class="small text-muted">Ver contenido del archivo o listar directorio.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h1 class="text-success fw-bold">w</h1>
-                                    <h5 class="card-title">Write (Escritura)</h5>
-                                    <p class="card-text">Valor octal: <strong>2</strong></p>
-                                    <p class="small text-muted">Modificar, borrar o renombrar.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h1 class="text-danger fw-bold">x</h1>
-                                    <h5 class="card-title">Execute (Ejecución)</h5>
-                                    <p class="card-text">Valor octal: <strong>1</strong></p>
-                                    <p class="small text-muted">Correr como programa (script).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <h3 class="mt-4">Las Entidades</h3>
+                            <ul class="list-group list-group-horizontal-md text-center mb-4">
+                                <li class="list-group-item flex-fill border-primary"><strong>User (u)</strong><br>El
+                                    dueño del
+                                    archivo.</li>
+                                <li class="list-group-item flex-fill border-success"><strong>Group (g)</strong><br>El
+                                    grupo de
+                                    usuarios del dueño.</li>
+                                <li class="list-group-item flex-fill border-warning"><strong>Others (o)</strong><br>El
+                                    resto del
+                                    mundo.</li>
+                            </ul>
 
-                    <h3 class="mt-5">Comando <code>chmod</code> (Change Mode)</h3>
-                    <p>Podemos cambiar permisos sumando los valores octales.</p>
-                    <p>Ejemplo: Permiso total (7) al dueño, lectura y ejecución (5) al grupo, y nada (0) a otros.</p>
-                    <pre><code class="language-bash">chmod 750 archivo_secreto.txt</code></pre>
-                    <ul>
-                        <li><strong>7</strong> = 4 (r) + 2 (w) + 1 (x)</li>
-                        <li><strong>5</strong> = 4 (r) + 0 + 1 (x)</li>
-                        <li><strong>0</strong> = 0 + 0 + 0</li>
-                    </ul>
-
-                    <h3 class="mt-4">Comando <code>chown</code> (Change Owner)</h3>
-                    <p>Cambia el dueño de un archivo.</p>
-                    <pre><code class="language-bash">sudo chown usuario:grupo archivo.txt</code></pre>
-
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/D-VqgvBMV7g"
-                                            title="Linux File Permissions" allowfullscreen></iframe>
+                            <h3 class="mt-4">Los Permisos</h3>
+                            <div class="row text-center">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h1 class="text-primary fw-bold">r</h1>
+                                            <h5 class="card-title">Read (Lectura)</h5>
+                                            <p class="card-text">Valor octal: <strong>4</strong></p>
+                                            <p class="small text-muted">Ver contenido del archivo o listar directorio.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Permisos de Archivos en Linux</h6>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h1 class="text-success fw-bold">w</h1>
+                                            <h5 class="card-title">Write (Escritura)</h5>
+                                            <p class="card-text">Valor octal: <strong>2</strong></p>
+                                            <p class="small text-muted">Modificar, borrar o renombrar.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h1 class="text-danger fw-bold">x</h1>
+                                            <h5 class="card-title">Execute (Ejecución)</h5>
+                                            <p class="card-text">Valor octal: <strong>1</strong></p>
+                                            <p class="small text-muted">Correr como programa (script).</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/k1yzI1l3TiA" title="Chmod y Chown"
-                                            allowfullscreen></iframe>
+
+                            <h3 class="mt-5">Comando <code>chmod</code> (Change Mode)</h3>
+                            <p>Podemos cambiar permisos sumando los valores octales.</p>
+                            <p>Ejemplo: Permiso total (7) al dueño, lectura y ejecución (5) al grupo, y nada (0) a
+                                otros.</p>
+                            <pre><code class="language-bash">chmod 750 archivo_secreto.txt</code></pre>
+                            <ul>
+                                <li><strong>7</strong> = 4 (r) + 2 (w) + 1 (x)</li>
+                                <li><strong>5</strong> = 4 (r) + 0 + 1 (x)</li>
+                                <li><strong>0</strong> = 0 + 0 + 0</li>
+                            </ul>
+
+                            <h3 class="mt-4">Comando <code>chown</code> (Change Owner)</h3>
+                            <p>Cambia el dueño de un archivo.</p>
+                            <pre><code class="language-bash">sudo chown usuario:grupo archivo.txt</code></pre>
+                        </section>
+
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/D-VqgvBMV7g"
+                                                title="Linux File Permissions" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Permisos de Archivos en Linux</h6>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">chmod y chown en la Práctica</h6>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/k1yzI1l3TiA"
+                                                title="Chmod y Chown" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">chmod y chown en la Práctica</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
-                                Starch Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>Arch Wiki.</strong> <em>File Permissions and Attributes.</em>
-                                <a href="https://wiki.archlinux.org/title/File_permissions_and_attributes"
-                                    target="_blank" class="ms-1 text-decoration-none small"><i
-                                        class="bi bi-box-arrow-up-right"></i> Ver artículo</a>
-                            </li>
-                        </ul>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No
+                                    Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
+                                    Starch Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>Arch Wiki.</strong> <em>File Permissions and Attributes.</em>
+                                    <a href="https://wiki.archlinux.org/title/File_permissions_and_attributes"
+                                        target="_blank" class="ms-1 text-decoration-none small"><i
+                                            class="bi bi-box-arrow-up-right"></i> Ver artículo</a>
+                                </li>
+                            </ul>
+                        </section>
 
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

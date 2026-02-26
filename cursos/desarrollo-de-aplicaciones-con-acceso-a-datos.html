@@ -29,7 +29,7 @@
     </nav>
 
     <!-- Academic Hero Section -->
-    <header class="academic-hero py-5">
+    <header id="lesson-header" class="academic-hero py-5">
         <div class="container text-center text-lg-start">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -37,7 +37,8 @@
                             class="bi bi-database-fill-gear me-1"></i>DATA
                         ENGINEERING
                         · 2026</span>
-                    <h1 class="display-4 fw-bold mb-3 text-shadow">Desarrollo de Aplicaciones con Acceso a Datos</h1>
+                    <h1 class="display-4 fw-bold mb-3 text-shadow" id="main-title">Desarrollo de Aplicaciones con Acceso
+                        a Datos</h1>
                     <p class="lead mb-4 opacity-75">Domina el ciclo de vida del dato en el desarrollo de software. Desde
                         la persistencia en archivos hasta arquitecturas escalables con ORMs, NoSQL y Microservicios.</p>
 
@@ -51,7 +52,7 @@
                             Pimienta</div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center d-none d-lg-block">
+                <div class="col-lg-4 text-center d-none d-lg-block" aria-hidden="true">
                     <i class="bi bi-database-check display-1 text-white opacity-50" style="font-size: 10rem;"></i>
                 </div>
             </div>
@@ -62,8 +63,8 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- Mi Propuesta Pedagógica -->
-                <section class="mb-5">
-                    <h2 class="section-header">Persistencia y Eficiencia</h2>
+                <section class="mb-5" aria-labelledby="intro-title">
+                    <h2 class="section-header" id="intro-title">Persistencia y Eficiencia</h2>
                     <div class="p-4 bg-white rounded shadow-sm border border-success border-opacity-25">
                         <p class="lead">Un software sin persistencia es un software sin memoria. En este curso,
                             aprenderás a gestionar la información de manera profesional <strong>utilizando el ecosistema
@@ -74,14 +75,15 @@
                         <hr>
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <h6 class="fw-bold mb-1"><i class="bi bi-diagram-3-fill me-2 text-success"></i>Modelado
+                                <h6 class="fw-bold mb-1"><i class="bi bi-diagram-3-fill me-2 text-success"
+                                        aria-hidden="true"></i>Modelado
                                     Relacional</h6>
                                 <p class="small text-muted mb-0">Entenderemos cómo estructurar el mundo real en tablas
                                     optimizadas y normalizadas.</p>
                             </div>
                             <div class="col-sm-6">
-                                <h6 class="fw-bold mb-1"><i
-                                        class="bi bi-cloud-arrow-up-fill me-2 text-warning"></i>Cloud
+                                <h6 class="fw-bold mb-1"><i class="bi bi-cloud-arrow-up-fill me-2 text-warning"
+                                        aria-hidden="true"></i>Cloud
                                     & APIs</h6>
                                 <p class="small text-muted mb-0">Transformaremos datos estáticos en recursos dinámicos
                                     accesibles mediante microservicios modernos.</p>
@@ -91,8 +93,8 @@
                 </section>
 
                 <!-- Bloques de Aprendizaje -->
-                <section class="mb-5">
-                    <h2 class="section-header">Ruta de Exploración</h2>
+                <section class="mb-5" aria-labelledby="route-title">
+                    <h2 class="section-header" id="route-title">Ruta de Exploración</h2>
 
                     <!-- Bloque 1 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-success">
@@ -228,7 +230,8 @@
                 <div class="p-4 bg-success bg-opacity-10 rounded border border-success border-2 text-center shadow-sm">
                     <h6 class="fw-bold text-dark">¿Problemas con SQL?</h6>
                     <p class="small">Consulta nuestra guía rápida de normalización y optimización de consultas.</p>
-                    <a href="#" class="btn btn-sm btn-success text-white w-100 fw-bold">Ver Recursos SQL <i
+                    <a href="#" class="btn btn-sm btn-success text-white w-100 fw-bold"
+                        aria-label="Ver Recursos sobre SQL y Normalización">Ver Recursos SQL <i
                             class="bi bi-box-arrow-up-right ms-1"></i></a>
                 </div>
             </div>

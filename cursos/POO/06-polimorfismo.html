@@ -22,19 +22,21 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Polimorfismo</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Polimorfismo</h1>
             <p class="fs-4 text-muted">Muchas formas, un solo mensaje.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Sobrescritura de Métodos</h2>
-                        <p>El polimorfismo permite que una subclase proporcione una implementación específica de un
-                            método que ya está definido en su superclase.</p>
-                        <pre><code class="language-python">class Forma:
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="method-override-heading">
+                            <h2 id="method-override-heading" class="mb-4">Sobrescritura de Métodos</h2>
+                            <p>El polimorfismo permite que una subclase proporcione una implementación específica de un
+                                método que ya está definido en su superclase.</p>
+                            <pre><code class="language-python">class Forma:
     def area(self):
         pass
 
@@ -49,32 +51,35 @@ class Cuadrado(Forma):
         self.lado = lado
     def area(self):
         return self.lado ** 2</code></pre>
-                    </section>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Ventajas del Polimorfismo</h2>
-                        <ul class="list-group list-group-flush shadow-sm rounded">
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Código
-                                más flexible y genérico.</li>
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Fácil
-                                extensión del sistema (nuevas clases sin cambiar el código existente).</li>
-                            <li class="list-group-item"><i
-                                    class="bi bi-check-circle-fill text-success me-2"></i>Reducción de condicionales
-                                (if/else) complejos.</li>
-                        </ul>
-                    </section>
-                </article>
+                        <section class="mb-5" aria-labelledby="advantages-heading">
+                            <h2 id="advantages-heading" class="mb-4">Ventajas del Polimorfismo</h2>
+                            <ul class="list-group list-group-flush shadow-sm rounded">
+                                <li class="list-group-item bg-transparent"><i
+                                        class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Código
+                                    más flexible y genérico.</li>
+                                <li class="list-group-item bg-transparent"><i
+                                        class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Fácil
+                                    extensión del sistema (nuevas clases sin cambiar el código existente).</li>
+                                <li class="list-group-item bg-transparent"><i
+                                        class="bi bi-check-circle-fill text-success me-2"
+                                        aria-hidden="true"></i>Reducción de condicionales
+                                    (if/else) complejos.</li>
+                            </ul>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

@@ -23,42 +23,46 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">CRUD en Bases de Datos Relacionales</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">CRUD en Bases de Datos Relacionales</h1>
             <p class="fs-4 text-muted">Gestión avanzada de registros mediante sentencias SQL desde Python.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Operaciones Atómicas</h2>
-                        <ul class="list-group list-group-flush mb-4 shadow-sm border rounded">
-                            <li class="list-group-item"><strong>Create:</strong> INSERT INTO...</li>
-                            <li class="list-group-item"><strong>Read:</strong> SELECT * FROM...</li>
-                            <li class="list-group-item"><strong>Update:</strong> UPDATE ... SET ... WHERE ...</li>
-                            <li class="list-group-item"><strong>Delete:</strong> DELETE FROM ... WHERE ...</li>
-                        </ul>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Evitando SQL Injection</h2>
-                        <pre><code class="language-python"># MODO SEGURO: Usando parámetros (placeholders)
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="atomic-ops-heading">
+                            <h2 id="atomic-ops-heading" class="mb-4">Operaciones Atómicas</h2>
+                            <ul class="list-group list-group-flush mb-4 shadow-sm border rounded">
+                                <li class="list-group-item bg-transparent"><strong>Create:</strong> INSERT INTO...</li>
+                                <li class="list-group-item bg-transparent"><strong>Read:</strong> SELECT * FROM...</li>
+                                <li class="list-group-item bg-transparent"><strong>Update:</strong> UPDATE ... SET ...
+                                    WHERE ...</li>
+                                <li class="list-group-item bg-transparent"><strong>Delete:</strong> DELETE FROM ...
+                                    WHERE ...</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="injection-heading">
+                            <h2 id="injection-heading" class="mb-4">Evitando SQL Injection</h2>
+                            <pre><code class="language-python"># MODO SEGURO: Usando parámetros (placeholders)
 cursor.execute("SELECT * FROM usuarios WHERE email = ?", (email_user,))
 # ¡NUNCA concatenar strings directamente!</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

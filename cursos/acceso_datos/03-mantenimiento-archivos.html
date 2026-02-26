@@ -23,23 +23,25 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">CRUD en Archivos Planos</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">CRUD en Archivos Planos</h1>
             <p class="fs-4 text-muted">Mantenimiento de información usando TXT y CSV en Python.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Gestión de Archivos Pro</h2>
-                        <p>Aprenderemos a realizar las operaciones fundamentales sin depender de una base de datos
-                            compleja, ideal para configuraciones y logs.</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Código: Escritura y Lectura</h2>
-                        <pre><code class="language-python"># Escritura Segura con 'with'
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="management-heading">
+                            <h2 id="management-heading" class="mb-4">Gestión de Archivos Pro</h2>
+                            <p>Aprenderemos a realizar las operaciones fundamentales sin depender de una base de datos
+                                compleja, ideal para configuraciones y logs.</p>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="code-heading">
+                            <h2 id="code-heading" class="mb-4">Código: Escritura y Lectura</h2>
+                            <pre><code class="language-python"># Escritura Segura con 'with'
 with open('entidad.txt', 'a', encoding='utf-8') as f:
     f.write("Dato 1 | Dato 2 | Dato 3\n")
 
@@ -48,19 +50,19 @@ with open('entidad.txt', 'r') as f:
     for linea in f:
         datos = linea.strip().split(" | ")
         print(f"Procesando: {datos[0]}")</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

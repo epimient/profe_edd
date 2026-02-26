@@ -22,43 +22,45 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Flet</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Flet</h1>
             <p class="fs-4 text-muted">Apps modernas con el poder de Flutter.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">¿Qué es Flet?</h2>
-                        <p>Flet es un framework que permite construir aplicaciones web, móviles y de escritorio en
-                            Python usando los componentes visuales de Flutter sin necesidad de aprender Dart.</p>
-                        <pre><code class="language-python">import flet as ft
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="whatis-heading">
+                            <h2 id="whatis-heading" class="mb-4">¿Qué es Flet?</h2>
+                            <p>Flet es un framework que permite construir aplicaciones web, móviles y de escritorio en
+                                Python usando los componentes visuales de Flutter sin necesidad de aprender Dart.</p>
+                            <pre><code class="language-python">import flet as ft
 
 def main(page: ft.Page):
     page.add(ft.Text(value="¡Hola, Flet!"))
 
 ft.app(target=main)</code></pre>
-                    </section>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">El Futuro de las GUIs en Python</h2>
-                        <p>Flet ofrece una experiencia multi-dispositivo real, permitiendo que el mismo código se
-                            ejecute en el navegador, en Android/iOS o como una app local.</p>
-                    </section>
-                </article>
+                        <section class="mb-5" aria-labelledby="future-heading">
+                            <h2 id="future-heading" class="mb-4">El Futuro de las GUIs en Python</h2>
+                            <p>Flet ofrece una experience multi-dispositivo real, permitiendo que el mismo código se
+                                ejecute en el navegador, en Android/iOS o como una app local.</p>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

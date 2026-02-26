@@ -29,13 +29,13 @@
     </nav>
 
     <!-- Academic Hero Section -->
-    <header class="academic-hero py-5">
+    <header class="academic-hero py-5" role="banner" aria-label="Encabezado del curso">
         <div class="container text-center text-lg-start">
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <span class="badge bg-warning text-dark mb-3 fw-bold"><i class="bi bi-cpu-fill me-1"></i>IoT &
                         ARDUINO · 2026</span>
-                    <h1 class="display-4 fw-bold mb-3 text-shadow">Fundamentos de Mecatrónica</h1>
+                    <h1 class="display-4 fw-bold mb-3 text-shadow" id="main-title">Fundamentos de Mecatrónica</h1>
                     <p class="lead mb-4 opacity-75">Una inmersión práctica en los sistemas que integran mecánica,
                         electrónica e informática. Programa microcontroladores, conecta sensores y construye proyectos
                         IoT reales desde el primer semestre.</p>
@@ -51,7 +51,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-center d-none d-lg-block">
-                    <i class="bi bi-cpu-fill" style="font-size: 9rem; color: rgba(255,213,79,0.25);"></i>
+                    <i class="bi bi-cpu-fill" style="font-size: 9rem; color: rgba(255,213,79,0.25);" aria-hidden="true"
+                        id="hero-icon"></i>
                 </div>
             </div>
         </div>
@@ -61,8 +62,8 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- ¿Qué aprenderemos? -->
-                <section class="mb-5">
-                    <h2 class="section-header">¿Qué aprenderemos aquí?</h2>
+                <section class="mb-5" aria-labelledby="intro-title">
+                    <h2 class="section-header" id="intro-title">¿Qué aprenderemos aquí?</h2>
                     <div class="p-4 bg-white rounded shadow-sm border border-warning border-opacity-25">
                         <p class="lead">Este no es un espacio de teoría: es una inmersión directa en
                             <strong>Arduino, ESP32 y IoT</strong>, las plataformas que dominan la industria maker y la
@@ -71,7 +72,8 @@
                         <p>Cada concepto — circuitos, lógica digital, sensores, actuadores, comunicación M2M — lo verás
                             funcionando con código real en un microcontrolador físico o simulado en
                             <strong>Wokwi</strong>.
-                            Aquí construyes, no memorizas.</p>
+                            Aquí construyes, no memorizas.
+                        </p>
                         <hr>
                         <div class="row g-3">
                             <div class="col-sm-6">
@@ -91,8 +93,8 @@
                 </section>
 
                 <!-- Ruta de Exploración -->
-                <section class="mb-5">
-                    <h2 class="section-header">Ruta de Exploración</h2>
+                <section class="mb-5" aria-labelledby="route-title">
+                    <h2 class="section-header" id="route-title">Ruta de Exploración</h2>
 
                     <!-- Bloque 1 -->
                     <div class="program-block mb-4 shadow-sm border-0 border-start border-4 border-warning">
@@ -203,8 +205,8 @@
                 </section>
 
                 <!-- Estrategia de Aprendizaje -->
-                <section class="mb-5">
-                    <h2 class="section-header">Estrategia de Aprendizaje</h2>
+                <section class="mb-5" aria-labelledby="strategy-title">
+                    <h2 class="section-header" id="strategy-title">Estrategia de Aprendizaje</h2>
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="card border-0 bg-white shadow-sm h-100 pb-3">
@@ -323,7 +325,8 @@
                     <h6 class="fw-bold text-danger">Proyectos de Estudiantes</h6>
                     <p class="small">Inspírate con los mejores proyectos de ediciones anteriores y mira lo que
                         podrás crear.</p>
-                    <a href="#" class="btn btn-sm btn-danger text-white w-100 fw-bold">Ver Galería en GitHub <i
+                    <a href="#" class="btn btn-sm btn-danger text-white w-100 fw-bold"
+                        aria-label="Ver Galería de Proyectos en GitHub">Ver Galería en GitHub <i
                             class="bi bi-box-arrow-up-right ms-1"></i></a>
                 </div>
             </div>

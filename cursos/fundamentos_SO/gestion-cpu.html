@@ -28,85 +28,93 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">¿Quién va primero?</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">¿Quién va primero?</h1>
             <p class="fs-4 text-muted">El turno de la CPU: cómo Linux decide qué tarea ejecutar.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
+        <main aria-labelledby="lesson-title">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
 
-                    <!-- Analogía -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">La fila del supermercado</h2>
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
-                            <strong>Analogía:</strong> Imagina que la CPU es una sola caja registradora y los
-                            procesos son los clientes. El <strong>Scheduler</strong> (planificador) es el encargado de
-                            decidir quién pasa primero.
-                        </div>
-                        <p>Tu computadora ejecuta cientos de procesos, pero generalmente tiene pocos núcleos de CPU.
-                            El <strong>scheduler del Kernel de Linux</strong> decide en milisegundos quién usa la CPU
-                            y por cuánto tiempo.</p>
-                    </section>
+                        <!-- Analogía -->
+                        <section class="mb-5" aria-labelledby="cpu-queue-heading">
+                            <h2 id="cpu-queue-heading" class="text-primary border-bottom pb-2 mb-4">La fila del
+                                supermercado</h2>
+                            <div class="alert alert-info shadow-sm">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>Analogía:</strong> Imagina que la CPU es una sola caja registradora y los
+                                procesos son los clientes. El <strong>Scheduler</strong> (planificador) es el encargado
+                                de
+                                decidir quién pasa primero.
+                            </div>
+                            <p>Tu computadora ejecuta cientos de procesos, pero generalmente tiene pocos núcleos de CPU.
+                                El <strong>scheduler del Kernel de Linux</strong> decide en milisegundos quién usa la
+                                CPU
+                                y por cuánto tiempo.</p>
+                        </section>
 
-                    <!-- Scheduling -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Algoritmos de Scheduling (Simplificado)</h2>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold text-danger"><i
-                                                class="bi bi-arrow-right-circle me-2"></i>FIFO (First In, First Out)
-                                        </h5>
-                                        <p class="card-text small">El primero que llega, se atiende primero. Simple pero
-                                            injusto: un proceso largo bloquea a todos los demás.</p>
+                        <!-- Scheduling -->
+                        <section class="mb-5" aria-labelledby="scheduling-heading">
+                            <h2 id="scheduling-heading" class="text-primary border-bottom pb-2 mb-4">Algoritmos de
+                                Scheduling (Simplificado)</h2>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-danger"><i
+                                                    class="bi bi-arrow-right-circle me-2"></i>FIFO (First In, First Out)
+                                            </h5>
+                                            <p class="card-text small">El primero que llega, se atiende primero. Simple
+                                                pero
+                                                injusto: un proceso largo bloquea a todos los demás.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-primary"><i
+                                                    class="bi bi-arrow-repeat me-2"></i>Round Robin</h5>
+                                            <p class="card-text small">Cada proceso recibe un "turno" (quantum) de
+                                                tiempo
+                                                igual. Si no termina, vuelve a la fila. Es justo y el más usado.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-success"><i
+                                                    class="bi bi-sort-numeric-up me-2"></i>Por Prioridad</h5>
+                                            <p class="card-text small">Los procesos más importantes pasan primero. En
+                                                Linux, esto se controla con los valores de <code>nice</code>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-warning"><i
+                                                    class="bi bi-lightning me-2"></i>CFS (Linux Actual)</h5>
+                                            <p class="card-text small">El Completely Fair Scheduler de Linux busca dar a
+                                                cada proceso su parte justa del CPU, como un árbitro imparcial.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold text-primary"><i
-                                                class="bi bi-arrow-repeat me-2"></i>Round Robin</h5>
-                                        <p class="card-text small">Cada proceso recibe un "turno" (quantum) de tiempo
-                                            igual. Si no termina, vuelve a la fila. Es justo y el más usado.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold text-success"><i
-                                                class="bi bi-sort-numeric-up me-2"></i>Por Prioridad</h5>
-                                        <p class="card-text small">Los procesos más importantes pasan primero. En
-                                            Linux, esto se controla con los valores de <code>nice</code>.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold text-warning"><i
-                                                class="bi bi-lightning me-2"></i>CFS (Linux Actual)</h5>
-                                        <p class="card-text small">El Completely Fair Scheduler de Linux busca dar a
-                                            cada proceso su parte justa del CPU, como un árbitro imparcial.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Prioridades en Linux -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Prioridades en Linux: nice y renice</h2>
-                        <p>En Linux puedes decirle al sistema: "este proceso es más/menos importante". El valor
-                            <code>nice</code> va de <strong>-20</strong> (máxima prioridad) a <strong>19</strong>
-                            (mínima prioridad).
-                        </p>
-                        <pre><code class="language-bash"># Ejecutar un programa con baja prioridad
+                        <!-- Prioridades en Linux -->
+                        <section class="mb-5" aria-labelledby="priorities-heading">
+                            <h2 id="priorities-heading" class="text-primary border-bottom pb-2 mb-4">Prioridades en
+                                Linux: nice y renice</h2>
+                            <p>En Linux puedes decirle al sistema: "este proceso es más/menos importante". El valor
+                                <code>nice</code> va de <strong>-20</strong> (máxima prioridad) a <strong>19</strong>
+                                (mínima prioridad).
+                            </p>
+                            <pre><code class="language-bash"># Ejecutar un programa con baja prioridad
 nice -n 10 firefox
 
 # Cambiar la prioridad de un proceso en ejecución
@@ -115,13 +123,14 @@ ps aux | grep firefox
 
 # Luego cambiar su prioridad
 sudo renice -5 -p 1234</code></pre>
-                    </section>
+                        </section>
 
-                    <!-- Monitoreo -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Monitoreando la CPU en tiempo real</h2>
-                        <p>Linux te da herramientas poderosas para ver qué pasa en la CPU:</p>
-                        <pre><code class="language-bash"># Monitor interactivo (viene preinstalado)
+                        <!-- Monitoreo -->
+                        <section class="mb-5" aria-labelledby="monitoring-heading">
+                            <h2 id="monitoring-heading" class="text-primary border-bottom pb-2 mb-4">Monitoreando la CPU
+                                en tiempo real</h2>
+                            <p>Linux te da herramientas poderosas para ver qué pasa en la CPU:</p>
+                            <pre><code class="language-bash"># Monitor interactivo (viene preinstalado)
 top
 
 # Monitor mejorado con colores (instalar primero)
@@ -133,13 +142,13 @@ nproc
 
 # Información detallada del procesador
 lscpu</code></pre>
-                    </section>
+                        </section>
 
-                    <!-- Laboratorio Vivo -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
-                        <p>Experimenta con la gestión de CPU en tu terminal:</p>
-                        <pre><code class="language-bash"># 1. Abre htop y observa la carga de CPU
+                        <!-- Laboratorio Vivo -->
+                        <section class="mb-5">
+                            <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                            <p>Experimenta con la gestión de CPU en tu terminal:</p>
+                            <pre><code class="language-bash"># 1. Abre htop y observa la carga de CPU
 htop
 
 # 2. En otra terminal, crea carga artificial
@@ -155,75 +164,78 @@ sudo renice 19 -p [PID]
 
 # 6. Mátalo cuando termines
 kill [PID]</code></pre>
-                    </section>
+                        </section>
 
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/26QPDBe-NB8" title="CPU Scheduling"
-                                            allowfullscreen></iframe>
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/26QPDBe-NB8"
+                                                title="CPU Scheduling" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">CPU Scheduling Explicado</h6>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">CPU Scheduling Explicado</h6>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/2quKyPnUShQ"
+                                                title="htop Tutorial" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Domina htop en Linux</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/2quKyPnUShQ" title="htop Tutorial"
-                                            allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Domina htop en Linux</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th Ed.</em>
-                                Wiley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
-                                Addison-Wesley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>Kernel.org.</strong> <em>CFS Scheduler Documentation.</em>
-                                <a href="https://www.kernel.org/doc/html/latest/scheduler/" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
-                                    docs</a>
-                            </li>
-                        </ul>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th
+                                        Ed.</em>
+                                    Wiley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
+                                    Addison-Wesley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>Kernel.org.</strong> <em>CFS Scheduler Documentation.</em>
+                                    <a href="https://www.kernel.org/doc/html/latest/scheduler/" target="_blank"
+                                        class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                        Ver
+                                        docs</a>
+                                </li>
+                            </ul>
+                        </section>
 
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

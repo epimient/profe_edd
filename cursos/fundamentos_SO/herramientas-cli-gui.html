@@ -28,313 +28,340 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Terminal vs Escritorio</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Terminal vs Escritorio</h1>
             <p class="fs-4 text-muted">¿Cuál es más poderosa? Descúbrelo con retos reales.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
+        <main aria-labelledby="lesson-title">
 
-                    <!-- Intro -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Dos caminos, un destino</h2>
-                        <p>En Linux puedes hacer <strong>todo</strong> de dos formas: con la interfaz gráfica (GUI) o
-                            con la terminal (CLI). Ambas son herramientas legítimas, pero cada una tiene
-                            superpoderes distintos.</p>
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
-                            <strong>Objetivo:</strong> Hacer la misma tarea por ambos caminos y descubrir cuál es
-                            más eficiente en cada caso.
-                        </div>
-                    </section>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
 
-                    <!-- Comparación -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">CLI vs GUI: Face-off</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered align-middle">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Característica</th>
-                                        <th><i class="bi bi-terminal me-1"></i>CLI (Terminal)</th>
-                                        <th><i class="bi bi-window me-1"></i>GUI (Escritorio)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Velocidad</strong></td>
-                                        <td class="table-success">⚡ Rápida para expertos</td>
-                                        <td>🐢 Más clicks</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Automatización</strong></td>
-                                        <td class="table-success">✅ Scripts y pipes</td>
-                                        <td class="table-danger">❌ Manual</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Curva de aprendizaje</strong></td>
-                                        <td class="table-warning">📈 Alta al inicio</td>
-                                        <td class="table-success">📉 Intuitiva</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Recursos del sistema</strong></td>
-                                        <td class="table-success">💡 Mínimos</td>
-                                        <td class="table-warning">💻 Consume más RAM/CPU</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Acceso remoto</strong></td>
-                                        <td class="table-success">🌐 SSH desde cualquier lugar</td>
-                                        <td class="table-warning">📡 Necesita VNC/RDP</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Servidores</strong></td>
-                                        <td class="table-success">🏗️ Estándar de la industria</td>
-                                        <td class="table-danger">❌ Casi nunca se usa</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
+                        <!-- Intro -->
+                        <section class="mb-5" aria-labelledby="intro-heading">
+                            <h2 id="intro-heading" class="text-primary border-bottom pb-2 mb-4">Dos caminos, un destino
+                            </h2>
+                            <p>En Linux puedes hacer <strong>todo</strong> de dos formas: con la interfaz gráfica (GUI)
+                                o
+                                con la terminal (CLI). Ambas son herramientas legítimas, pero cada una tiene
+                                superpoderes distintos.</p>
+                            <div class="alert alert-info shadow-sm">
+                                <i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i>
+                                <strong>Objetivo:</strong> Hacer la misma tarea por ambos caminos y descubrir cuál es
+                                más eficiente en cada caso.
+                            </div>
+                        </section>
 
-                    <!-- Herramientas CLI -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Herramientas CLI esenciales</h2>
-                        <div class="row g-3">
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-white text-center p-3 h-100">
-                                    <i class="bi bi-folder-fill display-4 text-info"></i>
-                                    <h6 class="fw-bold mt-2">Archivos</h6>
-                                    <p class="small text-white-50 mb-0"><code>ls, cp, mv, rm, find</code></p>
-                                </div>
+                        <!-- Comparación -->
+                        <section class="mb-5" aria-labelledby="comparison-heading">
+                            <h2 id="comparison-heading" class="text-primary border-bottom pb-2 mb-4">CLI vs GUI:
+                                Face-off</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered align-middle">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Característica</th>
+                                            <th><i class="bi bi-terminal me-1"></i>CLI (Terminal)</th>
+                                            <th><i class="bi bi-window me-1"></i>GUI (Escritorio)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Velocidad</strong></td>
+                                            <td class="table-success">⚡ Rápida para expertos</td>
+                                            <td>🐢 Más clicks</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Automatización</strong></td>
+                                            <td class="table-success">✅ Scripts y pipes</td>
+                                            <td class="table-danger">❌ Manual</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Curva de aprendizaje</strong></td>
+                                            <td class="table-warning">📈 Alta al inicio</td>
+                                            <td class="table-success">📉 Intuitiva</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Recursos del sistema</strong></td>
+                                            <td class="table-success">💡 Mínimos</td>
+                                            <td class="table-warning">💻 Consume más RAM/CPU</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Acceso remoto</strong></td>
+                                            <td class="table-success">🌐 SSH desde cualquier lugar</td>
+                                            <td class="table-warning">📡 Necesita VNC/RDP</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Servidores</strong></td>
+                                            <td class="table-success">🏗️ Estándar de la industria</td>
+                                            <td class="table-danger">❌ Casi nunca se usa</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-white text-center p-3 h-100">
-                                    <i class="bi bi-activity display-4 text-success"></i>
-                                    <h6 class="fw-bold mt-2">Procesos</h6>
-                                    <p class="small text-white-50 mb-0"><code>ps, top, htop, kill</code></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-white text-center p-3 h-100">
-                                    <i class="bi bi-wifi display-4 text-warning"></i>
-                                    <h6 class="fw-bold mt-2">Red</h6>
-                                    <p class="small text-white-50 mb-0"><code>ip, ping, curl, ss</code></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-white text-center p-3 h-100">
-                                    <i class="bi bi-box-seam display-4 text-danger"></i>
-                                    <h6 class="fw-bold mt-2">Paquetes</h6>
-                                    <p class="small text-white-50 mb-0"><code>apt, dnf, snap, flatpak</code></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-white text-center p-3 h-100">
-                                    <i class="bi bi-person-badge display-4 text-primary"></i>
-                                    <h6 class="fw-bold mt-2">Usuarios</h6>
-                                    <p class="small text-white-50 mb-0"><code>whoami, sudo, chmod</code></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-white text-center p-3 h-100">
-                                    <i class="bi bi-journal-code display-4 text-white"></i>
-                                    <h6 class="fw-bold mt-2">Logs</h6>
-                                    <p class="small text-white-50 mb-0"><code>journalctl, dmesg, tail</code></p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Herramientas GUI -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Herramientas GUI en Linux</h2>
-                        <p>Linux tiene entornos gráficos tan completos como Windows o macOS:</p>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold text-primary"><i
-                                                class="bi bi-display me-2"></i>GNOME</h5>
-                                        <p class="card-text small">Escritorio moderno y minimalista. Usado por Ubuntu y
-                                            Fedora. Incluye: Nautilus (archivos), Monitor del Sistema, Configuración.
-                                        </p>
+                        <!-- Herramientas CLI -->
+                        <section class="mb-5" aria-labelledby="cli-tools-heading">
+                            <h2 id="cli-tools-heading" class="text-primary border-bottom pb-2 mb-4">Herramientas CLI
+                                esenciales</h2>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="card bg-dark text-white text-center p-3 h-100">
+                                        <i class="bi bi-folder-fill display-4 text-info"></i>
+                                        <h6 class="fw-bold mt-2">Archivos</h6>
+                                        <p class="small text-white-50 mb-0"><code>ls, cp, mv, rm, find</code></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-dark text-white text-center p-3 h-100">
+                                        <i class="bi bi-activity display-4 text-success"></i>
+                                        <h6 class="fw-bold mt-2">Procesos</h6>
+                                        <p class="small text-white-50 mb-0"><code>ps, top, htop, kill</code></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-dark text-white text-center p-3 h-100">
+                                        <i class="bi bi-wifi display-4 text-warning"></i>
+                                        <h6 class="fw-bold mt-2">Red</h6>
+                                        <p class="small text-white-50 mb-0"><code>ip, ping, curl, ss</code></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-dark text-white text-center p-3 h-100">
+                                        <i class="bi bi-box-seam display-4 text-danger"></i>
+                                        <h6 class="fw-bold mt-2">Paquetes</h6>
+                                        <p class="small text-white-50 mb-0"><code>apt, dnf, snap, flatpak</code></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-dark text-white text-center p-3 h-100">
+                                        <i class="bi bi-person-badge display-4 text-primary"></i>
+                                        <h6 class="fw-bold mt-2">Usuarios</h6>
+                                        <p class="small text-white-50 mb-0"><code>whoami, sudo, chmod</code></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-dark text-white text-center p-3 h-100">
+                                        <i class="bi bi-journal-code display-4 text-white"></i>
+                                        <h6 class="fw-bold mt-2">Logs</h6>
+                                        <p class="small text-white-50 mb-0"><code>journalctl, dmesg, tail</code></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold text-success"><i class="bi bi-grid me-2"></i>KDE
-                                            Plasma</h5>
-                                        <p class="card-text small">Escritorio altamente personalizable. Incluye:
-                                            Dolphin (archivos), KSysGuard (monitor), Konsole (terminal integrada).</p>
+                        </section>
+
+                        <!-- Herramientas GUI -->
+                        <section class="mb-5" aria-labelledby="gui-tools-heading">
+                            <h2 id="gui-tools-heading" class="text-primary border-bottom pb-2 mb-4">Herramientas GUI en
+                                Linux</h2>
+                            <p>Linux tiene entornos gráficos tan completos como Windows o macOS:</p>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-primary"><i
+                                                    class="bi bi-display me-2"></i>GNOME</h5>
+                                            <p class="card-text small">Escritorio moderno y minimalista. Usado por
+                                                Ubuntu y
+                                                Fedora. Incluye: Nautilus (archivos), Monitor del Sistema,
+                                                Configuración.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-success"><i
+                                                    class="bi bi-grid me-2"></i>KDE
+                                                Plasma</h5>
+                                            <p class="card-text small">Escritorio altamente personalizable. Incluye:
+                                                Dolphin (archivos), KSysGuard (monitor), Konsole (terminal integrada).
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Retos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Reto: La misma tarea, dos caminos</h2>
-                        <p>Haz cada tarea por <strong>CLI</strong> y por <strong>GUI</strong>. ¿Cuál fue más rápida?</p>
+                        <!-- Retos -->
+                        <section class="mb-5" aria-labelledby="challenges-heading">
+                            <h2 id="challenges-heading" class="text-primary border-bottom pb-2 mb-4">Reto: La misma
+                                tarea, dos caminos</h2>
+                            <p>Haz cada tarea por <strong>CLI</strong> y por <strong>GUI</strong>. ¿Cuál fue más rápida?
+                            </p>
 
-                        <div class="accordion" id="retosAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#reto1">
-                                        Reto 1: Crear una carpeta con 3 archivos de texto
-                                    </button>
-                                </h2>
-                                <div id="reto1" class="accordion-collapse collapse show"
-                                    data-bs-parent="#retosAccordion">
-                                    <div class="accordion-body">
-                                        <h6 class="fw-bold text-success"><i class="bi bi-terminal me-1"></i> Por CLI:
-                                        </h6>
-                                        <pre><code class="language-bash">mkdir mi_proyecto
+                            <div class="accordion" id="retosAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#reto1">
+                                            Reto 1: Crear una carpeta con 3 archivos de texto
+                                        </button>
+                                    </h2>
+                                    <div id="reto1" class="accordion-collapse collapse show"
+                                        data-bs-parent="#retosAccordion">
+                                        <div class="accordion-body">
+                                            <h6 class="fw-bold text-success"><i class="bi bi-terminal me-1"></i> Por
+                                                CLI:
+                                            </h6>
+                                            <pre><code class="language-bash">mkdir mi_proyecto
 touch mi_proyecto/notas.txt mi_proyecto/ideas.txt mi_proyecto/tareas.txt
 ls mi_proyecto</code></pre>
-                                        <h6 class="fw-bold text-primary mt-3"><i class="bi bi-window me-1"></i> Por
-                                            GUI:</h6>
-                                        <p class="small text-muted">Click derecho → Nueva Carpeta → Nombrar → Entrar →
-                                            Click derecho × 3 → Nuevo Documento → Nombrar cada uno...</p>
-                                        <div class="alert alert-light border mt-2 small">
-                                            <strong>⏱️ Resultado:</strong> CLI ≈ 3 segundos | GUI ≈ 30 segundos
+                                            <h6 class="fw-bold text-primary mt-3"><i class="bi bi-window me-1"></i> Por
+                                                GUI:</h6>
+                                            <p class="small text-muted">Click derecho → Nueva Carpeta → Nombrar → Entrar
+                                                →
+                                                Click derecho × 3 → Nuevo Documento → Nombrar cada uno...</p>
+                                            <div class="alert alert-light border mt-2 small">
+                                                <strong>⏱️ Resultado:</strong> CLI ≈ 3 segundos | GUI ≈ 30 segundos
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#reto2">
+                                            Reto 2: Encontrar todos los archivos .log del sistema
+                                        </button>
+                                    </h2>
+                                    <div id="reto2" class="accordion-collapse collapse"
+                                        data-bs-parent="#retosAccordion">
+                                        <div class="accordion-body">
+                                            <h6 class="fw-bold text-success"><i class="bi bi-terminal me-1"></i> Por
+                                                CLI:
+                                            </h6>
+                                            <pre><code class="language-bash">find /var/log -name "*.log" 2>/dev/null</code></pre>
+                                            <h6 class="fw-bold text-primary mt-3"><i class="bi bi-window me-1"></i> Por
+                                                GUI:</h6>
+                                            <p class="small text-muted">Abrir el explorador → Navegar a /var/log →
+                                                Buscar
+                                                manualmente... buena suerte.</p>
+                                            <div class="alert alert-light border mt-2 small">
+                                                <strong>⏱️ Resultado:</strong> CLI ≈ 1 segundo | GUI ≈ varios minutos
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#reto3">
+                                            Reto 3: Instalar un programa
+                                        </button>
+                                    </h2>
+                                    <div id="reto3" class="accordion-collapse collapse"
+                                        data-bs-parent="#retosAccordion">
+                                        <div class="accordion-body">
+                                            <h6 class="fw-bold text-success"><i class="bi bi-terminal me-1"></i> Por
+                                                CLI:
+                                            </h6>
+                                            <pre><code class="language-bash">sudo apt install vlc</code></pre>
+                                            <h6 class="fw-bold text-primary mt-3"><i class="bi bi-window me-1"></i> Por
+                                                GUI:</h6>
+                                            <p class="small text-muted">Abrir Software Center → Buscar "VLC" → Click
+                                                Instalar → Ingresar contraseña → Esperar...</p>
+                                            <div class="alert alert-light border mt-2 small">
+                                                <strong>⏱️ Resultado:</strong> Ambas toman tiempo similar, pero CLI
+                                                permite
+                                                instalar varios a la vez.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </section>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#reto2">
-                                        Reto 2: Encontrar todos los archivos .log del sistema
-                                    </button>
-                                </h2>
-                                <div id="reto2" class="accordion-collapse collapse" data-bs-parent="#retosAccordion">
-                                    <div class="accordion-body">
-                                        <h6 class="fw-bold text-success"><i class="bi bi-terminal me-1"></i> Por CLI:
-                                        </h6>
-                                        <pre><code class="language-bash">find /var/log -name "*.log" 2>/dev/null</code></pre>
-                                        <h6 class="fw-bold text-primary mt-3"><i class="bi bi-window me-1"></i> Por
-                                            GUI:</h6>
-                                        <p class="small text-muted">Abrir el explorador → Navegar a /var/log → Buscar
-                                            manualmente... buena suerte.</p>
-                                        <div class="alert alert-light border mt-2 small">
-                                            <strong>⏱️ Resultado:</strong> CLI ≈ 1 segundo | GUI ≈ varios minutos
+                        <!-- Conclusión -->
+                        <section class="mb-5" aria-labelledby="conclusion-heading">
+                            <div class="alert alert-success shadow-sm">
+                                <h5 id="conclusion-heading" class="alert-heading fw-bold"><i class="bi bi-trophy me-2"
+                                        aria-hidden="true"></i>Conclusión</h5>
+                                <p class="mb-0">En la industria, los profesionales usan <strong>ambas</strong>. La CLI
+                                    es
+                                    imprescindible para servidores, automatización y trabajo remoto. La GUI es ideal
+                                    para
+                                    diseño, navegar y tareas visuales. <strong>Un buen ingeniero domina las
+                                        dos.</strong>
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/I4EWvMFj37g"
+                                                title="Linux Terminal" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Bash en 100 Segundos</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/ShcR4Zfc6Dw"
+                                                title="Linux Desktop" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Linux en 100 Segundos</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </section>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#reto3">
-                                        Reto 3: Instalar un programa
-                                    </button>
-                                </h2>
-                                <div id="reto3" class="accordion-collapse collapse" data-bs-parent="#retosAccordion">
-                                    <div class="accordion-body">
-                                        <h6 class="fw-bold text-success"><i class="bi bi-terminal me-1"></i> Por CLI:
-                                        </h6>
-                                        <pre><code class="language-bash">sudo apt install vlc</code></pre>
-                                        <h6 class="fw-bold text-primary mt-3"><i class="bi bi-window me-1"></i> Por
-                                            GUI:</h6>
-                                        <p class="small text-muted">Abrir Software Center → Buscar "VLC" → Click
-                                            Instalar → Ingresar contraseña → Esperar...</p>
-                                        <div class="alert alert-light border mt-2 small">
-                                            <strong>⏱️ Resultado:</strong> Ambas toman tiempo similar, pero CLI permite
-                                            instalar varios a la vez.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
+                                    Starch Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>GNOME Project.</strong> <em>GNOME Desktop Documentation.</em>
+                                    <a href="https://help.gnome.org/" target="_blank"
+                                        class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                        Ver
+                                        docs</a>
+                                </li>
+                            </ul>
+                        </section>
 
-                    <!-- Conclusión -->
-                    <section class="mb-5">
-                        <div class="alert alert-success shadow-sm">
-                            <h5 class="alert-heading fw-bold"><i class="bi bi-trophy me-2"></i>Conclusión</h5>
-                            <p class="mb-0">En la industria, los profesionales usan <strong>ambas</strong>. La CLI es
-                                imprescindible para servidores, automatización y trabajo remoto. La GUI es ideal para
-                                diseño, navegar y tareas visuales. <strong>Un buen ingeniero domina las dos.</strong>
-                            </p>
-                        </div>
-                    </section>
-
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/I4EWvMFj37g" title="Linux Terminal"
-                                            allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Bash en 100 Segundos</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/ShcR4Zfc6Dw" title="Linux Desktop"
-                                            allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Linux en 100 Segundos</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
-                                Starch Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>GNOME Project.</strong> <em>GNOME Desktop Documentation.</em>
-                                <a href="https://help.gnome.org/" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
-                                    docs</a>
-                            </li>
-                        </ul>
-                    </section>
-
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

@@ -22,19 +22,21 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Interfaces</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Interfaces</h1>
             <p class="fs-4 text-muted">Contratos de comportamiento.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Interfaces en Python</h2>
-                        <p>Aunque Python no tiene una palabra clave <code>interface</code> como Java, usamos Clases
-                            Abstractas con solo métodos abstractos para simular este comportamiento.</p>
-                        <pre><code class="language-python">from abc import ABC, abstractmethod
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="interfaces-python-heading">
+                            <h2 id="interfaces-python-heading" class="mb-4">Interfaces en Python</h2>
+                            <p>Aunque Python no tiene una palabra clave <code>interface</code> como Java, usamos Clases
+                                Abstractas con solo métodos abstractos para simular este comportamiento.</p>
+                            <pre><code class="language-python">from abc import ABC, abstractmethod
 
 class Volador(ABC):
     @abstractmethod
@@ -44,25 +46,26 @@ class Volador(ABC):
 class Avion(Volador):
     def volar(self):
         return "Despegando motores..."</code></pre>
-                    </section>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Importancia</h2>
-                        <p>Las interfaces permiten desacoplar el código: una función puede trabajar con cualquier objeto
-                            que "implemente la interfaz" sin importar su tipo real.</p>
-                    </section>
-                </article>
+                        <section class="mb-5" aria-labelledby="importance-heading">
+                            <h2 id="importance-heading" class="mb-4">Importancia</h2>
+                            <p>Las interfaces permiten desacoplar el código: una función puede trabajar con cualquier
+                                objeto
+                                que "implemente la interfaz" sin importar su tipo real.</p>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

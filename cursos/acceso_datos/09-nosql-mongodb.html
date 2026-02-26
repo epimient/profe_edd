@@ -23,23 +23,25 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Bases de Datos NoSQL</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Bases de Datos NoSQL</h1>
             <p class="fs-4 text-muted">Introducción a MongoDB y el almacenamiento orientado a documentos.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Flexibilidad de Esquema</h2>
-                        <p>A diferencia de SQL, NoSQL nos permite guardar documentos JSON con estructuras dinámicas,
-                            ideal para Big Data y aplicaciones ágiles.</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Ejemplo con PyMongo</h2>
-                        <pre><code class="language-python">from pymongo import MongoClient
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="nosql-flexibility-heading">
+                            <h2 id="nosql-flexibility-heading" class="mb-4">Flexibilidad de Esquema</h2>
+                            <p>A diferencia de SQL, NoSQL nos permite guardar documentos JSON con estructuras dinámicas,
+                                ideal para Big Data y aplicaciones ágiles.</p>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="pymongo-example-heading">
+                            <h2 id="pymongo-example-heading" class="mb-4">Ejemplo con PyMongo</h2>
+                            <pre><code class="language-python">from pymongo import MongoClient
 
 client = MongoClient('localhost', 27017)
 db = client['mi_bd']
@@ -47,19 +49,19 @@ collection = db['estudiantes']
 
 # Insertar documento
 collection.insert_one({"nombre": "Eduardo", "rol": "Docente"})</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

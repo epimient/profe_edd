@@ -28,151 +28,157 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">¿Qué hace realmente un SO por nosotros?</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 id="lesson-title" class="display-5 fw-bold">¿Qué hace realmente un SO por nosotros?</h1>
             <p class="fs-4">El Sistema Operativo es el intermediario invisible pero esencial entre tú y el hardware.</p>
         </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">El Gerente del Hardware</h2>
-                    <p>Imagina una orquesta sin director. Cada músico (componente de hardware) tocaría su parte sin
-                        sincronización. El Sistema Operativo (SO) es ese director.</p>
+        <main aria-labelledby="lesson-title">
 
-                    <h3 class="mt-4">Funciones Principales</h3>
-                    <div class="accordion" id="accordionFunciones">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Gestión de Procesos
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionFunciones">
-                                <div class="accordion-body">
-                                    El SO decide qué programa usa la CPU, por cuánto tiempo y en qué orden. Esto permite
-                                    la multitarea.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Gestión de Memoria
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFunciones">
-                                <div class="accordion-body">
-                                    Asigna espacio en la memoria RAM a cada aplicación y evita que una invada el espacio
-                                    de otra.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Sistema de Archivos
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFunciones">
-                                <div class="accordion-body">
-                                    Organiza la información en carpetas y archivos, abstrae la complejidad de saber en
-                                    qué sector físico del disco está cada bit.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="hardware-manager-heading">
+                            <h2 id="hardware-manager-heading" class="blog-post-title mb-4">El Gerente del Hardware</h2>
+                            <p>Imagina una orquesta sin director. Cada músico (componente de hardware) tocaría su parte
+                                sin
+                                sincronización. El Sistema Operativo (SO) es ese director.</p>
 
-                    <h3 class="mt-5">Tipos de Sistemas Operativos</h3>
-                    <ul>
-                        <li><strong>Monolíticos:</strong> Todo corre en un solo gran bloque en modo kernel (ej. Linux,
-                            Unix).</li>
-                        <li><strong>Microkernel:</strong> Solo lo esencial corre en modo kernel, el resto en modo
-                            usuario (ej. Minix, Hurd).</li>
-                        <li><strong>Híbridos:</strong> Una mezcla de ambos (ej. Windows NT, macOS).</li>
-                    </ul>
-
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/26QPDBe-NB8"
-                                            title="Operating Systems (Fireship)" allowfullscreen></iframe>
+                            <h3 class="mt-4">Funciones Principales</h3>
+                            <div class="accordion" id="accordionFunciones">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Gestión de Procesos
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionFunciones">
+                                        <div class="accordion-body">
+                                            El SO decide qué programa usa la CPU, por cuánto tiempo y en qué orden. Esto
+                                            permite
+                                            la multitarea.
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Operating Systems en 100 Segundos</h6>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Gestión de Memoria
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFunciones">
+                                        <div class="accordion-body">
+                                            Asigna espacio en la memoria RAM a cada aplicación y evita que una invada el
+                                            espacio
+                                            de otra.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Sistema de Archivos
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFunciones">
+                                        <div class="accordion-body">
+                                            Organiza la información en carpetas y archivos, abstrae la complejidad de
+                                            saber en
+                                            qué sector físico del disco está cada bit.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/9GDX-IyZ_C8" title="What is an OS?"
-                                            allowfullscreen></iframe>
+
+                            <h3 class="mt-5">Tipos de Sistemas Operativos</h3>
+                            <ul>
+                                <li><strong>Monolíticos:</strong> Todo corre en un solo gran bloque en modo kernel (ej.
+                                    Linux,
+                                    Unix).</li>
+                                <li><strong>Microkernel:</strong> Solo lo esencial corre en modo kernel, el resto en
+                                    modo
+                                    usuario (ej. Minix, Hurd).</li>
+                                <li><strong>Híbridos:</strong> Una mezcla de ambos (ej. Windows NT, macOS).</li>
+                            </ul>
+                        </section>
+
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/26QPDBe-NB8"
+                                                title="Operating Systems (Fireship)" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Operating Systems en 100 Segundos</h6>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">¿Qué es un Sistema Operativo?</h6>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/9GDX-IyZ_C8"
+                                                title="What is an OS?" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">¿Qué es un Sistema Operativo?</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th Ed.</em>
-                                Wiley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>Linux Foundation. (2025).</strong> <em>What is Linux?</em>
-                                <a href="https://www.linuxfoundation.org/" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
-                                    Sitio Oficial</a>
-                            </li>
-                        </ul>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th
+                                        Ed.</em>
+                                    Wiley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>Linux Foundation. (2025).</strong> <em>What is Linux?</em>
+                                    <a href="https://www.linuxfoundation.org/" target="_blank"
+                                        class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                        Sitio Oficial</a>
+                                </li>
+                            </ul>
+                        </section>
 
-                </article>
-            </div>
-
-            <div class="col-md-4">
-                <div class="p-4 mb-3 bg-body-tertiary rounded">
-                    <h4>Sabías que...</h4>
-                    <p>Aunque interactuamos con la interfaz gráfica, el verdadero trabajo lo hace el
-                        <strong>Kernel</strong>, la parte del SO que habla directamente con el hardware.
-                    </p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

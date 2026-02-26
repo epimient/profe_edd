@@ -17,12 +17,13 @@
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
+    <main class="container mt-5">
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="breadcrumb">
+        <nav aria-label="Navegación de rastro (breadcrumb)">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../index.html">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html">Fundamentos de Sistemas
+                <li class="breadcrumb-item"><a href="../../index.html" aria-label="Volver al Inicio">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../fundamentos-de-sistemas-operativos.html"
+                        aria-label="Volver a Fundamentos de Sistemas Operativos">Fundamentos de Sistemas
                         Operativos</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Tu primer día como Admin</li>
             </ol>
@@ -35,17 +36,19 @@
 
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
-                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3"></i>
+                <section class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="region"
+                    aria-labelledby="slides-heading">
+                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3" aria-hidden="true"></i>
                     <div class="flex-grow-1">
-                        <h4 class="alert-heading h5">Diapositivas de la Clase</h4>
+                        <h2 class="alert-heading h5" id="slides-heading">Diapositivas de la Clase</h2>
                         <p class="mb-0 small">Descarga o visualiza la presentación para repasar los conceptos clave.</p>
                     </div>
                     <a href="https://docs.google.com/presentation/d/1vjSLsBfaJOo4fy-u9XQbh8K8jkwOJ9Vm/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
-                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank">
-                        <i class="bi bi-easel2-fill me-2"></i>Ver Diapositivas
+                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank"
+                        aria-label="Ver Diapositivas de la clase (abre en nueva pestaña)">
+                        <i class="bi bi-easel2-fill me-2" aria-hidden="true"></i>Ver Diapositivas
                     </a>
-                </div>
+                </section>
             </div>
         </div>
 
@@ -54,11 +57,12 @@
                 <article class="blog-post">
 
                     <!-- CAPÍTULO I -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo I: Conceptos Fundamentales e Identidad
+                    <section class="mb-5" aria-labelledby="cap-1">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap-1">Capítulo I: Conceptos Fundamentales
+                            e Identidad
                         </h2>
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
+                        <div class="alert alert-info shadow-sm" role="note">
+                            <i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i>
                             <strong>Administrar poder:</strong> Administrar usuarios no es solo crear cuentas, es
                             definir fronteras.
                         </div>
@@ -69,8 +73,8 @@
                             <div class="col-md-6">
                                 <div class="card h-100 border-0 bg-white shadow-sm">
                                     <div class="card-body">
-                                        <h5 class="card-title fw-bold text-primary"><i
-                                                class="bi bi-person me-2"></i>Usuario Normal</h5>
+                                        <h3 class="card-title h5 fw-bold text-primary"><i class="bi bi-person me-2"
+                                                aria-hidden="true"></i>Usuario Normal</h3>
                                         <p class="card-text small">Puede trabajar en su carpeta personal
                                             (<code>/home/usuario</code>). El sistema lo protege de sí mismo y de otros.
                                         </p>
@@ -80,8 +84,9 @@
                             <div class="col-md-6">
                                 <div class="card h-100 border-0 bg-white shadow-sm">
                                     <div class="card-body border-top border-4 border-danger rounded-top">
-                                        <h5 class="card-title fw-bold text-danger"><i
-                                                class="bi bi-shield-lock-fill me-2"></i>Root (Superusuario)</h5>
+                                        <h3 class="card-title h5 fw-bold text-danger"><i
+                                                class="bi bi-shield-lock-fill me-2" aria-hidden="true"></i>Root
+                                            (Superusuario)</h3>
                                         <p class="card-text small">UID 0. Acceso total al hardware y sistema de
                                             archivos. <strong>¡El error humano aquí es destructivo!</strong></p>
                                     </div>
@@ -91,37 +96,42 @@
                     </section>
 
                     <!-- CAPÍTULO II -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo II: su vs sudo</h2>
+                    <section class="mb-5" aria-labelledby="cap-2">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap-2">Capítulo II: su vs sudo</h2>
                         <p>¿Cómo obtenemos privilegios de administrador? Existen dos caminos principales:</p>
 
                         <div class="row g-4 mb-4">
                             <div class="col-md-6">
-                                <div class="p-4 bg-white rounded shadow-sm">
-                                    <h4 class="h5 fw-bold"><code class="text-danger">su -</code> (Switch User)</h4>
+                                <section class="p-4 bg-white rounded shadow-sm" aria-labelledby="su-cmd">
+                                    <h3 class="h5 fw-bold" id="su-cmd"><code class="text-danger">su -</code> (Switch
+                                        User)</h3>
                                     <p class="small">Te <strong>conviertes</strong> en root. Necesitas la contraseña de
                                         root. No deja rastro de quién hizo el cambio.</p>
-                                </div>
+                                </section>
                             </div>
                             <div class="col-md-6">
-                                <div class="p-4 bg-white rounded shadow-sm border-start border-4 border-success">
-                                    <h4 class="h5 fw-bold"><code class="text-success">sudo</code> (SuperUser DO)</h4>
+                                <section class="p-4 bg-white rounded shadow-sm border-start border-4 border-success"
+                                    aria-labelledby="sudo-cmd">
+                                    <h3 class="h5 fw-bold" id="sudo-cmd"><code class="text-success">sudo</code>
+                                        (SuperUser DO)</h3>
                                     <p class="small">Ejecutas <strong>un comando</strong> como root usando <strong>tu
                                             propia clave</strong>. Deja registro (logs) de cada acción.</p>
-                                </div>
+                                </section>
                             </div>
                         </div>
 
-                        <div class="bg-dark text-white p-4 rounded mb-4">
-                            <h5 class="text-success"><i class="bi bi-check-circle me-2"></i>Trazabilidad con sudo</h5>
+                        <div class="bg-dark text-white p-4 rounded mb-4" role="complementary">
+                            <h3 class="h5 text-success"><i class="bi bi-check-circle me-2"
+                                    aria-hidden="true"></i>Trazabilidad con sudo</h3>
                             <p class="mb-0 small">El sistema registra: ¿Quién? ¿Qué? ¿Cuándo? ¿Desde dónde? Esto es
                                 seguridad real: limitar el impacto del error humano.</p>
                         </div>
                     </section>
 
                     <!-- CAPÍTULO III -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo III: Los Archivos de Identidad</h2>
+                    <section class="mb-5" aria-labelledby="cap-3">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap-3">Capítulo III: Los Archivos de
+                            Identidad</h2>
                         <p>Linux guarda toda la información de usuarios y grupos en archivos de texto plano protegidos:
                         </p>
                         <ul class="list-group list-group-flush mb-4">
@@ -140,35 +150,36 @@
                     </section>
 
                     <!-- CAPÍTULO IV -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo IV: Sistema de Permisos rwx</h2>
+                    <section class="mb-5" aria-labelledby="cap-4">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap-4">Capítulo IV: Sistema de Permisos rwx
+                        </h2>
                         <p>El corazón del control de acceso. Cada archivo tiene tres niveles de permisos:</p>
 
                         <div class="table-responsive mb-4">
                             <table class="table table-bordered bg-white">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th>Permiso</th>
-                                        <th>Significado (Archivo)</th>
-                                        <th>Significado (Directorio)</th>
-                                        <th>Valor</th>
+                                        <th scope="col">Permiso</th>
+                                        <th scope="col">Significado (Archivo)</th>
+                                        <th scope="col">Significado (Directorio)</th>
+                                        <th scope="col">Valor</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>r</strong> (read)</td>
+                                        <th scope="row"><strong>r</strong> (read)</th>
                                         <td>Ver contenido</td>
                                         <td>Listar archivos</td>
                                         <td>4</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>w</strong> (write)</td>
+                                        <th scope="row"><strong>w</strong> (write)</th>
                                         <td>Modificar contenido</td>
                                         <td>Crear/borrar archivos</td>
                                         <td>2</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>x</strong> (execute)</td>
+                                        <th scope="row"><strong>x</strong> (execute)</th>
                                         <td>Ejecutar programa</td>
                                         <td>Entrar al directorio (cd)</td>
                                         <td>1</td>
@@ -177,7 +188,7 @@
                             </table>
                         </div>
 
-                        <h5 class="fw-bold mb-3">Notación Numérica Común</h5>
+                        <h3 class="fw-bold h5 mb-3">Notación Numérica Común</h3>
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <div class="p-3 border rounded text-center bg-white shadow-sm">
@@ -202,22 +213,23 @@
                     </section>
 
                     <!-- CAPÍTULO V -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo V: Permisos Especiales y umask</h2>
+                    <section class="mb-5" aria-labelledby="cap-5">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="cap-5">Capítulo V: Permisos Especiales y
+                            umask</h2>
                         <p>Para casos específicos, Linux ofrece herramientas de control avanzado:</p>
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <h6 class="fw-bold">umask (User Mask)</h6>
+                                <h3 class="fw-bold h6">umask (User Mask)</h3>
                                 <p class="small text-muted">Es un filtro que <strong>resta</strong> permisos al crear
                                     archivos. Por defecto suele ser 022 (777 - 022 = 755).</p>
                             </div>
                             <div class="col-md-6">
-                                <h6 class="fw-bold">Sticky Bit</h6>
+                                <h3 class="fw-bold h6">Sticky Bit</h3>
                                 <p class="small text-muted">Evita que borres archivos de otros en carpetas compartidas.
                                     Clave en <code>/tmp</code>.</p>
                             </div>
                             <div class="col-md-6">
-                                <h6 class="fw-bold">SUID / SGID</h6>
+                                <h3 class="fw-bold h6">SUID / SGID</h3>
                                 <p class="small text-muted">Permiten que un programa se ejecute con los privilegios del
                                     dueño o del grupo del archivo.</p>
                             </div>
@@ -225,8 +237,8 @@
                     </section>
 
                     <!-- LABOR INTERACTIVO -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Laboratorio Vivo</h2>
+                    <section class="mb-5" aria-labelledby="lab-heading">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="lab-heading">Laboratorio Vivo</h2>
                         <p>Abre tu terminal y practica estos comandos de administración:</p>
                         <pre><code class="language-bash"># Ver quién eres y tus IDs
 id
@@ -242,53 +254,56 @@ ls -l</code></pre>
                     </section>
 
                     <!-- VIDEOS -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Recursos Audiovisuales</h2>
+                    <section class="mb-5" aria-labelledby="videos-heading">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="videos-heading">Recursos Audiovisuales</h2>
                         <div class="row row-cols-1 row-cols-md-2 g-4">
                             <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
+                                <article class="card h-100 shadow-sm border-0">
                                     <div class="ratio ratio-16x9">
                                         <iframe src="https://www.youtube.com/embed/jwnvKOjmtEA"
-                                            title="Linux Users and Groups" allowfullscreen></iframe>
+                                            title="Video: Linux Users and Groups" allowfullscreen></iframe>
                                     </div>
                                     <div class="card-body">
-                                        <h6 class="card-title fw-bold">Gestión de Usuarios</h6>
+                                        <h3 class="card-title h6 fw-bold">Gestión de Usuarios</h3>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
+                                <article class="card h-100 shadow-sm border-0">
                                     <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/HMBBi-rPJaM" title="Sudo Explained"
-                                            allowfullscreen></iframe>
+                                        <iframe src="https://www.youtube.com/embed/HMBBi-rPJaM"
+                                            title="Video: Sudo Explained" allowfullscreen></iframe>
                                     </div>
                                     <div class="card-body">
-                                        <h6 class="card-title fw-bold">Comando sudo Explicado</h6>
+                                        <h3 class="card-title h6 fw-bold">Comando sudo Explicado</h3>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                         </div>
                     </section>
 
                     <!-- REFERENCIAS -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                    <section class="mb-5" aria-labelledby="refs-heading">
+                        <h2 class="text-primary border-bottom pb-2 mb-4" id="refs-heading">Referencias Bibliográficas
+                        </h2>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
+                                <i class="bi bi-book me-2 text-muted" aria-hidden="true"></i>
                                 <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
                                 Starch Press.
                             </li>
                             <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
+                                <i class="bi bi-book me-2 text-muted" aria-hidden="true"></i>
                                 <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
                                 Press.
                             </li>
                             <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
+                                <i class="bi bi-globe me-2 text-muted" aria-hidden="true"></i>
                                 <strong>Arch Wiki.</strong> <em>Users and Groups.</em>
                                 <a href="https://wiki.archlinux.org/title/Users_and_groups" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
+                                    class="ms-1 text-decoration-none small"
+                                    aria-label="Ver archivo en Arch Wiki (abre en nueva pestaña)"><i
+                                        class="bi bi-box-arrow-up-right"></i> Ver
                                     archivo</a>
                             </li>
                         </ul>
@@ -297,7 +312,7 @@ ls -l</code></pre>
                 </article>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
         <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>

@@ -22,62 +22,70 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Puesta en Marcha del IDE</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Puesta en Marcha del IDE</h1>
             <p class="fs-4 text-muted">Configuración de herramientas profesionales para el manejo de datos.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Herramientas Recomendadas</h2>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 poo-card shadow-sm border-0">
-                                    <div class="card-body">
-                                        <h5 class="fw-bold"><i class="bi bi-code-square me-2"></i>VS Code / PyCharm</h5>
-                                        <p class="small text-muted">Extensiones esenciales para SQL, JSON y entornos
-                                            virtuales.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 poo-card shadow-sm border-0">
-                                    <div class="card-body">
-                                        <h5 class="fw-bold"><i class="bi bi-terminal-fill me-2"></i>Entornos Virtuales
-                                        </h5>
-                                        <p class="small text-muted">Uso de <code>venv</code> para aislar dependencias de
-                                            bases de datos.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5 text-center">
-                        <h2 class="mb-4">Checklist de Configuración</h2>
-                        <ul class="list-group list-group-flush text-start d-inline-block">
-                            <li class="list-group-item bg-transparent"><i
-                                    class="bi bi-check2-circle text-success me-2"></i>Instalación de Python 3.10+</li>
-                            <li class="list-group-item bg-transparent"><i
-                                    class="bi bi-check2-circle text-success me-2"></i>Extensiones "SQLite Viewer" y
-                                "PostgreSQL"</li>
-                            <li class="list-group-item bg-transparent"><i
-                                    class="bi bi-check2-circle text-success me-2"></i>Instalación de Pip y gestión de
-                                librerías</li>
-                        </ul>
-                    </section>
-                </article>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="tools-heading">
+                            <h2 id="tools-heading" class="mb-4">Herramientas Recomendadas</h2>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 poo-card shadow-sm border-0 bg-white">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold"><i class="bi bi-code-square me-2"
+                                                    aria-hidden="true"></i>VS Code / PyCharm</h5>
+                                            <p class="small text-muted">Extensiones esenciales para SQL, JSON y entornos
+                                                virtuales.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 poo-card shadow-sm border-0 bg-white">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold"><i class="bi bi-terminal-fill me-2"
+                                                    aria-hidden="true"></i>Entornos Virtuales
+                                            </h5>
+                                            <p class="small text-muted">Uso de <code>venv</code> para aislar
+                                                dependencias de
+                                                bases de datos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mb-5 text-center" aria-labelledby="checklist-heading">
+                            <h2 id="checklist-heading" class="mb-4">Checklist de Configuración</h2>
+                            <ul class="list-group list-group-flush text-start d-inline-block">
+                                <li class="list-group-item bg-transparent"><i
+                                        class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>Instalación
+                                    de Python 3.10+</li>
+                                <li class="list-group-item bg-transparent"><i
+                                        class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>Extensiones
+                                    "SQLite Viewer" y
+                                    "PostgreSQL"</li>
+                                <li class="list-group-item bg-transparent"><i
+                                        class="bi bi-check2-circle text-success me-2" aria-hidden="true"></i>Instalación
+                                    de Pip y gestión de
+                                    librerías</li>
+                            </ul>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

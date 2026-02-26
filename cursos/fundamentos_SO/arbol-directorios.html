@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-light">
-    <div class="container mt-5">
+    <main class="container mt-5">
         <!-- Breadcrumb Navigation -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -28,149 +28,160 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">Entendiendo el Árbol de Directorios de Linux</h1>
+        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm" id="lesson-header">
+            <h1 class="display-5 fw-bold" id="lesson-title">Entendiendo el Árbol de Directorios de Linux</h1>
             <p class="fs-4">En Linux no hay C:\ ni D:\. Todo empieza desde la raíz (/).</p>
         </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">El Filesystem Hierarchy Standard (FHS)</h2>
-                    <p>Linux organiza sus archivos en una estructura de árbol invertido. La base es el directorio raíz
-                        <code>/</code>.
-                    </p>
+        <main aria-labelledby="lesson-title">
 
-                    <h3 class="mt-4">Directorios Esenciales</h3>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th>Directorio</th>
-                                    <th>Descripción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>/</code></td>
-                                    <td><strong>La Raíz.</strong> El inicio de todo. Solo el usuario <em>root</em> debe
-                                        escribir aquí.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/bin</code></td>
-                                    <td><strong>Binarios.</strong> Comandos esenciales que usan todos los usuarios (ls,
-                                        cd, cp, cat).</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/boot</code></td>
-                                    <td><strong>Arranque.</strong> Archivos necesarios para iniciar el sistema
-                                        (Bootloader, Kernel).</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/etc</code></td>
-                                    <td><strong>Configuración.</strong> Aquí vive el alma de tu sistema. Archivos de
-                                        configuración de todo (wifi, usuarios, password).</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/home</code></td>
-                                    <td><strong>Hogar.</strong> Aquí están las carpetas personales de los usuarios
-                                        (Documentos, Descargas, etc.).</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/var</code></td>
-                                    <td><strong>Variable.</strong> Archivos que cambian constantemente: logs, bases de
-                                        datos (MySQL), colas de impresión.</td>
-                                </tr>
-                                <tr>
-                                    <td><code>/tmp</code></td>
-                                    <td><strong>Temporal.</strong> Archivos que se borran al reiniciar.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h2 class="blog-post-title mb-4" id="main-content-title">El Filesystem Hierarchy Standard (FHS)
+                        </h2>
+                        <p>Linux organiza sus archivos en una estructura de árbol invertido. La base es el directorio
+                            raíz
+                            <code>/</code>.
+                        </p>
 
-                    <div class="alert alert-info mt-4">
-                        <strong>Curiosidad:</strong> En Linux, incluso los dispositivos de hardware (discos duros, USB,
-                        ratón) aparecen como archivos dentro del directorio <code>/dev</code>.
-                    </div>
-
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/HbgzrKJvDRw"
-                                            title="Linux Filesystem Explained" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">El Filesystem de Linux Explicado</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/42iQKuQodW4"
-                                            title="Linux Directories" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Directorios de Linux (FHS)</h6>
-                                    </div>
-                                </div>
-                            </div>
+                        <h3 class="mt-4">Directorios Esenciales</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Directorio</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>/</code></td>
+                                        <td><strong>La Raíz.</strong> El inicio de todo. Solo el usuario <em>root</em>
+                                            debe
+                                            escribir aquí.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/bin</code></td>
+                                        <td><strong>Binarios.</strong> Comandos esenciales que usan todos los usuarios
+                                            (ls,
+                                            cd, cp, cat).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/boot</code></td>
+                                        <td><strong>Arranque.</strong> Archivos necesarios para iniciar el sistema
+                                            (Bootloader, Kernel).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/etc</code></td>
+                                        <td><strong>Configuración.</strong> Aquí vive el alma de tu sistema. Archivos de
+                                            configuración de todo (wifi, usuarios, password).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/home</code></td>
+                                        <td><strong>Hogar.</strong> Aquí están las carpetas personales de los usuarios
+                                            (Documentos, Descargas, etc.).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/var</code></td>
+                                        <td><strong>Variable.</strong> Archivos que cambian constantemente: logs, bases
+                                            de
+                                            datos (MySQL), colas de impresión.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/tmp</code></td>
+                                        <td><strong>Temporal.</strong> Archivos que se borran al reiniciar.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
-                                Starch Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>Filesystem Hierarchy Standard. (2015).</strong> <em>FHS 3.0 Specification.</em>
-                                <a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i> Ver
-                                    estándar</a>
-                            </li>
-                        </ul>
-                    </section>
+                        <div class="alert alert-info mt-4">
+                            <strong>Curiosidad:</strong> En Linux, incluso los dispositivos de hardware (discos duros,
+                            USB,
+                            ratón) aparecen como archivos dentro del directorio <code>/dev</code>.
+                        </div>
 
-                </article>
-            </div>
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-title">
+                            <h2 class="text-primary border-bottom pb-2 mb-4" id="videos-title">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/HbgzrKJvDRw"
+                                                title="Linux Filesystem Explained" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">El Filesystem de Linux Explicado</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/42iQKuQodW4"
+                                                title="Linux Directories" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Directorios de Linux (FHS)</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-            <div class="col-md-4">
-                <div class="p-4 mb-3 bg-body-tertiary rounded text-center">
-                    <i class="bi bi-tree-fill display-1 text-success"></i>
-                    <h4 class="mt-2">Todo cuelga de la Raíz</h4>
-                    <p>Si la borras, borras todo.</p>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5" aria-labelledby="refs-title">
+                            <h2 class="text-primary border-bottom pb-2 mb-4" id="refs-title">Referencias Bibliográficas
+                            </h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Shotts, W. (2019).</strong> <em>The Linux Command Line, 2nd Edition.</em> No
+                                    Starch Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>Filesystem Hierarchy Standard. (2015).</strong> <em>FHS 3.0
+                                        Specification.</em>
+                                    <a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html" target="_blank"
+                                        class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                        Ver
+                                        estándar</a>
+                                </li>
+                            </ul>
+                        </section>
+
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-4 mb-3 bg-body-tertiary rounded text-center">
+                        <i class="bi bi-tree-fill display-1 text-success"></i>
+                        <h4 class="mt-2">Todo cuelga de la Raíz</h4>
+                        <p>Si la borras, borras todo.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

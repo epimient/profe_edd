@@ -23,38 +23,45 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Taxonomía de Datos y Persistencia</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Taxonomía de Datos y Persistencia</h1>
             <p class="fs-4 text-muted">Clasificación y tipos de estructuras para el almacenamiento de información.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
-                    <i class="bi bi-diagram-3 fs-1 me-3"></i>
-                    <div class="flex-grow-1">
-                        <h4 class="alert-heading h5">Arquitectura de Datos</h4>
-                        <p class="mb-0 small">Entender cómo fluyen los datos es el primer paso para diseñar sistemas
-                            eficientes.</p>
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="region"
+                        aria-labelledby="alert-heading">
+                        <i class="bi bi-diagram-3 fs-1 me-3" aria-hidden="true"></i>
+                        <div class="flex-grow-1">
+                            <h4 id="alert-heading" class="alert-heading h5">Arquitectura de Datos</h4>
+                            <p class="mb-0 small">Entender cómo fluyen los datos es el primer paso para diseñar
+                                sistemas
+                                eficientes.</p>
+                        </div>
                     </div>
-                </div>
 
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">Estructuras de Datos y Persistencia</h2>
-                        <p>En el desarrollo de aplicaciones, los datos pueden ser volátiles (memoria RAM) o persistentes
-                            (almacenamiento secundario). La taxonomía nos ayuda a elegir el método correcto según la
-                            necesidad:</p>
-                        <ul>
-                            <li><strong>Datos Planos:</strong> Archivos secuenciales (TXT, CSV).</li>
-                            <li><strong>Datos Estructurados:</strong> Bases de datos relacionales (SQL).</li>
-                            <li><strong>Datos No Estructurados/Semi-estructurados:</strong> JSON, XML, NoSQL.</li>
-                        </ul>
-                    </section>
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="structures-heading">
+                            <h2 id="structures-heading" class="mb-4">Estructuras de Datos y Persistencia</h2>
+                            <p>En el desarrollo de aplicaciones, los datos pueden ser volátiles (memoria RAM) o
+                                persistentes
+                                (almacenamiento secundario). La taxonomía nos ayuda a elegir el método correcto
+                                según la
+                                necesidad:</p>
+                            <ul>
+                                <li><strong>Datos Planos:</strong> Archivos secuenciales (TXT, CSV).</li>
+                                <li><strong>Datos Estructurados:</strong> Bases de datos relacionales (SQL).</li>
+                                <li><strong>Datos No Estructurados/Semi-estructurados:</strong> JSON, XML, NoSQL.
+                                </li>
+                            </ul>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Ejemplo de Estructura en Python</h2>
-                        <pre><code class="language-python"># Representación de una entidad en Python
+                        <section class="mb-5" aria-labelledby="python-example-heading">
+                            <h2 id="python-example-heading" class="mb-4">Ejemplo de Estructura en Python</h2>
+                            <pre><code class="language-python"># Representación de una entidad en Python
 estudiante = {
     "id": 101,
     "nombre": "Eduardo Pimienta",
@@ -62,19 +69,19 @@ estudiante = {
     "status": "Activo"
 }
 # La persistencia convertirá este objeto en un registro de DB o línea de archivo</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

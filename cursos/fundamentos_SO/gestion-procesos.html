@@ -28,120 +28,141 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-            <h1 class="display-5 fw-bold">Gestión de tareas (Procesos e Hilos) en vivo</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <h1 id="lesson-title" class="display-5 fw-bold">Gestión de tareas (Procesos e Hilos) en vivo</h1>
             <p class="fs-4">¿Cómo puede tu computadora hacer "varias cosas a la vez"? El secreto de la multitarea.</p>
         </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <article class="blog-post">
-                    <h2 class="blog-post-title mb-4">Procesos vs. Hilos (Threads)</h2>
+        <main aria-labelledby="lesson-title">
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="processes-threads-heading">
+                            <h2 id="processes-threads-heading" class="blog-post-title mb-4">Procesos vs. Hilos (Threads)
+                            </h2>
 
-                    <h4 class="mt-4 text-primary">Proceso</h4>
-                    <p>Es un programa en ejecución. Tiene su propio espacio de memoria aislado y recursos. Es "pesado"
-                        de crear.</p>
-                    <div class="card mb-3 border-primary">
-                        <div class="card-body">
-                            Ejemplo: Abrir Microsoft Word es crear un <strong>Proceso</strong>.
-                        </div>
-                    </div>
+                            <h4 class="mt-4 text-primary">Proceso</h4>
+                            <p>Es un programa en ejecución. Tiene su propio espacio de memoria aislado y recursos. Es
+                                "pesado"
+                                de crear.</p>
+                            <div class="card mb-3 border-primary">
+                                <div class="card-body">
+                                    Ejemplo: Abrir Microsoft Word es crear un <strong>Proceso</strong>.
+                                </div>
+                            </div>
 
-                    <h4 class="mt-4 text-success">Hilo (Thread)</h4>
-                    <p>Es la unidad más pequeña de procesamiento. Viven DENTRO de un proceso y comparten su memoria. Son
-                        "ligeros".</p>
-                    <div class="card mb-3 border-success">
-                        <div class="card-body">
-                            Ejemplo: Dentro de Word, un <strong>hilo</strong> registra lo que escribes, otro
-                            <strong>hilo</strong> guarda en segundo plano y otro revisa la ortografía. ¡Todo a la vez!
-                        </div>
-                    </div>
+                            <h4 class="mt-4 text-success">Hilo (Thread)</h4>
+                            <p>Es la unidad más pequeña de procesamiento. Viven DENTRO de un proceso y comparten su
+                                memoria. Son
+                                "ligeros".</p>
+                            <div class="card mb-3 border-success">
+                                <div class="card-body">
+                                    Ejemplo: Dentro de Word, un <strong>hilo</strong> registra lo que escribes, otro
+                                    <strong>hilo</strong> guarda en segundo plano y otro revisa la ortografía. ¡Todo a
+                                    la vez!
+                                </div>
+                            </div>
 
-                    <h3 class="mt-5">Estados de un Proceso</h3>
-                    <p>Como una persona, un proceso pasa por estados:</p>
-                    <ul>
-                        <li><span class="badge bg-secondary">Nuevo</span>: Se está creando.</li>
-                        <li><span class="badge bg-success">Listo (Ready)</span>: Esperando su turno en la CPU.</li>
-                        <li><span class="badge bg-primary">Ejecutando (Running)</span>: La CPU está trabajando en él.
-                        </li>
-                        <li><span class="badge bg-warning text-dark">Bloqueado (Waiting)</span>: Esperando algo (ej. que
-                            el usuario presione una tecla o que un archivo se lea del disco).</li>
-                        <li><span class="badge bg-dark">Terminado</span>: Finalizó su tarea o fue eliminado.</li>
-                    </ul>
+                        </section>
 
-                    <h3 class="mt-5">Monitorizando Procesos en Linux</h3>
-                    <p>Podemos ver la gestión en tiempo real con comandos como <code>top</code> o <code>htop</code>.</p>
-                    <pre><code class="language-bash">top</code></pre>
-                    <p>Para ver los procesos de tu usuario:</p>
-                    <pre><code class="language-bash">ps -u tu_usuario</code></pre>
+                        <section class="mb-5" aria-labelledby="states-heading">
+                            <h3 id="states-heading" class="mt-5">Estados de un Proceso</h3>
+                            <p>Como una persona, un proceso pasa por estados:</p>
+                            <ul>
+                                <li><span class="badge bg-secondary">Nuevo</span>: Se está creando.</li>
+                                <li><span class="badge bg-success">Listo (Ready)</span>: Esperando su turno en la CPU.
+                                </li>
+                                <li><span class="badge bg-primary">Ejecutando (Running)</span>: La CPU está trabajando
+                                    en él.
+                                </li>
+                                <li><span class="badge bg-warning text-dark">Bloqueado (Waiting)</span>: Esperando algo
+                                    (ej. que
+                                    el usuario presione una tecla o que un archivo se lea del disco).</li>
+                                <li><span class="badge bg-dark">Terminado</span>: Finalizó su tarea o fue eliminado.
+                                </li>
+                            </ul>
 
-                    <!-- Galería de Videos -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/TJzltwv7jJs"
-                                            title="Linux Process Management" allowfullscreen></iframe>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="monitoring-heading">
+                            <h3 id="monitoring-heading" class="mt-5">Monitorizando Procesos en Linux</h3>
+                            <p>Podemos ver la gestión en tiempo real con comandos como <code>top</code> o
+                                <code>htop</code>.</p>
+                            <pre><code class="language-bash">top</code></pre>
+                            <p>Para ver los procesos de tu usuario:</p>
+                            <pre><code class="language-bash">ps -u tu_usuario</code></pre>
+
+                        </section>
+
+                        <!-- Galería de Videos -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/TJzltwv7jJs"
+                                                title="Linux Process Management" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Gestión de Procesos en Linux</h6>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Gestión de Procesos en Linux</h6>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/ls5cGi12kGw"
+                                                title="Procesos e Hilos" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">Procesos e Hilos (Threads)</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/ls5cGi12kGw" title="Procesos e Hilos"
-                                            allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">Procesos e Hilos (Threads)</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <!-- Referencias Bibliográficas -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th Ed.</em>
-                                Wiley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
-                                Addison-Wesley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No Starch
-                                Press.
-                            </li>
-                        </ul>
-                    </section>
+                        <!-- Referencias Bibliográficas -->
+                        <section class="mb-5">
+                            <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Silberschatz, A. (2018).</strong> <em>Operating System Concepts, 10th
+                                        Ed.</em>
+                                    Wiley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
+                                    Addison-Wesley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Kerrisk, M. (2010).</strong> <em>The Linux Programming Interface.</em> No
+                                    Starch
+                                    Press.
+                                </li>
+                            </ul>
+                        </section>
 
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 
 </html>

@@ -23,23 +23,26 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Object-Relational Mapping (ORM)</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Object-Relational Mapping (ORM)</h1>
             <p class="fs-4 text-muted">Uso de SQLAlchemy para gestionar bases de datos como objetos Python.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">¿Por qué un ORM?</h2>
-                        <p>El ORM actúa como traductor entre el mundo de los objetos (Python) y el mundo de las tablas
-                            (SQL), permitiendo mayor abstracción y seguridad.</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5 text-center">
-                        <h2 class="mb-4">El Modelo SQLAlchemy</h2>
-                        <pre><code class="language-python">from sqlalchemy import Column, Integer, String
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="why-orm-heading">
+                            <h2 id="why-orm-heading" class="mb-4">¿Por qué un ORM?</h2>
+                            <p>El ORM actúa como traductor entre el mundo de los objetos (Python) y el mundo de las
+                                tablas
+                                (SQL), permitiendo mayor abstracción y seguridad.</p>
+                        </section>
+
+                        <section class="mb-5 text-center" aria-labelledby="sqlalchemy-model-heading">
+                            <h2 id="sqlalchemy-model-heading" class="mb-4">El Modelo SQLAlchemy</h2>
+                            <pre><code class="language-python">from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -49,19 +52,19 @@ class Usuario(Base):
     id = Column(Integer, primary_key=True)
     nombre = Column(String)
     email = Column(String)</code></pre>
-                    </section>
-                </article>
+                        </section>
+                        </ article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

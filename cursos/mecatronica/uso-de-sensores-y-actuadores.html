@@ -29,143 +29,165 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Bloque 4.1: Uso de Sensores y Actuadores</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Bloque 4.1: Uso de Sensores y Actuadores</h1>
             <p class="fs-4 text-muted">Interactuando con el mundo físico: cómo leer información del entorno y cómo
                 actuar sobre él.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="alert alert-primary d-flex align-items-center mb-4 shadow-sm" role="alert">
-                    <i class="bi bi-easel2-fill fs-1 me-3"></i>
-                    <div class="flex-grow-1">
-                        <h4 class="alert-heading h5">Diapositivas del Tema</h4>
-                        <p class="mb-0 small">Consulta la presentación visual de este tema para una mejor comprensión de
-                            los conceptos.</p>
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="alert alert-primary d-flex align-items-center mb-4 shadow-sm" role="region"
+                        aria-labelledby="slides-heading">
+                        <i class="bi bi-easel2-fill fs-1 me-3" aria-hidden="true"></i>
+                        <div class="flex-grow-1">
+                            <h4 id="slides-heading" class="alert-heading h5">Diapositivas del Tema</h4>
+                            <p class="mb-0 small">Consulta la presentación visual de este tema para una mejor
+                                comprensión de
+                                los conceptos.</p>
+                        </div>
+                        <a href="#" class="btn btn-light fw-bold text-primary shadow-sm ms-3" target="_blank"
+                            rel="noopener noreferrer"><i class="bi bi-easel2-fill me-2"></i>Ver Presentación</a>
                     </div>
-                    <a href="#" class="btn btn-light fw-bold text-primary shadow-sm ms-3" target="_blank"
-                        rel="noopener noreferrer"><i class="bi bi-easel2-fill me-2"></i>Ver Presentación</a>
-                </div>
-                <div class="alert alert-info d-flex align-items-center mb-5 shadow-sm" role="alert">
-                    <i class="bi bi-lightbulb fs-1 me-3"></i>
-                    <div class="flex-grow-1">
-                        <h4 class="alert-heading h5">Los Sentidos y los Músculos de un Sistema Mecatrónico</h4>
-                        <p class="mb-0 small">Los sensores actúan como los sentidos (vista, tacto, oído) de un sistema,
-                            recopilando información del entorno. Los actuadores son como los músculos, ejecutando
-                            acciones físicas basadas en decisiones del controlador.</p>
+                    <div class="alert alert-info d-flex align-items-center mb-5 shadow-sm" role="region"
+                        aria-labelledby="intro-heading">
+                        <i class="bi bi-lightbulb fs-1 me-3" aria-hidden="true"></i>
+                        <div class="flex-grow-1">
+                            <h4 id="intro-heading" class="alert-heading h5">Los Sentidos y los Músculos de un Sistema
+                                Mecatrónico</h4>
+                            <p class="mb-0 small">Los sensores actúan como los sentidos (vista, tacto, oído) de un
+                                sistema,
+                                recopilando información del entorno. Los actuadores son como los músculos, ejecutando
+                                acciones físicas basadas en decisiones del controlador.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
 
-                    <h2 class="text-primary border-bottom pb-2 mb-4">1. Sensores: Captando Información del Entorno</h2>
-                    <p>Un sensor es un dispositivo que detecta y responde a algún tipo de entrada del entorno físico,
-                        como
-                        luz, temperatura, movimiento, presión, humedad, etc. Convierte esta información física en una
-                        señal
-                        eléctrica que puede ser interpretada por un microcontrolador.</p>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">1. Sensores: Captando Información del Entorno
+                        </h2>
+                        <p>Un sensor es un dispositivo que detecta y responde a algún tipo de entrada del entorno
+                            físico,
+                            como
+                            luz, temperatura, movimiento, presión, humedad, etc. Convierte esta información física en
+                            una
+                            señal
+                            eléctrica que puede ser interpretada por un microcontrolador.</p>
 
-                    <h3 class="mt-4">1.1. Tipos Comunes de Sensores</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Sensor de Temperatura</h5>
-                            <p>Mide la temperatura ambiente. Ejemplos comunes incluyen el DHT11, DHT22 y el LM35.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=Sensor+DHT22"
-                                    class="img-fluid rounded shadow-sm" alt="Imagen de un sensor DHT22">
-                                <figcaption class="figure-caption mt-2">Sensor de temperatura y humedad DHT22.
-                                </figcaption>
-                            </figure>
+                        <h3 class="mt-4">1.1. Tipos Comunes de Sensores</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Sensor de Temperatura</h5>
+                                <p>Mide la temperatura ambiente. Ejemplos comunes incluyen el DHT11, DHT22 y el LM35.
+                                </p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=Sensor+DHT22"
+                                        class="img-fluid rounded shadow-sm" alt="Imagen de un sensor DHT22">
+                                    <figcaption class="figure-caption mt-2">Sensor de temperatura y humedad DHT22.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Sensor de Luz (LDR)</h5>
+                                <p>Varía su resistencia según la cantidad de luz que recibe. Útil para detectar
+                                    condiciones
+                                    de
+                                    iluminación.</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=LDR" class="img-fluid rounded shadow-sm"
+                                        alt="Imagen de una LDR">
+                                    <figcaption class="figure-caption mt-2">Fotoresistor (LDR).</figcaption>
+                                </figure>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <h5>Sensor de Luz (LDR)</h5>
-                            <p>Varía su resistencia según la cantidad de luz que recibe. Útil para detectar condiciones
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Sensor Ultrasónico (HC-SR04)</h5>
+                                <p>Mide distancias utilizando ondas sonoras ultrasónicas. Muy usado en robots para
+                                    evitar
+                                    obstáculos.</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=HC-SR04"
+                                        class="img-fluid rounded shadow-sm"
+                                        alt="Imagen de un sensor ultrasónico HC-SR04">
+                                    <figcaption class="figure-caption mt-2">Sensor ultrasónico HC-SR04.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Acelerómetro/Giroscopio (MPU6050)</h5>
+                                <p>Mide la aceleración, orientación y movimiento rotacional. Fundamental en drones y
+                                    dispositivos de realidad aumentada.</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=MPU6050"
+                                        class="img-fluid rounded shadow-sm" alt="Imagen de un acelerómetro MPU6050">
+                                    <figcaption class="figure-caption mt-2">Módulo MPU6050 (Acelerómetro y Giroscopio).
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">1.2. Características Importantes de un Sensor</h3>
+                        <ul>
+                            <li><strong>Rango:</strong> El intervalo de valores que puede medir (por ejemplo, -40°C a
+                                80°C
+                                para
+                                temperatura).</li>
+                            <li><strong>Precisión:</strong> Qué tan cerca está la lectura del sensor del valor real.
+                            </li>
+                            <li><strong>Sensibilidad:</strong> Cuánto cambia la salida del sensor por unidad de cambio
+                                en la
+                                entrada.</li>
+                            <li><strong>Tiempo de respuesta:</strong> Qué tan rápido el sensor puede detectar un cambio
+                                en
+                                la
+                                magnitud medida.</li>
+                        </ul>
+
+                        <h3 class="mt-4">1.3. Ejemplo Práctico: Leyendo un Sensor DHT22</h3>
+                        <p>El DHT22 es un sensor digital que mide temperatura y humedad. A continuación se muestra cómo
+                            conectarlo y leer sus valores usando una librería específica.</p>
+
+                        <h5 class="mt-3">Materiales Necesarios</h5>
+                        <ul>
+                            <li>1 Arduino UNO (o compatible)</li>
+                            <li>1 Sensor DHT22</li>
+                            <li>1 Resistencia de 10kΩ</li>
+                            <li>Protoboard y cables de conexión</li>
+                        </ul>
+
+                        <h5 class="mt-3">Esquema de Conexión</h5>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/600x400?text=Esquema+DHT22+Arduino"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Esquema de conexión del sensor DHT22 al Arduino">
+                            <figcaption class="figure-caption mt-2">Conexión del sensor DHT22 al Arduino UNO. La
+                                resistencia
                                 de
-                                iluminación.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=LDR" class="img-fluid rounded shadow-sm"
-                                    alt="Imagen de una LDR">
-                                <figcaption class="figure-caption mt-2">Fotoresistor (LDR).</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Sensor Ultrasónico (HC-SR04)</h5>
-                            <p>Mide distancias utilizando ondas sonoras ultrasónicas. Muy usado en robots para evitar
-                                obstáculos.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=HC-SR04" class="img-fluid rounded shadow-sm"
-                                    alt="Imagen de un sensor ultrasónico HC-SR04">
-                                <figcaption class="figure-caption mt-2">Sensor ultrasónico HC-SR04.</figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Acelerómetro/Giroscopio (MPU6050)</h5>
-                            <p>Mide la aceleración, orientación y movimiento rotacional. Fundamental en drones y
-                                dispositivos de realidad aumentada.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=MPU6050" class="img-fluid rounded shadow-sm"
-                                    alt="Imagen de un acelerómetro MPU6050">
-                                <figcaption class="figure-caption mt-2">Módulo MPU6050 (Acelerómetro y Giroscopio).
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
+                                10kΩ actúa como pull-up entre VCC y DATA.</figcaption>
+                        </figure>
+                        <p><strong>Conexiones:</strong></p>
+                        <ul>
+                            <li><strong>VCC</strong> del DHT22 al pin <strong>5V</strong> del Arduino.</li>
+                            <li><strong>GND</strong> del DHT22 al pin <strong>GND</strong> del Arduino.</li>
+                            <li><strong>DATA</strong> del DHT22 al pin digital <strong>2</strong> del Arduino. Colocar
+                                la
+                                resistencia de 10kΩ entre VCC y DATA.</li>
+                        </ul>
 
-                    <h3 class="mt-4">1.2. Características Importantes de un Sensor</h3>
-                    <ul>
-                        <li><strong>Rango:</strong> El intervalo de valores que puede medir (por ejemplo, -40°C a 80°C
-                            para
-                            temperatura).</li>
-                        <li><strong>Precisión:</strong> Qué tan cerca está la lectura del sensor del valor real.</li>
-                        <li><strong>Sensibilidad:</strong> Cuánto cambia la salida del sensor por unidad de cambio en la
-                            entrada.</li>
-                        <li><strong>Tiempo de respuesta:</strong> Qué tan rápido el sensor puede detectar un cambio en
-                            la
-                            magnitud medida.</li>
-                    </ul>
-
-                    <h3 class="mt-4">1.3. Ejemplo Práctico: Leyendo un Sensor DHT22</h3>
-                    <p>El DHT22 es un sensor digital que mide temperatura y humedad. A continuación se muestra cómo
-                        conectarlo y leer sus valores usando una librería específica.</p>
-
-                    <h5 class="mt-3">Materiales Necesarios</h5>
-                    <ul>
-                        <li>1 Arduino UNO (o compatible)</li>
-                        <li>1 Sensor DHT22</li>
-                        <li>1 Resistencia de 10kΩ</li>
-                        <li>Protoboard y cables de conexión</li>
-                    </ul>
-
-                    <h5 class="mt-3">Esquema de Conexión</h5>
-                    <figure class="text-center my-4">
-                        <img src="https://placehold.co/600x400?text=Esquema+DHT22+Arduino"
-                            class="img-fluid rounded shadow-sm" alt="Esquema de conexión del sensor DHT22 al Arduino">
-                        <figcaption class="figure-caption mt-2">Conexión del sensor DHT22 al Arduino UNO. La resistencia
-                            de
-                            10kΩ actúa como pull-up entre VCC y DATA.</figcaption>
-                    </figure>
-                    <p><strong>Conexiones:</strong></p>
-                    <ul>
-                        <li><strong>VCC</strong> del DHT22 al pin <strong>5V</strong> del Arduino.</li>
-                        <li><strong>GND</strong> del DHT22 al pin <strong>GND</strong> del Arduino.</li>
-                        <li><strong>DATA</strong> del DHT22 al pin digital <strong>2</strong> del Arduino. Colocar la
-                            resistencia de 10kΩ entre VCC y DATA.</li>
-                    </ul>
-
-                    <h5 class="mt-3">Código del Sketch</h5>
-                    <p>Para usar el DHT22, necesitamos la librería <code>DHT.h</code> de Adafruit. Esta librería se
-                        puede
-                        instalar desde el Gestor de Librerías del Arduino IDE (Herramientas > Administrar Bibliotecas...
-                        >
-                        Buscar "DHT sensor library").</p>
-                    <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="dht22-code">#include &lt;DHT.h&gt;
+                        <h5 class="mt-3">Código del Sketch</h5>
+                        <p>Para usar el DHT22, necesitamos la librería <code>DHT.h</code> de Adafruit. Esta librería se
+                            puede
+                            instalar desde el Gestor de Librerías del Arduino IDE (Herramientas > Administrar
+                            Bibliotecas...
+                            >
+                            Buscar "DHT sensor library").</p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="dht22-code">#include &lt;DHT.h&gt;
 #include &lt;DHT_U.h&gt;
 
 // Definimos el pin de datos del sensor y su tipo
@@ -227,129 +249,146 @@ void loop() {
   Serial.println(F("------------------------------------"));
 }</code></pre>
 
-                    <h5 class="mt-3">Explicación del Código</h5>
-                    <ul>
-                        <li><code>#include &lt;DHT.h&gt;</code> y <code>#include &lt;DHT_U.h&gt;</code>: Incluimos las
-                            librerías necesarias para trabajar con el sensor DHT22.</li>
-                        <li><code>#define DHTPIN 2</code> y <code>#define DHTTYPE DHT22</code>: Definimos constantes
-                            para el
-                            pin de datos y el tipo de sensor.</li>
-                        <li><code>DHT_Unified dht(DHTPIN, DHTTYPE);</code>: Creamos un objeto <code>dht</code> de la
-                            clase
-                            <code>DHT_Unified</code>, que representa nuestro sensor.
-                        </li>
-                        <li><code>dht.begin();</code>: Inicializamos el sensor en la función <code>setup()</code>.</li>
-                        <li><code>dht.getEvent(&event);</code>: Esta función lee los datos del sensor. El resultado se
-                            almacena en una estructura <code>sensors_event_t</code> llamada <code>event</code>.</li>
-                        <li><code>event.relative_humidity</code> y <code>event.temperature</code>: Accedemos a los
-                            valores
-                            específicos de humedad y temperatura dentro de la estructura <code>event</code>.</li>
-                        <li><code>isnan()</code>: Esta función verifica si el valor leído es "Not a Number" (NaN), lo
+                        <h5 class="mt-3">Explicación del Código</h5>
+                        <ul>
+                            <li><code>#include &lt;DHT.h&gt;</code> y <code>#include &lt;DHT_U.h&gt;</code>: Incluimos
+                                las
+                                librerías necesarias para trabajar con el sensor DHT22.</li>
+                            <li><code>#define DHTPIN 2</code> y <code>#define DHTTYPE DHT22</code>: Definimos constantes
+                                para el
+                                pin de datos y el tipo de sensor.</li>
+                            <li><code>DHT_Unified dht(DHTPIN, DHTTYPE);</code>: Creamos un objeto <code>dht</code> de la
+                                clase
+                                <code>DHT_Unified</code>, que representa nuestro sensor.
+                            </li>
+                            <li><code>dht.begin();</code>: Inicializamos el sensor en la función <code>setup()</code>.
+                            </li>
+                            <li><code>dht.getEvent(&event);</code>: Esta función lee los datos del sensor. El resultado
+                                se
+                                almacena en una estructura <code>sensors_event_t</code> llamada <code>event</code>.</li>
+                            <li><code>event.relative_humidity</code> y <code>event.temperature</code>: Accedemos a los
+                                valores
+                                específicos de humedad y temperatura dentro de la estructura <code>event</code>.</li>
+                            <li><code>isnan()</code>: Esta función verifica si el valor leído es "Not a Number" (NaN),
+                                lo
+                                que
+                                indica un error en la lectura.</li>
+                        </ul>
+                        <p>Este ejemplo muestra cómo una librería puede simplificar significativamente el trabajo con
+                            sensores
+                            complejos, manejando los detalles de comunicación digital del sensor.</p>
+
+                        <hr class="my-4">
+
+                        <h2 class="text-primary border-bottom pb-2 mb-4">2. Actuadores: Haciendo que las Cosas Sucedan
+                        </h2>
+                        <p>Un actuador es un componente que convierte una señal de control (generalmente eléctrica) en
+                            una
+                            acción física, como movimiento, calor, sonido o luz. Son los "músculos" del sistema
+                            mecatrónico.
+                        </p>
+
+                        <h3 class="mt-4">2.1. Tipos Comunes de Actuadores</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>LEDs</h5>
+                                <p>Emisores de luz que indican estados o proporcionan iluminación. Son los actuadores
+                                    más
+                                    simples y comunes en proyectos de aprendizaje.</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=LEDs"
+                                        class="img-fluid rounded shadow-sm" alt="Imagen de varios LEDs">
+                                    <figcaption class="figure-caption mt-2">Diferentes tipos de LEDs (rojo, verde, azul,
+                                        RGB).
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Motores</h5>
+                                <p>Convertidores de energía eléctrica en movimiento mecánico. Existen varios tipos como
+                                    motores
+                                    DC, servomotores y motores paso a paso.</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=Tipos+de+Motores"
+                                        class="img-fluid rounded shadow-sm" alt="Imagen de diferentes tipos de motores">
+                                    <figcaption class="figure-caption mt-2">Motores DC, Servomotor y Motor Paso a Paso.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Relés</h5>
+                                <p>Interruptores electromecánicos que permiten controlar circuitos de alta potencia con
+                                    señales
+                                    de baja potencia de un microcontrolador.</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=Módulo+Relé"
+                                        class="img-fluid rounded shadow-sm" alt="Imagen de un módulo de relé">
+                                    <figcaption class="figure-caption mt-2">Módulo de relé de 5V para Arduino.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Zumbadores (Buzzer)</h5>
+                                <p>Dispositivos que emiten sonidos. Pueden ser activos (emiten un tono fijo) o pasivos
+                                    (requieren una señal para generar tonos).</p>
+                                <figure class="text-center my-4">
+                                    <img src="https://placehold.co/300x200?text=Zumbador"
+                                        class="img-fluid rounded shadow-sm" alt="Imagen de un zumbador">
+                                    <figcaption class="figure-caption mt-2">Zumbador activo de 5V.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">2.2. Controlando un Servomotor</h3>
+                        <p>Un servomotor es un actuador que puede posicionarse en un ángulo específico (generalmente
+                            entre
+                            0° y
+                            180°). Son ideales para controlar brazos robóticos, timones de barcos o cualquier aplicación
                             que
-                            indica un error en la lectura.</li>
-                    </ul>
-                    <p>Este ejemplo muestra cómo una librería puede simplificar significativamente el trabajo con
-                        sensores
-                        complejos, manejando los detalles de comunicación digital del sensor.</p>
+                            requiera movimiento controlado.</p>
 
-                    <hr class="my-4">
+                        <h5 class="mt-3">Materiales Necesarios</h5>
+                        <ul>
+                            <li>1 Arduino UNO (o compatible)</li>
+                            <li>1 Servomotor (SG90 es muy común)</li>
+                            <li>Protoboard y cables de conexión</li>
+                        </ul>
 
-                    <h2 class="text-primary border-bottom pb-2 mb-4">2. Actuadores: Haciendo que las Cosas Sucedan</h2>
-                    <p>Un actuador es un componente que convierte una señal de control (generalmente eléctrica) en una
-                        acción física, como movimiento, calor, sonido o luz. Son los "músculos" del sistema mecatrónico.
-                    </p>
-
-                    <h3 class="mt-4">2.1. Tipos Comunes de Actuadores</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>LEDs</h5>
-                            <p>Emisores de luz que indican estados o proporcionan iluminación. Son los actuadores más
-                                simples y comunes en proyectos de aprendizaje.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=LEDs" class="img-fluid rounded shadow-sm"
-                                    alt="Imagen de varios LEDs">
-                                <figcaption class="figure-caption mt-2">Diferentes tipos de LEDs (rojo, verde, azul,
-                                    RGB).
-                                </figcaption>
-                            </figure>
+                        <h5 class="mt-3">Esquema de Conexión</h5>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/600x400?text=Esquema+Servomotor+Arduino"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Esquema de conexión de un servomotor al Arduino">
+                            <figcaption class="figure-caption mt-2">Conexión de un servomotor al Arduino UNO. El cable
+                                rojo
+                                va a
+                                5V, el marrón/negro a GND y el naranja/amarillo al pin digital 9.</figcaption>
+                        </figure>
+                        <p><strong>Conexiones:</strong></p>
+                        <ul>
+                            <li><strong>Cable Rojo</strong> del servomotor al pin <strong>5V</strong> del Arduino.</li>
+                            <li><strong>Cable Marrón/Negro</strong> del servomotor al pin <strong>GND</strong> del
+                                Arduino.
+                            </li>
+                            <li><strong>Cable Naranja/Amarillo</strong> del servomotor al pin digital <strong>9</strong>
+                                del
+                                Arduino.</li>
+                        </ul>
+                        <div class="alert alert-warning mt-3">
+                            <strong>Nota de Alimentación:</strong> Los servomotores pueden consumir mucha corriente,
+                            especialmente al arrancar. Si el servomotor es grande o se usan varios, es recomendable usar
+                            una
+                            fuente de alimentación externa en lugar de alimentarlo directamente desde el Arduino.
                         </div>
-                        <div class="col-md-6">
-                            <h5>Motores</h5>
-                            <p>Convertidores de energía eléctrica en movimiento mecánico. Existen varios tipos como
-                                motores
-                                DC, servomotores y motores paso a paso.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=Tipos+de+Motores"
-                                    class="img-fluid rounded shadow-sm" alt="Imagen de diferentes tipos de motores">
-                                <figcaption class="figure-caption mt-2">Motores DC, Servomotor y Motor Paso a Paso.
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Relés</h5>
-                            <p>Interruptores electromecánicos que permiten controlar circuitos de alta potencia con
-                                señales
-                                de baja potencia de un microcontrolador.</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=Módulo+Relé"
-                                    class="img-fluid rounded shadow-sm" alt="Imagen de un módulo de relé">
-                                <figcaption class="figure-caption mt-2">Módulo de relé de 5V para Arduino.</figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Zumbadores (Buzzer)</h5>
-                            <p>Dispositivos que emiten sonidos. Pueden ser activos (emiten un tono fijo) o pasivos
-                                (requieren una señal para generar tonos).</p>
-                            <figure class="text-center my-4">
-                                <img src="https://placehold.co/300x200?text=Zumbador"
-                                    class="img-fluid rounded shadow-sm" alt="Imagen de un zumbador">
-                                <figcaption class="figure-caption mt-2">Zumbador activo de 5V.</figcaption>
-                            </figure>
-                        </div>
-                    </div>
 
-                    <h3 class="mt-4">2.2. Controlando un Servomotor</h3>
-                    <p>Un servomotor es un actuador que puede posicionarse en un ángulo específico (generalmente entre
-                        0° y
-                        180°). Son ideales para controlar brazos robóticos, timones de barcos o cualquier aplicación que
-                        requiera movimiento controlado.</p>
-
-                    <h5 class="mt-3">Materiales Necesarios</h5>
-                    <ul>
-                        <li>1 Arduino UNO (o compatible)</li>
-                        <li>1 Servomotor (SG90 es muy común)</li>
-                        <li>Protoboard y cables de conexión</li>
-                    </ul>
-
-                    <h5 class="mt-3">Esquema de Conexión</h5>
-                    <figure class="text-center my-4">
-                        <img src="https://placehold.co/600x400?text=Esquema+Servomotor+Arduino"
-                            class="img-fluid rounded shadow-sm" alt="Esquema de conexión de un servomotor al Arduino">
-                        <figcaption class="figure-caption mt-2">Conexión de un servomotor al Arduino UNO. El cable rojo
-                            va a
-                            5V, el marrón/negro a GND y el naranja/amarillo al pin digital 9.</figcaption>
-                    </figure>
-                    <p><strong>Conexiones:</strong></p>
-                    <ul>
-                        <li><strong>Cable Rojo</strong> del servomotor al pin <strong>5V</strong> del Arduino.</li>
-                        <li><strong>Cable Marrón/Negro</strong> del servomotor al pin <strong>GND</strong> del Arduino.
-                        </li>
-                        <li><strong>Cable Naranja/Amarillo</strong> del servomotor al pin digital <strong>9</strong> del
-                            Arduino.</li>
-                    </ul>
-                    <div class="alert alert-warning mt-3">
-                        <strong>Nota de Alimentación:</strong> Los servomotores pueden consumir mucha corriente,
-                        especialmente al arrancar. Si el servomotor es grande o se usan varios, es recomendable usar una
-                        fuente de alimentación externa en lugar de alimentarlo directamente desde el Arduino.
-                    </div>
-
-                    <h5 class="mt-3">Código del Sketch</h5>
-                    <p>Arduino IDE incluye una librería estándar para controlar servomotores llamada
-                        <code>Servo.h</code>.
-                        No es necesario instalarla, ya viene incluida.</p>
-                    <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="servo-code">/*
+                        <h5 class="mt-3">Código del Sketch</h5>
+                        <p>Arduino IDE incluye una librería estándar para controlar servomotores llamada
+                            <code>Servo.h</code>.
+                            No es necesario instalarla, ya viene incluida.
+                        </p>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="servo-code">/*
   Control de Servomotor
   
   Mueve un servomotor de 0 a 180 grados y viceversa.
@@ -387,98 +426,107 @@ void loop() {
   }
 }</code></pre>
 
-                    <h5 class="mt-3">Explicación del Código</h5>
-                    <ul>
-                        <li><code>#include &lt;Servo.h&gt;</code>: Incluimos la librería estándar de Arduino para
-                            controlar
-                            servomotores.</li>
-                        <li><code>Servo miServo;</code>: Creamos un objeto de la clase <code>Servo</code> llamado
-                            <code>miServo</code>.
-                        </li>
-                        <li><code>miServo.attach(9);</code>: En la función <code>setup()</code>, adjuntamos (conectamos)
-                            el
-                            objeto <code>miServo</code> al pin digital 9 del Arduino.</li>
-                        <li><code>miServo.write(pos);</code>: Esta función envía una señal al servomotor para que se
-                            mueva a
-                            la posición especificada por la variable <code>pos</code> (en grados).</li>
-                        <li><code>for</code> loops: Usamos dos bucles <code>for</code> para mover el servomotor desde 0°
-                            hasta 180° y luego de regreso a 0°, creando un movimiento de vaivén.</li>
-                        <li><code>delay(15);</code>: Un pequeño retardo permite que el servomotor tenga tiempo para
-                            alcanzar
-                            cada posición antes de recibir el siguiente comando.</li>
-                    </ul>
-                    <p>Este ejemplo demuestra cómo una librería puede abstraer la complejidad de generar señales PWM
-                        específicas requeridas por los servomotores, permitiéndonos controlarlos con comandos simples
-                        como
-                        <code>miServo.write(grados)</code>.
-                    </p>
+                        <h5 class="mt-3">Explicación del Código</h5>
+                        <ul>
+                            <li><code>#include &lt;Servo.h&gt;</code>: Incluimos la librería estándar de Arduino para
+                                controlar
+                                servomotores.</li>
+                            <li><code>Servo miServo;</code>: Creamos un objeto de la clase <code>Servo</code> llamado
+                                <code>miServo</code>.
+                            </li>
+                            <li><code>miServo.attach(9);</code>: En la función <code>setup()</code>, adjuntamos
+                                (conectamos)
+                                el
+                                objeto <code>miServo</code> al pin digital 9 del Arduino.</li>
+                            <li><code>miServo.write(pos);</code>: Esta función envía una señal al servomotor para que se
+                                mueva a
+                                la posición especificada por la variable <code>pos</code> (en grados).</li>
+                            <li><code>for</code> loops: Usamos dos bucles <code>for</code> para mover el servomotor
+                                desde 0°
+                                hasta 180° y luego de regreso a 0°, creando un movimiento de vaivén.</li>
+                            <li><code>delay(15);</code>: Un pequeño retardo permite que el servomotor tenga tiempo para
+                                alcanzar
+                                cada posición antes de recibir el siguiente comando.</li>
+                        </ul>
+                        <p>Este ejemplo demuestra cómo una librería puede abstraer la complejidad de generar señales PWM
+                            específicas requeridas por los servomotores, permitiéndonos controlarlos con comandos
+                            simples
+                            como
+                            <code>miServo.write(grados)</code>.
+                        </p>
 
-                    <hr class="my-4">
+                        <hr class="my-4">
 
-                    <h2 class="text-primary border-bottom pb-2 mb-4">3. Proyecto Integrador: Sistema de Alarma de
-                        Proximidad con Feedback Visual</h2>
-                    <p>Vamos a combinar lo aprendido sobre sensores y actuadores en un proyecto práctico. Este sistema
-                        usará
-                        un sensor ultrasónico para detectar objetos cercanos y proporcionará feedback mediante un LED
-                        (cambia de color/intensidad) y un zumbador (cambia de tono).</p>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">3. Proyecto Integrador: Sistema de Alarma de
+                            Proximidad con Feedback Visual</h2>
+                        <p>Vamos a combinar lo aprendido sobre sensores y actuadores en un proyecto práctico. Este
+                            sistema
+                            usará
+                            un sensor ultrasónico para detectar objetos cercanos y proporcionará feedback mediante un
+                            LED
+                            (cambia de color/intensidad) y un zumbador (cambia de tono).</p>
 
-                    <h3 class="mt-4">3.1. Materiales Necesarios</h3>
-                    <ul>
-                        <li>1 Arduino UNO (o compatible)</li>
-                        <li>1 Sensor Ultrasónico HC-SR04</li>
-                        <li>1 LED RGB (o 3 LEDs individuales: rojo, verde, azul)</li>
-                        <li>1 Zumbador (preferiblemente pasivo)</li>
-                        <li>3 Resistencias de 220Ω (una para cada color del LED)</li>
-                        <li>Protoboard y cables de conexión</li>
-                    </ul>
+                        <h3 class="mt-4">3.1. Materiales Necesarios</h3>
+                        <ul>
+                            <li>1 Arduino UNO (o compatible)</li>
+                            <li>1 Sensor Ultrasónico HC-SR04</li>
+                            <li>1 LED RGB (o 3 LEDs individuales: rojo, verde, azul)</li>
+                            <li>1 Zumbador (preferiblemente pasivo)</li>
+                            <li>3 Resistencias de 220Ω (una para cada color del LED)</li>
+                            <li>Protoboard y cables de conexión</li>
+                        </ul>
 
-                    <h3 class="mt-4">3.2. Esquema de Conexión</h3>
-                    <figure class="text-center my-4">
-                        <img src="https://placehold.co/800x500?text=Esquema+Proyecto+Alarma+Proximidad"
-                            class="img-fluid rounded shadow-sm"
-                            alt="Esquema de conexión del proyecto de alarma de proximidad">
-                        <figcaption class="figure-caption mt-2">Diagrama de conexiones para el proyecto de alarma de
-                            proximidad.</figcaption>
-                    </figure>
-                    <p><strong>Conexiones del Sensor Ultrasónido (HC-SR04):</strong></p>
-                    <ul>
-                        <li><strong>VCC</strong> al pin <strong>5V</strong> del Arduino.</li>
-                        <li><strong>GND</strong> al pin <strong>GND</strong> del Arduino.</li>
-                        <li><strong>Trig</strong> al pin digital <strong>7</strong> del Arduino.</li>
-                        <li><strong>Echo</strong> al pin digital <strong>6</strong> del Arduino.</li>
-                    </ul>
-                    <p><strong>Conexiones del LED RGB:</strong></p>
-                    <ul>
-                        <li><strong>Pata Roja (Ánodo)</strong> al pin digital <strong>~9</strong> (PWM) del Arduino a
-                            través
-                            de una resistencia de 220Ω.</li>
-                        <li><strong>Pata Verde (Ánodo)</strong> al pin digital <strong>~10</strong> (PWM) del Arduino a
-                            través de una resistencia de 220Ω.</li>
-                        <li><strong>Pata Azul (Ánodo)</strong> al pin digital <strong>~11</strong> (PWM) del Arduino a
-                            través de una resistencia de 220Ω.</li>
-                        <li><strong>Cátodo Común</strong> al pin <strong>GND</strong> del Arduino.</li>
-                    </ul>
-                    <p><strong>Conexión del Zumbador:</strong></p>
-                    <ul>
-                        <li><strong>Positivo</strong> al pin digital <strong>8</strong> del Arduino.</li>
-                        <li><strong>Negativo</strong> al pin <strong>GND</strong> del Arduino.</li>
-                    </ul>
+                        <h3 class="mt-4">3.2. Esquema de Conexión</h3>
+                        <figure class="text-center my-4">
+                            <img src="https://placehold.co/800x500?text=Esquema+Proyecto+Alarma+Proximidad"
+                                class="img-fluid rounded shadow-sm"
+                                alt="Esquema de conexión del proyecto de alarma de proximidad">
+                            <figcaption class="figure-caption mt-2">Diagrama de conexiones para el proyecto de alarma de
+                                proximidad.</figcaption>
+                        </figure>
+                        <p><strong>Conexiones del Sensor Ultrasónido (HC-SR04):</strong></p>
+                        <ul>
+                            <li><strong>VCC</strong> al pin <strong>5V</strong> del Arduino.</li>
+                            <li><strong>GND</strong> al pin <strong>GND</strong> del Arduino.</li>
+                            <li><strong>Trig</strong> al pin digital <strong>7</strong> del Arduino.</li>
+                            <li><strong>Echo</strong> al pin digital <strong>6</strong> del Arduino.</li>
+                        </ul>
+                        <p><strong>Conexiones del LED RGB:</strong></p>
+                        <ul>
+                            <li><strong>Pata Roja (Ánodo)</strong> al pin digital <strong>~9</strong> (PWM) del Arduino
+                                a
+                                través
+                                de una resistencia de 220Ω.</li>
+                            <li><strong>Pata Verde (Ánodo)</strong> al pin digital <strong>~10</strong> (PWM) del
+                                Arduino a
+                                través de una resistencia de 220Ω.</li>
+                            <li><strong>Pata Azul (Ánodo)</strong> al pin digital <strong>~11</strong> (PWM) del Arduino
+                                a
+                                través de una resistencia de 220Ω.</li>
+                            <li><strong>Cátodo Común</strong> al pin <strong>GND</strong> del Arduino.</li>
+                        </ul>
+                        <p><strong>Conexión del Zumbador:</strong></p>
+                        <ul>
+                            <li><strong>Positivo</strong> al pin digital <strong>8</strong> del Arduino.</li>
+                            <li><strong>Negativo</strong> al pin <strong>GND</strong> del Arduino.</li>
+                        </ul>
 
-                    <h3 class="mt-4">3.3. Lógica del Proyecto</h3>
-                    <p>El sistema medirá continuamente la distancia con el sensor ultrasónico y reaccionará de la
-                        siguiente
-                        manera:</p>
-                    <ul>
-                        <li><strong>Distancia > 50 cm:</strong> LED Verde encendido, sin sonido.</li>
-                        <li><strong>20 cm < Distancia <=50 cm:</strong> LED Amarillo (mezcla de rojo y verde), zumbador
-                                    emite un tono bajo.</li>
-                        <li><strong>Distancia <= 20 cm:</strong> LED Rojo encendido, zumbador emite un tono alto y
-                                    rápido.
-                        </li>
-                    </ul>
+                        <h3 class="mt-4">3.3. Lógica del Proyecto</h3>
+                        <p>El sistema medirá continuamente la distancia con el sensor ultrasónico y reaccionará de la
+                            siguiente
+                            manera:</p>
+                        <ul>
+                            <li><strong>Distancia > 50 cm:</strong> LED Verde encendido, sin sonido.</li>
+                            <li><strong>20 cm < Distancia <=50 cm:</strong> LED Amarillo (mezcla de rojo y verde),
+                                        zumbador
+                                        emite un tono bajo.</li>
+                            <li><strong>Distancia <= 20 cm:</strong> LED Rojo encendido, zumbador emite un tono alto y
+                                        rápido.
+                            </li>
+                        </ul>
 
-                    <h3 class="mt-4">3.4. Código del Sketch</h3>
-                    <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="proximity-alarm-code">/*
+                        <h3 class="mt-4">3.4. Código del Sketch</h3>
+                        <pre class="code-container"><button class="btn btn-outline-light btn-sm btn-copy-code" onclick="copyCodePrism(this)" aria-label="Copiar código"><i class="bi bi-clipboard"></i> Copiar</button><code class="language-cpp" id="proximity-alarm-code">/*
   Sistema de Alarma de Proximidad
   
   Usa un sensor ultrasónico para detectar objetos y proporciona feedback visual y sonoro.
@@ -580,110 +628,121 @@ void setColor(int red, int green, int blue) {
   analogWrite(bluePin, blue);
 }</code></pre>
 
-                    <h3 class="mt-4">3.5. Explicación del Código</h3>
-                    <ul>
-                        <li><strong>Variables y Pines:</strong> Se definen constantes para todos los pines utilizados,
-                            mejorando la legibilidad y facilitando cambios futuros.</li>
-                        <li><strong>Configuración de Pines:</strong> En <code>setup()</code>, se configuran los modos de
-                            los
-                            pines (INPUT/OUTPUT) y se apagan todos los LEDs al inicio.</li>
-                        <li><strong>Lectura del Ultrasónico:</strong> La secuencia de pulsos en los pines
-                            <code>trigPin</code> y <code>echoPin</code> sigue el protocolo estándar del HC-SR04. La
-                            función
-                            <code>pulseIn()</code> mide el tiempo que tarda el eco en regresar.
-                        </li>
-                        <li><strong>Cálculo de Distancia:</strong> Se aplica la fórmula
-                            <code>distancia = duración * 0.0343 / 2</code> para convertir el tiempo de vuelo en
-                            centímetros.
-                        </li>
-                        <li><strong>Lógica Condicional:</strong> Se usan sentencias <code>if-else if</code> para definir
-                            las
-                            tres zonas de comportamiento basadas en la distancia medida.</li>
-                        <li><strong>Control de LED RGB:</strong> La función <code>setColor()</code> es una función
-                            auxiliar
-                            que simplifica el control de los tres pines PWM del LED RGB.</li>
-                        <li><strong>Control del Zumbador:</strong>
-                            <ul>
-                                <li><code>noTone(pin)</code>: Detiene cualquier tono que se esté generando en ese pin.
-                                </li>
-                                <li><code>tone(pin, frecuencia)</code>: Genera una onda cuadrada de la frecuencia
-                                    especificada (en Hz) en el pin. Cuanto mayor es la frecuencia, más agudo es el
-                                    sonido.
-                                </li>
-                                <li>Para el modo "peligro", se alterna manualmente entre tono y silencio con
-                                    <code>delay()</code> para crear un sonido intermitente.
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p>Este proyecto integra múltiples conceptos: lectura de un sensor digital, cálculos matemáticos,
-                        control de salidas PWM para LEDs, generación de tonos con un zumbador y toma de decisiones
-                        basadas
-                        en condiciones. Es un excelente ejemplo de cómo los sensores y actuadores trabajan juntos en un
-                        sistema mecatrónico.</p>
+                        <h3 class="mt-4">3.5. Explicación del Código</h3>
+                        <ul>
+                            <li><strong>Variables y Pines:</strong> Se definen constantes para todos los pines
+                                utilizados,
+                                mejorando la legibilidad y facilitando cambios futuros.</li>
+                            <li><strong>Configuración de Pines:</strong> En <code>setup()</code>, se configuran los
+                                modos de
+                                los
+                                pines (INPUT/OUTPUT) y se apagan todos los LEDs al inicio.</li>
+                            <li><strong>Lectura del Ultrasónico:</strong> La secuencia de pulsos en los pines
+                                <code>trigPin</code> y <code>echoPin</code> sigue el protocolo estándar del HC-SR04. La
+                                función
+                                <code>pulseIn()</code> mide el tiempo que tarda el eco en regresar.
+                            </li>
+                            <li><strong>Cálculo de Distancia:</strong> Se aplica la fórmula
+                                <code>distancia = duración * 0.0343 / 2</code> para convertir el tiempo de vuelo en
+                                centímetros.
+                            </li>
+                            <li><strong>Lógica Condicional:</strong> Se usan sentencias <code>if-else if</code> para
+                                definir
+                                las
+                                tres zonas de comportamiento basadas en la distancia medida.</li>
+                            <li><strong>Control de LED RGB:</strong> La función <code>setColor()</code> es una función
+                                auxiliar
+                                que simplifica el control de los tres pines PWM del LED RGB.</li>
+                            <li><strong>Control del Zumbador:</strong>
+                                <ul>
+                                    <li><code>noTone(pin)</code>: Detiene cualquier tono que se esté generando en ese
+                                        pin.
+                                    </li>
+                                    <li><code>tone(pin, frecuencia)</code>: Genera una onda cuadrada de la frecuencia
+                                        especificada (en Hz) en el pin. Cuanto mayor es la frecuencia, más agudo es el
+                                        sonido.
+                                    </li>
+                                    <li>Para el modo "peligro", se alterna manualmente entre tono y silencio con
+                                        <code>delay()</code> para crear un sonido intermitente.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>Este proyecto integra múltiples conceptos: lectura de un sensor digital, cálculos
+                            matemáticos,
+                            control de salidas PWM para LEDs, generación de tonos con un zumbador y toma de decisiones
+                            basadas
+                            en condiciones. Es un excelente ejemplo de cómo los sensores y actuadores trabajan juntos en
+                            un
+                            sistema mecatrónico.</p>
 
-                    <hr class="my-4">
+                        <hr class="my-4">
 
-                    <h2 class="text-primary border-bottom pb-2 mb-4">4. Galería de Videos Recomendados</h2>
-                    <div class="row row-cols-1 row-cols-md-2 g-4">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="ratio ratio-16x9">
-                                    <iframe src="https://www.youtube.com/embed/kXay4W2smQo" title="YouTube video player"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">4. Galería de Videos Recomendados</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/kXay4W2smQo"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Arduino Tutorial: HC-SR04 Ultrasonic Sensor</h5>
+                                        <p class="card-text">Tutorial detallado sobre cómo usar el sensor ultrasónico
+                                            HC-SR04
+                                            con Arduino.</p>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Arduino Tutorial: HC-SR04 Ultrasonic Sensor</h5>
-                                    <p class="card-text">Tutorial detallado sobre cómo usar el sensor ultrasónico
-                                        HC-SR04
-                                        con Arduino.</p>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe src="https://www.youtube.com/embed/8D9N24NgYR4"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Controlando un Servomotor con Arduino</h5>
+                                        <p class="card-text">Explicación clara y visual sobre cómo conectar y programar
+                                            un
+                                            servomotor.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="ratio ratio-16x9">
-                                    <iframe src="https://www.youtube.com/embed/8D9N24NgYR4" title="YouTube video player"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Controlando un Servomotor con Arduino</h5>
-                                    <p class="card-text">Explicación clara y visual sobre cómo conectar y programar un
-                                        servomotor.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <hr class="my-4">
+                        <hr class="my-4">
 
-                    <h2 class="text-primary border-bottom pb-2 mb-4">5. Referencias y Lecturas Recomendadas</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="https://www.arduino.cc/en/Reference/HomePage"
-                                target="_blank">Referencia del Lenguaje Arduino</a> - Documentación oficial de funciones
-                            como <code>analogWrite</code>, <code>tone</code>, <code>pulseIn</code>, etc.</li>
-                        <li class="list-group-item">Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media.
-                            (Capítulos sobre sensores y actuadores)</li>
-                        <li class="list-group-item">Banzi, M. (2008). <em>Getting Started with Arduino</em>. O'Reilly
-                            Media.
-                            (Capítulo sobre entradas y salidas)</li>
-                    </ul>
+                        <h2 class="text-primary border-bottom pb-2 mb-4">5. Referencias y Lecturas Recomendadas</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="https://www.arduino.cc/en/Reference/HomePage"
+                                    target="_blank">Referencia del Lenguaje Arduino</a> - Documentación oficial de
+                                funciones
+                                como <code>analogWrite</code>, <code>tone</code>, <code>pulseIn</code>, etc.</li>
+                            <li class="list-group-item">Schwartz, M. (2017). <em>Arduino Cookbook</em>. O'Reilly Media.
+                                (Capítulos sobre sensores y actuadores)</li>
+                            <li class="list-group-item">Banzi, M. (2008). <em>Getting Started with Arduino</em>.
+                                O'Reilly
+                                Media.
+                                (Capítulo sobre entradas y salidas)</li>
+                        </ul>
 
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
 
-        <!-- Sequential Navigation -->
-        <nav class="d-flex justify-content-between mt-4">
-            <a href="programacion-entradas-salidas.html" class="btn btn-primary">&larr; Tema Anterior</a>
-            <a href="protocolo-mqtt.html" class="btn btn-primary">Siguiente Tema &rarr;</a>
-        </nav>
+            <!-- Sequential Navigation -->
+            <nav class="d-flex justify-content-between mt-4">
+                <a href="programacion-entradas-salidas.html" class="btn btn-primary">&larr; Tema Anterior</a>
+                <a href="protocolo-mqtt.html" class="btn btn-primary">Siguiente Tema &rarr;</a>
+            </nav>
 
-        <footer class="mt-5 text-center">
+        </main>
+
+        <footer class="mt-5 text-center" role="contentinfo">
             <a href="../fundamentos-de-mecatronica.html" class="btn btn-secondary">Volver al Temario</a>
         </footer>
     </div>

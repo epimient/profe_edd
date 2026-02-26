@@ -22,19 +22,22 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Métodos Especiales</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Métodos Especiales</h1>
             <p class="fs-4 text-muted">@staticmethod, @classmethod y el parámetro cls.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">@classmethod y cls</h2>
-                        <p>Los métodos de clase reciben la clase como primer argumento (<code>cls</code>) en lugar de la
-                            instancia. Son útiles para crear "fábricas" de objetos.</p>
-                        <pre><code class="language-python">class Pizza:
+        <main aria-labelledby="lesson-title">
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="classmethod-heading">
+                            <h2 id="classmethod-heading" class="mb-4">@classmethod y cls</h2>
+                            <p>Los métodos de clase reciben la clase como primer argumento (<code>cls</code>) en lugar
+                                de la
+                                instancia. Son útiles para crear "fábricas" de objetos.</p>
+                            <pre><code class="language-python">class Pizza:
     def __init__(self, ingredientes):
         self.ingredientes = ingredientes
 
@@ -43,31 +46,31 @@
         return cls(['tomate', 'mozzarella'])
 
 pizza_1 = Pizza.napolitana()</code></pre>
-                    </section>
+                        </section>
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">@staticmethod</h2>
-                        <p>No reciben ni la instancia (self) ni la clase (cls). Se comportan como funciones normales
-                            pero viven dentro del espacio de nombres de la clase.</p>
-                        <pre><code class="language-python">class Calculadora:
+                        <section class="mb-5" aria-labelledby="staticmethod-heading">
+                            <h2 id="staticmethod-heading" class="mb-4">@staticmethod</h2>
+                            <p>No reciben ni la instancia (self) ni la clase (cls). Se comportan como funciones normales
+                                pero viven dentro del espacio de nombres de la clase.</p>
+                            <pre><code class="language-python">class Calculadora:
     @staticmethod
     def sumar(a, b):
         return a + b
 
 print(Calculadora.sumar(5, 3))</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>

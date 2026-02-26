@@ -28,810 +28,846 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Estructura de un Sistema Operativo Linux</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Estructura de un Sistema Operativo Linux</h1>
             <p class="fs-4 text-muted">Conceptos clave, capas de abstracción y la modularidad que hace de Linux una
                 arquitectura donde casi todo es intercambiable.</p>
         </header>
 
-        <!-- Slides Banner -->
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="alert">
-                    <i class="bi bi-file-earmark-ppt-fill fs-1 me-3"></i>
-                    <div class="flex-grow-1">
-                        <h4 class="alert-heading h5">Diapositivas del Tema</h4>
-                        <p class="mb-0 small">Accede a la presentación completa para repasar offline.</p>
+        <main aria-labelledby="lesson-title">
+
+            <!-- Slides Banner -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="region"
+                        aria-labelledby="slides-heading">
+                        <i class="bi bi-file-earmark-ppt-fill fs-1 me-3" aria-hidden="true"></i>
+                        <div class="flex-grow-1">
+                            <h4 id="slides-heading" class="alert-heading h5">Diapositivas del Tema</h4>
+                            <p class="mb-0 small">Accede a la presentación completa para repasar offline.</p>
+                        </div>
+                        <a href="https://docs.google.com/presentation/d/13TxyQt4o4cXD56gt0sBCPJhT7XdR3TSw/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
+                            class="btn btn-light fw-bold text-primary shadow-sm" target="_blank"
+                            aria-label="Ver Diapositivas (abre en nueva pestaña)">
+                            <i class="bi bi-easel2-fill me-2" aria-hidden="true"></i>Ver Diapositivas
+                        </a>
                     </div>
-                    <a href="https://docs.google.com/presentation/d/13TxyQt4o4cXD56gt0sBCPJhT7XdR3TSw/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
-                        class="btn btn-light fw-bold text-primary shadow-sm" target="_blank">
-                        <i class="bi bi-easel2-fill me-2"></i>Ver Diapositivas
-                    </a>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
 
-                    <!-- ============================================================ -->
-                    <!-- CAPÍTULO I: Fundamentos del Sistema Operativo -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo I: Fundamentos del Sistema Operativo
-                        </h2>
+                        <!-- ============================================================ -->
+                        <!-- CAPÍTULO I: Fundamentos del Sistema Operativo -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="cap-1-heading">
+                            <h2 id="cap-1-heading" class="text-primary border-bottom pb-2 mb-4">Capítulo I: Fundamentos
+                                del Sistema Operativo
+                            </h2>
 
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
-                            <strong>¿Qué es realmente un SO?</strong> Es el jefe que organiza el caos dentro del
-                            computador. Coordina todos los recursos y proporciona una interfaz entre el hardware y las
-                            aplicaciones.
-                        </div>
+                            <div class="alert alert-info shadow-sm">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>¿Qué es realmente un SO?</strong> Es el jefe que organiza el caos dentro del
+                                computador. Coordina todos los recursos y proporciona una interfaz entre el hardware y
+                                las
+                                aplicaciones.
+                            </div>
 
-                        <blockquote class="blockquote border-start border-4 border-info ps-3 my-4">
-                            <p class="mb-0 fst-italic">"Un sistema operativo es el software que gestiona los recursos
-                                del hardware y proporciona servicios a los programas de aplicación."</p>
-                            <footer class="blockquote-footer mt-1">Silberschatz, Galvin &amp; Gagne</footer>
-                        </blockquote>
+                            <blockquote class="blockquote border-start border-4 border-info ps-3 my-4">
+                                <p class="mb-0 fst-italic">"Un sistema operativo es el software que gestiona los
+                                    recursos
+                                    del hardware y proporciona servicios a los programas de aplicación."</p>
+                                <footer class="blockquote-footer mt-1">Silberschatz, Galvin &amp; Gagne</footer>
+                            </blockquote>
 
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Hardware = Cuerpo</h5>
-                                        <p class="card-text small">Los componentes físicos: CPU, RAM, disco, tarjeta
-                                            gráfica. Son los músculos y órganos del computador.</p>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Hardware = Cuerpo</h5>
+                                            <p class="card-text small">Los componentes físicos: CPU, RAM, disco, tarjeta
+                                                gráfica. Son los músculos y órganos del computador.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">SO = Cerebro</h5>
+                                            <p class="card-text small">Coordina todo y toma decisiones. Sin él, solo hay
+                                                electrónica esperando órdenes... no hay programas, ni archivos, ni
+                                                interfaz.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">SO = Cerebro</h5>
-                                        <p class="card-text small">Coordina todo y toma decisiones. Sin él, solo hay
-                                            electrónica esperando órdenes... no hay programas, ni archivos, ni interfaz.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <h3 class="mt-5">Funciones principales del SO</h3>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold"><span
-                                                class="badge bg-info text-dark me-2">1</span>Gestión de Procesos</h5>
-                                        <p class="card-text small">Controla qué programa usa la CPU en cada momento.</p>
+                            <h3 class="mt-5">Funciones principales del SO</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><span
+                                                    class="badge bg-info text-dark me-2">1</span>Gestión de Procesos
+                                            </h5>
+                                            <p class="card-text small">Controla qué programa usa la CPU en cada momento.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><span
+                                                    class="badge bg-info text-dark me-2">2</span>Gestión de Memoria</h5>
+                                            <p class="card-text small">Asigna y protege la RAM para cada aplicación.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><span
+                                                    class="badge bg-info text-dark me-2">3</span>Gestión de Archivos
+                                            </h5>
+                                            <p class="card-text small">Organiza el almacenamiento y la estructura de
+                                                directorios.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><span
+                                                    class="badge bg-info text-dark me-2">4</span>Control de E/S</h5>
+                                            <p class="card-text small">Maneja dispositivos y periféricos (teclado,
+                                                disco,
+                                                red).</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold"><span
-                                                class="badge bg-info text-dark me-2">2</span>Gestión de Memoria</h5>
-                                        <p class="card-text small">Asigna y protege la RAM para cada aplicación.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold"><span
-                                                class="badge bg-info text-dark me-2">3</span>Gestión de Archivos</h5>
-                                        <p class="card-text small">Organiza el almacenamiento y la estructura de
-                                            directorios.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold"><span
-                                                class="badge bg-info text-dark me-2">4</span>Control de E/S</h5>
-                                        <p class="card-text small">Maneja dispositivos y periféricos (teclado, disco,
-                                            red).</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <h3 class="mt-5">Los tres niveles del sistema</h3>
-                        <p>Cada capa solo puede comunicarse con la capa adyacente. El usuario <strong>nunca</strong>
-                            interactúa directamente con el hardware.</p>
+                            <h3 class="mt-5">Los tres niveles del sistema</h3>
+                            <p>Cada capa solo puede comunicarse con la capa adyacente. El usuario <strong>nunca</strong>
+                                interactúa directamente con el hardware.</p>
 
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <span class="badge bg-primary rounded-pill mb-2 px-3">Nivel 1</span>
-                                        <h5 class="card-title fw-bold">Espacio de Usuario</h5>
-                                        <p class="card-text small">Navegador web, terminal, editores de texto.</p>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <span class="badge bg-primary rounded-pill mb-2 px-3">Nivel 1</span>
+                                            <h5 class="card-title fw-bold">Espacio de Usuario</h5>
+                                            <p class="card-text small">Navegador web, terminal, editores de texto.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <span class="badge bg-warning text-dark rounded-pill mb-2 px-3">Nivel
+                                                2</span>
+                                            <h5 class="card-title fw-bold">Kernel</h5>
+                                            <p class="card-text small">Gestión de procesos, memoria y controladores
+                                                (drivers).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <span class="badge bg-danger rounded-pill mb-2 px-3">Nivel 3</span>
+                                            <h5 class="card-title fw-bold">Hardware</h5>
+                                            <p class="card-text small">CPU, RAM, disco duro/SSD, tarjeta de red.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <span class="badge bg-warning text-dark rounded-pill mb-2 px-3">Nivel 2</span>
-                                        <h5 class="card-title fw-bold">Kernel</h5>
-                                        <p class="card-text small">Gestión de procesos, memoria y controladores
-                                            (drivers).</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <span class="badge bg-danger rounded-pill mb-2 px-3">Nivel 3</span>
-                                        <h5 class="card-title fw-bold">Hardware</h5>
-                                        <p class="card-text small">CPU, RAM, disco duro/SSD, tarjeta de red.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <h4>Flujo de comunicación</h4>
-                        <ol>
-                            <li>La aplicación solicita un recurso.</li>
-                            <li>El kernel recibe la solicitud.</li>
-                            <li>El kernel verifica permisos.</li>
-                            <li>El hardware ejecuta la operación.</li>
-                            <li>El resultado vuelve a la app.</li>
-                        </ol>
+                            <h4>Flujo de comunicación</h4>
+                            <ol>
+                                <li>La aplicación solicita un recurso.</li>
+                                <li>El kernel recibe la solicitud.</li>
+                                <li>El kernel verifica permisos.</li>
+                                <li>El hardware ejecuta la operación.</li>
+                                <li>El resultado vuelve a la app.</li>
+                            </ol>
 
-                        <blockquote class="blockquote border-start border-4 border-info ps-3 my-4">
-                            <p class="mb-0 fst-italic">"El sistema operativo es el intermediario entre el usuario y el
-                                hardware."</p>
-                            <footer class="blockquote-footer mt-1">Tanenbaum</footer>
-                        </blockquote>
-                    </section>
+                            <blockquote class="blockquote border-start border-4 border-info ps-3 my-4">
+                                <p class="mb-0 fst-italic">"El sistema operativo es el intermediario entre el usuario y
+                                    el
+                                    hardware."</p>
+                                <footer class="blockquote-footer mt-1">Tanenbaum</footer>
+                            </blockquote>
+                        </section>
 
-                    <!-- ============================================================ -->
-                    <!-- CAPÍTULO II: Hardware y Kernel -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo II: Hardware y Kernel</h2>
+                        <!-- ============================================================ -->
+                        <!-- CAPÍTULO II: Hardware y Kernel -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="cap-2-heading">
+                            <h2 id="cap-2-heading" class="text-primary border-bottom pb-2 mb-4">Capítulo II: Hardware y
+                                Kernel</h2>
 
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
-                            <strong>El gran problema:</strong> El hardware <strong>NO sabe</strong> ejecutar Word,
-                            Chrome ni Python.
-                            Solo entiende electricidad y operaciones matemáticas básicas. Alguien tiene que
-                            <strong>traducir</strong> lo que los programas quieren hacer. Ese alguien es el
-                            <strong>KERNEL</strong>.
-                        </div>
+                            <div class="alert alert-info shadow-sm">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>El gran problema:</strong> El hardware <strong>NO sabe</strong> ejecutar Word,
+                                Chrome ni Python.
+                                Solo entiende electricidad y operaciones matemáticas básicas. Alguien tiene que
+                                <strong>traducir</strong> lo que los programas quieren hacer. Ese alguien es el
+                                <strong>KERNEL</strong>.
+                            </div>
 
-                        <h3 class="mt-4">Componentes fundamentales del hardware</h3>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-cpu-fill fs-2 text-primary"></i>
-                                        <h5 class="card-title fw-bold mt-2">CPU</h5>
-                                        <p class="card-text small">Procesador central que ejecuta instrucciones.</p>
+                            <h3 class="mt-4">Componentes fundamentales del hardware</h3>
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-cpu-fill fs-2 text-primary"></i>
+                                            <h5 class="card-title fw-bold mt-2">CPU</h5>
+                                            <p class="card-text small">Procesador central que ejecuta instrucciones.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-memory fs-2 text-success"></i>
+                                            <h5 class="card-title fw-bold mt-2">RAM</h5>
+                                            <p class="card-text small">Memoria volátil de acceso rápido.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-device-hdd-fill fs-2 text-warning"></i>
+                                            <h5 class="card-title fw-bold mt-2">Disco</h5>
+                                            <p class="card-text small">Almacenamiento persistente (HDD/SSD).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-gpu-card fs-2 text-danger"></i>
+                                            <h5 class="card-title fw-bold mt-2">GPU</h5>
+                                            <p class="card-text small">Procesamiento gráfico y paralelo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-wifi fs-2 text-info"></i>
+                                            <h5 class="card-title fw-bold mt-2">Tarjeta de Red</h5>
+                                            <p class="card-text small">Conectividad Ethernet/WiFi.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-keyboard fs-2 text-secondary"></i>
+                                            <h5 class="card-title fw-bold mt-2">Dispositivos E/S</h5>
+                                            <p class="card-text small">Teclado, ratón, monitor, impresora.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-memory fs-2 text-success"></i>
-                                        <h5 class="card-title fw-bold mt-2">RAM</h5>
-                                        <p class="card-text small">Memoria volátil de acceso rápido.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-device-hdd-fill fs-2 text-warning"></i>
-                                        <h5 class="card-title fw-bold mt-2">Disco</h5>
-                                        <p class="card-text small">Almacenamiento persistente (HDD/SSD).</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-gpu-card fs-2 text-danger"></i>
-                                        <h5 class="card-title fw-bold mt-2">GPU</h5>
-                                        <p class="card-text small">Procesamiento gráfico y paralelo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-wifi fs-2 text-info"></i>
-                                        <h5 class="card-title fw-bold mt-2">Tarjeta de Red</h5>
-                                        <p class="card-text small">Conectividad Ethernet/WiFi.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-keyboard fs-2 text-secondary"></i>
-                                        <h5 class="card-title fw-bold mt-2">Dispositivos E/S</h5>
-                                        <p class="card-text small">Teclado, ratón, monitor, impresora.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <h3 class="mt-5">El Kernel: el corazón del sistema</h3>
-                        <p>Es el <strong>núcleo</strong> del sistema operativo. Es el <strong>único</strong> que puede
-                            hablar directamente con el hardware.</p>
+                            <h3 class="mt-5">El Kernel: el corazón del sistema</h3>
+                            <p>Es el <strong>núcleo</strong> del sistema operativo. Es el <strong>único</strong> que
+                                puede
+                                hablar directamente con el hardware.</p>
 
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-shield-check fs-2 text-primary"></i>
-                                        <h5 class="card-title fw-bold mt-2">El Árbitro</h5>
-                                        <p class="card-text small">Decide quién usa los recursos.</p>
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-shield-check fs-2 text-primary"></i>
+                                            <h5 class="card-title fw-bold mt-2">El Árbitro</h5>
+                                            <p class="card-text small">Decide quién usa los recursos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-person-badge fs-2 text-warning"></i>
+                                            <h5 class="card-title fw-bold mt-2">El Policía</h5>
+                                            <p class="card-text small">Protege y hace cumplir las reglas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-clipboard-data fs-2 text-success"></i>
+                                            <h5 class="card-title fw-bold mt-2">El Administrador</h5>
+                                            <p class="card-text small">Gestiona todos los recursos.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-person-badge fs-2 text-warning"></i>
-                                        <h5 class="card-title fw-bold mt-2">El Policía</h5>
-                                        <p class="card-text small">Protege y hace cumplir las reglas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-clipboard-data fs-2 text-success"></i>
-                                        <h5 class="card-title fw-bold mt-2">El Administrador</h5>
-                                        <p class="card-text small">Gestiona todos los recursos.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <h4 class="mt-5">Funciones fundamentales del Kernel</h4>
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Gestión de Procesos</h5>
-                                        <p class="card-text small">La CPU solo puede ejecutar una cosa a la vez. El
-                                            kernel divide el tiempo en <strong>microfragmentos</strong> (Time Slices),
-                                            cambia rápidamente entre procesos (<strong>Context Switching</strong>) y
-                                            crea
-                                            la ilusión de ejecución simultánea.</p>
+                            <h4 class="mt-5">Funciones fundamentales del Kernel</h4>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Gestión de Procesos</h5>
+                                            <p class="card-text small">La CPU solo puede ejecutar una cosa a la vez. El
+                                                kernel divide el tiempo en <strong>microfragmentos</strong> (Time
+                                                Slices),
+                                                cambia rápidamente entre procesos (<strong>Context Switching</strong>) y
+                                                crea
+                                                la ilusión de ejecución simultánea.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Gestión de Memoria</h5>
+                                            <p class="card-text small">Cada programa cree que tiene su propio espacio
+                                                privado. La RAM es <strong>compartida</strong>; el kernel divide y
+                                                protege
+                                                cada espacio. Si un programa invade otra memoria →
+                                                <strong>Segmentation Fault</strong>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Controladores (Drivers)</h5>
+                                            <p class="card-text small">El kernel no sabe manejar cada impresora del
+                                                mundo.
+                                                Para eso usa <strong>drivers</strong>: traductores específicos para cada
+                                                dispositivo. Sin driver = no hay dispositivo.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Gestión de Memoria</h5>
-                                        <p class="card-text small">Cada programa cree que tiene su propio espacio
-                                            privado. La RAM es <strong>compartida</strong>; el kernel divide y protege
-                                            cada espacio. Si un programa invade otra memoria →
-                                            <strong>Segmentation Fault</strong>.
-                                        </p>
+
+                            <h3 class="mt-5">Arquitectura del Kernel Linux</h3>
+                            <p>Linux es <strong>Monolítico</strong>: todo el núcleo vive en el mismo espacio de memoria.
+                            </p>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">🧱 Monolítico (Linux)</h5>
+                                            <ul class="small mb-0">
+                                                <li>Todo en kernel space</li>
+                                                <li>Alto rendimiento, menos overhead</li>
+                                                <li>Comunicación directa entre componentes</li>
+                                                <li>Un error puede afectar todo el sistema</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">🧩 Microkernel (MINIX)</h5>
+                                            <ul class="small mb-0">
+                                                <li>Solo lo esencial en kernel</li>
+                                                <li>Mayor seguridad y estabilidad</li>
+                                                <li>Mayor overhead de comunicación</li>
+                                                <li>Más difícil de implementar</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Controladores (Drivers)</h5>
-                                        <p class="card-text small">El kernel no sabe manejar cada impresora del mundo.
-                                            Para eso usa <strong>drivers</strong>: traductores específicos para cada
-                                            dispositivo. Sin driver = no hay dispositivo.</p>
+
+                            <blockquote class="blockquote border-start border-4 border-warning ps-3 my-4">
+                                <p class="mb-0 fst-italic">"Linux es un paso atrás a los años 70. Los microkernels han
+                                    ganado."</p>
+                                <footer class="blockquote-footer mt-1">Tanenbaum (1992)</footer>
+                            </blockquote>
+                            <blockquote class="blockquote border-start border-4 border-info ps-3 mb-4">
+                                <p class="mb-0 fst-italic">"Los microkernels son más complicados. Los algoritmos
+                                    distribuidos no son más simples."</p>
+                                <footer class="blockquote-footer mt-1">Torvalds (1992)</footer>
+                            </blockquote>
+
+                            <div class="alert alert-success shadow-sm">
+                                <i class="bi bi-puzzle me-2"></i>
+                                <strong>Linux también es Modular:</strong> puede cargar módulos dinámicamente. Añades
+                                soporte sin reiniciar, menor consumo de memoria base. <strong>Combina lo mejor de ambos
+                                    mundos.</strong>
+                            </div>
+                        </section>
+
+                        <!-- ============================================================ -->
+                        <!-- CAPÍTULO III: Modos de Ejecución y System Calls -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="cap-3-heading">
+                            <h2 id="cap-3-heading" class="text-primary border-bottom pb-2 mb-4">Capítulo III: Modos de
+                                Ejecución y System
+                                Calls</h2>
+
+                            <div class="alert alert-info shadow-sm">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>¿Por qué dos modos?</strong> Para que un error en Chrome no tumbe todo el
+                                sistema.
+                                Las apps no pueden dañar el kernel.
+                            </div>
+
+                            <h3 class="mt-4">Modo Kernel vs Modo Usuario</h3>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><i
+                                                    class="bi bi-shield-lock me-2 text-warning"></i>Modo Kernel</h5>
+                                            <p class="card-text small"><strong>Acceso total</strong> al hardware. Solo
+                                                el
+                                                kernel y sus módulos viven aquí. Acceso directo a memoria, puertos e
+                                                interrupciones. Si algo falla → <strong>Kernel Panic</strong>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold"><i
+                                                    class="bi bi-person me-2 text-primary"></i>Modo Usuario</h5>
+                                            <p class="card-text small"><strong>Acceso limitado.</strong> Todas las
+                                                aplicaciones viven aquí. No pueden tocar hardware directamente. Si algo
+                                                falla
+                                                → solo se cierra el programa.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <h3 class="mt-5">Arquitectura del Kernel Linux</h3>
-                        <p>Linux es <strong>Monolítico</strong>: todo el núcleo vive en el mismo espacio de memoria.</p>
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">🧱 Monolítico (Linux)</h5>
-                                        <ul class="small mb-0">
-                                            <li>Todo en kernel space</li>
-                                            <li>Alto rendimiento, menos overhead</li>
-                                            <li>Comunicación directa entre componentes</li>
-                                            <li>Un error puede afectar todo el sistema</li>
-                                        </ul>
+                            <h4>Cambio de modo</h4>
+                            <ol>
+                                <li>La app solicita un servicio (<em>syscall</em>).</li>
+                                <li>La CPU cambia a <strong>modo kernel</strong>.</li>
+                                <li>El kernel ejecuta la operación.</li>
+                                <li>Retorna a <strong>modo usuario</strong>.</li>
+                            </ol>
+
+                            <blockquote class="blockquote border-start border-4 border-info ps-3 my-4">
+                                <p class="mb-0 fst-italic">"El modo dual de operación protege al SO de programas de
+                                    usuario
+                                    erróneos."</p>
+                                <footer class="blockquote-footer mt-1">Silberschatz et al.</footer>
+                            </blockquote>
+
+                            <h3 class="mt-5">System Calls: las llamadas al sistema</h3>
+                            <p>Las aplicaciones <strong>NO pueden</strong> hablar directamente con el hardware. Usan
+                                <strong>System Calls</strong>: solicitudes formales al kernel. Son el <strong>único
+                                    puente
+                                    legal</strong> hacia el núcleo. Linux tiene ~300 system calls diferentes.
+                            </p>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Procesos</h5>
+                                            <ul class="small mb-0">
+                                                <li><code>fork()</code> — Crear proceso</li>
+                                                <li><code>exec()</code> — Ejecutar programa</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Archivos</h5>
+                                            <ul class="small mb-0">
+                                                <li><code>open()</code> — Abrir archivo</li>
+                                                <li><code>close()</code> — Cerrar archivo</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Datos</h5>
+                                            <ul class="small mb-0">
+                                                <li><code>read()</code> — Leer datos</li>
+                                                <li><code>write()</code> — Escribir datos</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">🧩 Microkernel (MINIX)</h5>
-                                        <ul class="small mb-0">
-                                            <li>Solo lo esencial en kernel</li>
-                                            <li>Mayor seguridad y estabilidad</li>
-                                            <li>Mayor overhead de comunicación</li>
-                                            <li>Más difícil de implementar</li>
-                                        </ul>
+
+                            <h4>Ejemplo: abrir un archivo</h4>
+                            <ol>
+                                <li>El programa llama a <code>open()</code>.</li>
+                                <li>Se invoca la syscall al kernel.</li>
+                                <li>El kernel verifica permisos.</li>
+                                <li>El archivo se abre → retorna descriptor o error.</li>
+                            </ol>
+                        </section>
+
+                        <!-- ============================================================ -->
+                        <!-- CAPÍTULO IV: Interfaz de Usuario y Entorno Gráfico -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="cap-4-heading">
+                            <h2 id="cap-4-heading" class="text-primary border-bottom pb-2 mb-4">Capítulo IV: Interfaz de
+                                Usuario y Entorno
+                                Gráfico</h2>
+
+                            <div class="alert alert-info shadow-sm">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>Lo que hace único a Linux:</strong> La interfaz gráfica <strong>NO es
+                                    obligatoria</strong>. Puedes tener un servidor sin interfaz o un escritorio
+                                completamente
+                                personalizado.
+                            </div>
+
+                            <h3 class="mt-4">Espacio de Usuario, CLI y Shell</h3>
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">CLI</h5>
+                                            <p class="card-text small">Interfaz basada en texto. No es retro: es
+                                                <strong>poderosa</strong>. Automatización de tareas, administración de
+                                                servidores, control total del sistema.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Shell</h5>
+                                            <p class="card-text small">El <strong>intérprete</strong>. Recibe lo que
+                                                escribes, traduce comandos a instrucciones y ejecuta syscalls. Sin
+                                                shell, la
+                                                terminal sería una pantalla vacía.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Shells en Linux</h5>
+                                            <ul class="card-text small mb-0">
+                                                <li><strong>Bash</strong> — Default</li>
+                                                <li><strong>Zsh</strong> — Moderno</li>
+                                                <li><strong>Fish</strong> — User-friendly</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <blockquote class="blockquote border-start border-4 border-warning ps-3 my-4">
-                            <p class="mb-0 fst-italic">"Linux es un paso atrás a los años 70. Los microkernels han
-                                ganado."</p>
-                            <footer class="blockquote-footer mt-1">Tanenbaum (1992)</footer>
-                        </blockquote>
-                        <blockquote class="blockquote border-start border-4 border-info ps-3 mb-4">
-                            <p class="mb-0 fst-italic">"Los microkernels son más complicados. Los algoritmos
-                                distribuidos no son más simples."</p>
-                            <footer class="blockquote-footer mt-1">Torvalds (1992)</footer>
-                        </blockquote>
+                            <h3 class="mt-5">La Pila Gráfica de Linux</h3>
+                            <p>Cuando queremos ventanas, mouse y botones, aparece esta arquitectura:</p>
 
-                        <div class="alert alert-success shadow-sm">
-                            <i class="bi bi-puzzle me-2"></i>
-                            <strong>Linux también es Modular:</strong> puede cargar módulos dinámicamente. Añades
-                            soporte sin reiniciar, menor consumo de memoria base. <strong>Combina lo mejor de ambos
-                                mundos.</strong>
-                        </div>
-                    </section>
-
-                    <!-- ============================================================ -->
-                    <!-- CAPÍTULO III: Modos de Ejecución y System Calls -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo III: Modos de Ejecución y System
-                            Calls</h2>
-
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
-                            <strong>¿Por qué dos modos?</strong> Para que un error en Chrome no tumbe todo el sistema.
-                            Las apps no pueden dañar el kernel.
-                        </div>
-
-                        <h3 class="mt-4">Modo Kernel vs Modo Usuario</h3>
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold"><i
-                                                class="bi bi-shield-lock me-2 text-warning"></i>Modo Kernel</h5>
-                                        <p class="card-text small"><strong>Acceso total</strong> al hardware. Solo el
-                                            kernel y sus módulos viven aquí. Acceso directo a memoria, puertos e
-                                            interrupciones. Si algo falla → <strong>Kernel Panic</strong>.</p>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">X11 (Clásico)</h5>
+                                            <p class="card-text small">Sistema gráfico con +30 años. Funciona con modelo
+                                                <strong>cliente-servidor</strong>: el Servidor X controla pantalla,
+                                                teclado
+                                                y
+                                                ratón; las aplicaciones le piden que dibuje cosas.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Wayland (Moderno)</h5>
+                                            <p class="card-text small">El reemplazo moderno de X11. <strong>Más
+                                                    simple</strong>, <strong>más seguro</strong>, <strong>más
+                                                    eficiente</strong>. El compositor habla directamente con el kernel y
+                                                la
+                                                GPU. Es el futuro.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold"><i
-                                                class="bi bi-person me-2 text-primary"></i>Modo Usuario</h5>
-                                        <p class="card-text small"><strong>Acceso limitado.</strong> Todas las
-                                            aplicaciones viven aquí. No pueden tocar hardware directamente. Si algo
-                                            falla
-                                            → solo se cierra el programa.</p>
+
+                            <h4>Comparación X11 vs Wayland</h4>
+                            <div class="table-responsive mb-4">
+                                <table class="table table-hover table-sm align-middle">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Característica</th>
+                                            <th>X11</th>
+                                            <th>Wayland</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Edad</td>
+                                            <td>+30 años</td>
+                                            <td>Moderno</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Arquitectura</td>
+                                            <td>Cliente-servidor</td>
+                                            <td>Más directa</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Seguridad</td>
+                                            <td>Más débil</td>
+                                            <td><strong>Más fuerte</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Complejidad</td>
+                                            <td>Muy compleja</td>
+                                            <td>Más simple</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rendimiento</td>
+                                            <td>Bueno</td>
+                                            <td><strong>Mejor en animaciones</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Soporte legado</td>
+                                            <td><strong>Excelente</strong></td>
+                                            <td>En transición</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="mt-5">Entornos de Escritorio</h3>
+                            <p>Un entorno de escritorio es un <strong>paquete completo</strong> que incluye apariencia
+                                visual, paneles, menú, gestor de ventanas y aplicaciones básicas. <strong>NO son
+                                    sistemas
+                                    operativos</strong> — son capas visuales que viven encima del servidor gráfico.</p>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">GNOME</h5>
+                                            <p class="card-text small">Minimalista, moderno, GTK. Muy usado en Ubuntu y
+                                                Fedora.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">KDE Plasma</h5>
+                                            <p class="card-text small">Altamente personalizable, Qt, muy visual y
+                                                completo.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">XFCE</h5>
+                                            <p class="card-text small">Ligero, clásico, ideal para equipos antiguos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">MATE</h5>
+                                            <p class="card-text small">Basado en GNOME 2. Tradicional, ligero-moderado.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Cinnamon</h5>
+                                            <p class="card-text small">Basado en GNOME, tipo Windows. Usado en Linux
+                                                Mint.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <h4>Cambio de modo</h4>
-                        <ol>
-                            <li>La app solicita un servicio (<em>syscall</em>).</li>
-                            <li>La CPU cambia a <strong>modo kernel</strong>.</li>
-                            <li>El kernel ejecuta la operación.</li>
-                            <li>Retorna a <strong>modo usuario</strong>.</li>
-                        </ol>
+                            <h3 class="mt-5">Gestores de Ventanas</h3>
+                            <p>En Linux puedes <strong>cambiar</strong> el gestor de ventanas o el entorno completo. En
+                                Windows y macOS la interfaz es fija. <em>Aquí está la diferencia cultural.</em></p>
 
-                        <blockquote class="blockquote border-start border-4 border-info ps-3 my-4">
-                            <p class="mb-0 fst-italic">"El modo dual de operación protege al SO de programas de usuario
-                                erróneos."</p>
-                            <footer class="blockquote-footer mt-1">Silberschatz et al.</footer>
-                        </blockquote>
-
-                        <h3 class="mt-5">System Calls: las llamadas al sistema</h3>
-                        <p>Las aplicaciones <strong>NO pueden</strong> hablar directamente con el hardware. Usan
-                            <strong>System Calls</strong>: solicitudes formales al kernel. Son el <strong>único puente
-                                legal</strong> hacia el núcleo. Linux tiene ~300 system calls diferentes.
-                        </p>
-
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Procesos</h5>
-                                        <ul class="small mb-0">
-                                            <li><code>fork()</code> — Crear proceso</li>
-                                            <li><code>exec()</code> — Ejecutar programa</li>
-                                        </ul>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Flotantes (Tradicionales)</h5>
+                                            <p class="card-text small">Ventanas que flotan libremente en la pantalla.
+                                                Ej: Openbox, Fluxbox.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border-0 bg-white shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold">Tiling (Mosaico)</h5>
+                                            <p class="card-text small">Ventanas se organizan automáticamente en
+                                                pantalla.
+                                                Ej: i3, Sway, Hyprland.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Archivos</h5>
-                                        <ul class="small mb-0">
-                                            <li><code>open()</code> — Abrir archivo</li>
-                                            <li><code>close()</code> — Cerrar archivo</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Datos</h5>
-                                        <ul class="small mb-0">
-                                            <li><code>read()</code> — Leer datos</li>
-                                            <li><code>write()</code> — Escribir datos</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <h4>Ejemplo: abrir un archivo</h4>
-                        <ol>
-                            <li>El programa llama a <code>open()</code>.</li>
-                            <li>Se invoca la syscall al kernel.</li>
-                            <li>El kernel verifica permisos.</li>
-                            <li>El archivo se abre → retorna descriptor o error.</li>
-                        </ol>
-                    </section>
+                            <div class="alert alert-warning shadow-sm">
+                                <i class="bi bi-lightning-fill me-2"></i>
+                                <strong>Hyprland:</strong> Compositor/gestor de ventanas moderno basado en Wayland. Tipo
+                                tiling, muy visual y animado. <strong>NO</strong> es un entorno de escritorio completo —
+                                tú
+                                construyes el resto manualmente. Es para usuarios avanzados.
+                            </div>
+                        </section>
 
-                    <!-- ============================================================ -->
-                    <!-- CAPÍTULO IV: Interfaz de Usuario y Entorno Gráfico -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Capítulo IV: Interfaz de Usuario y Entorno
-                            Gráfico</h2>
+                        <!-- ============================================================ -->
+                        <!-- CONCLUSIÓN -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="conclusion-heading">
+                            <h2 id="conclusion-heading" class="text-primary border-bottom pb-2 mb-4">Conclusión</h2>
 
-                        <div class="alert alert-info shadow-sm">
-                            <i class="bi bi-info-circle-fill me-2"></i>
-                            <strong>Lo que hace único a Linux:</strong> La interfaz gráfica <strong>NO es
-                                obligatoria</strong>. Puedes tener un servidor sin interfaz o un escritorio
-                            completamente
-                            personalizado.
-                        </div>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-3">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-cpu fs-2 text-primary"></i>
+                                            <h6 class="fw-bold mt-2">Kernel</h6>
+                                            <p class="small text-muted mb-0">Controla hardware</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-shield-lock fs-2 text-warning"></i>
+                                            <h6 class="fw-bold mt-2">Protección</h6>
+                                            <p class="small text-muted mb-0">Reglas de seguridad</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-box fs-2 text-success"></i>
+                                            <h6 class="fw-bold mt-2">Aplicaciones</h6>
+                                            <p class="small text-muted mb-0">Espacio seguro</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card h-100 border-0 bg-white shadow-sm text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-arrows-angle-expand fs-2 text-info"></i>
+                                            <h6 class="fw-bold mt-2">Puente</h6>
+                                            <p class="small text-muted mb-0">Software ↔ Hardware</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <h3 class="mt-4">Espacio de Usuario, CLI y Shell</h3>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">CLI</h5>
-                                        <p class="card-text small">Interfaz basada en texto. No es retro: es
-                                            <strong>poderosa</strong>. Automatización de tareas, administración de
-                                            servidores, control total del sistema.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="alert alert-dark shadow-sm text-center">
+                                <p class="lead mb-1 fw-bold">Linux no es solo "otro sistema".</p>
+                                <p class="mb-0 small">Es una <strong>arquitectura modular</strong> donde casi todo es
+                                    intercambiable. Y eso cambia completamente la forma de entender los sistemas.</p>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Shell</h5>
-                                        <p class="card-text small">El <strong>intérprete</strong>. Recibe lo que
-                                            escribes, traduce comandos a instrucciones y ejecuta syscalls. Sin shell, la
-                                            terminal sería una pantalla vacía.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Shells en Linux</h5>
-                                        <ul class="card-text small mb-0">
-                                            <li><strong>Bash</strong> — Default</li>
-                                            <li><strong>Zsh</strong> — Moderno</li>
-                                            <li><strong>Fish</strong> — User-friendly</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </section>
 
-                        <h3 class="mt-5">La Pila Gráfica de Linux</h3>
-                        <p>Cuando queremos ventanas, mouse y botones, aparece esta arquitectura:</p>
+                        <!-- ============================================================ -->
+                        <!-- GALERÍA DE VIDEOS -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="videos-heading">
+                            <h2 id="videos-heading" class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/yVpbFMhOAwE"
+                                                title="El Kernel de Linux (Computerphile)" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">El Kernel de Linux (Computerphile)</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 shadow-sm border-0">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/M_p0lS0m2U8"
+                                                title="¿Qué es un Kernel? (Red Hat)" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">¿Qué es un Kernel? (Red Hat)</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">X11 (Clásico)</h5>
-                                        <p class="card-text small">Sistema gráfico con +30 años. Funciona con modelo
-                                            <strong>cliente-servidor</strong>: el Servidor X controla pantalla, teclado
-                                            y
-                                            ratón; las aplicaciones le piden que dibuje cosas.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Wayland (Moderno)</h5>
-                                        <p class="card-text small">El reemplazo moderno de X11. <strong>Más
-                                                simple</strong>, <strong>más seguro</strong>, <strong>más
-                                                eficiente</strong>. El compositor habla directamente con el kernel y la
-                                            GPU. Es el futuro.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- ============================================================ -->
+                        <!-- REFERENCIAS BIBLIOGRÁFICAS -->
+                        <!-- ============================================================ -->
+                        <section class="mb-5" aria-labelledby="references-heading">
+                            <h2 id="references-heading" class="text-primary border-bottom pb-2 mb-4">Referencias
+                                Bibliográficas</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Silberschatz, A., Galvin, P. B. & Gagne, G. (2018).</strong> <em>Operating
+                                        System Concepts, 10th Edition.</em> Wiley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Tanenbaum, A. S. (2015).</strong> <em>Modern Operating Systems, 4th
+                                        Edition.</em> Pearson.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
+                                    Addison-Wesley.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-book me-2 text-muted"></i>
+                                    <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
+                                    Press.
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-globe me-2 text-muted"></i>
+                                    <strong>Kernel.org. (2025).</strong> <em>The Linux Kernel Archives.</em>
+                                    <a href="https://www.kernel.org/" target="_blank"
+                                        class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
+                                        Sitio Oficial</a>
+                                </li>
+                            </ul>
+                        </section>
 
-                        <h4>Comparación X11 vs Wayland</h4>
-                        <div class="table-responsive mb-4">
-                            <table class="table table-hover table-sm align-middle">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Característica</th>
-                                        <th>X11</th>
-                                        <th>Wayland</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Edad</td>
-                                        <td>+30 años</td>
-                                        <td>Moderno</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Arquitectura</td>
-                                        <td>Cliente-servidor</td>
-                                        <td>Más directa</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Seguridad</td>
-                                        <td>Más débil</td>
-                                        <td><strong>Más fuerte</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Complejidad</td>
-                                        <td>Muy compleja</td>
-                                        <td>Más simple</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rendimiento</td>
-                                        <td>Bueno</td>
-                                        <td><strong>Mejor en animaciones</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Soporte legado</td>
-                                        <td><strong>Excelente</strong></td>
-                                        <td>En transición</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h3 class="mt-5">Entornos de Escritorio</h3>
-                        <p>Un entorno de escritorio es un <strong>paquete completo</strong> que incluye apariencia
-                            visual, paneles, menú, gestor de ventanas y aplicaciones básicas. <strong>NO son sistemas
-                                operativos</strong> — son capas visuales que viven encima del servidor gráfico.</p>
-
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">GNOME</h5>
-                                        <p class="card-text small">Minimalista, moderno, GTK. Muy usado en Ubuntu y
-                                            Fedora.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">KDE Plasma</h5>
-                                        <p class="card-text small">Altamente personalizable, Qt, muy visual y completo.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">XFCE</h5>
-                                        <p class="card-text small">Ligero, clásico, ideal para equipos antiguos.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">MATE</h5>
-                                        <p class="card-text small">Basado en GNOME 2. Tradicional, ligero-moderado.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Cinnamon</h5>
-                                        <p class="card-text small">Basado en GNOME, tipo Windows. Usado en Linux Mint.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="mt-5">Gestores de Ventanas</h3>
-                        <p>En Linux puedes <strong>cambiar</strong> el gestor de ventanas o el entorno completo. En
-                            Windows y macOS la interfaz es fija. <em>Aquí está la diferencia cultural.</em></p>
-
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Flotantes (Tradicionales)</h5>
-                                        <p class="card-text small">Ventanas que flotan libremente en la pantalla.
-                                            Ej: Openbox, Fluxbox.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 bg-white shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Tiling (Mosaico)</h5>
-                                        <p class="card-text small">Ventanas se organizan automáticamente en pantalla.
-                                            Ej: i3, Sway, Hyprland.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alert alert-warning shadow-sm">
-                            <i class="bi bi-lightning-fill me-2"></i>
-                            <strong>Hyprland:</strong> Compositor/gestor de ventanas moderno basado en Wayland. Tipo
-                            tiling, muy visual y animado. <strong>NO</strong> es un entorno de escritorio completo — tú
-                            construyes el resto manualmente. Es para usuarios avanzados.
-                        </div>
-                    </section>
-
-                    <!-- ============================================================ -->
-                    <!-- CONCLUSIÓN -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Conclusión</h2>
-
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-3">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <i class="bi bi-cpu fs-2 text-primary"></i>
-                                        <h6 class="fw-bold mt-2">Kernel</h6>
-                                        <p class="small text-muted mb-0">Controla hardware</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <i class="bi bi-shield-lock fs-2 text-warning"></i>
-                                        <h6 class="fw-bold mt-2">Protección</h6>
-                                        <p class="small text-muted mb-0">Reglas de seguridad</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <i class="bi bi-box fs-2 text-success"></i>
-                                        <h6 class="fw-bold mt-2">Aplicaciones</h6>
-                                        <p class="small text-muted mb-0">Espacio seguro</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card h-100 border-0 bg-white shadow-sm text-center">
-                                    <div class="card-body">
-                                        <i class="bi bi-arrows-angle-expand fs-2 text-info"></i>
-                                        <h6 class="fw-bold mt-2">Puente</h6>
-                                        <p class="small text-muted mb-0">Software ↔ Hardware</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alert alert-dark shadow-sm text-center">
-                            <p class="lead mb-1 fw-bold">Linux no es solo "otro sistema".</p>
-                            <p class="mb-0 small">Es una <strong>arquitectura modular</strong> donde casi todo es
-                                intercambiable. Y eso cambia completamente la forma de entender los sistemas.</p>
-                        </div>
-                    </section>
-
-                    <!-- ============================================================ -->
-                    <!-- GALERÍA DE VIDEOS -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Galería de Videos</h2>
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/yVpbFMhOAwE"
-                                            title="El Kernel de Linux (Computerphile)" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">El Kernel de Linux (Computerphile)</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/M_p0lS0m2U8"
-                                            title="¿Qué es un Kernel? (Red Hat)" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title fw-bold">¿Qué es un Kernel? (Red Hat)</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ============================================================ -->
-                    <!-- REFERENCIAS BIBLIOGRÁFICAS -->
-                    <!-- ============================================================ -->
-                    <section class="mb-5">
-                        <h2 class="text-primary border-bottom pb-2 mb-4">Referencias Bibliográficas</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Silberschatz, A., Galvin, P. B. & Gagne, G. (2018).</strong> <em>Operating
-                                    System Concepts, 10th Edition.</em> Wiley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Tanenbaum, A. S. (2015).</strong> <em>Modern Operating Systems, 4th
-                                    Edition.</em> Pearson.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Love, R. (2010).</strong> <em>Linux Kernel Development, 3rd Edition.</em>
-                                Addison-Wesley.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-book me-2 text-muted"></i>
-                                <strong>Ward, B. (2021).</strong> <em>How Linux Works, 3rd Edition.</em> No Starch
-                                Press.
-                            </li>
-                            <li class="list-group-item bg-transparent">
-                                <i class="bi bi-globe me-2 text-muted"></i>
-                                <strong>Kernel.org. (2025).</strong> <em>The Linux Kernel Archives.</em>
-                                <a href="https://www.kernel.org/" target="_blank"
-                                    class="ms-1 text-decoration-none small"><i class="bi bi-box-arrow-up-right"></i>
-                                    Sitio Oficial</a>
-                            </li>
-                        </ul>
-                    </section>
-
-                </article>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
-        <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
-    </footer>
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+            <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
+        </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

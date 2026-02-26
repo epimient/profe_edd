@@ -23,42 +23,44 @@
             </ol>
         </nav>
 
-        <header class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
-            <h1 class="display-5 fw-bold">Servicios Web y APIs REST</h1>
+        <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+            <h1 id="lesson-title" class="display-5 fw-bold">Servicios Web y APIs REST</h1>
             <p class="fs-4 text-muted">Exponiendo tus datos al mundo mediante microservicios con FastAPI.</p>
         </header>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <article class="blog-post">
-                    <section class="mb-5">
-                        <h2 class="mb-4">La revolución de FastAPI</h2>
-                        <p>FastAPI es el framework más rápido y moderno para crear APIs en Python, con validación
-                            automática de datos y documentación interactiva.</p>
-                    </section>
+        <main aria-labelledby="lesson-title">
 
-                    <section class="mb-5">
-                        <h2 class="mb-4">Código: Tu primer Endpoint</h2>
-                        <pre><code class="language-python">from fastapi import FastAPI
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <article class="blog-post">
+                        <section class="mb-5" aria-labelledby="fastapi-revolution-heading">
+                            <h2 id="fastapi-revolution-heading" class="mb-4">La revolución de FastAPI</h2>
+                            <p>FastAPI es el framework más rápido y moderno para crear APIs en Python, con validación
+                                automática de datos y documentación interactiva.</p>
+                        </section>
+
+                        <section class="mb-5" aria-labelledby="endpoint-example-heading">
+                            <h2 id="endpoint-example-heading" class="mb-4">Código: Tu primer Endpoint</h2>
+                            <pre><code class="language-python">from fastapi import FastAPI
 
 app = FastAPI()
 
 @app.get("/data")
 def read_data():
     return {"message": "Acceso a Datos Exitoso", "block": 3}</code></pre>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 
-    <footer class="py-5 text-center text-white bg-dark mt-5">
-        <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
-    </footer>
+        <footer class="py-5 text-center text-white bg-dark mt-5">
+            <p class="mb-0">Profe EDD - Ingeniería de Sistemas</p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
 </html>
