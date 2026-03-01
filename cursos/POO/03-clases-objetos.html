@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clases y Objetos en Python - Profe EDD</title>
+    <meta name="description"
+        content="Aprende qué son las clases y objetos en Python: atributos de clase e instancia, constructor __init__ y métodos. Fundamentos de POO.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
@@ -24,58 +26,441 @@
 
         <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
             <h1 id="lesson-title" class="display-5 fw-bold">Clases y Objetos</h1>
-            <p class="fs-4 text-muted">Construcción y creación en Python.</p>
+            <p class="fs-4 text-muted">El molde y el producto: cómo Python modela el mundo real.</p>
         </header>
 
         <main aria-labelledby="lesson-title">
-
             <div class="row">
                 <div class="col-lg-8 mx-auto">
+
+                    <!-- Material de apoyo -->
+                    <section class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="region"
+                        aria-labelledby="material-heading">
+                        <i class="bi bi-file-earmark-pdf-fill fs-1 me-3" aria-hidden="true"></i>
+                        <div class="flex-grow-1">
+                            <h4 class="alert-heading h5" id="material-heading">Material de Apoyo</h4>
+                            <p class="mb-0 small">Consulta el documento de referencia de esta unidad.</p>
+                        </div>
+                        <a href="#" class="btn btn-light fw-bold text-primary shadow-sm"
+                            aria-label="Ver Material de la clase">
+                            <i class="bi bi-easel2-fill me-2" aria-hidden="true"></i>Ver Diapositivas
+                        </a>
+                    </section>
+
                     <article class="blog-post">
-                        <section class="mb-5" aria-labelledby="define-class-heading">
-                            <h2 id="define-class-heading" class="mb-4">Definiendo una Clase</h2>
-                            <p>En Python, usamos la palabra clave <code>class</code>. El método <code>__init__</code> es
-                                el
-                                constructor que inicializa los atributos.</p>
-                            <pre><code class="language-python">class Robot:
-    def __init__(self, nombre, version):
-        self.nombre = nombre
-        self.version = version
 
-    def saludar(self):
-        return f"Hola, soy {self.nombre} v{self.version}"
+                        <!-- SECCIÓN 1: ¿Qué es una Clase? -->
+                        <section class="mb-5" aria-labelledby="clase-heading">
+                            <h2 id="clase-heading" class="mb-3">
+                                <i class="bi bi-file-earmark-code-fill me-2 text-primary"></i>¿Qué es una Clase?
+                            </h2>
+                            <p class="lead">Las clases son <strong>modelos del mundo real</strong> que capturan la
+                                estructura y comportamiento compartidos por una colección de objetos del mismo tipo.
+                                La clase es como una <strong>plantilla</strong> de los objetos.</p>
 
-# Creando un objeto (instancia)
-mi_robot = Robot("R2D2", 1.0)
-print(mi_robot.saludar())</code></pre>
+                            <div class="alert alert-info d-flex align-items-start mb-4" role="note">
+                                <i class="bi bi-car-front-fill fs-3 me-3 flex-shrink-0 text-info"
+                                    aria-hidden="true"></i>
+                                <div>
+                                    <h5 class="alert-heading h6 fw-bold">Analogía: El Diseño de un Coche</h5>
+                                    <p class="mb-0 small">Antes de construir un coche, necesitas un <em>plan o
+                                            diseño</em>
+                                        que indique qué piezas necesita (ruedas, motor, asientos) y cómo deben funcionar
+                                        juntas. En programación, <strong>una clase es exactamente ese plan</strong>: un
+                                        molde que define las características (atributos) y acciones (métodos) que
+                                        tendrán
+                                        los objetos creados a partir de ella.</p>
+                                </div>
+                            </div>
+
+                            <!-- SECCIÓN: Definición en Python -->
+                            <h3 class="h4 mb-3">
+                                <i class="bi bi-code-slash me-2 text-dark"></i>Definición de una Clase en Python
+                            </h3>
+                            <p>Se usa la palabra reservada <code>class</code>, seguida del nombre en
+                                <strong>PascalCase</strong>. Los atributos definidos directamente dentro del cuerpo de
+                                la clase (fuera del <code>__init__</code>) son <em>atributos de clase</em> y son
+                                compartidos por todos los objetos.
+                            </p>
+                            <pre class="code-container"><code class="language-python">class Estudiante:
+    # Atributos de clase: compartidos por TODAS las instancias
+    nombre = "Sin nombre"
+    apellido = "Sin apellido"
+    edad = 0
+
+# En Python la indentación define el bloque de la clase
+# No se usan llaves como en Java o C++</code></pre>
+
+                            <div class="card border-0 shadow-sm mt-3 mb-2">
+                                <div class="card-body">
+                                    <h5 class="h6 fw-bold mb-3">Anatomía de una Clase</h5>
+                                    <div class="row g-3 text-center">
+                                        <div class="col-6 col-md-3">
+                                            <div class="bg-primary text-white rounded p-2 small">
+                                                <i class="bi bi-key-fill d-block fs-4 mb-1"></i>
+                                                <strong>class</strong><br>
+                                                <span class="opacity-75">Palabra reservada</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="bg-success text-white rounded p-2 small">
+                                                <i class="bi bi-fonts d-block fs-4 mb-1"></i>
+                                                <strong>NombreClase</strong><br>
+                                                <span class="opacity-75">PascalCase</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="bg-warning text-dark rounded p-2 small">
+                                                <i class="bi bi-diagram-2 d-block fs-4 mb-1"></i>
+                                                <strong>( )</strong><br>
+                                                <span class="opacity-75">Herencia (opcional)</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <div class="bg-secondary text-white rounded p-2 small">
+                                                <i class="bi bi-indent d-block fs-4 mb-1"></i>
+                                                <strong>Indentación</strong><br>
+                                                <span class="opacity-75">Delimita el cuerpo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
-                        <section class="mb-5" aria-labelledby="attr-meth-heading">
-                            <h2 id="attr-meth-heading" class="mb-4">Atributos y Métodos</h2>
+                        <!-- SECCIÓN 2: ¿Qué es un Objeto? -->
+                        <section class="mb-5" aria-labelledby="objeto-heading">
+                            <h2 id="objeto-heading" class="mb-3">
+                                <i class="bi bi-box-seam-fill me-2 text-success"></i>¿Qué es un Objeto?
+                            </h2>
+                            <p>Siguiendo la analogía del coche, una vez que tienes el diseño, puedes usarlo para
+                                <strong>construir un coche real</strong>. Ese coche construido es un <em>objeto</em>.
+                                Puedes fabricar muchos coches con el mismo diseño, y cada uno será un objeto
+                                distinto, pero todos basados en el mismo plan.
+                            </p>
+                            <p>En programación, un <strong>objeto es una instancia de una clase</strong>. Es el
+                                "ejemplar" real que puedes usar en tu programa. Cada objeto tiene sus propios
+                                valores para las características definidas en la clase.</p>
+
+                            <h3 class="h4 mb-3 mt-4">
+                                <i class="bi bi-code-slash me-2 text-dark"></i>Creación de Objetos en Python
+                            </h3>
+                            <p>Para crear un objeto, se llama a la clase como si fuera una función. Esto crea una
+                                nueva <strong>instancia</strong> de esa clase:</p>
+                            <pre class="code-container"><code class="language-python">class Estudiante:
+    nombre = "Sin nombre"
+    apellido = "Sin apellido"
+    edad = 0
+
+# Crear objetos (instancias) de la clase Estudiante
+estudiante1 = Estudiante()   # Objeto 1
+estudiante2 = Estudiante()   # Objeto 2
+estudiante3 = Estudiante()   # Objeto 3
+
+# Todos comparten los atributos de clase, pero son instancias separadas
+print(estudiante1.nombre)   # Sin nombre
+print(estudiante2.apellido) # Sin apellido</code></pre>
+
+                            <div class="alert alert-success mt-3" role="note">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>Clave:</strong> Puedes crear <em>tantos objetos como necesites</em> a partir
+                                de una sola clase, igual que una fábrica produce muchos coches con el mismo molde.
+                            </div>
+                        </section>
+
+                        <!-- SECCIÓN 3: Atributos -->
+                        <section class="mb-5" aria-labelledby="atributos-heading">
+                            <h2 id="atributos-heading" class="mb-3">
+                                <i class="bi bi-database-fill me-2 text-warning"></i>Atributos
+                            </h2>
+                            <p>Los <strong>atributos</strong> son las características o propiedades que definen el
+                                estado de un objeto. Un atributo almacena información que pertenece a una clase o
+                                a un objeto en particular. Existen dos tipos:</p>
+
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-primary shadow-sm border-0"
+                                        aria-labelledby="attr-clase">
+                                        <div class="card-body">
+                                            <h3 id="attr-clase" class="h5 fw-bold text-primary">
+                                                <i class="bi bi-collection-fill me-2"></i>Atributos de Clase
+                                            </h3>
+                                            <p class="small text-muted">Pertenecen a la <strong>clase en sí</strong>,
+                                                no a instancias individuales. Todos los objetos de esa clase
+                                                <strong>comparten el mismo valor</strong>.
+                                            </p>
+                                            <pre class="mb-0"><code class="language-python">class Estudiante:
+    # Atributo de clase
+    institucion = "UNIAMERICANA"</code></pre>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-success shadow-sm border-0"
+                                        aria-labelledby="attr-instancia">
+                                        <div class="card-body">
+                                            <h3 id="attr-instancia" class="h5 fw-bold text-success">
+                                                <i class="bi bi-person-fill me-2"></i>Atributos de Instancia
+                                            </h3>
+                                            <p class="small text-muted">Pertenecen a una <strong>instancia
+                                                    específica</strong>. Cada objeto puede tener
+                                                <strong>valores diferentes</strong> para estos atributos.
+                                            </p>
+                                            <pre class="mb-0"><code class="language-python">def __init__(self, nombre):
+    # Atributo de instancia
+    self.nombre = nombre</code></pre>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- SECCIÓN 4: Constructor __init__ -->
+                        <section class="mb-5" aria-labelledby="constructor-heading">
+                            <h2 id="constructor-heading" class="mb-3">
+                                <i class="bi bi-hammer me-2 text-danger"></i>El Constructor <code>__init__</code>
+                            </h2>
+                            <p><code>__init__</code> es un <strong>método especial</strong> que se llama
+                                automáticamente cuando se crea un nuevo objeto de una clase. Su propósito principal
+                                es <strong>inicializar los atributos del objeto</strong>, dándole los valores
+                                iniciales que debe tener.</p>
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-6 col-md-3 text-center">
+                                    <div class="card border-0 shadow-sm poo-card h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-tools text-danger fs-3 mb-1 d-block"></i>
+                                            <p class="small fw-bold mb-0"><code>__init__</code></p>
+                                            <p class="small text-muted mb-0">Nombre del método constructor</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3 text-center">
+                                    <div class="card border-0 shadow-sm poo-card h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-key text-success fs-3 mb-1 d-block"></i>
+                                            <p class="small fw-bold mb-0"><code>def</code></p>
+                                            <p class="small text-muted mb-0">Palabra clave para definir método</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3 text-center">
+                                    <div class="card border-0 shadow-sm poo-card h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-person-circle text-primary fs-3 mb-1 d-block"></i>
+                                            <p class="small fw-bold mb-0"><code>self</code></p>
+                                            <p class="small text-muted mb-0">Referencia al objeto actual</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3 text-center">
+                                    <div class="card border-0 shadow-sm poo-card h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-input-cursor-text text-warning fs-3 mb-1 d-block"></i>
+                                            <p class="small fw-bold mb-0">Parámetros</p>
+                                            <p class="small text-muted mb-0">Valores para inicializar atributos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <pre class="code-container"><code class="language-python">class Estudiante:
+    # Atributo de clase
+    institucion = "UNIGUAJIRA"
+
+    # Constructor: se ejecuta al crear cada nuevo objeto
+    def __init__(self, nombre, apellido, edad):
+        # Atributos de instancia (únicos para cada objeto)
+        self.nombre = nombre
+        self.apellido = apellido
+        self.edad = edad
+
+# Crear objetos proporcionando valores en el constructor
+estudiante1 = Estudiante("Ana", "García", 20)
+estudiante2 = Estudiante("Luis", "Pérez", 22)
+
+# Acceder a los atributos del objeto
+print(estudiante1.nombre)       # Ana
+print(estudiante2.edad)         # 22
+print(estudiante1.institucion)  # UNIGUAJIRA (atributo de clase)</code></pre>
+                        </section>
+
+                        <!-- SECCIÓN 5: Métodos -->
+                        <section class="mb-5" aria-labelledby="metodos-heading">
+                            <h2 id="metodos-heading" class="mb-3">
+                                <i class="bi bi-lightning-charge-fill me-2 text-info"></i>Métodos
+                            </h2>
+                            <p>Un <strong>método es una función definida dentro de una clase</strong>. Los métodos
+                                son utilizados para realizar operaciones con los datos de los objetos o para
+                                modificar esos datos. En términos simples, los métodos permiten que los objetos
+                                <strong>"hagan cosas"</strong> o <strong>"realicen acciones"</strong>.
+                            </p>
+
+                            <div class="alert alert-dark mb-4" role="note">
+                                <i class="bi bi-info-circle-fill me-2 text-info"></i>
+                                Al igual que el constructor, todos los métodos reciben <code>self</code> como
+                                primer parámetro, que es la referencia al objeto que los está ejecutando.
+                            </div>
+
+                            <pre class="code-container"><code class="language-python">class Estudiante:
+    def __init__(self, nombre, apellido, edad):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.edad = edad
+
+    # Método: permite al objeto "hacer algo"
+    def presentarse(self):
+        # f-string: inserta el valor del atributo dentro del texto
+        return f"Hola, soy {self.nombre} {self.apellido} y tengo {self.edad} años."
+
+    def cumplir_anos(self):
+        self.edad += 1  # Modifica el atributo del objeto
+        print(f"¡Feliz cumpleaños {self.nombre}! Ahora tienes {self.edad} años.")
+
+# Crear objeto
+estudiante1 = Estudiante("Ana", "García", 20)
+
+# Ejecutar métodos del objeto
+print(estudiante1.presentarse())  # Hola, soy Ana García y tengo 20 años.
+estudiante1.cumplir_anos()        # ¡Feliz cumpleaños Ana! Ahora tienes 21 años.</code></pre>
+
+                            <h3 class="h4 mt-4 mb-3">Ejemplo Completo</h3>
+                            <p>Combinando todo lo aprendido: clase, atributos de clase e instancia, constructor y
+                                métodos:</p>
+                            <pre class="code-container"><code class="language-python">class Persona:
+    """Clase que modela una persona en el sistema."""
+
+    # Atributo de clase
+    especie = "Homo sapiens"
+
+    def __init__(self, nombre, edad, altura):
+        # Atributos de instancia
+        self.nombre = nombre
+        self.edad = edad
+        self.altura = altura
+
+    def caminar(self):
+        return f"{self.nombre} está caminando."
+
+    def hablar(self, mensaje):
+        return f"{self.nombre} dice: '{mensaje}'"
+
+    def __str__(self):
+        """Representación legible del objeto."""
+        return f"Persona(nombre={self.nombre}, edad={self.edad})"
+
+
+# Crear dos personas con diferentes valores
+p1 = Persona("Carlos", 25, 1.80)
+p2 = Persona("María", 30, 1.65)
+
+print(p1.caminar())              # Carlos está caminando.
+print(p2.hablar("¡Hola!"))      # María dice: '¡Hola!'
+print(p1.especie)                # Homo sapiens
+print(p1)                        # Persona(nombre=Carlos, edad=25)</code></pre>
+                        </section>
+
+                        <!-- Resumen -->
+                        <section class="mb-5" aria-labelledby="resumen-heading">
+                            <h2 id="resumen-heading" class="mb-3">
+                                <i class="bi bi-card-checklist me-2 text-secondary"></i>Resumen de Conceptos
+                            </h2>
+                            <div class="table-responsive shadow-sm rounded">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">Concepto</th>
+                                            <th scope="col">Qué es</th>
+                                            <th scope="col">Ejemplo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Clase</strong></td>
+                                            <td>Plantilla / molde para crear objetos</td>
+                                            <td><code>class Coche:</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Objeto</strong></td>
+                                            <td>Instancia concreta de una clase</td>
+                                            <td><code>mi_coche = Coche()</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Atributo de clase</strong></td>
+                                            <td>Variable compartida por todos los objetos</td>
+                                            <td><code>ruedas = 4</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Atributo de instancia</strong></td>
+                                            <td>Variable única para cada objeto</td>
+                                            <td><code>self.color = "Rojo"</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong><code>__init__</code></strong></td>
+                                            <td>Constructor: inicializa los atributos</td>
+                                            <td><code>def __init__(self, color):</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Método</strong></td>
+                                            <td>Función dentro de una clase</td>
+                                            <td><code>def arrancar(self):</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong><code>self</code></strong></td>
+                                            <td>Referencia al objeto actual</td>
+                                            <td><code>self.color = "Azul"</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- Bibliografía -->
+                        <section class="mb-5" aria-labelledby="biblio-heading">
+                            <h2 id="biblio-heading" class="mb-3">
+                                <i class="bi bi-book me-2 text-muted"></i>Bibliografía
+                            </h2>
                             <ul class="list-group list-group-flush shadow-sm rounded">
-                                <li class="list-group-item bg-transparent"><strong>Self:</strong> Referencia a la
-                                    instancia actual del
-                                    objeto.</li>
-                                <li class="list-group-item bg-transparent"><strong>Atributos:</strong> Variables que
-                                    pertenecen al objeto.
+                                <li class="list-group-item bibliography-item bg-transparent">
+                                    Joyanes Aguilar, L. (2008). <em>Fundamentos de Programación</em>, 4ta Edición.
+                                    McGraw-Hill.
                                 </li>
-                                <li class="list-group-item bg-transparent"><strong>Métodos:</strong> Funciones que
-                                    definen el
-                                    comportamiento.</li>
+                                <li class="list-group-item bibliography-item bg-transparent">
+                                    Phillips, D. (2018). <em>Python 3 Object-Oriented Programming</em>, 3rd Ed.
+                                    Packt Publishing.
+                                </li>
+                                <li class="list-group-item bibliography-item bg-transparent">
+                                    Documentación oficial de Python. <a
+                                        href="https://docs.python.org/3/tutorial/classes.html" target="_blank"
+                                        rel="noopener noreferrer">Classes — Python Docs</a>.
+                                </li>
                             </ul>
                         </section>
+
                     </article>
+
+                    <!-- Navegación entre lecciones -->
+                    <nav class="d-flex justify-content-between mt-4 mb-5" aria-label="Lección anterior/siguiente">
+                        <a href="01-introduccion-poo.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Anterior: Introducción a la POO
+                        </a>
+                        <a href="04-metodos-especiales.html" class="btn btn-primary">
+                            Siguiente: Métodos Especiales <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </nav>
+
                 </div>
             </div>
         </main>
 
-        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5" role="contentinfo">
             <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    </div>
 </body>
 
 </html>

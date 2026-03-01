@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introducción a la POO - Profe EDD</title>
+    <meta name="description"
+        content="Introducción a la Programación Orientada a Objetos: qué es programar, paradigmas, metodología de desarrollo, clases, objetos y los 4 principios de la POO.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
@@ -24,80 +26,589 @@
 
         <header id="lesson-header" class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
             <h1 id="lesson-title" class="display-5 fw-bold">Introducción a la POO</h1>
-            <p class="fs-4 text-muted">Conceptos fundamentales y el cambio de paradigma.</p>
+            <p class="fs-4 text-muted">Del pensamiento al código: paradigmas, metodología y el mundo de los objetos.</p>
         </header>
 
         <main aria-labelledby="lesson-title">
 
             <div class="row">
                 <div class="col-lg-8 mx-auto">
+
+                    <!-- Material de apoyo -->
                     <section class="alert alert-primary d-flex align-items-center mb-5 shadow-sm" role="region"
                         aria-labelledby="material-heading">
                         <i class="bi bi-file-earmark-ppt-fill fs-1 me-3" aria-hidden="true"></i>
                         <div class="flex-grow-1">
                             <h4 class="alert-heading h5" id="material-heading">Material de Apoyo</h4>
-                            <p class="mb-0 small">Accede a las presentaciones originales de la clase.</p>
+                            <p class="mb-0 small">Accede a las diapositivas originales de esta clase.</p>
                         </div>
-                        <a href="#" class="btn btn-light fw-bold text-primary shadow-sm"
+                        <a href="https://docs.google.com/presentation/d/1n-TvPZLkNO45iuX9rbpIlfwoJ6cy_lcg/edit?usp=sharing&ouid=107510088313587266698&rtpof=true&sd=true"
+                            class="btn btn-light fw-bold text-primary shadow-sm"
                             aria-label="Ver Diapositivas de la clase">
                             <i class="bi bi-easel2-fill me-2" aria-hidden="true"></i>Ver Diapositivas
                         </a>
                     </section>
 
                     <article class="blog-post">
-                        <section class="mb-5" aria-labelledby="why-poo-heading">
-                            <h2 id="why-poo-heading" class="mb-4">¿Por qué Programación Orientada a Objetos?</h2>
-                            <p>La POO no es solo una forma de escribir código, es una forma de <strong>modelar la
-                                    realidad</strong>. En lugar de pensar en funciones y datos por separado, pensamos en
-                                "objetos" que contienen ambos.</p>
-                            <div class="alert alert-info shadow-sm" role="note">
-                                <i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i>
-                                <strong>Contexto:</strong> En este curso utilizaremos Python para implementar estos
-                                conceptos de manera profesional.
+
+                        <!-- SECCIÓN 01: ¿Qué es Programar? -->
+                        <section class="mb-5" aria-labelledby="que-es-programar-heading">
+                            <h2 id="que-es-programar-heading" class="mb-3">
+                                <i class="bi bi-terminal-fill me-2 text-primary"></i>¿Qué es Programar?
+                            </h2>
+                            <p class="lead">Programar es escribir instrucciones que la computadora puede seguir para
+                                realizar tareas específicas. Es como darle órdenes precisas a una máquina.</p>
+                            <p>La computadora no entiende el lenguaje natural: necesitamos comunicarnos a través
+                                de <strong>lenguajes de programación</strong> como Python, Java, C++ o Ruby. Estos
+                                lenguajes sirven como puente entre nuestras ideas y las operaciones que ejecuta el
+                                hardware.</p>
+
+                            <div class="alert alert-warning" role="note">
+                                <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i>
+                                <strong>¿Qué pasa si...?</strong> Si le damos una instrucción mal escrita, la
+                                computadora generará un <strong>error</strong>. Por eso necesitamos organización y
+                                precisión en nuestro código.
+                            </div>
+
+                            <div class="row g-3 mt-2">
+                                <div class="col-6 col-md-3">
+                                    <div class="card text-center poo-card border-0 shadow-sm h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-filetype-py text-primary display-6" aria-hidden="true"></i>
+                                            <p class="mb-0 fw-bold small mt-1">Python</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="card text-center poo-card border-0 shadow-sm h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-cup-hot-fill text-warning display-6" aria-hidden="true"></i>
+                                            <p class="mb-0 fw-bold small mt-1">Java</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="card text-center poo-card border-0 shadow-sm h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-cpu-fill text-secondary display-6" aria-hidden="true"></i>
+                                            <p class="mb-0 fw-bold small mt-1">C++</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="card text-center poo-card border-0 shadow-sm h-100">
+                                        <div class="card-body py-3">
+                                            <i class="bi bi-gem text-danger display-6" aria-hidden="true"></i>
+                                            <p class="mb-0 fw-bold small mt-1">Ruby</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
-                        <section class="mb-5" aria-labelledby="key-concepts-heading">
-                            <h2 id="key-concepts-heading" class="mb-4">Conceptos Clave</h2>
+                        <!-- SECCIÓN 02: Paradigmas de Programación -->
+                        <section class="mb-5" aria-labelledby="paradigmas-heading">
+                            <h2 id="paradigmas-heading" class="mb-3">
+                                <i class="bi bi-diagram-3-fill me-2 text-success"></i>Paradigmas de Programación
+                            </h2>
+                            <p>Un <strong>paradigma</strong> es un estilo o enfoque que guía cómo se estructura y
+                                organiza un programa. No cambia el objetivo final, pero sí cambia cómo pensamos y
+                                organizamos el código para alcanzarlo.</p>
+
+                            <div class="alert alert-info mb-4" role="note">
+                                <i class="bi bi-lightbulb-fill me-2" aria-hidden="true"></i>
+                                <strong>Analogía de la Cocina:</strong> Imagina que vas a cocinar. Puedes organizar
+                                tu cocina por tipo de ingrediente, por orden de uso, o por frecuencia de acceso.
+                                ¡Todas son válidas! Depende de tu estilo. Lo mismo pasa con los paradigmas.
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <section class="card h-100 pl-border-primary shadow-sm border-0"
+                                        aria-labelledby="par-procedimental">
+                                        <div class="card-body">
+                                            <h3 id="par-procedimental" class="card-title h6 fw-bold text-primary">
+                                                <i class="bi bi-list-ol me-2"></i>1. Procedimental
+                                            </h3>
+                                            <p class="card-text small text-muted">Se basa en <strong>funciones y
+                                                    procedimientos</strong>. El programa se divide en pasos
+                                                secuenciales.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+                                    <section class="card h-100 pl-border-warning shadow-sm border-0"
+                                        aria-labelledby="par-objetos">
+                                        <div class="card-body">
+                                            <h3 id="par-objetos" class="card-title h6 fw-bold text-warning">
+                                                <i class="bi bi-box-seam me-2"></i>2. Orientado a Objetos
+                                            </h3>
+                                            <p class="card-text small text-muted">Se basa en <strong>objetos que
+                                                    interactúan</strong>. Organiza el código en entidades del mundo
+                                                real.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-4">
+                                    <section class="card h-100 pl-border-success shadow-sm border-0"
+                                        aria-labelledby="par-funcional">
+                                        <div class="card-body">
+                                            <h3 id="par-funcional" class="card-title h6 fw-bold text-success">
+                                                <i class="bi bi-calculator me-2"></i>3. Funcional
+                                            </h3>
+                                            <p class="card-text small text-muted">Se basa en <strong>funciones
+                                                    matemáticas</strong>. Evita el estado mutable y los datos
+                                                cambiantes.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <p class="mt-3 text-muted small"><i class="bi bi-arrow-right-circle-fill me-1"></i>En
+                                este curso nos concentraremos en el paradigma <strong>Orientado a Objetos
+                                    (POO)</strong>.</p>
+                        </section>
+
+                        <!-- SECCIÓN 03: Paradigma vs Metodología -->
+                        <section class="mb-5" aria-labelledby="paradigma-vs-metodologia-heading">
+                            <h2 id="paradigma-vs-metodologia-heading" class="mb-3">
+                                <i class="bi bi-arrow-left-right me-2 text-warning"></i>Paradigma vs. Metodología
+                            </h2>
+                            <p>Son conceptos que <strong>no son lo mismo</strong> y es importante distinguirlos:</p>
                             <div class="row g-4">
                                 <div class="col-md-6">
-                                    <section class="card h-100 poo-card shadow-sm border-0"
-                                        aria-labelledby="concept-object">
+                                    <div class="card border-0 shadow-sm h-100 border-start border-4 border-primary">
                                         <div class="card-body">
-                                            <h3 id="concept-object" class="card-title h5 fw-bold"><i
-                                                    class="bi bi-box-seam me-2" aria-hidden="true"></i>Objeto</h3>
-                                            <p class="card-text small text-muted">Una entidad que tiene estado
-                                                (atributos) y
-                                                comportamiento (métodos).</p>
+                                            <h3 class="h5 fw-bold text-primary"><i
+                                                    class="bi bi-eye-fill me-2"></i>Paradigma</h3>
+                                            <p class="small text-muted mb-1">Es la <strong>filosofía del
+                                                    código</strong>. Define cómo pensamos y estructuramos el
+                                                programa.</p>
+                                            <p class="small"><em>"Voy a organizar todo con objetos"</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-0 shadow-sm h-100 border-start border-4 border-success">
+                                        <div class="card-body">
+                                            <h3 class="h5 fw-bold text-success"><i
+                                                    class="bi bi-list-check me-2"></i>Metodología</h3>
+                                            <p class="small text-muted mb-1">Es el <strong>proceso de
+                                                    desarrollo</strong>. Define los pasos y fases para construir el
+                                                software.</p>
+                                            <p class="small"><em>Ejemplos: Cascada, Scrum, Agile</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-secondary mt-4" role="note">
+                                <i class="bi bi-house-fill me-2"></i>
+                                <strong>Analogía de la Casa:</strong> El paradigma es el
+                                <em>estilo arquitectónico</em> (moderno, clásico, minimalista). La metodología es el
+                                <em>proceso de construcción</em> (planos → cimientos → paredes → electricidad).
+                                Uno es el <strong>estilo</strong>, el otro es el <strong>proceso</strong>.
+                            </div>
+                        </section>
+
+                        <!-- SECCIÓN 04: Metodología de Desarrollo -->
+                        <section class="mb-5" aria-labelledby="metodologia-heading">
+                            <h2 id="metodologia-heading" class="mb-3">
+                                <i class="bi bi-gear-wide-connected me-2 text-secondary"></i>Metodología para Resolver
+                                Problemas Programando
+                            </h2>
+                            <p>El proceso completo de desarrollo de software sigue estas <strong>8 fases</strong>:</p>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="list-group shadow-sm">
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span class="badge bg-primary rounded-pill me-3 fs-6 flex-shrink-0">1</span>
+                                            <div>
+                                                <strong>Análisis</strong>
+                                                <p class="mb-0 small text-muted">Comprender el problema, identificar
+                                                    requisitos y definir qué necesita el programa.</p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span class="badge bg-success rounded-pill me-3 fs-6 flex-shrink-0">2</span>
+                                            <div>
+                                                <strong>Diseño</strong>
+                                                <p class="mb-0 small text-muted">Crear el algoritmo, diagramas de
+                                                    flujo y planificar la estructura del código.</p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span
+                                                class="badge bg-warning text-dark rounded-pill me-3 fs-6 flex-shrink-0">3</span>
+                                            <div>
+                                                <strong>Codificación</strong>
+                                                <p class="mb-0 small text-muted">Escribir el código en el lenguaje de
+                                                    programación elegido.</p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span
+                                                class="badge bg-info text-dark rounded-pill me-3 fs-6 flex-shrink-0">4</span>
+                                            <div>
+                                                <strong>Ejecución</strong>
+                                                <p class="mb-0 small text-muted">Compilar y ejecutar el programa para
+                                                    probarlo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="list-group shadow-sm">
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span
+                                                class="badge bg-secondary rounded-pill me-3 fs-6 flex-shrink-0">5</span>
+                                            <div>
+                                                <strong>Verificación</strong>
+                                                <p class="mb-0 small text-muted">Probar que el programa funciona
+                                                    correctamente y produce los resultados esperados.</p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span class="badge bg-danger rounded-pill me-3 fs-6 flex-shrink-0">6</span>
+                                            <div>
+                                                <strong>Depuración</strong>
+                                                <p class="mb-0 small text-muted">Encontrar y corregir errores (bugs)
+                                                    en el código.</p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span class="badge bg-dark rounded-pill me-3 fs-6 flex-shrink-0">7</span>
+                                            <div>
+                                                <strong>Documentación</strong>
+                                                <p class="mb-0 small text-muted">Crear manuales y comentarios que
+                                                    expliquen cómo funciona el programa.</p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-start border-0 bg-transparent">
+                                            <span class="badge rounded-pill me-3 fs-6 flex-shrink-0"
+                                                style="background-color: #6f42c1;">8</span>
+                                            <div>
+                                                <strong>Mantenimiento</strong>
+                                                <p class="mb-0 small text-muted">Actualizar, mejorar y corregir el
+                                                    programa a lo largo del tiempo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-success mt-4" role="note">
+                                <i class="bi bi-lightbulb-fill me-2"></i>
+                                <strong>Clave:</strong> Programar no es escribir código primero.
+                                <strong>¡Es pensar primero!</strong>
+                            </div>
+                        </section>
+
+                        <!-- SECCIÓN 05: Introducción a POO -->
+                        <section class="mb-5" aria-labelledby="intro-poo-heading">
+                            <h2 id="intro-poo-heading" class="mb-3">
+                                <i class="bi bi-boxes me-2 text-info"></i>¿Qué es la POO?
+                            </h2>
+                            <p class="lead">La <strong>Programación Orientada a Objetos (POO)</strong> es un
+                                paradigma que se basa en la creación de objetos que interactúan entre sí para
+                                resolver un problema.</p>
+                            <p>En lugar de pensar solo en funciones y pasos, pensamos en
+                                <strong>entidades del mundo real</strong> que colaboran entre sí. Se creó para que el
+                                código se parezca más al mundo que nos rodea.
+                            </p>
+
+                            <div class="card bg-dark text-white border-0 shadow-sm mb-4">
+                                <div class="card-body">
+                                    <h3 class="h5 fw-bold mb-3"><i class="bi bi-question-circle me-2"></i>Pregunta
+                                        clave:</h3>
+                                    <p class="mb-2">Si quiero hacer un sistema para una universidad...
+                                        ¿qué <em>objetos</em> existen?</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary fs-6"><i
+                                                class="bi bi-person-fill me-1"></i>Estudiante</span>
+                                        <span class="badge bg-success fs-6"><i
+                                                class="bi bi-person-workspace me-1"></i>Profesor</span>
+                                        <span class="badge bg-warning text-dark fs-6"><i
+                                                class="bi bi-book-fill me-1"></i>Curso</span>
+                                        <span class="badge bg-danger fs-6"><i
+                                                class="bi bi-clipboard-check me-1"></i>Nota</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- SECCIÓN 06 y 07: Clases, Objetos, Atributos y Métodos -->
+                        <section class="mb-5" aria-labelledby="clases-objetos-heading">
+                            <h2 id="clases-objetos-heading" class="mb-3">
+                                <i class="bi bi-layers-fill me-2 text-primary"></i>Clases y Objetos
+                            </h2>
+                            <p>La diferencia entre el <strong>molde</strong> y el <strong>producto real</strong>:</p>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="card border-0 shadow-sm h-100 border-start border-4 border-primary">
+                                        <div class="card-body">
+                                            <h3 class="h5 fw-bold"><i
+                                                    class="bi bi-file-earmark-code-fill me-2 text-primary"></i>CLASE =
+                                                Molde</h3>
+                                            <p class="small text-muted">Una clase es como el plano o molde para
+                                                construir objetos. Define las <strong>características</strong> y
+                                                <strong>acciones</strong> que tendrán los objetos.
+                                            </p>
+                                            <p class="small mb-0"><strong>Ej. Clase Carro:</strong><br>
+                                                Atributos: marca, color, modelo, año<br>
+                                                Métodos: arrancar(), frenar(), acelerar()
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card border-0 shadow-sm h-100 border-start border-4 border-success">
+                                        <div class="card-body">
+                                            <h3 class="h5 fw-bold"><i
+                                                    class="bi bi-car-front-fill me-2 text-success"></i>OBJETO =
+                                                Instancia Real</h3>
+                                            <p class="small text-muted">Un objeto es una instancia real creada a
+                                                partir de la clase. Es el carro ya construido con valores
+                                                específicos.
+                                            </p>
+                                            <p class="small mb-0"><strong>Ej. miCarro:</strong><br>
+                                                marca = "Toyota", color = "Rojo"<br>
+                                                modelo = "Corolla", año = 2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info" role="note">
+                                <i class="bi bi-building me-2"></i>
+                                <strong>Analogía Fábrica:</strong> La clase es el <em>molde</em> que define cómo
+                                será cada carro. Cada objeto es una copia con valores específicos.
+                                ¿Puedo crear varios carros con el mismo molde? <strong>¡Sí!</strong> Eso es
+                                exactamente lo que hace la POO.
+                            </div>
+
+                            <h3 class="h4 mt-4 mb-3">Atributos y Métodos</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-primary shadow-sm border-0"
+                                        aria-labelledby="atrib-heading">
+                                        <div class="card-body">
+                                            <h4 id="atrib-heading" class="h5 fw-bold text-primary">
+                                                <i class="bi bi-database-fill me-2"></i>Atributos = Datos
+                                            </h4>
+                                            <p class="small text-muted">Son las características o propiedades de un
+                                                objeto. Definen <strong>cómo es</strong> el objeto.</p>
+                                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                                <span class="badge bg-light text-dark border">nombre</span>
+                                                <span class="badge bg-light text-dark border">edad</span>
+                                                <span class="badge bg-light text-dark border">color</span>
+                                                <span class="badge bg-light text-dark border">precio</span>
+                                                <span class="badge bg-light text-dark border">peso</span>
+                                            </div>
                                         </div>
                                     </section>
                                 </div>
                                 <div class="col-md-6">
-                                    <section class="card h-100 poo-card shadow-sm border-0"
-                                        aria-labelledby="concept-class">
+                                    <section class="card h-100 pl-border-success shadow-sm border-0"
+                                        aria-labelledby="metod-heading">
                                         <div class="card-body">
-                                            <h3 id="concept-class" class="card-title h5 fw-bold"><i
-                                                    class="bi bi-layers me-2" aria-hidden="true"></i>Clase</h3>
-                                            <p class="card-text small text-muted">El plano o molde a partir del cual se
-                                                crean los
-                                                objetos.</p>
+                                            <h4 id="metod-heading" class="h5 fw-bold text-success">
+                                                <i class="bi bi-lightning-charge-fill me-2"></i>Métodos = Acciones
+                                            </h4>
+                                            <p class="small text-muted">Son las acciones que puede realizar un objeto.
+                                                Definen <strong>qué puede hacer</strong> el objeto.</p>
+                                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                                <span
+                                                    class="badge bg-light text-dark border font-monospace">caminar()</span>
+                                                <span
+                                                    class="badge bg-light text-dark border font-monospace">hablar()</span>
+                                                <span
+                                                    class="badge bg-light text-dark border font-monospace">calcular()</span>
+                                                <span
+                                                    class="badge bg-light text-dark border font-monospace">guardar()</span>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-dark mt-4" role="note">
+                                <i class="bi bi-star-fill me-2 text-warning"></i>
+                                <strong>Regla de oro:</strong> Todo objeto tiene <strong>datos</strong> (atributos) y
+                                <strong>comportamientos</strong> (métodos).
+                            </div>
+                        </section>
+
+                        <!-- SECCIÓN 08: Los 4 Principios -->
+                        <section class="mb-5" aria-labelledby="principios-heading">
+                            <h2 id="principios-heading" class="mb-3">
+                                <i class="bi bi-shield-fill-check me-2 text-danger"></i>Los 4 Principios de la POO
+                            </h2>
+                            <p>Los pilares fundamentales que sostienen el paradigma orientado a objetos:</p>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-primary shadow-sm border-0"
+                                        aria-labelledby="pilar-abstraccion">
+                                        <div class="card-body">
+                                            <h3 id="pilar-abstraccion" class="card-title h5 fw-bold">
+                                                <i class="bi bi-eye-fill me-2 text-primary"></i>Abstracción
+                                            </h3>
+                                            <p class="card-text small text-muted">Simplificar la realidad capturando
+                                                solo los aspectos relevantes para el problema.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-warning shadow-sm border-0"
+                                        aria-labelledby="pilar-encapsulamiento">
+                                        <div class="card-body">
+                                            <h3 id="pilar-encapsulamiento" class="card-title h5 fw-bold">
+                                                <i class="bi bi-lock-fill me-2 text-warning"></i>Encapsulamiento
+                                            </h3>
+                                            <p class="card-text small text-muted">Ocultar los detalles internos y
+                                                proteger el estado del objeto mediante interfaces controladas.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-success shadow-sm border-0"
+                                        aria-labelledby="pilar-herencia">
+                                        <div class="card-body">
+                                            <h3 id="pilar-herencia" class="card-title h5 fw-bold">
+                                                <i class="bi bi-diagram-2-fill me-2 text-success"></i>Herencia
+                                            </h3>
+                                            <p class="card-text small text-muted">Crear nuevas clases basadas en
+                                                clases existentes, promoviendo la reutilización de código.</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-6">
+                                    <section class="card h-100 pl-border-danger shadow-sm border-0"
+                                        aria-labelledby="pilar-polimorfismo">
+                                        <div class="card-body">
+                                            <h3 id="pilar-polimorfismo" class="card-title h5 fw-bold">
+                                                <i class="bi bi-shuffle me-2 text-danger"></i>Polimorfismo
+                                            </h3>
+                                            <p class="card-text small text-muted">Permitir que diferentes clases
+                                                respondan al mismo mensaje de formas distintas.</p>
                                         </div>
                                     </section>
                                 </div>
                             </div>
                         </section>
+
+                        <!-- SECCIÓN 09-10: Comparativo e Importancia -->
+                        <section class="mb-5" aria-labelledby="comparativa-heading">
+                            <h2 id="comparativa-heading" class="mb-3">
+                                <i class="bi bi-arrow-left-right me-2 text-info"></i>Procedimental vs. POO
+                            </h2>
+                            <div class="table-responsive shadow-sm rounded">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">Aspecto</th>
+                                            <th scope="col">Procedimental</th>
+                                            <th scope="col">Orientado a Objetos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Unidad básica</strong></td>
+                                            <td>Función / Procedimiento</td>
+                                            <td>Objeto (datos + comportamiento)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Organización</strong></td>
+                                            <td>Pasos secuenciales</td>
+                                            <td>Entidades del mundo real</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reutilización</strong></td>
+                                            <td>Funciones reutilizables</td>
+                                            <td>Clases y herencia</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Escalabilidad</strong></td>
+                                            <td>Limitada</td>
+                                            <td>Alta (modular)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Mantenimiento</strong></td>
+                                            <td>Difícil en proyectos grandes</td>
+                                            <td>Más sencillo (encapsulamiento)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="alert alert-success mt-4" role="note">
+                                <i class="bi bi-trophy-fill me-2"></i>
+                                <strong>¿Por qué usar POO?</strong> Permite modelar sistemas complejos de forma
+                                organizada, reutilizar código eficientemente y construir software que escala con el
+                                tiempo. Es el estándar en la industria actual.
+                            </div>
+                        </section>
+
+                        <!-- Código de ejemplo -->
+                        <section class="mb-5" aria-labelledby="codigo-heading">
+                            <h2 id="codigo-heading" class="mb-3">
+                                <i class="bi bi-code-slash me-2 text-dark"></i>Primer Vistazo: POO en Python
+                            </h2>
+                            <p>Una clase simple en Python que ilustra los conceptos fundamentales:</p>
+                            <pre class="code-container"><code class="language-python">class Persona:
+    """Clase que modela una persona."""
+
+    def __init__(self, nombre, edad):
+        # Atributos: guardan el estado del objeto
+        self.nombre = nombre
+        self.edad = edad
+
+    # Métodos: definen el comportamiento
+    def saludar(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+    def cumplir_anos(self):
+        self.edad += 1
+        return f"¡Feliz cumpleaños {self.nombre}! Ahora tienes {self.edad} años."
+
+
+# Creando objetos (instancias de la clase)
+persona1 = Persona("Ana", 20)
+persona2 = Persona("Luis", 22)
+
+print(persona1.saludar())       # Hola, soy Ana y tengo 20 años.
+print(persona2.cumplir_anos())  # ¡Feliz cumpleaños Luis! Ahora tienes 23 años.</code></pre>
+                            <button class="btn btn-copy-code btn-sm btn-outline-secondary"
+                                onclick="navigator.clipboard.writeText(document.querySelector('pre code').innerText)">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </section>
+
                     </article>
+
+                    <!-- Navegación entre lecciones -->
+                    <nav class="d-flex justify-content-between mt-4 mb-5" aria-label="Lección anterior/siguiente">
+                        <a href="../programacion-orientada-a-objetos-en-python.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Volver al Temario
+                        </a>
+                        <a href="03-clases-objetos.html" class="btn btn-primary">
+                            Siguiente: Clases y Objetos <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </nav>
+
                 </div>
             </div>
         </main>
 
-        <footer class="py-5 text-center text-body-secondary bg-dark mt-5">
+        <footer class="py-5 text-center text-body-secondary bg-dark mt-5" role="contentinfo">
             <p class="text-white mb-0">Profe EDD - Educación Tecnológica</p>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    </div>
 </body>
 
 </html>
